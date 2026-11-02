@@ -1,0 +1,6744 @@
+{
+  "annotations": [
+    {
+      "anchor": {
+        "componentId": "example-0",
+        "kind": "pin",
+        "pinId": "1"
+      },
+      "global": true,
+      "id": "example-72",
+      "kind": "label",
+      "locked": false,
+      "position": {
+        "x": 16,
+        "y": -32
+      },
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "text": "GND",
+      "zIndex": 0
+    },
+    {
+      "anchor": {
+        "componentId": "example-1",
+        "kind": "pin",
+        "pinId": "1"
+      },
+      "global": true,
+      "id": "example-73",
+      "kind": "label",
+      "locked": false,
+      "position": {
+        "x": 256,
+        "y": -32
+      },
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "text": "VCC",
+      "zIndex": 0
+    }
+  ],
+  "components": [
+    {
+      "definitionId": "builtin.ground.v1",
+      "id": "example-0",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "properties": {},
+      "reference": "GND1",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.power.v1",
+      "id": "example-1",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 240,
+        "y": 0
+      },
+      "properties": {
+        "value": "VCC"
+      },
+      "reference": "PWR1",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.test-point.v1",
+      "id": "example-2",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 480,
+        "y": 0
+      },
+      "properties": {},
+      "reference": "TP1",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.block-connector.v1",
+      "id": "example-3",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 720,
+        "y": 0
+      },
+      "properties": {},
+      "reference": "J1",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.block-logic-input.v1",
+      "id": "example-4",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 960,
+        "y": 0
+      },
+      "properties": {},
+      "reference": "IN1",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.block-logic-constant.v1",
+      "id": "example-5",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 1200,
+        "y": 0
+      },
+      "properties": {},
+      "reference": "IN2",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.block-clock.v1",
+      "id": "example-6",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 1440,
+        "y": 0
+      },
+      "properties": {},
+      "reference": "IN3",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.block-output-probe.v1",
+      "id": "example-7",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 1680,
+        "y": 0
+      },
+      "properties": {},
+      "reference": "DS1",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.block-seven-segment-display.v1",
+      "id": "example-8",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 0,
+        "y": 256
+      },
+      "properties": {},
+      "reference": "DS2",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.gate-buffer-1.v1",
+      "id": "example-9",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 240,
+        "y": 256
+      },
+      "properties": {},
+      "reference": "U1",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.gate-not-1.v1",
+      "id": "example-10",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 480,
+        "y": 256
+      },
+      "properties": {},
+      "reference": "U2",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.gate-and-2.v1",
+      "id": "example-11",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 720,
+        "y": 256
+      },
+      "properties": {},
+      "reference": "U3",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.gate-nand-2.v1",
+      "id": "example-12",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 960,
+        "y": 256
+      },
+      "properties": {},
+      "reference": "U4",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.gate-or-2.v1",
+      "id": "example-13",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 1200,
+        "y": 256
+      },
+      "properties": {},
+      "reference": "U5",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.gate-nor-2.v1",
+      "id": "example-14",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 1440,
+        "y": 256
+      },
+      "properties": {},
+      "reference": "U6",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.gate-xor-2.v1",
+      "id": "example-15",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 1680,
+        "y": 256
+      },
+      "properties": {},
+      "reference": "U7",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.gate-xnor-2.v1",
+      "id": "example-16",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 0,
+        "y": 512
+      },
+      "properties": {},
+      "reference": "U8",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.gate-tri-state-buffer-1.v1",
+      "id": "example-17",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 240,
+        "y": 512
+      },
+      "properties": {},
+      "reference": "U9",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.block-multiplexer.v1",
+      "id": "example-18",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 480,
+        "y": 512
+      },
+      "properties": {},
+      "reference": "U10",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.block-demultiplexer.v1",
+      "id": "example-19",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 720,
+        "y": 512
+      },
+      "properties": {},
+      "reference": "U11",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.block-encoder.v1",
+      "id": "example-20",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 960,
+        "y": 512
+      },
+      "properties": {},
+      "reference": "U12",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.block-decoder.v1",
+      "id": "example-21",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 1200,
+        "y": 512
+      },
+      "properties": {},
+      "reference": "U13",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.block-half-adder.v1",
+      "id": "example-22",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 1440,
+        "y": 512
+      },
+      "properties": {},
+      "reference": "U14",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.block-full-adder.v1",
+      "id": "example-23",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 1680,
+        "y": 512
+      },
+      "properties": {},
+      "reference": "U15",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.block-d-latch.v1",
+      "id": "example-24",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 0,
+        "y": 768
+      },
+      "properties": {},
+      "reference": "U16",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.block-sr-latch.v1",
+      "id": "example-25",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 240,
+        "y": 768
+      },
+      "properties": {},
+      "reference": "U17",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.block-d-flip-flop.v1",
+      "id": "example-26",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 480,
+        "y": 768
+      },
+      "properties": {},
+      "reference": "U18",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.block-jk-flip-flop.v1",
+      "id": "example-27",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 720,
+        "y": 768
+      },
+      "properties": {},
+      "reference": "U19",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.block-t-flip-flop.v1",
+      "id": "example-28",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 960,
+        "y": 768
+      },
+      "properties": {},
+      "reference": "U20",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.block-register.v1",
+      "id": "example-29",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 1200,
+        "y": 768
+      },
+      "properties": {},
+      "reference": "U21",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.block-counter.v1",
+      "id": "example-30",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 1440,
+        "y": 768
+      },
+      "properties": {},
+      "reference": "U22",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.block-logic-ic.v1",
+      "id": "example-31",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 1680,
+        "y": 768
+      },
+      "properties": {},
+      "reference": "U23",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.block-generic-ic.v1",
+      "id": "example-32",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 0,
+        "y": 1024
+      },
+      "properties": {},
+      "reference": "U24",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.relay-coil.v1",
+      "id": "example-33",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 240,
+        "y": 1024
+      },
+      "properties": {
+        "value": "5V"
+      },
+      "reference": "K1",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.relay-contact.v1",
+      "id": "example-34",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 480,
+        "y": 1024
+      },
+      "properties": {
+        "association": ""
+      },
+      "reference": "K2",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.resistor.v1",
+      "id": "example-35",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 720,
+        "y": 1024
+      },
+      "properties": {
+        "value": "10k"
+      },
+      "reference": "R1",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.resistor-zigzag.v1",
+      "id": "example-36",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 960,
+        "y": 1024
+      },
+      "properties": {
+        "value": "1k"
+      },
+      "reference": "R2",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.variable-resistor.v1",
+      "id": "example-37",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 1200,
+        "y": 1024
+      },
+      "properties": {
+        "value": "10k"
+      },
+      "reference": "RV1",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.potentiometer.v1",
+      "id": "example-38",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 1440,
+        "y": 1024
+      },
+      "properties": {
+        "value": "10k"
+      },
+      "reference": "RV2",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.capacitor.v1",
+      "id": "example-39",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 1680,
+        "y": 1024
+      },
+      "properties": {
+        "value": "100nF"
+      },
+      "reference": "C1",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.polar-capacitor.v1",
+      "id": "example-40",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 0,
+        "y": 1280
+      },
+      "properties": {
+        "value": "10µF"
+      },
+      "reference": "C2",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.inductor.v1",
+      "id": "example-41",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 240,
+        "y": 1280
+      },
+      "properties": {
+        "value": "1mH"
+      },
+      "reference": "L1",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.fuse.v1",
+      "id": "example-42",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 480,
+        "y": 1280
+      },
+      "properties": {
+        "value": "1A"
+      },
+      "reference": "F1",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.transformer.v1",
+      "id": "example-43",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 720,
+        "y": 1280
+      },
+      "properties": {},
+      "reference": "T1",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.battery.v1",
+      "id": "example-44",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 960,
+        "y": 1280
+      },
+      "properties": {
+        "value": "9V"
+      },
+      "reference": "BT1",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.dc-voltage.v1",
+      "id": "example-45",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 1200,
+        "y": 1280
+      },
+      "properties": {
+        "value": "5V"
+      },
+      "reference": "V1",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.ac-voltage.v1",
+      "id": "example-46",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 1440,
+        "y": 1280
+      },
+      "properties": {
+        "value": "230V"
+      },
+      "reference": "V2",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.current-source.v1",
+      "id": "example-47",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 1680,
+        "y": 1280
+      },
+      "properties": {
+        "value": "1mA"
+      },
+      "reference": "I1",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.vcvs.v1",
+      "id": "example-48",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 0,
+        "y": 1536
+      },
+      "properties": {
+        "value": "1"
+      },
+      "reference": "E1",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.vccs.v1",
+      "id": "example-49",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 240,
+        "y": 1536
+      },
+      "properties": {
+        "value": "1"
+      },
+      "reference": "G1",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.ccvs.v1",
+      "id": "example-50",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 480,
+        "y": 1536
+      },
+      "properties": {
+        "value": "1"
+      },
+      "reference": "H1",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.cccs.v1",
+      "id": "example-51",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 720,
+        "y": 1536
+      },
+      "properties": {
+        "value": "1"
+      },
+      "reference": "F2",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.switch-0.v1",
+      "id": "example-52",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 960,
+        "y": 1536
+      },
+      "properties": {},
+      "reference": "SW1",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.switch-1.v1",
+      "id": "example-53",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 1200,
+        "y": 1536
+      },
+      "properties": {},
+      "reference": "SW2",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.switch-2.v1",
+      "id": "example-54",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 1440,
+        "y": 1536
+      },
+      "properties": {},
+      "reference": "SW3",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.switch-3.v1",
+      "id": "example-55",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 1680,
+        "y": 1536
+      },
+      "properties": {},
+      "reference": "SW4",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.diode-0.v1",
+      "id": "example-56",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 0,
+        "y": 1792
+      },
+      "properties": {
+        "value": ""
+      },
+      "reference": "D1",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.diode-1.v1",
+      "id": "example-57",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 240,
+        "y": 1792
+      },
+      "properties": {
+        "value": ""
+      },
+      "reference": "D2",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.diode-2.v1",
+      "id": "example-58",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 480,
+        "y": 1792
+      },
+      "properties": {
+        "value": ""
+      },
+      "reference": "D3",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.diode-3.v1",
+      "id": "example-59",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 720,
+        "y": 1792
+      },
+      "properties": {
+        "value": ""
+      },
+      "reference": "D4",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.npn.v1",
+      "id": "example-60",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 960,
+        "y": 1792
+      },
+      "properties": {},
+      "reference": "Q1",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.pnp.v1",
+      "id": "example-61",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 1200,
+        "y": 1792
+      },
+      "properties": {},
+      "reference": "Q2",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.nmos.v1",
+      "id": "example-62",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 1440,
+        "y": 1792
+      },
+      "properties": {},
+      "reference": "Q3",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.pmos.v1",
+      "id": "example-63",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 1680,
+        "y": 1792
+      },
+      "properties": {},
+      "reference": "Q4",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.analog-0.v1",
+      "id": "example-64",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 0,
+        "y": 2048
+      },
+      "properties": {},
+      "reference": "U25",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.analog-1.v1",
+      "id": "example-65",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 240,
+        "y": 2048
+      },
+      "properties": {},
+      "reference": "U26",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.load-0.v1",
+      "id": "example-66",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 480,
+        "y": 2048
+      },
+      "properties": {},
+      "reference": "LA1",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.load-1.v1",
+      "id": "example-67",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 720,
+        "y": 2048
+      },
+      "properties": {},
+      "reference": "M1",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.load-2.v1",
+      "id": "example-68",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 960,
+        "y": 2048
+      },
+      "properties": {},
+      "reference": "VM1",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.load-3.v1",
+      "id": "example-69",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 1200,
+        "y": 2048
+      },
+      "properties": {},
+      "reference": "AM1",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.load-4.v1",
+      "id": "example-70",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 1440,
+        "y": 2048
+      },
+      "properties": {},
+      "reference": "TP2",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.splitter-8.v1",
+      "id": "example-71",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 1680,
+        "y": 2048
+      },
+      "properties": {},
+      "reference": "B1",
+      "rotation": 0
+    }
+  ],
+  "definitions": [
+    {
+      "aliases": [
+        "gnd",
+        "reference"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Connectivity",
+      "defaults": {},
+      "id": "builtin.ground.v1",
+      "name": "Ground",
+      "pins": [
+        {
+          "id": "1",
+          "name": "Reference",
+          "role": "power",
+          "side": "top",
+          "width": 1,
+          "x": 0,
+          "y": -32
+        }
+      ],
+      "prefix": "GND",
+      "primitives": [
+        {
+          "d": "M 0 -32 V 0 M -24 0 H 24 M -16 8 H 16 M -8 16 H 8",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "vcc",
+        "vdd"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Connectivity",
+      "defaults": {
+        "value": "VCC"
+      },
+      "id": "builtin.power.v1",
+      "name": "Power rail",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "role": "power",
+          "side": "bottom",
+          "width": 1,
+          "x": 0,
+          "y": 32
+        }
+      ],
+      "prefix": "PWR",
+      "primitives": [
+        {
+          "d": "M 0 32 V -8 M -16 -8 H 16 M 0 -8 L -8 4 M 0 -8 L 8 4",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Connectivity",
+      "defaults": {},
+      "id": "builtin.test-point.v1",
+      "name": "Test point",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "role": "passive",
+          "side": "bottom",
+          "width": 1,
+          "x": 0,
+          "y": 32
+        }
+      ],
+      "prefix": "TP",
+      "primitives": [
+        {
+          "d": "M 0 32 V 6",
+          "kind": "path"
+        },
+        {
+          "kind": "circle",
+          "radius": 6,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 80,
+        "width": 128,
+        "x": -64,
+        "y": -40
+      },
+      "category": "Connectivity",
+      "defaults": {},
+      "id": "builtin.block-connector.v1",
+      "name": "Connector",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "1",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": -24
+        },
+        {
+          "id": "in-1",
+          "name": "2",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": -8
+        },
+        {
+          "id": "in-2",
+          "name": "3",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 8
+        },
+        {
+          "id": "in-3",
+          "name": "4",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 24
+        }
+      ],
+      "prefix": "J",
+      "primitives": [
+        {
+          "height": 80,
+          "kind": "rect",
+          "width": 96,
+          "x": -48,
+          "y": -40
+        },
+        {
+          "kind": "text",
+          "size": 11,
+          "text": "Connector",
+          "x": 0,
+          "y": -22
+        },
+        {
+          "d": "M -64 -24 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "1",
+          "x": -28,
+          "y": -20
+        },
+        {
+          "d": "M -64 -8 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "2",
+          "x": -28,
+          "y": -4
+        },
+        {
+          "d": "M -64 8 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "3",
+          "x": -28,
+          "y": 12
+        },
+        {
+          "d": "M -64 24 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "4",
+          "x": -28,
+          "y": 28
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 64,
+        "width": 128,
+        "x": -64,
+        "y": -32
+      },
+      "category": "Logic I/O",
+      "defaults": {},
+      "id": "builtin.block-logic-input.v1",
+      "name": "Logic input",
+      "pins": [
+        {
+          "id": "out-0",
+          "name": "OUT",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": 0
+        }
+      ],
+      "prefix": "IN",
+      "primitives": [
+        {
+          "height": 64,
+          "kind": "rect",
+          "width": 96,
+          "x": -48,
+          "y": -32
+        },
+        {
+          "kind": "text",
+          "size": 11,
+          "text": "Logic input",
+          "x": 0,
+          "y": -14
+        },
+        {
+          "d": "M 64 0 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "OUT",
+          "x": 28,
+          "y": 4
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 64,
+        "width": 128,
+        "x": -64,
+        "y": -32
+      },
+      "category": "Logic I/O",
+      "defaults": {},
+      "id": "builtin.block-logic-constant.v1",
+      "name": "Logic constant",
+      "pins": [
+        {
+          "id": "out-0",
+          "name": "OUT",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": 0
+        }
+      ],
+      "prefix": "IN",
+      "primitives": [
+        {
+          "height": 64,
+          "kind": "rect",
+          "width": 96,
+          "x": -48,
+          "y": -32
+        },
+        {
+          "kind": "text",
+          "size": 11,
+          "text": "Logic consta",
+          "x": 0,
+          "y": -14
+        },
+        {
+          "d": "M 64 0 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "OUT",
+          "x": 28,
+          "y": 4
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 64,
+        "width": 128,
+        "x": -64,
+        "y": -32
+      },
+      "category": "Logic I/O",
+      "defaults": {},
+      "id": "builtin.block-clock.v1",
+      "name": "Clock",
+      "pins": [
+        {
+          "id": "out-0",
+          "name": "OUT",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": 0
+        }
+      ],
+      "prefix": "IN",
+      "primitives": [
+        {
+          "height": 64,
+          "kind": "rect",
+          "width": 96,
+          "x": -48,
+          "y": -32
+        },
+        {
+          "kind": "text",
+          "size": 11,
+          "text": "Clock",
+          "x": 0,
+          "y": -14
+        },
+        {
+          "d": "M 64 0 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "OUT",
+          "x": 28,
+          "y": 4
+        },
+        {
+          "d": "M -24 12 H -12 V 0 H 0 V 12 H 12 V 0 H 24",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 64,
+        "width": 128,
+        "x": -64,
+        "y": -32
+      },
+      "category": "Logic I/O",
+      "defaults": {},
+      "id": "builtin.block-output-probe.v1",
+      "name": "Output probe",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "IN",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 0
+        }
+      ],
+      "prefix": "DS",
+      "primitives": [
+        {
+          "height": 64,
+          "kind": "rect",
+          "width": 96,
+          "x": -48,
+          "y": -32
+        },
+        {
+          "kind": "text",
+          "size": 11,
+          "text": "Output probe",
+          "x": 0,
+          "y": -14
+        },
+        {
+          "d": "M -64 0 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "IN",
+          "x": -28,
+          "y": 4
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 144,
+        "width": 128,
+        "x": -64,
+        "y": -72
+      },
+      "category": "Logic I/O",
+      "defaults": {},
+      "id": "builtin.block-seven-segment-display.v1",
+      "name": "Seven-segment display",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "a",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": -56
+        },
+        {
+          "id": "in-1",
+          "name": "b",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": -40
+        },
+        {
+          "id": "in-2",
+          "name": "c",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": -24
+        },
+        {
+          "id": "in-3",
+          "name": "d",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": -8
+        },
+        {
+          "id": "in-4",
+          "name": "e",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 8
+        },
+        {
+          "id": "in-5",
+          "name": "f",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 24
+        },
+        {
+          "id": "in-6",
+          "name": "g",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 40
+        },
+        {
+          "id": "in-7",
+          "name": "dp",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 56
+        }
+      ],
+      "prefix": "DS",
+      "primitives": [
+        {
+          "height": 144,
+          "kind": "rect",
+          "width": 96,
+          "x": -48,
+          "y": -72
+        },
+        {
+          "kind": "text",
+          "size": 11,
+          "text": "Seven-segmen",
+          "x": 0,
+          "y": -54
+        },
+        {
+          "d": "M -64 -56 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "a",
+          "x": -28,
+          "y": -52
+        },
+        {
+          "d": "M -64 -40 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "b",
+          "x": -28,
+          "y": -36
+        },
+        {
+          "d": "M -64 -24 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "c",
+          "x": -28,
+          "y": -20
+        },
+        {
+          "d": "M -64 -8 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "d",
+          "x": -28,
+          "y": -4
+        },
+        {
+          "d": "M -64 8 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "e",
+          "x": -28,
+          "y": 12
+        },
+        {
+          "d": "M -64 24 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "f",
+          "x": -28,
+          "y": 28
+        },
+        {
+          "d": "M -64 40 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "g",
+          "x": -28,
+          "y": 44
+        },
+        {
+          "d": "M -64 56 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "dp",
+          "x": -28,
+          "y": 60
+        },
+        {
+          "d": "M 4 -38 H 28 M 30 -34 V -10 M 30 -2 V 22 M 4 26 H 28 M 0 -2 V 22 M 0 -34 V -10 M 4 -6 H 28",
+          "kind": "path"
+        },
+        {
+          "kind": "circle",
+          "radius": 2,
+          "x": 38,
+          "y": 28
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "buffer",
+        "gate"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 96,
+        "x": -48,
+        "y": -32
+      },
+      "category": "Logic gates",
+      "defaults": {},
+      "id": "builtin.gate-buffer-1.v1",
+      "name": "Buffer",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "out",
+          "name": "Y",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "U",
+      "primitives": [
+        {
+          "d": "M -24 -24 L 24 0 L -24 24 Z",
+          "kind": "path"
+        },
+        {
+          "d": "M -48 0 H -24",
+          "kind": "path"
+        },
+        {
+          "d": "M 28 0 H 48",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "not",
+        "gate"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 96,
+        "x": -48,
+        "y": -32
+      },
+      "category": "Logic gates",
+      "defaults": {},
+      "id": "builtin.gate-not-1.v1",
+      "name": "NOT",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "out",
+          "name": "Y",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "U",
+      "primitives": [
+        {
+          "d": "M -24 -24 L 24 0 L -24 24 Z",
+          "kind": "path"
+        },
+        {
+          "d": "M -48 0 H -24",
+          "kind": "path"
+        },
+        {
+          "d": "M 36 0 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "circle",
+          "radius": 4,
+          "x": 32,
+          "y": 0
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "and",
+        "gate"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 96,
+        "x": -48,
+        "y": -32
+      },
+      "category": "Logic gates",
+      "defaults": {},
+      "id": "builtin.gate-and-2.v1",
+      "name": "AND",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": -8
+        },
+        {
+          "id": "in-1",
+          "name": "B",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 8
+        },
+        {
+          "id": "out",
+          "name": "Y",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "U",
+      "primitives": [
+        {
+          "d": "M -24 -32 H 0 C 38 -32 38 32 0 32 H -24 Z",
+          "kind": "path"
+        },
+        {
+          "d": "M -48 -8 H -24",
+          "kind": "path"
+        },
+        {
+          "d": "M -48 8 H -24",
+          "kind": "path"
+        },
+        {
+          "d": "M 28 0 H 48",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "nand",
+        "gate"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 96,
+        "x": -48,
+        "y": -32
+      },
+      "category": "Logic gates",
+      "defaults": {},
+      "id": "builtin.gate-nand-2.v1",
+      "name": "NAND",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": -8
+        },
+        {
+          "id": "in-1",
+          "name": "B",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 8
+        },
+        {
+          "id": "out",
+          "name": "Y",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "U",
+      "primitives": [
+        {
+          "d": "M -24 -32 H 0 C 38 -32 38 32 0 32 H -24 Z",
+          "kind": "path"
+        },
+        {
+          "d": "M -48 -8 H -24",
+          "kind": "path"
+        },
+        {
+          "d": "M -48 8 H -24",
+          "kind": "path"
+        },
+        {
+          "d": "M 36 0 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "circle",
+          "radius": 4,
+          "x": 32,
+          "y": 0
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "or",
+        "gate"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 96,
+        "x": -48,
+        "y": -32
+      },
+      "category": "Logic gates",
+      "defaults": {},
+      "id": "builtin.gate-or-2.v1",
+      "name": "OR",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": -8
+        },
+        {
+          "id": "in-1",
+          "name": "B",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 8
+        },
+        {
+          "id": "out",
+          "name": "Y",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "U",
+      "primitives": [
+        {
+          "d": "M -28 -32 Q 4 0 -28 32 Q 12 32 28 0 Q 12 -32 -28 -32 Z",
+          "kind": "path"
+        },
+        {
+          "d": "M -48 -8 H -24",
+          "kind": "path"
+        },
+        {
+          "d": "M -48 8 H -24",
+          "kind": "path"
+        },
+        {
+          "d": "M 28 0 H 48",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "nor",
+        "gate"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 96,
+        "x": -48,
+        "y": -32
+      },
+      "category": "Logic gates",
+      "defaults": {},
+      "id": "builtin.gate-nor-2.v1",
+      "name": "NOR",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": -8
+        },
+        {
+          "id": "in-1",
+          "name": "B",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 8
+        },
+        {
+          "id": "out",
+          "name": "Y",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "U",
+      "primitives": [
+        {
+          "d": "M -28 -32 Q 4 0 -28 32 Q 12 32 28 0 Q 12 -32 -28 -32 Z",
+          "kind": "path"
+        },
+        {
+          "d": "M -48 -8 H -24",
+          "kind": "path"
+        },
+        {
+          "d": "M -48 8 H -24",
+          "kind": "path"
+        },
+        {
+          "d": "M 36 0 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "circle",
+          "radius": 4,
+          "x": 32,
+          "y": 0
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "xor",
+        "gate"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 96,
+        "x": -48,
+        "y": -32
+      },
+      "category": "Logic gates",
+      "defaults": {},
+      "id": "builtin.gate-xor-2.v1",
+      "name": "XOR",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": -8
+        },
+        {
+          "id": "in-1",
+          "name": "B",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 8
+        },
+        {
+          "id": "out",
+          "name": "Y",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "U",
+      "primitives": [
+        {
+          "d": "M -28 -32 Q 4 0 -28 32 Q 12 32 28 0 Q 12 -32 -28 -32 Z",
+          "kind": "path"
+        },
+        {
+          "d": "M -34 -32 Q -2 0 -34 32",
+          "kind": "path"
+        },
+        {
+          "d": "M -48 -8 H -24",
+          "kind": "path"
+        },
+        {
+          "d": "M -48 8 H -24",
+          "kind": "path"
+        },
+        {
+          "d": "M 28 0 H 48",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "xnor",
+        "gate"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 96,
+        "x": -48,
+        "y": -32
+      },
+      "category": "Logic gates",
+      "defaults": {},
+      "id": "builtin.gate-xnor-2.v1",
+      "name": "XNOR",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": -8
+        },
+        {
+          "id": "in-1",
+          "name": "B",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 8
+        },
+        {
+          "id": "out",
+          "name": "Y",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "U",
+      "primitives": [
+        {
+          "d": "M -28 -32 Q 4 0 -28 32 Q 12 32 28 0 Q 12 -32 -28 -32 Z",
+          "kind": "path"
+        },
+        {
+          "d": "M -34 -32 Q -2 0 -34 32",
+          "kind": "path"
+        },
+        {
+          "d": "M -48 -8 H -24",
+          "kind": "path"
+        },
+        {
+          "d": "M -48 8 H -24",
+          "kind": "path"
+        },
+        {
+          "d": "M 36 0 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "circle",
+          "radius": 4,
+          "x": 32,
+          "y": 0
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "tri-state buffer",
+        "gate"
+      ],
+      "bounds": {
+        "height": 80,
+        "width": 96,
+        "x": -48,
+        "y": -32
+      },
+      "category": "Logic gates",
+      "defaults": {},
+      "id": "builtin.gate-tri-state-buffer-1.v1",
+      "name": "Tri-state buffer",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "out",
+          "name": "Y",
+          "role": "tristate",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        },
+        {
+          "id": "enable",
+          "name": "EN",
+          "role": "input",
+          "side": "bottom",
+          "width": 1,
+          "x": 0,
+          "y": 48
+        }
+      ],
+      "prefix": "U",
+      "primitives": [
+        {
+          "d": "M -24 -24 L 24 0 L -24 24 Z",
+          "kind": "path"
+        },
+        {
+          "d": "M -48 0 H -24",
+          "kind": "path"
+        },
+        {
+          "d": "M 28 0 H 48",
+          "kind": "path"
+        },
+        {
+          "d": "M 0 48 V 12",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 64,
+        "width": 128,
+        "x": -64,
+        "y": -32
+      },
+      "category": "Logic blocks",
+      "defaults": {},
+      "id": "builtin.block-multiplexer.v1",
+      "name": "Multiplexer",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "D0",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": -16
+        },
+        {
+          "id": "in-1",
+          "name": "D1",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 0
+        },
+        {
+          "id": "in-2",
+          "name": "S",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 16
+        },
+        {
+          "id": "out-0",
+          "name": "Y",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": 0
+        }
+      ],
+      "prefix": "U",
+      "primitives": [
+        {
+          "height": 64,
+          "kind": "rect",
+          "width": 96,
+          "x": -48,
+          "y": -32
+        },
+        {
+          "kind": "text",
+          "size": 11,
+          "text": "Multiplexer",
+          "x": 0,
+          "y": -14
+        },
+        {
+          "d": "M -64 -16 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "D0",
+          "x": -28,
+          "y": -12
+        },
+        {
+          "d": "M -64 0 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "D1",
+          "x": -28,
+          "y": 4
+        },
+        {
+          "d": "M -64 16 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "S",
+          "x": -28,
+          "y": 20
+        },
+        {
+          "d": "M 64 0 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "Y",
+          "x": 28,
+          "y": 4
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 64,
+        "width": 128,
+        "x": -64,
+        "y": -32
+      },
+      "category": "Logic blocks",
+      "defaults": {},
+      "id": "builtin.block-demultiplexer.v1",
+      "name": "Demultiplexer",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "D",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": -8
+        },
+        {
+          "id": "in-1",
+          "name": "S",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 8
+        },
+        {
+          "id": "out-0",
+          "name": "Y0",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": -8
+        },
+        {
+          "id": "out-1",
+          "name": "Y1",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": 8
+        }
+      ],
+      "prefix": "U",
+      "primitives": [
+        {
+          "height": 64,
+          "kind": "rect",
+          "width": 96,
+          "x": -48,
+          "y": -32
+        },
+        {
+          "kind": "text",
+          "size": 11,
+          "text": "Demultiplexe",
+          "x": 0,
+          "y": -14
+        },
+        {
+          "d": "M -64 -8 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "D",
+          "x": -28,
+          "y": -4
+        },
+        {
+          "d": "M -64 8 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "S",
+          "x": -28,
+          "y": 12
+        },
+        {
+          "d": "M 64 -8 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "Y0",
+          "x": 28,
+          "y": -4
+        },
+        {
+          "d": "M 64 8 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "Y1",
+          "x": 28,
+          "y": 12
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 80,
+        "width": 128,
+        "x": -64,
+        "y": -40
+      },
+      "category": "Logic blocks",
+      "defaults": {},
+      "id": "builtin.block-encoder.v1",
+      "name": "Encoder",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "D0",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": -24
+        },
+        {
+          "id": "in-1",
+          "name": "D1",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": -8
+        },
+        {
+          "id": "in-2",
+          "name": "D2",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 8
+        },
+        {
+          "id": "in-3",
+          "name": "D3",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 24
+        },
+        {
+          "id": "out-0",
+          "name": "A0",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": -8
+        },
+        {
+          "id": "out-1",
+          "name": "A1",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": 8
+        }
+      ],
+      "prefix": "U",
+      "primitives": [
+        {
+          "height": 80,
+          "kind": "rect",
+          "width": 96,
+          "x": -48,
+          "y": -40
+        },
+        {
+          "kind": "text",
+          "size": 11,
+          "text": "Encoder",
+          "x": 0,
+          "y": -22
+        },
+        {
+          "d": "M -64 -24 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "D0",
+          "x": -28,
+          "y": -20
+        },
+        {
+          "d": "M -64 -8 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "D1",
+          "x": -28,
+          "y": -4
+        },
+        {
+          "d": "M -64 8 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "D2",
+          "x": -28,
+          "y": 12
+        },
+        {
+          "d": "M -64 24 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "D3",
+          "x": -28,
+          "y": 28
+        },
+        {
+          "d": "M 64 -8 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "A0",
+          "x": 28,
+          "y": -4
+        },
+        {
+          "d": "M 64 8 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "A1",
+          "x": 28,
+          "y": 12
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 80,
+        "width": 128,
+        "x": -64,
+        "y": -40
+      },
+      "category": "Logic blocks",
+      "defaults": {},
+      "id": "builtin.block-decoder.v1",
+      "name": "Decoder",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A0",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": -8
+        },
+        {
+          "id": "in-1",
+          "name": "A1",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 8
+        },
+        {
+          "id": "out-0",
+          "name": "Y0",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": -24
+        },
+        {
+          "id": "out-1",
+          "name": "Y1",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": -8
+        },
+        {
+          "id": "out-2",
+          "name": "Y2",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": 8
+        },
+        {
+          "id": "out-3",
+          "name": "Y3",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": 24
+        }
+      ],
+      "prefix": "U",
+      "primitives": [
+        {
+          "height": 80,
+          "kind": "rect",
+          "width": 96,
+          "x": -48,
+          "y": -40
+        },
+        {
+          "kind": "text",
+          "size": 11,
+          "text": "Decoder",
+          "x": 0,
+          "y": -22
+        },
+        {
+          "d": "M -64 -8 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "A0",
+          "x": -28,
+          "y": -4
+        },
+        {
+          "d": "M -64 8 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "A1",
+          "x": -28,
+          "y": 12
+        },
+        {
+          "d": "M 64 -24 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "Y0",
+          "x": 28,
+          "y": -20
+        },
+        {
+          "d": "M 64 -8 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "Y1",
+          "x": 28,
+          "y": -4
+        },
+        {
+          "d": "M 64 8 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "Y2",
+          "x": 28,
+          "y": 12
+        },
+        {
+          "d": "M 64 24 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "Y3",
+          "x": 28,
+          "y": 28
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 64,
+        "width": 128,
+        "x": -64,
+        "y": -32
+      },
+      "category": "Logic blocks",
+      "defaults": {},
+      "id": "builtin.block-half-adder.v1",
+      "name": "Half adder",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": -8
+        },
+        {
+          "id": "in-1",
+          "name": "B",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 8
+        },
+        {
+          "id": "out-0",
+          "name": "SUM",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": -8
+        },
+        {
+          "id": "out-1",
+          "name": "CARRY",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": 8
+        }
+      ],
+      "prefix": "U",
+      "primitives": [
+        {
+          "height": 64,
+          "kind": "rect",
+          "width": 96,
+          "x": -48,
+          "y": -32
+        },
+        {
+          "kind": "text",
+          "size": 11,
+          "text": "Half adder",
+          "x": 0,
+          "y": -14
+        },
+        {
+          "d": "M -64 -8 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "A",
+          "x": -28,
+          "y": -4
+        },
+        {
+          "d": "M -64 8 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "B",
+          "x": -28,
+          "y": 12
+        },
+        {
+          "d": "M 64 -8 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "SUM",
+          "x": 28,
+          "y": -4
+        },
+        {
+          "d": "M 64 8 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "CARRY",
+          "x": 28,
+          "y": 12
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 64,
+        "width": 128,
+        "x": -64,
+        "y": -32
+      },
+      "category": "Logic blocks",
+      "defaults": {},
+      "id": "builtin.block-full-adder.v1",
+      "name": "Full adder",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": -16
+        },
+        {
+          "id": "in-1",
+          "name": "B",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 0
+        },
+        {
+          "id": "in-2",
+          "name": "CIN",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 16
+        },
+        {
+          "id": "out-0",
+          "name": "SUM",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": -8
+        },
+        {
+          "id": "out-1",
+          "name": "COUT",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": 8
+        }
+      ],
+      "prefix": "U",
+      "primitives": [
+        {
+          "height": 64,
+          "kind": "rect",
+          "width": 96,
+          "x": -48,
+          "y": -32
+        },
+        {
+          "kind": "text",
+          "size": 11,
+          "text": "Full adder",
+          "x": 0,
+          "y": -14
+        },
+        {
+          "d": "M -64 -16 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "A",
+          "x": -28,
+          "y": -12
+        },
+        {
+          "d": "M -64 0 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "B",
+          "x": -28,
+          "y": 4
+        },
+        {
+          "d": "M -64 16 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "CIN",
+          "x": -28,
+          "y": 20
+        },
+        {
+          "d": "M 64 -8 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "SUM",
+          "x": 28,
+          "y": -4
+        },
+        {
+          "d": "M 64 8 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "COUT",
+          "x": 28,
+          "y": 12
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 64,
+        "width": 128,
+        "x": -64,
+        "y": -32
+      },
+      "category": "Logic blocks",
+      "defaults": {},
+      "id": "builtin.block-d-latch.v1",
+      "name": "D latch",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "D",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": -8
+        },
+        {
+          "id": "in-1",
+          "name": "EN",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 8
+        },
+        {
+          "id": "out-0",
+          "name": "Q",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": -8
+        },
+        {
+          "id": "out-1",
+          "name": "/Q",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": 8
+        }
+      ],
+      "prefix": "U",
+      "primitives": [
+        {
+          "height": 64,
+          "kind": "rect",
+          "width": 96,
+          "x": -48,
+          "y": -32
+        },
+        {
+          "kind": "text",
+          "size": 11,
+          "text": "D latch",
+          "x": 0,
+          "y": -14
+        },
+        {
+          "d": "M -64 -8 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "D",
+          "x": -28,
+          "y": -4
+        },
+        {
+          "d": "M -64 8 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "EN",
+          "x": -28,
+          "y": 12
+        },
+        {
+          "d": "M 64 -8 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "Q",
+          "x": 28,
+          "y": -4
+        },
+        {
+          "d": "M 64 8 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "/Q",
+          "x": 28,
+          "y": 12
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 64,
+        "width": 128,
+        "x": -64,
+        "y": -32
+      },
+      "category": "Logic blocks",
+      "defaults": {},
+      "id": "builtin.block-sr-latch.v1",
+      "name": "SR latch",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "S",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": -8
+        },
+        {
+          "id": "in-1",
+          "name": "R",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 8
+        },
+        {
+          "id": "out-0",
+          "name": "Q",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": -8
+        },
+        {
+          "id": "out-1",
+          "name": "/Q",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": 8
+        }
+      ],
+      "prefix": "U",
+      "primitives": [
+        {
+          "height": 64,
+          "kind": "rect",
+          "width": 96,
+          "x": -48,
+          "y": -32
+        },
+        {
+          "kind": "text",
+          "size": 11,
+          "text": "SR latch",
+          "x": 0,
+          "y": -14
+        },
+        {
+          "d": "M -64 -8 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "S",
+          "x": -28,
+          "y": -4
+        },
+        {
+          "d": "M -64 8 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "R",
+          "x": -28,
+          "y": 12
+        },
+        {
+          "d": "M 64 -8 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "Q",
+          "x": 28,
+          "y": -4
+        },
+        {
+          "d": "M 64 8 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "/Q",
+          "x": 28,
+          "y": 12
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 64,
+        "width": 128,
+        "x": -64,
+        "y": -32
+      },
+      "category": "Logic blocks",
+      "defaults": {},
+      "id": "builtin.block-d-flip-flop.v1",
+      "name": "D flip-flop",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "D",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": -16
+        },
+        {
+          "id": "in-1",
+          "name": "CLK",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 0
+        },
+        {
+          "id": "in-2",
+          "name": "RST",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 16
+        },
+        {
+          "id": "out-0",
+          "name": "Q",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": -8
+        },
+        {
+          "id": "out-1",
+          "name": "/Q",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": 8
+        }
+      ],
+      "prefix": "U",
+      "primitives": [
+        {
+          "height": 64,
+          "kind": "rect",
+          "width": 96,
+          "x": -48,
+          "y": -32
+        },
+        {
+          "kind": "text",
+          "size": 11,
+          "text": "D flip-flop",
+          "x": 0,
+          "y": -14
+        },
+        {
+          "d": "M -64 -16 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "D",
+          "x": -28,
+          "y": -12
+        },
+        {
+          "d": "M -64 0 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "CLK",
+          "x": -28,
+          "y": 4
+        },
+        {
+          "d": "M -64 16 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "RST",
+          "x": -28,
+          "y": 20
+        },
+        {
+          "d": "M 64 -8 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "Q",
+          "x": 28,
+          "y": -4
+        },
+        {
+          "d": "M 64 8 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "/Q",
+          "x": 28,
+          "y": 12
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 80,
+        "width": 128,
+        "x": -64,
+        "y": -40
+      },
+      "category": "Logic blocks",
+      "defaults": {},
+      "id": "builtin.block-jk-flip-flop.v1",
+      "name": "JK flip-flop",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "J",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": -24
+        },
+        {
+          "id": "in-1",
+          "name": "K",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": -8
+        },
+        {
+          "id": "in-2",
+          "name": "CLK",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 8
+        },
+        {
+          "id": "in-3",
+          "name": "RST",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 24
+        },
+        {
+          "id": "out-0",
+          "name": "Q",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": -8
+        },
+        {
+          "id": "out-1",
+          "name": "/Q",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": 8
+        }
+      ],
+      "prefix": "U",
+      "primitives": [
+        {
+          "height": 80,
+          "kind": "rect",
+          "width": 96,
+          "x": -48,
+          "y": -40
+        },
+        {
+          "kind": "text",
+          "size": 11,
+          "text": "JK flip-flop",
+          "x": 0,
+          "y": -22
+        },
+        {
+          "d": "M -64 -24 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "J",
+          "x": -28,
+          "y": -20
+        },
+        {
+          "d": "M -64 -8 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "K",
+          "x": -28,
+          "y": -4
+        },
+        {
+          "d": "M -64 8 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "CLK",
+          "x": -28,
+          "y": 12
+        },
+        {
+          "d": "M -64 24 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "RST",
+          "x": -28,
+          "y": 28
+        },
+        {
+          "d": "M 64 -8 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "Q",
+          "x": 28,
+          "y": -4
+        },
+        {
+          "d": "M 64 8 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "/Q",
+          "x": 28,
+          "y": 12
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 64,
+        "width": 128,
+        "x": -64,
+        "y": -32
+      },
+      "category": "Logic blocks",
+      "defaults": {},
+      "id": "builtin.block-t-flip-flop.v1",
+      "name": "T flip-flop",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "T",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": -16
+        },
+        {
+          "id": "in-1",
+          "name": "CLK",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 0
+        },
+        {
+          "id": "in-2",
+          "name": "RST",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 16
+        },
+        {
+          "id": "out-0",
+          "name": "Q",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": -8
+        },
+        {
+          "id": "out-1",
+          "name": "/Q",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": 8
+        }
+      ],
+      "prefix": "U",
+      "primitives": [
+        {
+          "height": 64,
+          "kind": "rect",
+          "width": 96,
+          "x": -48,
+          "y": -32
+        },
+        {
+          "kind": "text",
+          "size": 11,
+          "text": "T flip-flop",
+          "x": 0,
+          "y": -14
+        },
+        {
+          "d": "M -64 -16 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "T",
+          "x": -28,
+          "y": -12
+        },
+        {
+          "d": "M -64 0 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "CLK",
+          "x": -28,
+          "y": 4
+        },
+        {
+          "d": "M -64 16 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "RST",
+          "x": -28,
+          "y": 20
+        },
+        {
+          "d": "M 64 -8 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "Q",
+          "x": 28,
+          "y": -4
+        },
+        {
+          "d": "M 64 8 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "/Q",
+          "x": 28,
+          "y": 12
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 64,
+        "width": 128,
+        "x": -64,
+        "y": -32
+      },
+      "category": "Logic blocks",
+      "defaults": {},
+      "id": "builtin.block-register.v1",
+      "name": "Register",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "D",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": -16
+        },
+        {
+          "id": "in-1",
+          "name": "CLK",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 0
+        },
+        {
+          "id": "in-2",
+          "name": "EN",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 16
+        },
+        {
+          "id": "out-0",
+          "name": "Q",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": 0
+        }
+      ],
+      "prefix": "U",
+      "primitives": [
+        {
+          "height": 64,
+          "kind": "rect",
+          "width": 96,
+          "x": -48,
+          "y": -32
+        },
+        {
+          "kind": "text",
+          "size": 11,
+          "text": "Register",
+          "x": 0,
+          "y": -14
+        },
+        {
+          "d": "M -64 -16 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "D",
+          "x": -28,
+          "y": -12
+        },
+        {
+          "d": "M -64 0 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "CLK",
+          "x": -28,
+          "y": 4
+        },
+        {
+          "d": "M -64 16 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "EN",
+          "x": -28,
+          "y": 20
+        },
+        {
+          "d": "M 64 0 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "Q",
+          "x": 28,
+          "y": 4
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 80,
+        "width": 128,
+        "x": -64,
+        "y": -40
+      },
+      "category": "Logic blocks",
+      "defaults": {},
+      "id": "builtin.block-counter.v1",
+      "name": "Counter",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "CLK",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": -16
+        },
+        {
+          "id": "in-1",
+          "name": "EN",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 0
+        },
+        {
+          "id": "in-2",
+          "name": "RST",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 16
+        },
+        {
+          "id": "out-0",
+          "name": "Q0",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": -24
+        },
+        {
+          "id": "out-1",
+          "name": "Q1",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": -8
+        },
+        {
+          "id": "out-2",
+          "name": "Q2",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": 8
+        },
+        {
+          "id": "out-3",
+          "name": "Q3",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": 24
+        }
+      ],
+      "prefix": "U",
+      "primitives": [
+        {
+          "height": 80,
+          "kind": "rect",
+          "width": 96,
+          "x": -48,
+          "y": -40
+        },
+        {
+          "kind": "text",
+          "size": 11,
+          "text": "Counter",
+          "x": 0,
+          "y": -22
+        },
+        {
+          "d": "M -64 -16 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "CLK",
+          "x": -28,
+          "y": -12
+        },
+        {
+          "d": "M -64 0 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "EN",
+          "x": -28,
+          "y": 4
+        },
+        {
+          "d": "M -64 16 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "RST",
+          "x": -28,
+          "y": 20
+        },
+        {
+          "d": "M 64 -24 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "Q0",
+          "x": 28,
+          "y": -20
+        },
+        {
+          "d": "M 64 -8 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "Q1",
+          "x": 28,
+          "y": -4
+        },
+        {
+          "d": "M 64 8 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "Q2",
+          "x": 28,
+          "y": 12
+        },
+        {
+          "d": "M 64 24 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "Q3",
+          "x": 28,
+          "y": 28
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 64,
+        "width": 128,
+        "x": -64,
+        "y": -32
+      },
+      "category": "Logic blocks",
+      "defaults": {},
+      "id": "builtin.block-logic-ic.v1",
+      "name": "Logic IC",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": -8
+        },
+        {
+          "id": "in-1",
+          "name": "B",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 8
+        },
+        {
+          "id": "out-0",
+          "name": "Y",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": 0
+        }
+      ],
+      "prefix": "U",
+      "primitives": [
+        {
+          "height": 64,
+          "kind": "rect",
+          "width": 96,
+          "x": -48,
+          "y": -32
+        },
+        {
+          "kind": "text",
+          "size": 11,
+          "text": "Logic IC",
+          "x": 0,
+          "y": -14
+        },
+        {
+          "d": "M -64 -8 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "A",
+          "x": -28,
+          "y": -4
+        },
+        {
+          "d": "M -64 8 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "B",
+          "x": -28,
+          "y": 12
+        },
+        {
+          "d": "M 64 0 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "Y",
+          "x": 28,
+          "y": 4
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 80,
+        "width": 128,
+        "x": -64,
+        "y": -40
+      },
+      "category": "Analog",
+      "defaults": {},
+      "id": "builtin.block-generic-ic.v1",
+      "name": "Generic IC",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "1",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": -24
+        },
+        {
+          "id": "in-1",
+          "name": "2",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": -8
+        },
+        {
+          "id": "in-2",
+          "name": "3",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 8
+        },
+        {
+          "id": "in-3",
+          "name": "4",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 24
+        },
+        {
+          "id": "out-0",
+          "name": "8",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": -24
+        },
+        {
+          "id": "out-1",
+          "name": "7",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": -8
+        },
+        {
+          "id": "out-2",
+          "name": "6",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": 8
+        },
+        {
+          "id": "out-3",
+          "name": "5",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": 24
+        }
+      ],
+      "prefix": "U",
+      "primitives": [
+        {
+          "height": 80,
+          "kind": "rect",
+          "width": 96,
+          "x": -48,
+          "y": -40
+        },
+        {
+          "kind": "text",
+          "size": 11,
+          "text": "Generic IC",
+          "x": 0,
+          "y": -22
+        },
+        {
+          "d": "M -64 -24 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "1",
+          "x": -28,
+          "y": -20
+        },
+        {
+          "d": "M -64 -8 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "2",
+          "x": -28,
+          "y": -4
+        },
+        {
+          "d": "M -64 8 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "3",
+          "x": -28,
+          "y": 12
+        },
+        {
+          "d": "M -64 24 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "4",
+          "x": -28,
+          "y": 28
+        },
+        {
+          "d": "M 64 -24 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "8",
+          "x": 28,
+          "y": -20
+        },
+        {
+          "d": "M 64 -8 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "7",
+          "x": 28,
+          "y": -4
+        },
+        {
+          "d": "M 64 8 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "6",
+          "x": 28,
+          "y": 12
+        },
+        {
+          "d": "M 64 24 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "5",
+          "x": 28,
+          "y": 28
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Switches",
+      "defaults": {
+        "value": "5V"
+      },
+      "id": "builtin.relay-coil.v1",
+      "name": "Relay coil",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "K",
+      "primitives": [
+        {
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 -16 H 24 V 16 H -24 Z M -12 -16 V 16 M 0 -16 V 16 M 12 -16 V 16",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "switch",
+        "toggle"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Switches",
+      "defaults": {
+        "association": ""
+      },
+      "id": "builtin.relay-contact.v1",
+      "name": "Relay contact",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "K",
+      "primitives": [
+        {
+          "d": "M -48 0 H -20 M 20 0 H 48 M -20 0 L 16 -20",
+          "kind": "path"
+        },
+        {
+          "kind": "circle",
+          "radius": 3,
+          "x": -20,
+          "y": 0
+        },
+        {
+          "kind": "circle",
+          "radius": 3,
+          "x": 20,
+          "y": 0
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "resistance",
+        "ohm"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Passive",
+      "defaults": {
+        "value": "10k"
+      },
+      "id": "builtin.resistor.v1",
+      "name": "Resistor",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "R",
+      "primitives": [
+        {
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 -10 H 24 V 10 H -24 Z",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Passive",
+      "defaults": {
+        "value": "1k"
+      },
+      "id": "builtin.resistor-zigzag.v1",
+      "name": "Resistor (zigzag)",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "R",
+      "primitives": [
+        {
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 0 L -20 -10 L -12 10 L -4 -10 L 4 10 L 12 -10 L 20 10 L 24 0",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Passive",
+      "defaults": {
+        "value": "10k"
+      },
+      "id": "builtin.variable-resistor.v1",
+      "name": "Variable resistor",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "RV",
+      "primitives": [
+        {
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 -10 H 24 V 10 H -24 Z M -16 26 L 20 -26 M 8 -22 L 20 -26 L 18 -14",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "pot"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Passive",
+      "defaults": {
+        "value": "10k"
+      },
+      "id": "builtin.potentiometer.v1",
+      "name": "Potentiometer",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        },
+        {
+          "id": "wiper",
+          "name": "Wiper",
+          "role": "passive",
+          "side": "bottom",
+          "width": 1,
+          "x": 0,
+          "y": 48
+        }
+      ],
+      "prefix": "RV",
+      "primitives": [
+        {
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 -10 H 24 V 10 H -24 Z M 0 48 V 16 M -6 24 L 0 16 L 6 24",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Passive",
+      "defaults": {
+        "value": "100nF"
+      },
+      "id": "builtin.capacitor.v1",
+      "name": "Capacitor",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "C",
+      "primitives": [
+        {
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 0 H -6 M -6 -20 V 20 M 6 -20 V 20 M 6 0 H 24",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Passive",
+      "defaults": {
+        "value": "10µF"
+      },
+      "id": "builtin.polar-capacitor.v1",
+      "name": "Polarized capacitor",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "C",
+      "primitives": [
+        {
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 0 H -6 M -6 -20 V 20 M 12 -20 Q 0 0 12 20 M 8 0 H 24 M -20 -25 H -10 M -15 -30 V -20",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Passive",
+      "defaults": {
+        "value": "1mH"
+      },
+      "id": "builtin.inductor.v1",
+      "name": "Inductor",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "L",
+      "primitives": [
+        {
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 0 C -24 -24 -12 -24 -12 0 C -12 -24 0 -24 0 0 C 0 -24 12 -24 12 0 C 12 -24 24 -24 24 0",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Passive",
+      "defaults": {
+        "value": "1A"
+      },
+      "id": "builtin.fuse.v1",
+      "name": "Fuse",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "F",
+      "primitives": [
+        {
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 -8 H 24 V 8 H -24 Z M -24 0 H 24",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Passive",
+      "defaults": {},
+      "id": "builtin.transformer.v1",
+      "name": "Transformer",
+      "pins": [
+        {
+          "id": "p1",
+          "name": "p1",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": -24
+        },
+        {
+          "id": "p2",
+          "name": "p2",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 24
+        },
+        {
+          "id": "s1",
+          "name": "s1",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": -24
+        },
+        {
+          "id": "s2",
+          "name": "s2",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 24
+        }
+      ],
+      "prefix": "T",
+      "primitives": [
+        {
+          "d": "M -48 -24 H -20 C 4 -24 4 -8 -20 -8 C 4 -8 4 8 -20 8 C 4 8 4 24 -20 24 H -48 M 48 -24 H 20 C -4 -24 -4 -8 20 -8 C -4 -8 -4 8 20 8 C -4 8 -4 24 20 24 H 48 M -4 -32 V 32 M 4 -32 V 32",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "cell"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Sources",
+      "defaults": {
+        "value": "9V"
+      },
+      "id": "builtin.battery.v1",
+      "name": "Battery",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "BT",
+      "primitives": [
+        {
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 0 H -14 M -14 -24 V 24 M -4 -12 V 12 M 6 -24 V 24 M 16 -12 V 12 M 16 0 H 24",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "voltage",
+        "dc",
+        "source"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Sources",
+      "defaults": {
+        "value": "5V"
+      },
+      "id": "builtin.dc-voltage.v1",
+      "name": "DC voltage source",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "V",
+      "primitives": [
+        {
+          "d": "M -48 0 H -24 M 24 0 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "circle",
+          "radius": 24,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "d": "M -15 -5 H -5 M -10 -10 V 0 M 5 5 H 15",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "ac"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Sources",
+      "defaults": {
+        "value": "230V"
+      },
+      "id": "builtin.ac-voltage.v1",
+      "name": "AC voltage source",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "V",
+      "primitives": [
+        {
+          "d": "M -48 0 H -24 M 24 0 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "circle",
+          "radius": 24,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "d": "M -16 0 C -16 -20 0 -20 0 0 C 0 20 16 20 16 0",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Sources",
+      "defaults": {
+        "value": "1mA"
+      },
+      "id": "builtin.current-source.v1",
+      "name": "Current source",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "I",
+      "primitives": [
+        {
+          "d": "M -48 0 H -24 M 24 0 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "circle",
+          "radius": 24,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "d": "M -14 0 H 14 M 5 -8 L 14 0 L 5 8",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "controlled source"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Sources",
+      "defaults": {
+        "value": "1"
+      },
+      "id": "builtin.vcvs.v1",
+      "name": "VCVS",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        },
+        {
+          "id": "control-positive",
+          "name": "control+",
+          "role": "passive",
+          "side": "bottom",
+          "width": 1,
+          "x": -16,
+          "y": 48
+        },
+        {
+          "id": "control-",
+          "name": "control-",
+          "role": "passive",
+          "side": "bottom",
+          "width": 1,
+          "x": 16,
+          "y": 48
+        }
+      ],
+      "prefix": "E",
+      "primitives": [
+        {
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 0 L 0 -24 L 24 0 L 0 24 Z M -16 48 V 32 M 16 48 V 32",
+          "kind": "path"
+        },
+        {
+          "d": "M -15 -5 H -5 M -10 -10 V 0 M 5 5 H 15",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "controlled source"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Sources",
+      "defaults": {
+        "value": "1"
+      },
+      "id": "builtin.vccs.v1",
+      "name": "VCCS",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        },
+        {
+          "id": "control-positive",
+          "name": "control+",
+          "role": "passive",
+          "side": "bottom",
+          "width": 1,
+          "x": -16,
+          "y": 48
+        },
+        {
+          "id": "control-",
+          "name": "control-",
+          "role": "passive",
+          "side": "bottom",
+          "width": 1,
+          "x": 16,
+          "y": 48
+        }
+      ],
+      "prefix": "G",
+      "primitives": [
+        {
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 0 L 0 -24 L 24 0 L 0 24 Z M -16 48 V 32 M 16 48 V 32",
+          "kind": "path"
+        },
+        {
+          "d": "M -12 0 H 12 M 4 -6 L 12 0 L 4 6",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "controlled source"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Sources",
+      "defaults": {
+        "value": "1"
+      },
+      "id": "builtin.ccvs.v1",
+      "name": "CCVS",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        },
+        {
+          "id": "control-positive",
+          "name": "control+",
+          "role": "passive",
+          "side": "bottom",
+          "width": 1,
+          "x": -16,
+          "y": 48
+        },
+        {
+          "id": "control-",
+          "name": "control-",
+          "role": "passive",
+          "side": "bottom",
+          "width": 1,
+          "x": 16,
+          "y": 48
+        }
+      ],
+      "prefix": "H",
+      "primitives": [
+        {
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 0 L 0 -24 L 24 0 L 0 24 Z M -16 48 V 32 M 16 48 V 32",
+          "kind": "path"
+        },
+        {
+          "d": "M -15 -5 H -5 M -10 -10 V 0 M 5 5 H 15",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "controlled source"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Sources",
+      "defaults": {
+        "value": "1"
+      },
+      "id": "builtin.cccs.v1",
+      "name": "CCCS",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        },
+        {
+          "id": "control-positive",
+          "name": "control+",
+          "role": "passive",
+          "side": "bottom",
+          "width": 1,
+          "x": -16,
+          "y": 48
+        },
+        {
+          "id": "control-",
+          "name": "control-",
+          "role": "passive",
+          "side": "bottom",
+          "width": 1,
+          "x": 16,
+          "y": 48
+        }
+      ],
+      "prefix": "F",
+      "primitives": [
+        {
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 0 L 0 -24 L 24 0 L 0 24 Z M -16 48 V 32 M 16 48 V 32",
+          "kind": "path"
+        },
+        {
+          "d": "M -12 0 H 12 M 4 -6 L 12 0 L 4 6",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "switch",
+        "toggle"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Switches",
+      "defaults": {},
+      "id": "builtin.switch-0.v1",
+      "name": "SPST switch",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "SW",
+      "primitives": [
+        {
+          "d": "M -48 0 H -20 M 20 0 H 48 M -20 0 L 16 -20",
+          "kind": "path"
+        },
+        {
+          "kind": "circle",
+          "radius": 3,
+          "x": -20,
+          "y": 0
+        },
+        {
+          "kind": "circle",
+          "radius": 3,
+          "x": 20,
+          "y": 0
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "switch",
+        "toggle"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Switches",
+      "defaults": {},
+      "id": "builtin.switch-1.v1",
+      "name": "SPDT switch",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        },
+        {
+          "id": "3",
+          "name": "3",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 32
+        }
+      ],
+      "prefix": "SW",
+      "primitives": [
+        {
+          "d": "M -48 0 H -20 M 20 0 H 48 M -20 0 L 16 -20",
+          "kind": "path"
+        },
+        {
+          "kind": "circle",
+          "radius": 3,
+          "x": -20,
+          "y": 0
+        },
+        {
+          "kind": "circle",
+          "radius": 3,
+          "x": 20,
+          "y": 0
+        },
+        {
+          "d": "M 20 32 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "circle",
+          "radius": 3,
+          "x": 20,
+          "y": 32
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "switch",
+        "momentary"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Switches",
+      "defaults": {},
+      "id": "builtin.switch-2.v1",
+      "name": "Normally open button",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "SW",
+      "primitives": [
+        {
+          "d": "M -48 0 H -20 M 20 0 H 48 M -20 0 L 16 -20",
+          "kind": "path"
+        },
+        {
+          "kind": "circle",
+          "radius": 3,
+          "x": -20,
+          "y": 0
+        },
+        {
+          "kind": "circle",
+          "radius": 3,
+          "x": 20,
+          "y": 0
+        },
+        {
+          "d": "M -8 -26 H 8 M 0 -26 V -36",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "switch",
+        "momentary"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Switches",
+      "defaults": {},
+      "id": "builtin.switch-3.v1",
+      "name": "Normally closed button",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "SW",
+      "primitives": [
+        {
+          "d": "M -48 0 H 48 M -8 -26 H 8 M 0 -26 V -8",
+          "kind": "path"
+        },
+        {
+          "kind": "circle",
+          "radius": 3,
+          "x": -20,
+          "y": 0
+        },
+        {
+          "kind": "circle",
+          "radius": 3,
+          "x": 20,
+          "y": 0
+        },
+        {
+          "d": "M -8 -26 H 8 M 0 -26 V -36",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "diode"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Semiconductors",
+      "defaults": {
+        "value": ""
+      },
+      "id": "builtin.diode-0.v1",
+      "name": "Diode",
+      "pins": [
+        {
+          "id": "1",
+          "name": "Anode",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "Cathode",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "D",
+      "primitives": [
+        {
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 0 H -14 M -14 -18 L 14 0 L -14 18 Z M 14 -18 V 18 M 14 0 H 24",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "zener diode"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Semiconductors",
+      "defaults": {
+        "value": ""
+      },
+      "id": "builtin.diode-1.v1",
+      "name": "Zener diode",
+      "pins": [
+        {
+          "id": "1",
+          "name": "Anode",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "Cathode",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "D",
+      "primitives": [
+        {
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 0 H -14 M -14 -18 L 14 0 L -14 18 Z M 14 -18 V 18 M 14 0 H 24",
+          "kind": "path"
+        },
+        {
+          "d": "M 8 -24 H 14 V -18 M 14 18 V 24 H 20",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "light emitting diode"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Semiconductors",
+      "defaults": {
+        "value": ""
+      },
+      "id": "builtin.diode-2.v1",
+      "name": "LED",
+      "pins": [
+        {
+          "id": "1",
+          "name": "Anode",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "Cathode",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "D",
+      "primitives": [
+        {
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 0 H -14 M -14 -18 L 14 0 L -14 18 Z M 14 -18 V 18 M 14 0 H 24",
+          "kind": "path"
+        },
+        {
+          "d": "M 8 -28 L 24 -44 M 16 -44 H 24 V -36 M -4 -32 L 12 -48 M 4 -48 H 12 V -40",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "photodiode"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Semiconductors",
+      "defaults": {
+        "value": ""
+      },
+      "id": "builtin.diode-3.v1",
+      "name": "Photodiode",
+      "pins": [
+        {
+          "id": "1",
+          "name": "Anode",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "Cathode",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "D",
+      "primitives": [
+        {
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 0 H -14 M -14 -18 L 14 0 L -14 18 Z M 14 -18 V 18 M 14 0 H 24",
+          "kind": "path"
+        },
+        {
+          "d": "M 24 -44 L 8 -28 M 8 -36 V -28 H 16 M 12 -48 L -4 -32 M -4 -40 V -32 H 4",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "npn",
+        "bjt"
+      ],
+      "bounds": {
+        "height": 96,
+        "width": 96,
+        "x": -48,
+        "y": -48
+      },
+      "category": "Semiconductors",
+      "defaults": {},
+      "id": "builtin.npn.v1",
+      "name": "NPN",
+      "pins": [
+        {
+          "id": "B",
+          "name": "B",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "C",
+          "name": "C",
+          "role": "passive",
+          "side": "top",
+          "width": 1,
+          "x": 32,
+          "y": -48
+        },
+        {
+          "id": "E",
+          "name": "E",
+          "role": "passive",
+          "side": "bottom",
+          "width": 1,
+          "x": 32,
+          "y": 48
+        }
+      ],
+      "prefix": "Q",
+      "primitives": [
+        {
+          "d": "M -48 0 H -12 M -12 -24 V 24 M -12 -12 L 32 -32 V -48 M -12 12 L 32 32 V 48",
+          "kind": "path"
+        },
+        {
+          "d": "M 12 29 L 27 29 L 20 17",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "pnp",
+        "bjt"
+      ],
+      "bounds": {
+        "height": 96,
+        "width": 96,
+        "x": -48,
+        "y": -48
+      },
+      "category": "Semiconductors",
+      "defaults": {},
+      "id": "builtin.pnp.v1",
+      "name": "PNP",
+      "pins": [
+        {
+          "id": "B",
+          "name": "B",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "C",
+          "name": "C",
+          "role": "passive",
+          "side": "top",
+          "width": 1,
+          "x": 32,
+          "y": -48
+        },
+        {
+          "id": "E",
+          "name": "E",
+          "role": "passive",
+          "side": "bottom",
+          "width": 1,
+          "x": 32,
+          "y": 48
+        }
+      ],
+      "prefix": "Q",
+      "primitives": [
+        {
+          "d": "M -48 0 H -12 M -12 -24 V 24 M -12 -12 L 32 -32 V -48 M -12 12 L 32 32 V 48",
+          "kind": "path"
+        },
+        {
+          "d": "M 8 15 L 8 29 L 22 24",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "nmos",
+        "mosfet"
+      ],
+      "bounds": {
+        "height": 96,
+        "width": 96,
+        "x": -48,
+        "y": -48
+      },
+      "category": "Semiconductors",
+      "defaults": {},
+      "id": "builtin.nmos.v1",
+      "name": "NMOS",
+      "pins": [
+        {
+          "id": "G",
+          "name": "G",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "D",
+          "name": "D",
+          "role": "passive",
+          "side": "top",
+          "width": 1,
+          "x": 32,
+          "y": -48
+        },
+        {
+          "id": "S",
+          "name": "S",
+          "role": "passive",
+          "side": "bottom",
+          "width": 1,
+          "x": 32,
+          "y": 48
+        },
+        {
+          "id": "body",
+          "name": "Body (explicit)",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "Q",
+      "primitives": [
+        {
+          "d": "M -48 0 H -12 M -12 -24 V 24 M -12 -12 L 32 -32 V -48 M -12 12 L 32 32 V 48",
+          "kind": "path"
+        },
+        {
+          "d": "M -20 -24 V 24 M 48 0 H 0",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "pmos",
+        "mosfet"
+      ],
+      "bounds": {
+        "height": 96,
+        "width": 96,
+        "x": -48,
+        "y": -48
+      },
+      "category": "Semiconductors",
+      "defaults": {},
+      "id": "builtin.pmos.v1",
+      "name": "PMOS",
+      "pins": [
+        {
+          "id": "G",
+          "name": "G",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "D",
+          "name": "D",
+          "role": "passive",
+          "side": "top",
+          "width": 1,
+          "x": 32,
+          "y": -48
+        },
+        {
+          "id": "S",
+          "name": "S",
+          "role": "passive",
+          "side": "bottom",
+          "width": 1,
+          "x": 32,
+          "y": 48
+        },
+        {
+          "id": "body",
+          "name": "Body (explicit)",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "Q",
+      "primitives": [
+        {
+          "d": "M -48 0 H -12 M -12 -24 V 24 M -12 -12 L 32 -32 V -48 M -12 12 L 32 32 V 48",
+          "kind": "path"
+        },
+        {
+          "d": "M -20 -24 V 24 M 48 0 H 0",
+          "kind": "path"
+        },
+        {
+          "kind": "circle",
+          "radius": 4,
+          "x": -24,
+          "y": 0
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "op-amp"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Analog",
+      "defaults": {},
+      "id": "builtin.analog-0.v1",
+      "name": "Op-amp",
+      "pins": [
+        {
+          "id": "-positive",
+          "name": "+",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 16
+        },
+        {
+          "id": "-",
+          "name": "-",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": -16
+        },
+        {
+          "id": "out",
+          "name": "out",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        },
+        {
+          "id": "V-positive",
+          "name": "V+",
+          "role": "power",
+          "side": "top",
+          "width": 1,
+          "x": 0,
+          "y": -48
+        },
+        {
+          "id": "V-",
+          "name": "V-",
+          "role": "power",
+          "side": "bottom",
+          "width": 1,
+          "x": 0,
+          "y": 48
+        }
+      ],
+      "prefix": "U",
+      "primitives": [
+        {
+          "d": "M -24 -32 L 32 0 L -24 32 Z M -48 -16 H -24 M -48 16 H -24 M 32 0 H 48 M 0 -48 V -18 M 0 48 V 18",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 12,
+          "text": "−",
+          "x": -15,
+          "y": -12
+        },
+        {
+          "kind": "text",
+          "size": 12,
+          "text": "+",
+          "x": -15,
+          "y": 20
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "comparator"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Analog",
+      "defaults": {},
+      "id": "builtin.analog-1.v1",
+      "name": "Comparator",
+      "pins": [
+        {
+          "id": "-positive",
+          "name": "+",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 16
+        },
+        {
+          "id": "-",
+          "name": "-",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": -16
+        },
+        {
+          "id": "out",
+          "name": "out",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        },
+        {
+          "id": "V-positive",
+          "name": "V+",
+          "role": "power",
+          "side": "top",
+          "width": 1,
+          "x": 0,
+          "y": -48
+        },
+        {
+          "id": "V-",
+          "name": "V-",
+          "role": "power",
+          "side": "bottom",
+          "width": 1,
+          "x": 0,
+          "y": 48
+        }
+      ],
+      "prefix": "U",
+      "primitives": [
+        {
+          "d": "M -24 -32 L 32 0 L -24 32 Z M -48 -16 H -24 M -48 16 H -24 M 32 0 H 48 M 0 -48 V -18 M 0 48 V 18",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 12,
+          "text": "−",
+          "x": -15,
+          "y": -12
+        },
+        {
+          "kind": "text",
+          "size": 12,
+          "text": "+",
+          "x": -15,
+          "y": 20
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "instrument",
+        "lamp"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Loads & instruments",
+      "defaults": {},
+      "id": "builtin.load-0.v1",
+      "name": "Lamp",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "LA",
+      "primitives": [
+        {
+          "d": "M -48 0 H -24 M 24 0 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "circle",
+          "radius": 24,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "d": "M -16 -16 L 16 16 M -16 16 L 16 -16",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "instrument",
+        "motor"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Loads & instruments",
+      "defaults": {},
+      "id": "builtin.load-1.v1",
+      "name": "Motor",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "M",
+      "primitives": [
+        {
+          "d": "M -48 0 H -24 M 24 0 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "circle",
+          "radius": 24,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "kind": "text",
+          "size": 20,
+          "text": "M",
+          "x": 0,
+          "y": 6
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "instrument",
+        "voltmeter"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Loads & instruments",
+      "defaults": {},
+      "id": "builtin.load-2.v1",
+      "name": "Voltmeter",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "VM",
+      "primitives": [
+        {
+          "d": "M -48 0 H -24 M 24 0 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "circle",
+          "radius": 24,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "kind": "text",
+          "size": 20,
+          "text": "V",
+          "x": 0,
+          "y": 6
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "instrument",
+        "ammeter"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Loads & instruments",
+      "defaults": {},
+      "id": "builtin.load-3.v1",
+      "name": "Ammeter",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "AM",
+      "primitives": [
+        {
+          "d": "M -48 0 H -24 M 24 0 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "circle",
+          "radius": 24,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "kind": "text",
+          "size": 20,
+          "text": "A",
+          "x": 0,
+          "y": 6
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "instrument",
+        "scope probe"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Loads & instruments",
+      "defaults": {},
+      "id": "builtin.load-4.v1",
+      "name": "Scope probe",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "TP",
+      "primitives": [
+        {
+          "d": "M -48 0 H -24 M 24 0 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "circle",
+          "radius": 24,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "kind": "text",
+          "size": 20,
+          "text": "~",
+          "x": 0,
+          "y": 6
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 144,
+        "width": 128,
+        "x": -64,
+        "y": -72
+      },
+      "category": "Buses",
+      "defaults": {},
+      "id": "builtin.splitter-8.v1",
+      "laneLinks": [
+        {
+          "a": "in-0",
+          "aLane": 0,
+          "b": "out-0",
+          "bLane": 0
+        },
+        {
+          "a": "in-0",
+          "aLane": 1,
+          "b": "out-1",
+          "bLane": 0
+        },
+        {
+          "a": "in-0",
+          "aLane": 2,
+          "b": "out-2",
+          "bLane": 0
+        },
+        {
+          "a": "in-0",
+          "aLane": 3,
+          "b": "out-3",
+          "bLane": 0
+        },
+        {
+          "a": "in-0",
+          "aLane": 4,
+          "b": "out-4",
+          "bLane": 0
+        },
+        {
+          "a": "in-0",
+          "aLane": 5,
+          "b": "out-5",
+          "bLane": 0
+        },
+        {
+          "a": "in-0",
+          "aLane": 6,
+          "b": "out-6",
+          "bLane": 0
+        },
+        {
+          "a": "in-0",
+          "aLane": 7,
+          "b": "out-7",
+          "bLane": 0
+        }
+      ],
+      "name": "8-bit splitter",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "BUS",
+          "role": "bidirectional",
+          "side": "left",
+          "width": 8,
+          "x": -64,
+          "y": 0
+        },
+        {
+          "id": "out-0",
+          "name": "0",
+          "role": "bidirectional",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": -56
+        },
+        {
+          "id": "out-1",
+          "name": "1",
+          "role": "bidirectional",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": -40
+        },
+        {
+          "id": "out-2",
+          "name": "2",
+          "role": "bidirectional",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": -24
+        },
+        {
+          "id": "out-3",
+          "name": "3",
+          "role": "bidirectional",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": -8
+        },
+        {
+          "id": "out-4",
+          "name": "4",
+          "role": "bidirectional",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": 8
+        },
+        {
+          "id": "out-5",
+          "name": "5",
+          "role": "bidirectional",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": 24
+        },
+        {
+          "id": "out-6",
+          "name": "6",
+          "role": "bidirectional",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": 40
+        },
+        {
+          "id": "out-7",
+          "name": "7",
+          "role": "bidirectional",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": 56
+        }
+      ],
+      "prefix": "B",
+      "primitives": [
+        {
+          "height": 144,
+          "kind": "rect",
+          "width": 96,
+          "x": -48,
+          "y": -72
+        },
+        {
+          "kind": "text",
+          "size": 11,
+          "text": "8-bit splitt",
+          "x": 0,
+          "y": -54
+        },
+        {
+          "d": "M -64 0 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "BUS",
+          "x": -28,
+          "y": 4
+        },
+        {
+          "d": "M 64 -56 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "0",
+          "x": 28,
+          "y": -52
+        },
+        {
+          "d": "M 64 -40 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "1",
+          "x": 28,
+          "y": -36
+        },
+        {
+          "d": "M 64 -24 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "2",
+          "x": 28,
+          "y": -20
+        },
+        {
+          "d": "M 64 -8 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "3",
+          "x": 28,
+          "y": -4
+        },
+        {
+          "d": "M 64 8 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "4",
+          "x": 28,
+          "y": 12
+        },
+        {
+          "d": "M 64 24 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "5",
+          "x": 28,
+          "y": 28
+        },
+        {
+          "d": "M 64 40 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "6",
+          "x": 28,
+          "y": 44
+        },
+        {
+          "d": "M 64 56 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "7",
+          "x": 28,
+          "y": 60
+        }
+      ],
+      "version": 1
+    }
+  ],
+  "format": "logic-electric-circuit",
+  "groups": [],
+  "id": "example-catalogue",
+  "metadata": {},
+  "nodes": [],
+  "schemaVersion": 1,
+  "title": "Symbol catalogue",
+  "wires": []
+}

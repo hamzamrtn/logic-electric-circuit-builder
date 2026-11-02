@@ -1,0 +1,384 @@
+{
+  "annotations": [],
+  "components": [
+    {
+      "definitionId": "builtin.block-d-flip-flop.v1",
+      "id": "example-0",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": -112,
+        "y": 0
+      },
+      "properties": {},
+      "reference": "U1",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.block-counter.v1",
+      "id": "example-1",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 144,
+        "y": 0
+      },
+      "properties": {},
+      "reference": "U2",
+      "rotation": 0
+    }
+  ],
+  "definitions": [
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 64,
+        "width": 128,
+        "x": -64,
+        "y": -32
+      },
+      "category": "Logic blocks",
+      "defaults": {},
+      "id": "builtin.block-d-flip-flop.v1",
+      "name": "D flip-flop",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "D",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": -16
+        },
+        {
+          "id": "in-1",
+          "name": "CLK",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 0
+        },
+        {
+          "id": "in-2",
+          "name": "RST",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 16
+        },
+        {
+          "id": "out-0",
+          "name": "Q",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": -8
+        },
+        {
+          "id": "out-1",
+          "name": "/Q",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": 8
+        }
+      ],
+      "prefix": "U",
+      "primitives": [
+        {
+          "height": 64,
+          "kind": "rect",
+          "width": 96,
+          "x": -48,
+          "y": -32
+        },
+        {
+          "kind": "text",
+          "size": 11,
+          "text": "D flip-flop",
+          "x": 0,
+          "y": -14
+        },
+        {
+          "d": "M -64 -16 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "D",
+          "x": -28,
+          "y": -12
+        },
+        {
+          "d": "M -64 0 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "CLK",
+          "x": -28,
+          "y": 4
+        },
+        {
+          "d": "M -64 16 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "RST",
+          "x": -28,
+          "y": 20
+        },
+        {
+          "d": "M 64 -8 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "Q",
+          "x": 28,
+          "y": -4
+        },
+        {
+          "d": "M 64 8 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "/Q",
+          "x": 28,
+          "y": 12
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 80,
+        "width": 128,
+        "x": -64,
+        "y": -40
+      },
+      "category": "Logic blocks",
+      "defaults": {},
+      "id": "builtin.block-counter.v1",
+      "name": "Counter",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "CLK",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": -16
+        },
+        {
+          "id": "in-1",
+          "name": "EN",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 0
+        },
+        {
+          "id": "in-2",
+          "name": "RST",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 16
+        },
+        {
+          "id": "out-0",
+          "name": "Q0",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": -24
+        },
+        {
+          "id": "out-1",
+          "name": "Q1",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": -8
+        },
+        {
+          "id": "out-2",
+          "name": "Q2",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": 8
+        },
+        {
+          "id": "out-3",
+          "name": "Q3",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": 24
+        }
+      ],
+      "prefix": "U",
+      "primitives": [
+        {
+          "height": 80,
+          "kind": "rect",
+          "width": 96,
+          "x": -48,
+          "y": -40
+        },
+        {
+          "kind": "text",
+          "size": 11,
+          "text": "Counter",
+          "x": 0,
+          "y": -22
+        },
+        {
+          "d": "M -64 -16 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "CLK",
+          "x": -28,
+          "y": -12
+        },
+        {
+          "d": "M -64 0 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "EN",
+          "x": -28,
+          "y": 4
+        },
+        {
+          "d": "M -64 16 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "RST",
+          "x": -28,
+          "y": 20
+        },
+        {
+          "d": "M 64 -24 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "Q0",
+          "x": 28,
+          "y": -20
+        },
+        {
+          "d": "M 64 -8 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "Q1",
+          "x": 28,
+          "y": -4
+        },
+        {
+          "d": "M 64 8 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "Q2",
+          "x": 28,
+          "y": 12
+        },
+        {
+          "d": "M 64 24 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "Q3",
+          "x": 28,
+          "y": 28
+        }
+      ],
+      "version": 1
+    }
+  ],
+  "format": "logic-electric-circuit",
+  "groups": [],
+  "id": "example-flip-flop-and-counter",
+  "metadata": {},
+  "nodes": [],
+  "schemaVersion": 1,
+  "title": "Flip-flop and counter",
+  "wires": [
+    {
+      "a": {
+        "componentId": "example-0",
+        "kind": "pin",
+        "pinId": "out-1"
+      },
+      "b": {
+        "componentId": "example-1",
+        "kind": "pin",
+        "pinId": "in-0"
+      },
+      "id": "example-2",
+      "locked": false,
+      "route": {
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "mode": "auto",
+        "vertices": [
+          {
+            "id": "example-2-bend-0",
+            "locked": false,
+            "x": -48,
+            "y": 16
+          },
+          {
+            "id": "example-2-bend-1",
+            "locked": false,
+            "x": 80,
+            "y": 16
+          }
+        ]
+      },
+      "width": 1
+    }
+  ]
+}

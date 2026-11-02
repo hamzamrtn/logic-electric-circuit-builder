@@ -1,0 +1,15 @@
+import { readFile, stat } from 'node:fs/promises';
+import assert from 'node:assert/strict';
+const manifest = JSON.parse(await readFile('manifest.json', 'utf8'));
+assert.equal(manifest.id, 'logic-electric-circuit-builder'); assert.equal(manifest.author, 'Hamza'); assert.equal(manifest.isDesktopOnly, false);
+assert.match(manifest.version, /^\d+\.\d+\.\d+$/); assert.match(manifest.minAppVersion, /^\d+\.\d+\.\d+$/);
+for (const file of ['main.js', 'manifest.json', 'styles.css']) assert((await stat(file)).size > 0, `${file} must be nonempty`);
+const meta = JSON.parse(await readFile('build-meta.json', 'utf8'));
+const output = meta.outputs['main.js']; assert(output);
+assert(!Object.keys(meta.inputs).some(name => name.startsWith('dev/')), 'Development theme emulation must not be shipped');
+assert(output.imports.every(i => i.external && i.path === 'obsidian'), 'Only the public Obsidian runtime may remain external');
+assert(!Object.keys(meta.inputs).some(name => /(?:^|\/)(?:electron|fs|child_process|node:)/.test(name)), 'Forbidden mobile runtime dependency');
+const source = await readFile('main.js', 'utf8');
+assert(!/require\(["'](?:node:|electron|fs["']|child_process)/.test(source), 'Runtime Node/Electron import');
+assert(!/https?:\/\/[^\s"']+\.(?:js|wasm|woff2?)["']/.test(source), 'Remote runtime asset');
+console.log(`Verified three install assets; ${Math.round(output.bytes / 1024)} KiB main.js; only obsidian external.`);

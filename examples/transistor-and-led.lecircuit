@@ -1,0 +1,180 @@
+{
+  "annotations": [],
+  "components": [
+    {
+      "definitionId": "builtin.npn.v1",
+      "id": "example-0",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": -112,
+        "y": 0
+      },
+      "properties": {},
+      "reference": "Q1",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.diode-2.v1",
+      "id": "example-1",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 144,
+        "y": 0
+      },
+      "properties": {
+        "value": ""
+      },
+      "reference": "D1",
+      "rotation": 0
+    }
+  ],
+  "definitions": [
+    {
+      "aliases": [
+        "npn",
+        "bjt"
+      ],
+      "bounds": {
+        "height": 96,
+        "width": 96,
+        "x": -48,
+        "y": -48
+      },
+      "category": "Semiconductors",
+      "defaults": {},
+      "id": "builtin.npn.v1",
+      "name": "NPN",
+      "pins": [
+        {
+          "id": "B",
+          "name": "B",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "C",
+          "name": "C",
+          "role": "passive",
+          "side": "top",
+          "width": 1,
+          "x": 32,
+          "y": -48
+        },
+        {
+          "id": "E",
+          "name": "E",
+          "role": "passive",
+          "side": "bottom",
+          "width": 1,
+          "x": 32,
+          "y": 48
+        }
+      ],
+      "prefix": "Q",
+      "primitives": [
+        {
+          "d": "M -48 0 H -12 M -12 -24 V 24 M -12 -12 L 32 -32 V -48 M -12 12 L 32 32 V 48",
+          "kind": "path"
+        },
+        {
+          "d": "M 12 29 L 27 29 L 20 17",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "light emitting diode"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Semiconductors",
+      "defaults": {
+        "value": ""
+      },
+      "id": "builtin.diode-2.v1",
+      "name": "LED",
+      "pins": [
+        {
+          "id": "1",
+          "name": "Anode",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "Cathode",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "D",
+      "primitives": [
+        {
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 0 H -14 M -14 -18 L 14 0 L -14 18 Z M 14 -18 V 18 M 14 0 H 24",
+          "kind": "path"
+        },
+        {
+          "d": "M 8 -28 L 24 -44 M 16 -44 H 24 V -36 M -4 -32 L 12 -48 M 4 -48 H 12 V -40",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    }
+  ],
+  "format": "logic-electric-circuit",
+  "groups": [],
+  "id": "example-transistor-and-led",
+  "metadata": {},
+  "nodes": [],
+  "schemaVersion": 1,
+  "title": "Transistor and LED",
+  "wires": [
+    {
+      "a": {
+        "componentId": "example-0",
+        "kind": "pin",
+        "pinId": "E"
+      },
+      "b": {
+        "componentId": "example-1",
+        "kind": "pin",
+        "pinId": "1"
+      },
+      "id": "example-2",
+      "locked": false,
+      "route": {
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "mode": "auto",
+        "vertices": [
+          {
+            "id": "example-2-bend-0",
+            "locked": false,
+            "x": 96,
+            "y": 48
+          }
+        ]
+      },
+      "width": 1
+    }
+  ]
+}

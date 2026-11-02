@@ -1,0 +1,21 @@
+# Architecture
+
+One npm package produces a browser-safe CommonJS plugin bundle. The public Obsidian module is provided by the host; React, React DOM, Zod, original symbols and examples are bundled. Production output has no chunks, workers, native modules, runtime network calls or other required assets. Node 24 is a contributor build requirement only.
+
+`src/core` owns the validated document, graph, integer geometry, bounded router, atomic edits, history and shared sessions. It has no React/Obsidian imports. `src/editor` translates pointer/keyboard intent into operations and renders SVG. `src/obsidian` adapts vault persistence, TextFileView and Markdown previews. `src/io` generates portable SVG/PNG. The development harness uses exactly the same core and editor, with explicit file downloads instead of vault storage.
+
+DocumentSession clones at transaction commit and validates the complete resulting graph before publishing a new revision. Failed operations publish nothing. History stores at most 100 operations within an approximately 8 MiB budget, retaining the newest individual operation even if unusually large. Keyboard nudges within 400 ms coalesce; pointer movement remains a preview until pointer-up. Scene objects are memoized, pin hit candidates use a spatial index, viewport culling limits drawing, grid uses an SVG pattern, crossings are bucketed, and pointer updates run at most once per animation frame.
+
+VaultSessions uses TFile identity, including across renames, to share one DocumentSession and SaveCoordinator between views and previews. All saves delegate to one serialized queue. Vault.process compares exact baseline contents before changing a file. This guards local stale writes and does not claim to be a distributed lock. The queue acknowledges only the written revision. External edits while clean replace the history baseline; dirty/conflicting versions suspend overwrite and preserve both. Write failure remains visible with retry/copy recovery. Deletion disables further writes to that file.
+
+Recent normal saves and failures retain up to three recovery slots per session in `Circuit recovery/`. A reopened session starts a new recovery set, so old sets remain available until the user removes them. This favors retaining user data over silently deleting previous recovery sets. Recovery storage is separate from original files. In-memory recent snapshots also remain available while the session lives. Close/quit/visibility hooks attempt a flush; only completed writes are durable. No OS force-kill guarantee is made.
+
+React roots, subscriptions and window listeners are released on close. A public workspace layout-change event remounts UI resources if a view’s owning document changes during a pop-out move; its document/session/history remain shared. Camera/tool previews reset on that remount. Real host migration still requires qualification.
+
+Previews use the public `lecircuit` code-block processor and share sessions. They accept one path relative to the source note or vault root. Existing mounted previews retain TFile identity through a rename. After reopening a note whose code-fence path was not updated, a missing-reference message offers a circuit picker and explains how to repair the path. No broad note rewrite or private embed registry is used. An adjacent wiki link supports ordinary host rename tracking.
+
+The optional future SimulationAdapter consumes revision-tagged documents/nets and returns revision-tagged measurements. No engine is included. Components and structural diagnostics do not imply simulation support or electrical safety certification.
+
+Overlap diagnostics use bounded spatial buckets and normalized collinear interval sweeps. Reports cap at 200 entries; extreme symbol bounds produce an explicit bounded-check diagnostic rather than expanding millions of cells.
+
+The 0.1.1 workspace reads host theme variables directly, uses a categorized top-toolbar picker, and leaves the canvas full width until Properties is requested. The picker, gesture controls and canvas own distinct pointer sequences. Finish uses a committed canvas point, never the control's screen coordinates. Annotation transformations have preview-only gestures and atomic commit/undo; text scales proportionally by default.

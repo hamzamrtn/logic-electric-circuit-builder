@@ -1,0 +1,158 @@
+{
+  "annotations": [],
+  "components": [
+    {
+      "definitionId": "builtin.resistor.v1",
+      "id": "example-0",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": -112,
+        "y": 0
+      },
+      "properties": {
+        "value": "10k"
+      },
+      "reference": "R1",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.capacitor.v1",
+      "id": "example-1",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 144,
+        "y": 0
+      },
+      "properties": {
+        "value": "100nF"
+      },
+      "reference": "C1",
+      "rotation": 0
+    }
+  ],
+  "definitions": [
+    {
+      "aliases": [
+        "resistance",
+        "ohm"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Passive",
+      "defaults": {
+        "value": "10k"
+      },
+      "id": "builtin.resistor.v1",
+      "name": "Resistor",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "R",
+      "primitives": [
+        {
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 -10 H 24 V 10 H -24 Z",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Passive",
+      "defaults": {
+        "value": "100nF"
+      },
+      "id": "builtin.capacitor.v1",
+      "name": "Capacitor",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "C",
+      "primitives": [
+        {
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 0 H -6 M -6 -20 V 20 M 6 -20 V 20 M 6 0 H 24",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    }
+  ],
+  "format": "logic-electric-circuit",
+  "groups": [],
+  "id": "example-rc-schematic",
+  "metadata": {},
+  "nodes": [],
+  "schemaVersion": 1,
+  "title": "RC schematic",
+  "wires": [
+    {
+      "a": {
+        "componentId": "example-0",
+        "kind": "pin",
+        "pinId": "2"
+      },
+      "b": {
+        "componentId": "example-1",
+        "kind": "pin",
+        "pinId": "1"
+      },
+      "id": "example-2",
+      "locked": false,
+      "route": {
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "mode": "auto",
+        "vertices": []
+      },
+      "width": 1
+    }
+  ]
+}

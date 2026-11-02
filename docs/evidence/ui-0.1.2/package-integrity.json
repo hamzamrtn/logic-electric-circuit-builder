@@ -1,0 +1,11 @@
+{
+  "version": "0.1.2",
+  "archive": "dist/logic-electric-circuit-builder-0.1.2.zip",
+  "sha256": "58d437d165362ac2568c44e9be225ee3c6fdb4596caf97550d97b6b0e6442d63",
+  "installed": "test-vault/.obsidian/plugins/logic-electric-circuit-builder",
+  "assets": {
+    "main.js": "a75b7498b2f68e4bfb2babf9853b215ff148be2e63b19994bab79cea98022f85",
+    "manifest.json": "c77ac1d07b4b40e4b3d8f8fc81d3b35eaccc32985824e0b46105bb6d90c3094c",
+    "styles.css": "f5a2db5815fb889acd755e66c42a67792fe81a24aedd6b059525d04a65ad5cc6"
+  }
+}

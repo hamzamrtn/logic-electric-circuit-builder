@@ -1,0 +1,24 @@
+{
+  "version": "0.1.1",
+  "author": "Hamza",
+  "archive": {
+    "path": "dist/logic-electric-circuit-builder-0.1.1.zip",
+    "bytes": 199105,
+    "sha256": "b75d5648974d50d57e7b9a7eae34715d634903df1e1b0cbbbed7a00461a98e10"
+  },
+  "installed": "test-vault/.obsidian/plugins/logic-electric-circuit-builder",
+  "assets": {
+    "main.js": {
+      "bytes": 778045,
+      "sha256": "fd6846795296bb84bcb17e22b7183fc7a0a4959305b7f4337ab56fcddb7d2dee"
+    },
+    "manifest.json": {
+      "bytes": 315,
+      "sha256": "586899d258d2d11f5c3662ea01f3ae0b02edef0070f29143ac706d49632a7dbe"
+    },
+    "styles.css": {
+      "bytes": 19031,
+      "sha256": "744507617a7bbc3de670998af57b9e6e3c687735e66a71c402124e732e193782"
+    }
+  }
+}

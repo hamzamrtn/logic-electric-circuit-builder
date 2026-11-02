@@ -1,0 +1,433 @@
+{
+  "annotations": [
+    {
+      "anchor": {
+        "componentId": "example-3",
+        "kind": "pin",
+        "pinId": "1"
+      },
+      "global": true,
+      "id": "example-12",
+      "kind": "label",
+      "locked": false,
+      "position": {
+        "x": 160,
+        "y": 256
+      },
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "text": "GND",
+      "zIndex": 0
+    },
+    {
+      "anchor": {
+        "kind": "node",
+        "nodeId": "example-5"
+      },
+      "global": false,
+      "id": "example-13",
+      "kind": "label",
+      "locked": false,
+      "position": {
+        "x": 320,
+        "y": 64
+      },
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "text": "VOUT",
+      "zIndex": 0
+    },
+    {
+      "global": false,
+      "id": "example-14",
+      "kind": "text",
+      "locked": false,
+      "position": {
+        "x": -144,
+        "y": -144
+      },
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "text": "A simple voltage divider",
+      "zIndex": 0
+    }
+  ],
+  "components": [
+    {
+      "definitionId": "builtin.dc-voltage.v1",
+      "id": "example-0",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": -112,
+        "y": 64
+      },
+      "properties": {
+        "value": "5V"
+      },
+      "reference": "V1",
+      "rotation": 90
+    },
+    {
+      "definitionId": "builtin.resistor.v1",
+      "id": "example-1",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 144,
+        "y": 0
+      },
+      "properties": {
+        "value": "10k"
+      },
+      "reference": "R1",
+      "rotation": 90
+    },
+    {
+      "definitionId": "builtin.resistor.v1",
+      "id": "example-2",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 144,
+        "y": 160
+      },
+      "properties": {
+        "value": "10k"
+      },
+      "reference": "R2",
+      "rotation": 90
+    },
+    {
+      "definitionId": "builtin.ground.v1",
+      "id": "example-3",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 144,
+        "y": 288
+      },
+      "properties": {},
+      "reference": "GND1",
+      "rotation": 0
+    }
+  ],
+  "definitions": [
+    {
+      "aliases": [
+        "voltage",
+        "dc",
+        "source"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Sources",
+      "defaults": {
+        "value": "5V"
+      },
+      "id": "builtin.dc-voltage.v1",
+      "name": "DC voltage source",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "V",
+      "primitives": [
+        {
+          "d": "M -48 0 H -24 M 24 0 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "circle",
+          "radius": 24,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "d": "M -15 -5 H -5 M -10 -10 V 0 M 5 5 H 15",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "resistance",
+        "ohm"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Passive",
+      "defaults": {
+        "value": "10k"
+      },
+      "id": "builtin.resistor.v1",
+      "name": "Resistor",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "R",
+      "primitives": [
+        {
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 -10 H 24 V 10 H -24 Z",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "gnd",
+        "reference"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Connectivity",
+      "defaults": {},
+      "id": "builtin.ground.v1",
+      "name": "Ground",
+      "pins": [
+        {
+          "id": "1",
+          "name": "Reference",
+          "role": "power",
+          "side": "top",
+          "width": 1,
+          "x": 0,
+          "y": -32
+        }
+      ],
+      "prefix": "GND",
+      "primitives": [
+        {
+          "d": "M 0 -32 V 0 M -24 0 H 24 M -16 8 H 16 M -8 16 H 8",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    }
+  ],
+  "format": "logic-electric-circuit",
+  "groups": [],
+  "id": "example-voltage-divider",
+  "metadata": {},
+  "nodes": [
+    {
+      "explicit": true,
+      "id": "example-4",
+      "position": {
+        "x": 144,
+        "y": 80
+      }
+    },
+    {
+      "explicit": false,
+      "id": "example-5",
+      "position": {
+        "x": 320,
+        "y": 80
+      }
+    }
+  ],
+  "schemaVersion": 1,
+  "title": "Voltage divider",
+  "wires": [
+    {
+      "a": {
+        "componentId": "example-0",
+        "kind": "pin",
+        "pinId": "1"
+      },
+      "b": {
+        "componentId": "example-1",
+        "kind": "pin",
+        "pinId": "1"
+      },
+      "id": "example-6",
+      "locked": false,
+      "route": {
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "mode": "manual",
+        "vertices": [
+          {
+            "id": "example-6-bend-0",
+            "locked": true,
+            "x": -112,
+            "y": -80
+          },
+          {
+            "id": "example-6-bend-1",
+            "locked": true,
+            "x": 144,
+            "y": -80
+          }
+        ]
+      },
+      "width": 1
+    },
+    {
+      "a": {
+        "componentId": "example-1",
+        "kind": "pin",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "example-4"
+      },
+      "id": "example-7",
+      "locked": false,
+      "route": {
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "mode": "manual",
+        "vertices": []
+      },
+      "width": 1
+    },
+    {
+      "a": {
+        "componentId": "example-2",
+        "kind": "pin",
+        "pinId": "2"
+      },
+      "b": {
+        "componentId": "example-3",
+        "kind": "pin",
+        "pinId": "1"
+      },
+      "id": "example-8",
+      "locked": false,
+      "route": {
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "mode": "auto",
+        "vertices": []
+      },
+      "width": 1
+    },
+    {
+      "a": {
+        "componentId": "example-0",
+        "kind": "pin",
+        "pinId": "2"
+      },
+      "b": {
+        "componentId": "example-3",
+        "kind": "pin",
+        "pinId": "1"
+      },
+      "id": "example-9",
+      "locked": false,
+      "route": {
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "mode": "manual",
+        "vertices": [
+          {
+            "id": "example-9-bend-0",
+            "locked": true,
+            "x": -112,
+            "y": 256
+          }
+        ]
+      },
+      "width": 1
+    },
+    {
+      "a": {
+        "kind": "node",
+        "nodeId": "example-4"
+      },
+      "b": {
+        "componentId": "example-2",
+        "kind": "pin",
+        "pinId": "1"
+      },
+      "id": "example-10",
+      "locked": false,
+      "route": {
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "mode": "manual",
+        "vertices": []
+      },
+      "width": 1
+    },
+    {
+      "a": {
+        "kind": "node",
+        "nodeId": "example-4"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "example-5"
+      },
+      "id": "example-11",
+      "locked": false,
+      "route": {
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "mode": "auto",
+        "vertices": []
+      },
+      "width": 1
+    }
+  ]
+}

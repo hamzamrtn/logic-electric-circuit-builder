@@ -1,0 +1,18 @@
+{
+  "dist/logic-electric-circuit-builder-0.1.0.zip": {
+    "bytes": 197145,
+    "sha256": "1f769c6bf10062549d7712132d3078e9133651e1ab90a159cf05ed7e25f09f01"
+  },
+  "dist/logic-electric-circuit-builder/main.js": {
+    "bytes": 770385,
+    "sha256": "df0daa83def44ee4fb3a5dcf190ed63c9eea21c60438835813ec53f82ba56692"
+  },
+  "dist/logic-electric-circuit-builder/styles.css": {
+    "bytes": 19852,
+    "sha256": "efb96d991191e2c06a36b93f4e9b72759f81d5962a1e748cd8c07f6597b6a256"
+  },
+  "dist/logic-electric-circuit-builder/manifest.json": {
+    "bytes": 315,
+    "sha256": "bed263978042656be53085bb1e6f064fdc560911b9b323203c7e3b2f5f0e7873"
+  }
+}

@@ -1,0 +1,16 @@
+node_modules/
+main.js
+main.js.map
+build-meta.json
+dist/
+test-results/
+playwright-report/
+.test-vault/
+.host-profile/
+dev/preview.js
+.env*
+!.env.example
+
+# Local planning document; not part of the public plugin source.
+/Obsidian_Circuit_Plugin_Codex_Handover.md
+/test-vault/

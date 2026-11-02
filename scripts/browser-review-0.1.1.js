@@ -1,0 +1,40 @@
+async (theme = 'light') => {
+  const tick = () => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+  const results = { version: '0.1.1', viewport: `${innerWidth}x${innerHeight}`, theme, checks: [] };
+  const check = (name, ok, detail) => { results.checks.push({ name, status: ok ? 'pass' : 'fail', detail }); if (!ok) throw Error(name + ': ' + JSON.stringify(detail)); };
+  const click = name => { const b = [...document.querySelectorAll('button')].find(b => b.getAttribute('aria-label') === name || b.textContent.trim() === name); if (!b) throw Error('Missing ' + name); b.click(); };
+  window.__lec.session.replaceRaw(JSON.stringify(window.__lec.examples[0].document)); await tick();
+  if (document.querySelector('.lec-inspector.is-open')) click('Close inspector'); await tick();
+  click('Deselect all'); await tick();
+  check('canvas occupies full pane width', Math.abs(document.querySelector('.lec-canvas').getBoundingClientRect().width - document.querySelector('.lec-editor').getBoundingClientRect().width) < 1, document.querySelector('.lec-canvas').getBoundingClientRect().toJSON());
+  check('no left parts panel or promotional empty state', !document.querySelector('.lec-palette,.lec-empty,.lec-brand') && !document.body.innerText.includes('Make it yours'), 'The closed workspace is a canvas with toolbars');
+  click('Electrical parts'); await tick();
+  const choices = [...document.querySelectorAll('.lec-part-choice')];
+  check('categorized symbol previews', choices.length > 0 && choices.length < 15 && choices.every(b => !!b.querySelector('svg')), { category: 'Passive', visibleParts: choices.length });
+  click('Logic parts'); await tick();
+  check('logic category separate from electrical parts', !!document.querySelector('[aria-label="AND Logic gates"]') && !document.querySelector('[aria-label="Resistor Passive"]'), 'Logic gates shown in the requested category');
+  click('Close parts library'); await tick();
+  check('selection commands are in the toolbar', ['Select all', 'Deselect all'].every(t => [...document.querySelectorAll('button')].some(b => b.textContent.trim() === t && b.closest('[role=toolbar]'))), 'Both selection commands are above the canvas');
+  click('Select all'); await tick(); const selected = document.querySelector('[aria-label=Rotate]').disabled === false; click('Deselect all'); await tick();
+  check('select all and deselect all work without properties', selected && [...document.querySelectorAll('button')].find(b => b.textContent.trim() === 'Deselect all').disabled, 'Selection state changes without opening a panel');
+  click('Reset zoom'); await tick(); const zoom = [document.querySelector('[aria-label="Reset zoom"]').textContent];
+  for (const action of ['Zoom in', 'Zoom in', 'Zoom out', 'Zoom out', 'Zoom out']) { click(action); await tick(); zoom.push(document.querySelector('[aria-label="Reset zoom"]').textContent); }
+  check('linear zoom stops', zoom.join(',') === '100%,125%,150%,125%,100%,75%', zoom);
+  const revision = window.__lec.session.getSnapshot().revision;
+  window.__lec.setDevelopmentTheme('dark'); await tick(); const dark = getComputedStyle(document.querySelector('.lec-editor')).backgroundColor;
+  window.__lec.setDevelopmentTheme('light'); await tick(); const light = getComputedStyle(document.querySelector('.lec-editor')).backgroundColor;
+  check('host theme inheritance', dark === 'rgb(30, 30, 30)' && light === 'rgb(255, 255, 255)' && revision === window.__lec.session.getSnapshot().revision, { dark, light, documentUnchanged: true });
+  window.__lec.setDevelopmentTheme(theme);
+  click('Text'); await tick(); document.querySelector('input[name=text]').value = 'annotation'; document.querySelector('.lec-dialog form').requestSubmit(); await tick();
+  check('text selection has transform handles', document.querySelectorAll('[data-annotation-handle]').length === 5 && !!document.querySelector('[data-annotation-handle=rotate] circle'), 'Four resize corners and a round rotation handle');
+  click('Inspect'); await tick(); click('Move / resize / rotate…'); await tick();
+  for (const [name, value] of Object.entries({ rotation: '30', scaleX: '200', scaleY: '150', fontSize: '20' })) document.querySelector(`input[name=${name}]`).value = value;
+  document.querySelector('.lec-dialog form').requestSubmit(); await tick();
+  const annotation = window.__lec.session.getSnapshot().document.annotations.at(-1), svg = window.__lec.exportSVG(window.__lec.session.getSnapshot().document);
+  check('annotation transform and export', annotation.rotation === 30 && annotation.scaleX === 2 && annotation.scaleY === 1.5 && svg.includes('rotate(30) scale(2 1.5)'), { rotation: annotation.rotation, scaleX: annotation.scaleX, scaleY: annotation.scaleY });
+  click('Close inspector'); click('Undo'); await tick();
+  check('annotation transform undoes atomically', window.__lec.session.getSnapshot().document.annotations.at(-1).rotation === 0 && window.__lec.session.getSnapshot().document.annotations.at(-1).scaleX === 1, 'One Undo restores the pre-transform annotation');
+  click('Undo'); await tick(); click('Deselect all'); click('Fit circuit'); await tick();
+  check('no page overflow', document.documentElement.scrollWidth <= innerWidth, { width: innerWidth, scrollWidth: document.documentElement.scrollWidth });
+  return results;
+}

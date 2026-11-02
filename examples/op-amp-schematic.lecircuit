@@ -1,0 +1,215 @@
+{
+  "annotations": [],
+  "components": [
+    {
+      "definitionId": "builtin.dc-voltage.v1",
+      "id": "example-0",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": -112,
+        "y": 0
+      },
+      "properties": {
+        "value": "5V"
+      },
+      "reference": "V1",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.analog-0.v1",
+      "id": "example-1",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 144,
+        "y": 0
+      },
+      "properties": {},
+      "reference": "U1",
+      "rotation": 0
+    }
+  ],
+  "definitions": [
+    {
+      "aliases": [
+        "voltage",
+        "dc",
+        "source"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Sources",
+      "defaults": {
+        "value": "5V"
+      },
+      "id": "builtin.dc-voltage.v1",
+      "name": "DC voltage source",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "role": "passive",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 0
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "role": "passive",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "V",
+      "primitives": [
+        {
+          "d": "M -48 0 H -24 M 24 0 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "circle",
+          "radius": 24,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "d": "M -15 -5 H -5 M -10 -10 V 0 M 5 5 H 15",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "op-amp"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 64,
+        "x": -32,
+        "y": -32
+      },
+      "category": "Analog",
+      "defaults": {},
+      "id": "builtin.analog-0.v1",
+      "name": "Op-amp",
+      "pins": [
+        {
+          "id": "-positive",
+          "name": "+",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 16
+        },
+        {
+          "id": "-",
+          "name": "-",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": -16
+        },
+        {
+          "id": "out",
+          "name": "out",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        },
+        {
+          "id": "V-positive",
+          "name": "V+",
+          "role": "power",
+          "side": "top",
+          "width": 1,
+          "x": 0,
+          "y": -48
+        },
+        {
+          "id": "V-",
+          "name": "V-",
+          "role": "power",
+          "side": "bottom",
+          "width": 1,
+          "x": 0,
+          "y": 48
+        }
+      ],
+      "prefix": "U",
+      "primitives": [
+        {
+          "d": "M -24 -32 L 32 0 L -24 32 Z M -48 -16 H -24 M -48 16 H -24 M 32 0 H 48 M 0 -48 V -18 M 0 48 V 18",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 12,
+          "text": "−",
+          "x": -15,
+          "y": -12
+        },
+        {
+          "kind": "text",
+          "size": 12,
+          "text": "+",
+          "x": -15,
+          "y": 20
+        }
+      ],
+      "version": 1
+    }
+  ],
+  "format": "logic-electric-circuit",
+  "groups": [],
+  "id": "example-op-amp-schematic",
+  "metadata": {},
+  "nodes": [],
+  "schemaVersion": 1,
+  "title": "Op-amp schematic",
+  "wires": [
+    {
+      "a": {
+        "componentId": "example-0",
+        "kind": "pin",
+        "pinId": "2"
+      },
+      "b": {
+        "componentId": "example-1",
+        "kind": "pin",
+        "pinId": "-positive"
+      },
+      "id": "example-2",
+      "locked": false,
+      "route": {
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "mode": "auto",
+        "vertices": [
+          {
+            "id": "example-2-bend-0",
+            "locked": false,
+            "x": 96,
+            "y": 0
+          }
+        ]
+      },
+      "width": 1
+    }
+  ]
+}

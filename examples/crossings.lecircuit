@@ -1,0 +1,156 @@
+{
+  "annotations": [
+    {
+      "global": false,
+      "id": "example-10",
+      "kind": "text",
+      "locked": false,
+      "position": {
+        "x": -208,
+        "y": -176
+      },
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "text": "Dot = connected. Bridge = separate nets.",
+      "zIndex": 0
+    }
+  ],
+  "components": [],
+  "definitions": [],
+  "format": "logic-electric-circuit",
+  "groups": [],
+  "id": "example-crossings",
+  "metadata": {},
+  "nodes": [
+    {
+      "explicit": false,
+      "id": "example-0",
+      "position": {
+        "x": -192,
+        "y": 0
+      }
+    },
+    {
+      "explicit": false,
+      "id": "example-1",
+      "position": {
+        "x": 192,
+        "y": 0
+      }
+    },
+    {
+      "explicit": false,
+      "id": "example-2",
+      "position": {
+        "x": 0,
+        "y": -128
+      }
+    },
+    {
+      "explicit": false,
+      "id": "example-3",
+      "position": {
+        "x": 0,
+        "y": 128
+      }
+    },
+    {
+      "explicit": false,
+      "id": "example-4",
+      "position": {
+        "x": -96,
+        "y": 128
+      }
+    },
+    {
+      "explicit": true,
+      "id": "example-5",
+      "position": {
+        "x": -96,
+        "y": 0
+      }
+    }
+  ],
+  "schemaVersion": 1,
+  "title": "Junctions and crossings",
+  "wires": [
+    {
+      "a": {
+        "kind": "node",
+        "nodeId": "example-0"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "example-5"
+      },
+      "id": "example-6",
+      "locked": false,
+      "route": {
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "mode": "manual",
+        "vertices": []
+      },
+      "width": 1
+    },
+    {
+      "a": {
+        "kind": "node",
+        "nodeId": "example-2"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "example-3"
+      },
+      "id": "example-7",
+      "locked": false,
+      "route": {
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "mode": "auto",
+        "vertices": []
+      },
+      "width": 1
+    },
+    {
+      "a": {
+        "kind": "node",
+        "nodeId": "example-5"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "example-1"
+      },
+      "id": "example-8",
+      "locked": false,
+      "route": {
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "mode": "manual",
+        "vertices": []
+      },
+      "width": 1
+    },
+    {
+      "a": {
+        "kind": "node",
+        "nodeId": "example-4"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "example-5"
+      },
+      "id": "example-9",
+      "locked": false,
+      "route": {
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "mode": "auto",
+        "vertices": []
+      },
+      "width": 1
+    }
+  ]
+}

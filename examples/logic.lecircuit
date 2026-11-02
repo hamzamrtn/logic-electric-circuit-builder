@@ -1,0 +1,337 @@
+{
+  "annotations": [
+    {
+      "global": false,
+      "id": "example-7",
+      "kind": "text",
+      "locked": false,
+      "position": {
+        "x": -80,
+        "y": -144
+      },
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "text": "A · B → Y",
+      "zIndex": 0
+    }
+  ],
+  "components": [
+    {
+      "definitionId": "builtin.block-logic-input.v1",
+      "id": "example-0",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": -224,
+        "y": -80
+      },
+      "properties": {},
+      "reference": "IN1",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.block-logic-input.v1",
+      "id": "example-1",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": -224,
+        "y": 80
+      },
+      "properties": {},
+      "reference": "IN2",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.gate-and-2.v1",
+      "id": "example-2",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "properties": {},
+      "reference": "U1",
+      "rotation": 0
+    },
+    {
+      "definitionId": "builtin.block-output-probe.v1",
+      "id": "example-3",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 224,
+        "y": 0
+      },
+      "properties": {},
+      "reference": "DS1",
+      "rotation": 0
+    }
+  ],
+  "definitions": [
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 64,
+        "width": 128,
+        "x": -64,
+        "y": -32
+      },
+      "category": "Logic I/O",
+      "defaults": {},
+      "id": "builtin.block-logic-input.v1",
+      "name": "Logic input",
+      "pins": [
+        {
+          "id": "out-0",
+          "name": "OUT",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 64,
+          "y": 0
+        }
+      ],
+      "prefix": "IN",
+      "primitives": [
+        {
+          "height": 64,
+          "kind": "rect",
+          "width": 96,
+          "x": -48,
+          "y": -32
+        },
+        {
+          "kind": "text",
+          "size": 11,
+          "text": "Logic input",
+          "x": 0,
+          "y": -14
+        },
+        {
+          "d": "M 64 0 H 48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "OUT",
+          "x": 28,
+          "y": 4
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [
+        "and",
+        "gate"
+      ],
+      "bounds": {
+        "height": 64,
+        "width": 96,
+        "x": -48,
+        "y": -32
+      },
+      "category": "Logic gates",
+      "defaults": {},
+      "id": "builtin.gate-and-2.v1",
+      "name": "AND",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": -8
+        },
+        {
+          "id": "in-1",
+          "name": "B",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -48,
+          "y": 8
+        },
+        {
+          "id": "out",
+          "name": "Y",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 48,
+          "y": 0
+        }
+      ],
+      "prefix": "U",
+      "primitives": [
+        {
+          "d": "M -24 -32 H 0 C 38 -32 38 32 0 32 H -24 Z",
+          "kind": "path"
+        },
+        {
+          "d": "M -48 -8 H -24",
+          "kind": "path"
+        },
+        {
+          "d": "M -48 8 H -24",
+          "kind": "path"
+        },
+        {
+          "d": "M 28 0 H 48",
+          "kind": "path"
+        }
+      ],
+      "version": 1
+    },
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 64,
+        "width": 128,
+        "x": -64,
+        "y": -32
+      },
+      "category": "Logic I/O",
+      "defaults": {},
+      "id": "builtin.block-output-probe.v1",
+      "name": "Output probe",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "IN",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -64,
+          "y": 0
+        }
+      ],
+      "prefix": "DS",
+      "primitives": [
+        {
+          "height": 64,
+          "kind": "rect",
+          "width": 96,
+          "x": -48,
+          "y": -32
+        },
+        {
+          "kind": "text",
+          "size": 11,
+          "text": "Output probe",
+          "x": 0,
+          "y": -14
+        },
+        {
+          "d": "M -64 0 H -48",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "IN",
+          "x": -28,
+          "y": 4
+        }
+      ],
+      "version": 1
+    }
+  ],
+  "format": "logic-electric-circuit",
+  "groups": [],
+  "id": "example-logic",
+  "metadata": {},
+  "nodes": [],
+  "schemaVersion": 1,
+  "title": "Two-input logic",
+  "wires": [
+    {
+      "a": {
+        "componentId": "example-0",
+        "kind": "pin",
+        "pinId": "out-0"
+      },
+      "b": {
+        "componentId": "example-2",
+        "kind": "pin",
+        "pinId": "in-0"
+      },
+      "id": "example-4",
+      "locked": false,
+      "route": {
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "mode": "manual",
+        "vertices": [
+          {
+            "id": "example-4-bend-0",
+            "locked": true,
+            "x": -96,
+            "y": -80
+          }
+        ]
+      },
+      "width": 1
+    },
+    {
+      "a": {
+        "componentId": "example-1",
+        "kind": "pin",
+        "pinId": "out-0"
+      },
+      "b": {
+        "componentId": "example-2",
+        "kind": "pin",
+        "pinId": "in-1"
+      },
+      "id": "example-5",
+      "locked": false,
+      "route": {
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "mode": "manual",
+        "vertices": [
+          {
+            "id": "example-5-bend-0",
+            "locked": true,
+            "x": -80,
+            "y": 80
+          }
+        ]
+      },
+      "width": 1
+    },
+    {
+      "a": {
+        "componentId": "example-2",
+        "kind": "pin",
+        "pinId": "out"
+      },
+      "b": {
+        "componentId": "example-3",
+        "kind": "pin",
+        "pinId": "in-0"
+      },
+      "id": "example-6",
+      "locked": false,
+      "route": {
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "mode": "auto",
+        "vertices": []
+      },
+      "width": 1
+    }
+  ]
+}

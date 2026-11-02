@@ -1,0 +1,142 @@
+{
+  "annotations": [],
+  "components": [
+    {
+      "definitionId": "example.sensor.v1",
+      "id": "example-0",
+      "locked": false,
+      "mirrorX": false,
+      "mirrorY": false,
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "properties": {},
+      "reference": "U1",
+      "rotation": 0
+    }
+  ],
+  "definitions": [
+    {
+      "aliases": [],
+      "bounds": {
+        "height": 160,
+        "width": 160,
+        "x": -80,
+        "y": -80
+      },
+      "category": "Custom",
+      "defaults": {},
+      "id": "example.sensor.v1",
+      "name": "Sensor",
+      "pins": [
+        {
+          "id": "enable",
+          "name": "EN",
+          "role": "input",
+          "side": "left",
+          "width": 1,
+          "x": -80,
+          "y": 0
+        },
+        {
+          "id": "data",
+          "name": "DATA",
+          "role": "output",
+          "side": "right",
+          "width": 1,
+          "x": 80,
+          "y": 0
+        },
+        {
+          "id": "supply",
+          "name": "VCC",
+          "role": "power",
+          "side": "top",
+          "width": 1,
+          "x": 0,
+          "y": -80
+        },
+        {
+          "id": "ground",
+          "name": "GND",
+          "role": "power",
+          "side": "bottom",
+          "width": 1,
+          "x": 0,
+          "y": 80
+        }
+      ],
+      "prefix": "U",
+      "primitives": [
+        {
+          "height": 128,
+          "kind": "rect",
+          "width": 128,
+          "x": -64,
+          "y": -64
+        },
+        {
+          "kind": "text",
+          "size": 12,
+          "text": "Sensor",
+          "x": 0,
+          "y": 5
+        },
+        {
+          "d": "M -80 0 L -64 0",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "EN",
+          "x": -42,
+          "y": 4
+        },
+        {
+          "d": "M 80 0 L 64 0",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "DATA",
+          "x": 42,
+          "y": 4
+        },
+        {
+          "d": "M 0 -80 L 0 -64",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "VCC",
+          "x": 0,
+          "y": -48
+        },
+        {
+          "d": "M 0 80 L 0 64",
+          "kind": "path"
+        },
+        {
+          "kind": "text",
+          "size": 9,
+          "text": "GND",
+          "x": 0,
+          "y": 52
+        }
+      ],
+      "version": 1
+    }
+  ],
+  "format": "logic-electric-circuit",
+  "groups": [],
+  "id": "example-custom",
+  "metadata": {},
+  "nodes": [],
+  "schemaVersion": 1,
+  "title": "Custom IC",
+  "wires": []
+}

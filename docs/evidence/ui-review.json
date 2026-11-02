@@ -1,0 +1,63 @@
+{
+  "contract": "../ui-contract.md: 0.1.1 canvas-first editor, host theme variables, categorized top controls, transparent selection, predictable zoom and annotation transforms; actual host qualification is separate.",
+  "targetViewports": [
+    "390x844",
+    "1440x900"
+  ],
+  "accessibility": {
+    "status": "pass",
+    "evidence": "Visible labeled top controls and non-drag named-pin/numeric transform alternatives remain available. Native browser drags verify selection and annotation operations; the 0.1.1 browser reviews cover both target sizes. Complete screen-reader/device qualification remains pending."
+  },
+  "responsive": {
+    "status": "pass",
+    "evidence": "Both target sizes use a full-width canvas with no page overflow. Parts appear only in a categorized preview popup; Properties opens on request. On phone widths the top controls can scroll horizontally."
+  },
+  "contentStates": {
+    "loading": {
+      "status": "not-applicable",
+      "reason": "The standalone Editor receives a validated document synchronously and has no asynchronous document fetch state. Actual Obsidian file loading remains outside this browser-only review and is explicitly untested in validation.md."
+    },
+    "empty": {
+      "status": "pass",
+      "evidence": "The blank editor is a plain canvas with usable top toolbar controls. The nonfunctional introductory button and its surrounding copy were removed; category selection and placement were exercised."
+    },
+    "error": {
+      "status": "pass",
+      "evidence": "Malformed and future JSON import display a specific dialog error and preserve the existing circuit, verified at both target viewports."
+    },
+    "partial": {
+      "status": "not-applicable",
+      "reason": "The version-1 editor refuses partially valid imports; graph/schema validation is atomic. Unsupported host files use raw recovery rather than a partial editable drawing; that host-only view is not claimed tested here."
+    },
+    "success": {
+      "status": "pass",
+      "evidence": "0.1.1 reviews verify top-toolbar selection, fixed zoom stops, annotation transforms/export and exact transform undo. finish-native.json confirms a single wire and no trailing pointer-up action."
+    },
+    "permission": {
+      "status": "not-applicable",
+      "reason": "This editor has no account, network access or runtime authorization prompt. System clipboard is optional and retains an in-editor/text-copy alternative. Actual platform clipboard denial remains a separate manual check, not a claimed pass."
+    }
+  },
+  "renderedEvidence": [
+    {
+      "viewport": "1440x900",
+      "artifact": "ui-0.1.1/desktop-dark.png",
+      "observation": "Full-width neutral dark canvas; no brand banner or permanent palette; colors are inherited from supplied host variables."
+    },
+    {
+      "viewport": "1440x900",
+      "artifact": "ui-0.1.1/desktop-light.png",
+      "observation": "The same editor follows light host variables without changing document content."
+    },
+    {
+      "viewport": "1440x900",
+      "artifact": "ui-0.1.1/parts-desktop.png",
+      "observation": "Categorized toolbar popup with nine passive part previews rather than the entire library in a column."
+    },
+    {
+      "viewport": "390x844",
+      "artifact": "ui-0.1.1/mobile-light.png",
+      "observation": "Phone canvas retains its width, compact top controls and zoom/fit; no document overflow."
+    }
+  ]
+}
