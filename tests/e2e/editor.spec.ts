@@ -98,7 +98,18 @@ test('Multi selects a previously unselected buffer together with its wires', asy
   const revision = await page.evaluate(() => window.__lec.session.getSnapshot().revision);
   await page.getByRole('button', { name: 'Multi', exact: true }).click();
   await page.locator('.lec-part-hit').click(); await expect(page.locator('.lec-part.is-selected')).toHaveCount(1);
-  await page.locator('[data-object="test-wire-a"] .lec-wire-hit').click(); await page.locator('[data-object="test-wire-b"] .lec-wire-hit').click();
+  for (const id of ['test-wire-a', 'test-wire-b']) {
+    // Straight SVG paths have a zero-width or zero-height bounding box, so
+    // Playwright rejects locator.click() even though their strokes are hittable.
+    const position = await page.locator(`[data-object="${id}"] .lec-wire-hit`).evaluate(element => {
+      const path = element as SVGPathElement;
+      const point = path.getPointAtLength(path.getTotalLength() / 2).matrixTransform(path.getScreenCTM()!);
+      const canvas = path.closest('svg')!.getBoundingClientRect();
+      return { x: point.x - canvas.left, y: point.y - canvas.top };
+    });
+    await page.getByRole('application').click({ position });
+    await expect(page.locator(`[data-object="${id}"]`)).toHaveClass(/is-selected/);
+  }
   await expect(page.locator('.lec-part.is-selected')).toHaveCount(1); await expect(page.locator('.lec-wire.is-selected')).toHaveCount(2);
   expect(await page.evaluate(() => window.__lec.session.getSnapshot().revision)).toBe(revision);
   await page.locator('.lec-part-hit').click(); await expect(page.locator('.lec-part.is-selected')).toHaveCount(0); await expect(page.locator('.lec-wire.is-selected')).toHaveCount(2);
