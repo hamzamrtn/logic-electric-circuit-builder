@@ -10,6 +10,7 @@ assert(!Object.keys(meta.inputs).some(name => name.startsWith('dev/')), 'Develop
 assert(output.imports.every(i => i.external && i.path === 'obsidian'), 'Only the public Obsidian runtime may remain external');
 assert(!Object.keys(meta.inputs).some(name => /(?:^|\/)(?:electron|fs|child_process|node:)/.test(name)), 'Forbidden mobile runtime dependency');
 const source = await readFile('main.js', 'utf8');
+assert(!/\.createElement\(\s*["']script["']\s*\)/.test(source), 'Bundled runtime must not include a script-element loader');
 assert(!/require\(["'](?:node:|electron|fs["']|child_process)/.test(source), 'Runtime Node/Electron import');
 assert(!/https?:\/\/[^\s"']+\.(?:js|wasm|woff2?)["']/.test(source), 'Remote runtime asset');
 console.log(`Verified three install assets; ${Math.round(output.bytes / 1024)} KiB main.js; only obsidian external.`);

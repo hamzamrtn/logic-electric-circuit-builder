@@ -5,6 +5,7 @@ import { clone, emptyDocument, serializeDocument } from '../src/core/model/docum
 import { examples } from '../src/components/definitions/examples';
 import { exportSVG, exportPNG } from '../src/io/export';
 import { setDevelopmentTheme } from './host-theme';
+import './harness.css';
 const systemTheme = matchMedia('(prefers-color-scheme: dark)');
 const requestedTheme = new URLSearchParams(location.search).get('theme');
 const applyTheme = () => setDevelopmentTheme(requestedTheme === 'dark' || requestedTheme !== 'light' && systemTheme.matches ? 'dark' : 'light');
@@ -13,10 +14,10 @@ const selected = new URLSearchParams(location.search).get('example');
 const example = selected ? examples.find(e => e.name.toLowerCase().includes(selected.toLowerCase())) : undefined;
 const session = new DocumentSession(example ? clone(example.document) : emptyDocument());
 Object.assign(window, { __lec: { session, examples, serializeDocument, exportSVG, exportPNG, setDevelopmentTheme } });
-document.documentElement.style.height = '100%'; document.body.style.height = '100%'; document.body.style.margin = '0';
-const element = document.getElementById('root')!; element.style.height = '100%';
+const element = document.getElementById('root')!;
 createRoot(element).render(<Editor session={session} host={{ examples, export: async (kind, doc, owner, scale) => {
   const content = kind === 'svg' ? exportSVG(doc) : kind === 'png' ? await exportPNG(doc, owner, scale) : serializeDocument(doc);
   const blob = new Blob([content], { type: kind === 'svg' ? 'image/svg+xml' : kind === 'png' ? 'image/png' : 'application/json' });
-  const url = URL.createObjectURL(blob); const link = owner.createElement('a'); link.href = url; link.download = `${doc.title}.${['json', 'snippet'].includes(kind) ? 'lecircuit' : kind}`; link.click(); setTimeout(() => URL.revokeObjectURL(url), 2000);
+  const win = owner.defaultView!;
+  const url = win.URL.createObjectURL(blob); const link = owner.createElementNS('http://www.w3.org/1999/xhtml', 'a') as HTMLAnchorElement; link.href = url; link.download = `${doc.title}.${['json', 'snippet'].includes(kind) ? 'lecircuit' : kind}`; link.click(); win.setTimeout(() => win.URL.revokeObjectURL(url), 2000);
 } }} />);

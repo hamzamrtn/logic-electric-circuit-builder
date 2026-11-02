@@ -40,8 +40,8 @@ export async function exportPNG(doc: CircuitDocument, owner: Document, scale = 2
   const win = owner.defaultView; if (!win) throw new Error('View window is unavailable');
   const url = win.URL.createObjectURL(new Blob([exportSVG(doc)], { type: 'image/svg+xml' }));
   try {
-    const img = owner.createElement('img'); img.src = url; await img.decode();
-    const canvas = owner.createElement('canvas'); canvas.width = width; canvas.height = height; const ctx = canvas.getContext('2d'); if (!ctx) throw new Error('PNG rendering is unavailable'); ctx.drawImage(img, 0, 0, width, height);
+    const img = new win.Image(); img.src = url; await img.decode();
+    const canvas = owner.createElementNS('http://www.w3.org/1999/xhtml', 'canvas') as HTMLCanvasElement; canvas.width = width; canvas.height = height; const ctx = canvas.getContext('2d'); if (!ctx) throw new Error('PNG rendering is unavailable'); ctx.drawImage(img, 0, 0, width, height);
     const blob = await new Promise<Blob>((resolve, reject) => canvas.toBlob(b => b ? resolve(b) : reject(new Error('PNG export failed')), 'image/png')); return await blob.arrayBuffer();
   } finally { win.URL.revokeObjectURL(url); }
 }

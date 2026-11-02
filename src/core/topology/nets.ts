@@ -4,7 +4,7 @@ export interface Net { id: string; name: string; members: string[]; wireIds: str
 export function deriveNets(doc: CircuitDocument): Net[] {
   const parent = new Map<string, string>();
   function find(x: string): string { if (!parent.has(x)) parent.set(x, x); let r = x; while (parent.get(r) !== r) r = parent.get(r)!; while (x !== r) { const n = parent.get(x)!; parent.set(x, r); x = n; } return r; }
-  function join(a: string, b: string) { const ra = find(a), rb = find(b); if (ra !== rb) parent.set(rb, ra < rb ? ra : rb), parent.set(ra, ra < rb ? ra : rb); }
+  function join(a: string, b: string) { const ra = find(a), rb = find(b); if (ra !== rb) { parent.set(rb, ra < rb ? ra : rb); parent.set(ra, ra < rb ? ra : rb); } }
   const lane = (a: Anchor, bit: number) => `${anchorKey(a)}[${bit}]`;
   for (const c of doc.components) {
     const def = getDefinition(doc, c);

@@ -6,7 +6,7 @@ import { CircuitSettingsTab, DEFAULT_SETTINGS, type CircuitSettings } from './ob
 import { emptyDocument, serializeDocument } from './core/model/document';
 import { exportPNG, exportSVG } from './io/export';
 import { type EditorHost } from './editor/ui/Editor';
-import { previewBlock } from './io/preview-reference';
+import { previewBlock, resolvePreviewFile } from './io/preview-reference';
 import { examples } from './components/definitions/examples';
 class CircuitPicker extends FuzzySuggestModal<TFile> {
   constructor(app: App, private choose: (file: TFile) => void) { super(app); this.setPlaceholder('Open a circuit…'); }
@@ -39,6 +39,12 @@ export default class CircuitPlugin extends Plugin {
   }
   onunload() { void this.sessions.dispose(); }
   async saveSettings() { await this.saveData(this.settings); }
+  resolvePreview(reference: string, notePath: string) {
+    return resolvePreviewFile({
+      byPath: path => this.app.vault.getFileByPath(path) ?? undefined,
+      byName: name => this.app.vault.getFiles().filter(file => file.extension === 'lecircuit' && file.name === name),
+    }, reference, notePath);
+  }
   private activeCircuit() { const view = this.app.workspace.getActiveViewOfType(CircuitFileView); return view ?? null; }
   async newCircuit(folder = '') { try { const file = await createCircuit(this.app, emptyDocument(), folder); await this.app.workspace.getLeaf('tab').openFile(file); } catch (e) { new Notice(`Unable to create circuit: ${String(e)}`); } }
   openCircuitPicker(choose?: (file: TFile) => void) { new CircuitPicker(this.app, choose ?? (file => { void this.app.workspace.getLeaf('tab').openFile(file); })).open(); }
@@ -56,7 +62,7 @@ export default class CircuitPlugin extends Plugin {
         if (kind === 'svg' || kind === 'png') { const note = this.app.workspace.getMostRecentLeaf()?.view; if (note instanceof MarkdownView) note.editor.replaceSelection(`![[${output.path}]]`); }
         new Notice(`Saved ${output.path}`);
       },
-      insertPreview: () => { new CircuitPicker(this.app, target => { const markdown = this.app.workspace.getLeavesOfType('markdown').map(l => l.view).find(v => v instanceof MarkdownView); if (markdown instanceof MarkdownView) markdown.editor.replaceSelection(previewBlock(target.path)); else new Notice('Open a Markdown note, then run “Insert circuit preview” from that note.'); }).open(); },
+      insertPreview: () => { new CircuitPicker(this.app, target => { const markdown = this.app.workspace.getLeavesOfType('markdown').map(l => l.view).find(v => v instanceof MarkdownView); if (markdown instanceof MarkdownView) markdown.editor.replaceSelection(previewBlock(target.path)); else new Notice('Open a Markdown note, then insert the preview using the command palette.'); }).open(); },
     };
   }
 }

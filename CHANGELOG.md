@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.5 — community review fixes
+
+- Use CSS classes and a bounded width variable for previews and the standalone harness; remove `!important` overrides.
+- Adopt Obsidian's declarative, searchable settings API and handle asynchronous dialog and preview work without returning promises to synchronous host callbacks.
+- Remove deprecated schema/event APIs and comma expressions flagged by the community scanner.
+- Resolve explicit preview paths directly; retain filename enumeration only for the circuit picker and legacy basename lookup, and document that access.
+- Use the React 18.3.1 renderer, which provides the editor's existing hooks and portals without React 19's external script-resource preloader. No dependency code is patched or obscured.
+- Run Obsidian's official ESLint rules in CI, reject runtime script-element loaders in the bundle audit, and build/attest/attach release assets from the exact published tag.
+
 ## 0.1.4 — wire placement polish
 
 - Reduce grid dot size on the shared 8-unit grid.

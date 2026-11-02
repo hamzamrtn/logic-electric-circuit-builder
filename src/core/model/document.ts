@@ -29,11 +29,11 @@ export const definitionSchema = z.object({
   id, version: z.number().int().min(1), name: text, category: text, aliases: z.array(text).max(32), prefix: text,
   pins: z.array(pinSchema).max(256), primitives: z.array(primitiveSchema).max(256),
   bounds: z.object({ x: unit, y: unit, width: unit.nonnegative(), height: unit.nonnegative() }).strict(),
-  defaults: z.record(z.string(), z.union([text, z.number().finite(), z.boolean()])),
+  defaults: z.record(z.string(), z.union([text, z.number(), z.boolean()])),
   laneLinks: z.array(z.object({ a: id, aLane: z.number().int().min(0).max(255), b: id, bLane: z.number().int().min(0).max(255) }).strict()).max(512).optional(),
 }).strict();
 export type Definition = z.infer<typeof definitionSchema>;
-const propertiesSchema = z.record(z.string().max(100), z.union([text, z.number().finite(), z.boolean()]));
+const propertiesSchema = z.record(z.string().max(100), z.union([text, z.number(), z.boolean()]));
 export const componentSchema = z.object({
   id, definitionId: id, position: pointSchema, rotation: z.union([z.literal(0), z.literal(90), z.literal(180), z.literal(270)]),
   mirrorX: z.boolean(), mirrorY: z.boolean(), reference: text, properties: propertiesSchema, locked: z.boolean(),
@@ -50,9 +50,9 @@ const annotationSchema = z.object({
   id, kind: z.enum(['text', 'label', 'no-connect', 'box', 'arrow', 'polarity', 'current']),
   position: pointSchema, text, anchor: anchorSchema.optional(), global: z.boolean(),
   size: pointSchema, locked: z.boolean(), zIndex: z.number().int().min(-10000).max(10000),
-  rotation: z.number().finite().min(-360000).max(360000).default(0),
-  scaleX: z.number().finite().min(0.1).max(100).default(1),
-  scaleY: z.number().finite().min(0.1).max(100).default(1),
+  rotation: z.number().min(-360000).max(360000).default(0),
+  scaleX: z.number().min(0.1).max(100).default(1),
+  scaleY: z.number().min(0.1).max(100).default(1),
   fontSize: z.number().int().min(6).max(256).default(14),
 }).strict();
 export type Annotation = z.infer<typeof annotationSchema>;

@@ -1,10 +1,17 @@
-import { useEffect, useRef, useState, type FormEvent } from 'react';
+import { useEffect, useRef, useState, type SyntheticEvent } from 'react';
 export interface Field { name: string; label: string; value?: string; type?: 'text' | 'number' | 'textarea' | 'select'; options?: { value: string; label: string }[]; required?: boolean; }
 export interface DialogSpec { title: string; description?: string; fields: Field[]; submit?: string; danger?: boolean; onSubmit: (values: Record<string, string>) => void | Promise<void>; }
 export function Dialog({ spec, close }: { spec: DialogSpec; close: () => void }) {
   const ref = useRef<HTMLDivElement>(null), [error, setError] = useState(''), [busy, setBusy] = useState(false);
   useEffect(() => { const previous = ref.current?.ownerDocument.activeElement as HTMLElement | null; ref.current?.querySelector<HTMLElement>('input,textarea,select,button')?.focus(); return () => previous?.focus(); }, []);
-  async function submit(e: FormEvent<HTMLFormElement>) { e.preventDefault(); setBusy(true); try { const values = Object.fromEntries(new FormData(e.currentTarget).entries()) as Record<string, string>; await spec.onSubmit(values); close(); } catch (e) { setError(e instanceof Error ? e.message : String(e)); } finally { setBusy(false); } }
+  function submit(e: SyntheticEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const values = Object.fromEntries(new FormData(e.currentTarget).entries()) as Record<string, string>;
+    setBusy(true);
+    void Promise.resolve().then(() => spec.onSubmit(values)).then(close).catch((error: unknown) => {
+      setError(error instanceof Error ? error.message : String(error));
+    }).finally(() => setBusy(false));
+  }
   return <div className="lec-backdrop" onPointerDown={e => { if (e.target === e.currentTarget && !busy) close(); }}><div className="lec-dialog" role="dialog" aria-modal="true" aria-labelledby="lec-dialog-title" ref={ref} onKeyDown={e => {
     if (e.key === 'Escape') { e.stopPropagation(); if (!busy) close(); }
     if (e.key === 'Tab') { const elements = [...e.currentTarget.querySelectorAll<HTMLElement>('button:not(:disabled),input,textarea,select')]; const first = elements[0], last = elements.at(-1); if (e.shiftKey && e.target === first) { e.preventDefault(); last?.focus(); } else if (!e.shiftKey && e.target === last) { e.preventDefault(); first?.focus(); } }

@@ -13,3 +13,4 @@ for (const path of files) {
   }
 }
 console.log(`Verified runtime boundaries and injection rules in ${files.length} source files. TypeScript checks unused code and strict types.`);
+assert(!/!important\b/i.test(await readFile('styles.css', 'utf8')), 'Use scoped selectors and CSS variables instead of !important');

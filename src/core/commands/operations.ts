@@ -127,7 +127,11 @@ export function transformSelection(doc: CircuitDocument, input: Set<string>, kin
   for (const c of cs) {
     c.position = change(c.position);
     if (kind === 'rotate') c.rotation = ((c.rotation + 90) % 360) as Component['rotation'];
-    else { if (kind === 'mirrorX') c.rotation = ((360 - c.rotation) % 360) as Component['rotation'], c.mirrorX = !c.mirrorX; else c.rotation = ((360 - c.rotation) % 360) as Component['rotation'], c.mirrorY = !c.mirrorY; }
+    else {
+      c.rotation = ((360 - c.rotation) % 360) as Component['rotation'];
+      if (kind === 'mirrorX') c.mirrorX = !c.mirrorX;
+      else c.mirrorY = !c.mirrorY;
+    }
   }
   for (const n of doc.nodes) if (ids.has(n.id)) n.position = change(n.position);
   for (const w of doc.wires) if (anchorSelected(w.a, ids) && anchorSelected(w.b, ids)) {
@@ -155,7 +159,7 @@ export function deleteSelection(doc: CircuitDocument, input: Set<string>, attach
   for (const w of doc.wires) if ([w.a, w.b].some(a => a.kind === 'node' && ids.has(a.nodeId))) ids.add(w.id);
   doc.components = doc.components.filter(c => !ids.has(c.id)); doc.wires = doc.wires.filter(w => !ids.has(w.id));
   doc.annotations = doc.annotations.filter(a => !ids.has(a.id) && !(a.anchor?.kind === 'node' && ids.has(a.anchor.nodeId)));
-  const referenced = new Set([...doc.wires.flatMap(w => [w.a, w.b]), ...doc.annotations.flatMap(a => a.anchor ? [a.anchor] : [])].filter(a => a.kind === 'node').map(a => a.nodeId));
+  const referenced = new Set([...doc.wires.flatMap(w => [w.a, w.b]), ...doc.annotations.flatMap(a => a.anchor ? [a.anchor] : [])].filter((a): a is Extract<Anchor, { kind: 'node' }> => a.kind === 'node').map(a => a.nodeId));
   doc.nodes = doc.nodes.filter(n => referenced.has(n.id) || n.explicit && !ids.has(n.id));
   doc.groups = doc.groups.filter(g => !ids.has(g.id)).map(g => ({ ...g, members: g.members.filter(id => !ids.has(id)) }));
 }
@@ -194,7 +198,7 @@ export function fragment(doc: CircuitDocument, selection: Set<string>): CircuitD
     }
   }
   copy.annotations = copy.annotations.filter(a => ids.has(a.id) || a.anchor && (a.anchor.kind === 'pin' ? ids.has(a.anchor.componentId) : ids.has(a.anchor.nodeId)));
-  const nodeIds = new Set(copy.wires.flatMap(w => [w.a, w.b]).concat(copy.annotations.flatMap(a => a.anchor ? [a.anchor] : [])).filter(a => a.kind === 'node').map(a => a.nodeId));
+  const nodeIds = new Set(copy.wires.flatMap(w => [w.a, w.b]).concat(copy.annotations.flatMap(a => a.anchor ? [a.anchor] : [])).filter((a): a is Extract<Anchor, { kind: 'node' }> => a.kind === 'node').map(a => a.nodeId));
   copy.nodes = copy.nodes.filter(n => nodeIds.has(n.id));
   copy.groups = copy.groups.filter(g => ids.has(g.id)).map(g => ({ ...g, members: g.members.filter(id => ids.has(id)) }));
   copy.definitions = copy.definitions.filter(d => copy.components.some(c => c.definitionId === d.id)); copy.id = uid('fragment'); copy.title = 'Circuit snippet'; return copy;

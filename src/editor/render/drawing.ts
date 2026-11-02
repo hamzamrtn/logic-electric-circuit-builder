@@ -108,5 +108,5 @@ export function terminalDescription(doc: CircuitDocument, terminal: string): str
 }
 export function closestSegment(doc: CircuitDocument, wireId: string, point: Point): number {
   const w = doc.wires.find(w => w.id === wireId); if (!w) return 0; const pts = wirePoints(doc, w); let best = Infinity, index = 0;
-  for (let i = 1; i < pts.length; i++) { const distance = distanceToSegment(point, pts[i - 1], pts[i]).distance; if (distance < best) best = distance, index = i - 1; } return index;
+  for (let i = 1; i < pts.length; i++) { const distance = distanceToSegment(point, pts[i - 1], pts[i]).distance; if (distance < best) { best = distance; index = i - 1; } } return index;
 }

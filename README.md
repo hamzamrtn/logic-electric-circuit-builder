@@ -4,11 +4,11 @@ An offline electrical and logic schematic editor for Obsidian, by **Hamza**. MIT
 
 The workspace opens directly into a schematic grid. Add searchable parts, connect stable pins, draw manual wire bends, move and rotate connected parts, and export ordinary SVG/PNG. Crossed wires remain separate until explicitly joined. The 72 built-in symbols include electrical parts, gates, logic blocks and explicit bus splitters. Custom blocks have editable pin identities and layouts.
 
-**Local development build: 0.1.4.** Core and browser evidence is recorded in [docs/validation.md](docs/validation.md). Real Obsidian/device qualification remains required before a public release. The plugin declares mobile support intent; browser touch emulation is not a real-device pass. There is no circuit simulation.
+**Local development build: 0.1.5.** Core and browser evidence is recorded in [docs/validation.md](docs/validation.md). Real Obsidian/device qualification remains required before a public release. The plugin declares mobile support intent; browser touch emulation is not a real-device pass. There is no circuit simulation.
 
 ## Install the local build
 
-Unzip `dist/logic-electric-circuit-builder-0.1.4.zip` into your development vault’s `<configDir>/plugins/` directory. Alternatively create `<configDir>/plugins/logic-electric-circuit-builder/` and copy these three files from `dist/logic-electric-circuit-builder/`:
+Unzip `dist/logic-electric-circuit-builder-0.1.5.zip` into your development vault’s `<configDir>/plugins/` directory. Alternatively create `<configDir>/plugins/logic-electric-circuit-builder/` and copy these three files from `dist/logic-electric-circuit-builder/`:
 
 - `main.js`
 - `manifest.json`
@@ -43,6 +43,8 @@ Use pixels or a percentage for width. Bare filenames are accepted only when uniq
 Export SVG/PNG for viewing with the plugin disabled or using Obsidian Publish. The File menu also exports own-format JSON and selected snippets. PNG exports are capped at 16 megapixels/8192px per edge; use 1× or SVG for large drawings.
 
 Autosave reports completed writes. Conflicts offer review, keep-local and use-external choices; save failure offers retry and a separate copy. Invalid/future-format files preserve raw bytes and do not autosave. Recovery files are in `Circuit recovery/`. OS force-kill can still lose edits after the last completed write.
+
+The Open/Find circuit picker and legacy previews that specify only a filename enumerate vault file paths to find `.lecircuit` files and detect duplicate names. Explicit full-path or note-relative previews use direct file lookup. The editor reads circuit files, reads a source note when repairing its preview, and writes circuits, recovery copies and requested exports inside the vault. It does not send file paths or contents over the network.
 
 Obsidian Sync needs **Sync all other types** to sync `.lecircuit`; plugin installation, enablement and settings sync are separate. If a preview path becomes stale after renaming, use Find circuit to update that block. New previews do not add a separate wiki-link heading.
 

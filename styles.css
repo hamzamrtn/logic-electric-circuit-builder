@@ -136,9 +136,11 @@
 .lec-editor .lec-dialog p { font-size: 12px; color: var(--lec-muted); overflow-wrap: anywhere; }
 .lec-editor .lec-dialog footer { display: flex; justify-content: end; gap: 6px; margin-top: 16px; }
 .lec-editor .lec-dialog .lec-error { color: var(--lec-danger); }
-.lec-host-view { padding: 0 !important; height: 100%; }
+.workspace-leaf-content .view-content.lec-host-view { padding: 0; height: 100%; }
 .lec-recovery { padding: 20px; }
 .lec-recovery textarea { width: 100%; min-height: 250px; }
+.lec-editor.lec-preview { width: var(--lec-preview-width, 400px); max-width: 100%; height: auto; min-height: 0; }
+.markdown-rendered .lec-legacy-preview-heading { display: none; }
 .lec-preview { border: 1px solid var(--background-modifier-border); border-radius: 3px; padding: 8px; }
 .lec-preview svg { width: 100%; height: auto; max-height: 480px; }
 @container (max-width: 1000px) {
@@ -147,7 +149,7 @@
 @container (max-width: 700px) {
   .lec-editor .lec-header { min-height: 44px; padding: 3px 6px; }
   .lec-editor .lec-document-name { flex-direction: column; align-items: start; gap: 0; }
-  .lec-editor .lec-document-name input { width: 100%; font-size: 12px; min-height: 22px !important; }
+  .lec-editor .lec-document-name input { width: 100%; font-size: 12px; min-height: 22px; }
   .lec-editor .lec-save { max-width: 170px; font-size: 10px; }
   .lec-editor .lec-header-actions button { min-height: 38px; font-size: 11px; }
   .lec-editor .lec-parts-toolbar { min-height: 46px; padding: 1px 6px; gap: 0; }
@@ -177,7 +179,7 @@
   .lec-editor .lec-dialog button, .lec-editor .lec-dialog input, .lec-editor .lec-dialog select { min-height: 44px; }
   .lec-editor .lec-notice { bottom: 94px; width: calc(100% - 16px); }
 }
-@media (prefers-reduced-motion: reduce) { .lec-editor *, .lec-editor *::before, .lec-editor *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+@media (prefers-reduced-motion: reduce) { .lec-editor.lec-editor *, .lec-editor.lec-editor *::before, .lec-editor.lec-editor *::after { animation: none; transition: none; scroll-behavior: auto; } }
 /* One compact toolbar; document naming and exports remain in File. */
 .lec-editor .lec-topbar { display: flex; align-items: center; gap: 4px; min-height: 36px; flex-shrink: 0; padding: 3px 6px; background: var(--lec-panel); border-bottom: 1px solid var(--lec-line); overflow-x: auto; scrollbar-width: thin; }
 .lec-editor .lec-topbar > button { flex-shrink: 0; border-color: transparent; font-size: 12px; }

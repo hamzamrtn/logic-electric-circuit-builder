@@ -2,7 +2,7 @@ import { type Anchor, type CircuitDocument, type Point, type Wire, getDefinition
 import { anchorPosition, GRID, transform } from './geometry';
 export function routeWire(doc: CircuitDocument, wire: Wire, budget = 2500): { points: Point[]; exhausted: boolean } {
   const start = anchorPosition(doc, wire.a), end = anchorPosition(doc, wire.b);
-  const excluded = new Set([wire.a, wire.b].filter(a => a.kind === 'pin').map(a => a.componentId));
+  const excluded = new Set([wire.a, wire.b].filter((a): a is Extract<Anchor, { kind: 'pin' }> => a.kind === 'pin').map(a => a.componentId));
   const obstacles = doc.components.filter(c => !excluded.has(c.id)).map(c => {
     const b = getDefinition(doc, c).bounds, pts = [transform({ x: b.x, y: b.y }, c), transform({ x: b.x + b.width, y: b.y }, c), transform({ x: b.x, y: b.y + b.height }, c), transform({ x: b.x + b.width, y: b.y + b.height }, c)];
     return { left: Math.min(...pts.map(p => p.x)) - 8, right: Math.max(...pts.map(p => p.x)) + 8, top: Math.min(...pts.map(p => p.y)) - 8, bottom: Math.max(...pts.map(p => p.y)) + 8 };

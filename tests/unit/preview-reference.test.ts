@@ -1,4 +1,4 @@
-import { expect, it } from 'vitest';
+import { expect, it, vi } from 'vitest';
 import { parsePreviewOptions, previewBlock, repairPreviewReference, resolvePreviewFile } from '../../src/io/preview-reference';
 it('supports legacy path-only previews and bounded width options', () => {
   expect(parsePreviewOptions('MyCircuit.lecircuit')).toEqual({ path: 'MyCircuit.lecircuit', width: '400px' });
@@ -17,6 +17,23 @@ it('repairs the selected preview while preserving width and unrelated code/text'
   const original = 'before\n```lecircuit\nOld.lecircuit\nwidth: 320px\n```\n\n```js\nconst text = "Old.lecircuit";\n```\n';
   const result = repairPreviewReference(original, 'Old.lecircuit', 'Circuits/New.lecircuit', 1);
   expect(result).toContain('/Circuits/New.lecircuit\nwidth: 320px'); expect(result).toContain('const text = "Old.lecircuit";'); expect(result).toContain('before\n');
+});
+it('resolves explicit preview paths without listing unrelated vault files', () => {
+  const file = { path: 'Circuits/Example.lecircuit', name: 'Example.lecircuit' };
+  const lookup = { byPath: vi.fn(() => file), byName: vi.fn(() => [file]) };
+  for (const reference of ['/Circuits/Example.lecircuit', 'Circuits/Example.lecircuit', '../Circuits/Example.lecircuit']) {
+    expect(resolvePreviewFile(lookup, reference, 'Notes/note.md')).toEqual({ file, ambiguous: false });
+  }
+  expect(lookup.byPath).toHaveBeenCalledTimes(3);
+  expect(lookup.byName).not.toHaveBeenCalled();
+  expect(resolvePreviewFile(lookup, 'Example.lecircuit', 'Notes/note.md').file).toBe(file);
+  expect(lookup.byName).toHaveBeenCalledWith('Example.lecircuit');
+});
+it('rejects missing or non-circuit direct references without falling back to vault enumeration', () => {
+  const byName = vi.fn(() => []);
+  expect(resolvePreviewFile({ byPath: () => undefined, byName }, '/Missing.lecircuit', 'note.md').file).toBeUndefined();
+  expect(resolvePreviewFile({ byPath: () => ({ path: 'note.md', name: 'note.md' }), byName }, '/note.md', 'note.md').file).toBeUndefined();
+  expect(byName).not.toHaveBeenCalled();
 });
 it('distinguishes repeated preview blocks and ignores fenced examples', () => {
   const markdown = '````markdown\n```lecircuit\nOld.lecircuit\n```\n````\n\n```lecircuit\nOld.lecircuit\n```\n\n```lecircuit\nOld.lecircuit\n```';

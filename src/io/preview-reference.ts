@@ -21,15 +21,23 @@ function normalize(path: string): string {
   }
   return parts.join('/');
 }
-export function resolvePreviewFile<T extends { path: string; name: string }>(files: T[], reference: string, notePath: string): { file?: T; ambiguous: boolean } {
-  const circuits = files.filter(f => f.path.endsWith('.lecircuit'));
+export interface PreviewFileLookup<T> {
+  byPath: (path: string) => T | undefined;
+  byName: (name: string) => T[];
+}
+export function resolvePreviewFile<T extends { path: string; name: string }>(files: T[] | PreviewFileLookup<T>, reference: string, notePath: string): { file?: T; ambiguous: boolean } {
+  let directPath: string | undefined;
   if (reference.startsWith('./') || reference.startsWith('../')) {
     const folder = notePath.includes('/') ? notePath.slice(0, notePath.lastIndexOf('/')) : '';
-    return { file: circuits.find(f => f.path === normalize(`${folder}/${reference}`)), ambiguous: false };
+    directPath = normalize(`${folder}/${reference}`);
   }
-  const path = normalize(reference);
-  if (reference.startsWith('/') || path.includes('/')) return { file: circuits.find(f => f.path === path), ambiguous: false };
-  const matches = circuits.filter(f => f.name === path);
+  const path = directPath ?? normalize(reference);
+  if (directPath === undefined && (reference.startsWith('/') || path.includes('/'))) directPath = path;
+  if (directPath !== undefined) {
+    const file = Array.isArray(files) ? files.find(f => f.path === directPath) : files.byPath(directPath);
+    return { file: file?.path.endsWith('.lecircuit') ? file : undefined, ambiguous: false };
+  }
+  const matches = (Array.isArray(files) ? files : files.byName(path)).filter(f => f.path.endsWith('.lecircuit') && f.name === path);
   return { file: matches.length === 1 ? matches[0] : undefined, ambiguous: matches.length > 1 };
 }
 export function previewBlock(path: string, width = '400px'): string { return `\`\`\`lecircuit\n/${normalize(path)}\nwidth: ${width}\n\`\`\`\n`; }

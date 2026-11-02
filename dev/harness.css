@@ -1,0 +1,28 @@
+@import '../styles.css';
+
+html.lec-development, html.lec-development body, html.lec-development #root { height: 100%; }
+html.lec-development body { margin: 0; }
+html.lec-development {
+  color-scheme: light;
+  --background-primary: #fff;
+  --background-secondary: #f6f6f6;
+  --background-secondary-alt: #eee;
+  --background-modifier-border: #ddd;
+  --background-modifier-hover: #e8e8e8;
+  --text-normal: #222;
+  --text-muted: #666;
+  --interactive-accent: #626262;
+  --text-on-accent: #fff;
+}
+html.lec-development-dark {
+  color-scheme: dark;
+  --background-primary: #1e1e1e;
+  --background-secondary: #262626;
+  --background-secondary-alt: #303030;
+  --background-modifier-border: #414141;
+  --background-modifier-hover: #383838;
+  --text-normal: #dadada;
+  --text-muted: #aaa;
+  --interactive-accent: #a5a5a5;
+  --text-on-accent: #171717;
+}

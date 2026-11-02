@@ -5,7 +5,7 @@ import type CircuitPlugin from '../main';
 import { Scene } from '../editor/render/Scene';
 import { bounds } from '../core/geometry/geometry';
 import { findCrossings } from '../editor/render/drawing';
-import { parsePreviewOptions, repairPreviewReference, resolvePreviewFile, type PreviewOptions } from '../io/preview-reference';
+import { parsePreviewOptions, repairPreviewReference, type PreviewOptions } from '../io/preview-reference';
 import type { Entry } from './VaultPersistence';
 
 function Preview({ entry, filename, path, open }: { entry: Entry; filename: string; path: string; open: () => void }) {
@@ -24,10 +24,10 @@ function hideLegacyHeading(element: HTMLElement, plugin: CircuitPlugin, file: TF
     const links = previous.matches('a') ? [previous] : [...previous.querySelectorAll<HTMLElement>('a')];
     if (links.length !== 1 || previous.textContent?.trim() !== links[0].textContent?.trim()) return () => {};
     const reference = links[0].getAttribute('data-href') || links[0].getAttribute('href');
-    if (!reference || resolvePreviewFile(plugin.app.vault.getFiles(), reference, notePath).file !== file) return () => {};
-    const display = previous.style.getPropertyValue('display'), priority = previous.style.getPropertyPriority('display');
-    previous.style.setProperty('display', 'none', 'important');
-    return () => { if (display) previous.style.setProperty('display', display, priority); else previous.style.removeProperty('display'); };
+    if (!reference || plugin.resolvePreview(reference, notePath).file !== file) return () => {};
+    const alreadyHidden = previous.classList.contains('lec-legacy-preview-heading');
+    previous.classList.add('lec-legacy-preview-heading');
+    return () => { if (!alreadyHidden) previous.classList.remove('lec-legacy-preview-heading'); };
   }
   return () => {};
 }
@@ -41,12 +41,13 @@ class PreviewChild extends MarkdownRenderChild {
     if (!this.entry || !this.root) return;
     this.root.render(<Preview entry={this.entry} filename={this.file.basename} path={this.file.path} open={() => { void this.plugin.app.workspace.getLeaf('tab').openFile(this.file); }} />);
   }
-  async onload() {
+  onload() { void this.loadPreview(); }
+  private async loadPreview() {
     try {
       const raw = await this.plugin.app.vault.read(this.file); if (this.dead) return;
       this.entry = this.plugin.sessions.acquire(this.file, raw);
       this.containerEl.addClass('lec-editor', 'lec-preview');
-      Object.assign(this.containerEl.style, { width: this.options.width, maxWidth: '100%', height: 'auto', minHeight: '0' });
+      this.containerEl.setCssProps({ '--lec-preview-width': this.options.width });
       this.root = createRoot(this.containerEl); this.render();
       this.restoreHeading = hideLegacyHeading(this.containerEl, this.plugin, this.file, this.sourcePath);
       this.registerEvent(this.plugin.app.vault.on('rename', file => { if (file === this.file && !this.dead) this.render(); }));
@@ -60,8 +61,8 @@ class PreviewChild extends MarkdownRenderChild {
 export function processPreview(plugin: CircuitPlugin, source: string, element: HTMLElement, ctx: MarkdownPostProcessorContext) {
   let options: PreviewOptions;
   try { options = parsePreviewOptions(source); } catch (e) { element.setText(String(e instanceof Error ? e.message : e)); return; }
-  let result: ReturnType<typeof resolvePreviewFile<TFile>>;
-  try { result = resolvePreviewFile(plugin.app.vault.getFiles(), options.path, ctx.sourcePath); } catch (e) { element.setText(String(e)); return; }
+  let result: ReturnType<CircuitPlugin['resolvePreview']>;
+  try { result = plugin.resolvePreview(options.path, ctx.sourcePath); } catch (e) { element.setText(String(e)); return; }
   if (result.file) { ctx.addChild(new PreviewChild(element, plugin, result.file, options, ctx.sourcePath)); return; }
   element.addClass('lec-preview');
   element.createEl('p', { text: result.ambiguous ? `More than one circuit is named ${options.path}. Choose the intended file to repair this preview.` : `Circuit preview missing: ${options.path}` });
