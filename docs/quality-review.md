@@ -56,9 +56,9 @@ The browser performance smoke at 1440×900 completed without page errors: 100 pa
 
 - Actual Obsidian walkthrough: concurrent views, rename/deletion, previews, plugin close/unload/re-enable and pop-out migration. Adapter tests use public-host stubs and do not prove behavior inside the host.
 - Real Android phone/tablet and iPhone/iPad checks: pinch/pan, placement/wiring/reconnect/split/disconnect, soft keyboard, orientation, large interface text and theme/accessibility settings.
-- WebKit/Safari verification when the test browser is available; the local download attempts timed out.
+- Actual Safari/device walkthroughs. The WebKit touch suite now passes in [GitHub Verify](https://github.com/hamzamrtn/logic-electric-circuit-builder/actions/runs/42358998816), with 226 browser checks passed across all four projects and 26 platform-specific skips.
 - Two-device sync and competing edits, app suspension and force-kill durability.
 
 ## Evidence limits
 
-Actual Android/iOS Obsidian, real pen/trackpad input, sync and force-kill durability remain device/host checks. WebKit installation was attempted using the pinned local Playwright version and `/tmp/lec-playwright`; all download mirrors timed out. Safari/WebKit has therefore not passed this review. CI has not been run remotely, and no commit or release was created.
+Actual Android/iOS Obsidian, real pen/trackpad input, sync and force-kill durability remain device/host checks. WebKit installation was attempted using the pinned local Playwright version and `/tmp/lec-playwright`; all download mirrors timed out. This limitation applied to the local review. The implementation was subsequently committed and pushed as 5579ea0; remote CI passed, including WebKit. Release publication remains owner-controlled.

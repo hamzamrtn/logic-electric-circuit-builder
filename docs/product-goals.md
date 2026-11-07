@@ -58,6 +58,10 @@ Do not repeatedly ask whether the plugin should be intuitive, powerful, clean or
 
 Documentation and listing assets should make the plugin inviting and immediately understandable, with brief device support near the beginning and compelling, accurate descriptions.
 
+**The README is the storefront.** Its first impression helps a reader decide whether to add the plugin. Clearly express the product's strengths: intuitive editing, comprehensive and powerful circuit tools, a clean organized UI, precise interactions, device support and useful note integration. Show what people can create and why it helps them. Describe supported strengths concretely, without promising flawless behavior.
+
+Normal installation is a button click in Obsidian. The listing already provides the install action; the owner prefers the README to lead with screenshots and benefits without a duplicate installation CTA. Keep manual installation, ZIP paths, build commands, local development details and qualification logs in contributor/technical documentation, reachable through a small footer link. The owner explicitly corrected this after the initial README refresh; do not reintroduce technical setup material into the main promotional flow.
+
 The owner specifically requested and approved a gallery of five desktop and five mobile images showing substantial, varied, interesting circuits. Use real editor captures, full useful examples and intentional portrait compositions. Empty canvases, two-part filler, illegible shrink-to-fit views and fabricated capabilities do not meet that standard. Include reusable editable drawings where practical.
 
 Keep screenshots and listing claims aligned with what the product actually does. Preserve reproducible capture sources and identify emulation honestly. Current assets and instructions are in [screenshots/README.md](screenshots/README.md).

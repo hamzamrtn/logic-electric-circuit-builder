@@ -45,9 +45,24 @@
   },
   "limitations": [
     "Android layouts and native Chromium touch input are emulation, not execution in Android Obsidian",
-    "WebKit/Safari not run: prior browser-download mirrors timed out",
+    "WebKit touch emulation passed in GitHub CI; real Safari/device qualification remains separate",
     "Real host/device lifecycle, sync and force-kill durability remain platform qualification",
     "Showcase drawings illustrate drafting features; they have not been simulated or electrically qualified",
     "Remote CI is recorded separately in GitHub Actions; local counts do not imply a remote CI pass. Release publication is owner-controlled."
-  ]
+  ],
+  "remoteVerification": {
+    "commit": "5579ea00a9a38281caaf1d20f84485af5791a920",
+    "url": "https://github.com/hamzamrtn/logic-electric-circuit-builder/actions/runs/42358998816",
+    "conclusion": "success",
+    "coreTestsPassed": 143,
+    "browserTestsPassed": 226,
+    "browserTestsSkipped": 26,
+    "projects": [
+      "chromium",
+      "android-tablet",
+      "android-phone",
+      "webkit-touch"
+    ],
+    "scope": "Plugin implementation and 0.1.6 metadata; subsequent documentation edits do not change runtime behavior."
+  }
 }

@@ -2,6 +2,8 @@
 
 Latest verification, 2026-11-07: 143 core/adapter tests and 175 desktop/Android browser checks pass, with 14 mouse-only skips on touch projects. Strict TypeScript, official Obsidian lint, production artifact checks, clean-install stub smoke and packaging pass. [Current hashes and command record](evidence/final-quality-checks.json), [interaction feedback](interaction-feedback.md), and [README/listing gallery](screenshots/README.md) describe this working tree. Real-device/Safari qualification remains separate.
 
+GitHub [Verify for the 0.1.6 implementation](https://github.com/hamzamrtn/logic-electric-circuit-builder/actions/runs/42358998816) also passes: 143 core tests and 226 browser checks across Chromium, Android layouts and WebKit touch, with 26 platform-specific skips. Actual Obsidian devices and Safari remain separate from browser emulation.
+
 The general reliability/UI review is recorded in [quality-review.md](quality-review.md), including repaired regressions and remaining host/device work.
 
 The 2026-11-06 Android phone/tablet gesture fix and its current automated results are recorded in [touch-navigation/validation.md](evidence/touch-navigation/validation.md). The historical results below remain a record of earlier builds.
