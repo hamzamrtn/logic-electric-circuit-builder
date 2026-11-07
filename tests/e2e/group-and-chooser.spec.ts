@@ -37,7 +37,10 @@ test('selecting a group in Objects highlights and drags the group while Delete r
 });
 
 for (const additive of ['Multi', 'Shift'] as const) test(`choosing an overlapping wire with ${additive} preserves selection and stays on the canvas`, async ({ page }) => {
-  await addResistor(page, 160); const point = await crossing(page);
+  await addResistor(page, 160);
+  // Keep the selected part independent of the crossing on short mobile canvases.
+  await page.evaluate(() => window.__lec.session.edit('Position selection fixture', doc => { doc.components[0].position = { x: -144, y: -144 }; }));
+  const point = await crossing(page);
   if (additive === 'Multi') await page.getByRole('button', { name: 'Multi', exact: true }).click();
   await page.getByRole('application').click({ position: point, modifiers: additive === 'Shift' ? ['Shift'] : [] });
   const dialog = page.getByRole('dialog'); await expect(dialog.getByRole('button').first()).toBeFocused();
