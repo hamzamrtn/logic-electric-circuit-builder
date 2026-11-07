@@ -63,7 +63,9 @@ test('toolbar and picker retain accessible names without redundant host or nativ
 
 test('custom tool keys apply only to the focused drawing and can be reset', async ({ page }) => {
   await shortcuts(page);
-  await page.getByRole('textbox', { name: 'Wire', exact: true }).click(); await page.keyboard.press('l');
+  await page.getByRole('textbox', { name: 'Wire', exact: true }).click();
+  await page.getByRole('textbox', { name: 'Wire', exact: true }).evaluate((input: HTMLInputElement) => input.setSelectionRange(1, 1));
+  await page.keyboard.press('l');
   await expect(page.getByRole('textbox', { name: 'Wire', exact: true })).toHaveValue('L');
   await page.getByRole('textbox', { name: 'Select', exact: true }).click(); await page.keyboard.press('s');
   await expect(page.getByRole('textbox', { name: 'Select', exact: true })).toHaveValue('S');
