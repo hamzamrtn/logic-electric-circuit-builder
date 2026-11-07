@@ -39,7 +39,11 @@ Click any image for full resolution, or [explore all ten screenshots and editabl
 - **Control over every connection.** Route around components, choose your own wire bends, branch through explicit junctions and name nets. Crossed wires stay separate until you join them.
 - **Diagrams that belong in your notes.** Embed live circuit previews, then export SVG or PNG for lessons, reports and sharing. Your circuit files stay in your vault, ready to edit again.
 
-## Start drawing
+## Installation
+
+In Obsidian, open **Settings → Community plugins → Browse**, search for **Logic-Electric Circuit Builder**, then select **Install** and **Enable**. Requires Obsidian 1.14.0 or later.
+
+## Usage
 
 Open a new circuit with the ribbon icon or **Logic-Electric Circuit Builder: New circuit** in the command palette. Choose a part from **Electrical**, **Logic** or **Connections**, place it, and tap two pins to connect them.
 
