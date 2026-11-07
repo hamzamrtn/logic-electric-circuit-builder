@@ -1,5 +1,7 @@
 # Validation and remaining qualification
 
+Current unreleased control/inspector changes: 147 core tests and 213 desktop/Android browser checks pass, with 15 mouse/touch-specific skips. Lint, production build, artifact checks and install-stub persistence checks pass. See the [intuitive controls review](evidence/intuitive-controls/validation.md) for the owner's reported issues, implementation evidence, visual review and host/device limits. GitHub Verify provides the separate WebKit result.
+
 Latest verification, 2026-11-07: 143 core/adapter tests and 175 desktop/Android browser checks pass, with 14 mouse-only skips on touch projects. Strict TypeScript, official Obsidian lint, production artifact checks, clean-install stub smoke and packaging pass. [Current hashes and command record](evidence/final-quality-checks.json), [interaction feedback](interaction-feedback.md), and [README/listing gallery](screenshots/README.md) describe this working tree. Real-device/Safari qualification remains separate.
 
 GitHub [Verify for the 0.1.6 implementation](https://github.com/hamzamrtn/logic-electric-circuit-builder/actions/runs/42358998816) also passes: 143 core tests and 226 browser checks across Chromium, Android layouts and WebKit touch, with 26 platform-specific skips. Actual Obsidian devices and Safari remain separate from browser emulation.

@@ -8,6 +8,7 @@ import { exportPNG, exportSVG } from './io/export';
 import { type EditorHost } from './editor/ui/Editor';
 import { previewBlock, resolvePreviewFile } from './io/preview-reference';
 import { examples } from './components/definitions/examples';
+import { loadShortcuts, validateShortcuts, type ShortcutPreferences, type ToolShortcuts } from './editor/input/shortcuts';
 class CircuitPicker extends FuzzySuggestModal<TFile> {
   constructor(app: App, private choose: (file: TFile) => void) { super(app); this.setPlaceholder('Open a circuit…'); }
   getItems() { return this.app.vault.getFiles().filter(f => f.extension === 'lecircuit'); }
@@ -17,9 +18,18 @@ class CircuitPicker extends FuzzySuggestModal<TFile> {
 export default class CircuitPlugin extends Plugin {
   sessions!: VaultSessions;
   settings: CircuitSettings = DEFAULT_SETTINGS;
+  private settingsWrites: Promise<void> = Promise.resolve();
+  private shortcutListeners = new Set<() => void>();
+  readonly shortcutPreferences: ShortcutPreferences = {
+    getSnapshot: () => this.settings.shortcuts,
+    subscribe: listener => { this.shortcutListeners.add(listener); return () => { this.shortcutListeners.delete(listener); }; },
+    save: async bindings => {
+      await this.saveSettings(validateShortcuts(bindings));
+    },
+  };
   async onload() {
     const data = await this.loadData() as Partial<CircuitSettings> | null;
-    this.settings = { ...DEFAULT_SETTINGS, ...(data && typeof data === 'object' ? { grid: typeof data.grid === 'boolean' ? data.grid : true, snap: typeof data.snap === 'boolean' ? data.snap : true, exportFolder: typeof data.exportFolder === 'string' ? data.exportFolder : '' } : {}) };
+    this.settings = { ...DEFAULT_SETTINGS, ...(data && typeof data === 'object' ? { grid: typeof data.grid === 'boolean' ? data.grid : true, snap: typeof data.snap === 'boolean' ? data.snap : true, exportFolder: typeof data.exportFolder === 'string' ? data.exportFolder : '', shortcuts: loadShortcuts(data.shortcuts) } : {}) };
     this.sessions = new VaultSessions(this.app);
     this.registerView(VIEW_TYPE, leaf => new CircuitFileView(leaf, this));
     try { this.registerExtensions(['lecircuit'], VIEW_TYPE); } catch (error) { new Notice('Another plugin has registered .lecircuit. Disable the conflicting registration before enabling this editor.'); throw error; }
@@ -38,7 +48,13 @@ export default class CircuitPlugin extends Plugin {
     this.addSettingTab(new CircuitSettingsTab(this.app, this));
   }
   onunload() { void this.sessions.dispose(); }
-  async saveSettings() { await this.saveData(this.settings); }
+  async saveSettings(shortcuts?: ToolShortcuts) {
+    const write = this.settingsWrites.catch(() => {}).then(async () => {
+      await this.saveData({ ...this.settings, shortcuts: { ...(shortcuts ?? this.settings.shortcuts) } });
+      if (shortcuts) { this.settings.shortcuts = shortcuts; this.shortcutListeners.forEach(listener => listener()); }
+    });
+    this.settingsWrites = write; await write;
+  }
   resolvePreview(reference: string, notePath: string) {
     return resolvePreviewFile({
       byPath: path => this.app.vault.getFileByPath(path) ?? undefined,
@@ -51,7 +67,7 @@ export default class CircuitPlugin extends Plugin {
   async saveRawCopy(file: TFile | null, raw: string) { const copy = await createUnique(this.app, file?.parent?.path ?? '', `${file?.basename ?? 'Circuit'} recovery`, 'txt', raw); new Notice(`Recovery copy saved: ${copy.path}`); }
   editorHost(file: TFile): EditorHost {
     return {
-      defaultGrid: this.settings.grid, defaultSnap: this.settings.snap, examples,
+      defaultGrid: this.settings.grid, defaultSnap: this.settings.snap, shortcuts: this.shortcutPreferences, examples,
       newDocument: () => this.newCircuit(file.parent?.path ?? ''), openDocument: () => this.openCircuitPicker(),
       duplicate: async document => { const copy = { ...document, title: `${document.title} copy` }; const next = await createCircuit(this.app, copy, file.parent?.path ?? ''); await this.app.workspace.getLeaf('tab').openFile(next); },
       export: async (kind, document, owner, scale = 2) => {

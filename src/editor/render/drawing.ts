@@ -78,7 +78,7 @@ export function overlapWarnings(doc: CircuitDocument): { message: string; object
   return out;
 }
 export function objectDescription(doc: CircuitDocument, id: string): string {
-  const c = doc.components.find(c => c.id === id); if (c) return `${c.reference} · ${getDefinition(doc, c).name}`;
+  const c = doc.components.find(c => c.id === id); if (c) return [c.reference, getDefinition(doc, c).name].filter(Boolean).join(' · ');
   const index = doc.wires.findIndex(w => w.id === id), w = doc.wires[index];
   if (w) return `${w.width > 1 ? 'Bus' : 'Wire'} ${index + 1}: ${anchorDescription(doc, w.a)} → ${anchorDescription(doc, w.b)}${w.width > 1 ? ` (${w.width} bits)` : ''}`;
   const annotation = doc.annotations.find(a => a.id === id); if (annotation) return annotation.text || `${annotation.kind} annotation`;

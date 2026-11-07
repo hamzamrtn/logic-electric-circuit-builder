@@ -24,6 +24,10 @@ The current product is an offline schematic editor for drawing and documentation
 
 Favor compact, readable layouts, consistent spacing and control treatments, clear hierarchy and host-theme integration. Light and dark appearances should both work. Keep decoration subordinate to the circuit.
 
+Tooltips should clarify icon-only actions, not repeat text that is already visible. The owner specifically reported native and host tooltips appearing together, and container accessibility names surfacing over toolbar gaps, the scrollbar, search, categories, part cards and inspector backgrounds. Keep screen-reader names without turning every labelled container or text control into a hover tooltip. Icon-only controls such as Undo/Redo should have one useful host tooltip, without a duplicate native title.
+
+Keep the inspector easy to scan. Show the selected object and common properties first; group movement, connections and advanced actions in clearly labelled disclosures. Use a concise empty state, meaningful object groups and short explanations. Preserve capabilities while reducing the amount a user must process at once. Blank-canvas right-clicks must not open an empty Properties panel. Double-click/double-tap should inspect the targeted object reliably, including with Multi enabled.
+
 The owner approved subtle, brief placement and wire feedback, pin-target confirmation, selection fades, alignment/overlap cues and smooth camera transitions. Keep motion controlled, informative and easy to interrupt. Honor Reduce Motion. Feedback must not move authoritative pins, shift hit targets, obstruct input or suggest an edit that did not commit.
 
 Alignment aids should help users make deliberate choices. Avoid unexpected coordinate nudges. Warnings should be useful and quiet, with a clear recovery path rather than persistent visual noise.
@@ -53,6 +57,8 @@ The owner explicitly welcomes judgment about missing features, common annoyances
 Look at how actions fit together and what the user experiences, not just individual functions. Prioritize fixes, clarity and workflow completeness. Add a feature when it solves a concrete editing problem and fits the product's organization; keep scope controlled and avoid speculative expansion.
 
 Do not repeatedly ask whether the plugin should be intuitive, powerful, clean or polished. Those are established requirements. Ask about a genuinely unresolved consequential choice when the available project context cannot settle it.
+
+Canvas tool shortcuts should be discoverable and customizable. Select has a shortcut as well as Wire. Tool keys must work only when the drawing owns focus, and must not interfere with notes, search, property fields, dialogs, text composition or native modifier shortcuts. Preserve familiar defaults and offer a clear way to restore them.
 
 ## Demonstration and documentation quality
 

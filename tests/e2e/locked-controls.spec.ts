@@ -27,6 +27,7 @@ test('locked wire geometry cannot be edited through the inspector', async ({ pag
   await page.getByRole('button', { name: 'Finish', exact: true }).click();
   await page.evaluate(() => window.__lec.session.edit('Protect wire', doc => { doc.wires[0].locked = true; }));
   await page.getByRole('button', { name: 'Inspect', exact: true }).click();
+  await page.getByText('Wire connections', { exact: true }).click();
   for (const name of ['Drag segments & bends', 'Add / remove bends…', 'Use free-angle routing', 'Reconnect start', 'Reconnect end']) await expect(page.getByRole('button', { name, exact: true })).toBeDisabled();
 });
 
@@ -50,6 +51,7 @@ test('coordinate dialogs use absolute positions after an external move', async (
   await page.getByRole('application').click({ position: { x: 180, y: 240 } });
   const original = await page.evaluate(() => window.__lec.session.getSnapshot().document.components[0].position);
   await page.getByRole('button', { name: 'Inspect', exact: true }).click();
+  await page.getByText('Position & orientation', { exact: true }).click();
   await page.getByRole('button', { name: 'Move by coordinates…', exact: true }).click();
   await page.evaluate(() => window.__lec.session.edit('Move in another view', doc => { doc.components[0].position.x += 80; doc.components[0].position.y -= 40; }));
   await page.getByRole('spinbutton', { name: 'Selected object X', exact: true }).fill(String(original.x + 160));

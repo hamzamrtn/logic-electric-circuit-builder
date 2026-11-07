@@ -1,8 +1,9 @@
-import { useLayoutEffect, useRef, useState, type ReactNode } from 'react';
+import { useId, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 
 export function FileMenu({ anchor, boundary, onClose, children, footer }: {
   anchor: HTMLElement | null; boundary: HTMLElement | null; onClose: () => void; children: ReactNode; footer: ReactNode;
 }) {
+  const labelId = useId();
   const ref = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ left: 6, top: 36, maxHeight: 400 });
   useLayoutEffect(() => {
@@ -22,7 +23,7 @@ export function FileMenu({ anchor, boundary, onClose, children, footer }: {
     doc.addEventListener('pointerdown', outside, true); doc.addEventListener('scroll', place, true); win.addEventListener('resize', place);
     return () => { observer.disconnect(); doc.removeEventListener('pointerdown', outside, true); doc.removeEventListener('scroll', place, true); win.removeEventListener('resize', place); anchor.focus(); };
   }, [anchor, boundary, onClose]);
-  return <div ref={ref} className="lec-file-menu" role="menu" aria-label="File" style={position} onKeyDown={event => {
+  return <div ref={ref} className="lec-file-menu" role="menu" aria-labelledby={labelId} style={position} onKeyDown={event => {
     if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); onClose(); return; }
     if (['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(event.key)) {
       event.preventDefault(); event.stopPropagation();
@@ -30,5 +31,5 @@ export function FileMenu({ anchor, boundary, onClose, children, footer }: {
       const next = event.key === 'Home' ? 0 : event.key === 'End' ? items.length - 1 : (current + (event.key === 'ArrowDown' ? 1 : -1) + items.length) % items.length;
       items[next]?.focus();
     }
-  }}><div className="lec-file-menu-body">{children}</div><div className="lec-file-menu-footer">{footer}</div></div>;
+  }}><div className="lec-file-menu-body"><span id={labelId} hidden>File</span>{children}</div><div className="lec-file-menu-footer">{footer}</div></div>;
 }

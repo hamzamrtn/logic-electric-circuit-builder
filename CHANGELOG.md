@@ -1,6 +1,14 @@
 # Changelog
 
-## 0.1.6 — prepared release
+## Unreleased
+
+- Remove duplicate native/host tooltips and redundant hover labels from named controls and containers while preserving screen-reader names.
+- Make double-click/double-tap inspection reliable with Multi selection and touch gestures; stop blank-canvas right-clicks from opening an empty inspector.
+- Add configurable canvas tool keys under File → Keyboard shortcuts, with conflict validation, disabled bindings, reset defaults and saved preferences shared by open views.
+- Limit canvas shortcuts to drawing focus and preserve native typing, composition, button and dialog interactions.
+- Simplify the inspector with common fields first, related action disclosures, grouped object lists and clearer empty/net/check states.
+
+## 0.1.6 — touch navigation and circuit editing
 
 - Add brief placement, wire-completion, endpoint and grid-snap feedback, with fixed authoritative geometry and Reduce Motion support.
 - Add nearby alignment guides and quiet overlap cues without nudging or blocking placement; fade selection handles while deactivating them immediately.

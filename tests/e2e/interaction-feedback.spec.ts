@@ -144,6 +144,7 @@ test('changing Reduce Motion during Fit finishes immediately without touching hi
 
 test('repeat placement feedback expires while later snap cues keep arriving', async ({ page }) => {
   await page.getByRole('button', { name: 'Inspect', exact: true }).click();
+  await page.getByText('Annotations & wire options', { exact: true }).click();
   await page.getByRole('checkbox', { name: 'Repeat placement', exact: true }).first().check();
   await page.getByRole('button', { name: 'Close inspector', exact: true }).click();
   await chooseResistor(page); await page.getByRole('application').click({ position: { x: 160, y: 240 } });

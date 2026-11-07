@@ -67,7 +67,8 @@ test('middle dragging over a part pans without moving the part', async ({ page, 
 
 test('the vertical-first control changes the committed wire path', async ({ page }) => {
   await page.getByRole('button', { name: 'Inspect', exact: true }).click();
-  await page.getByRole('button', { name: 'Horizontal first', exact: true }).first().click();
+  await page.getByText('Annotations & wire options', { exact: true }).click();
+  await page.getByRole('button', { name: 'Horizontal first', exact: true }).click();
   await page.getByRole('button', { name: 'Close inspector', exact: true }).click();
   await page.getByRole('button', { name: 'Wire', exact: true }).click();
   await page.getByRole('application').click({ position: { x: 80, y: 180 } });

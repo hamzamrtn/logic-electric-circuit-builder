@@ -6,6 +6,14 @@ Brief feedback confirms placement, completed connections, pin acquisition and gr
 
 The top toolbar groups parts under Electrical, Logic and Connections. Opening a group shows its categories and small symbol previews. Search spans the library. The picker closes after choosing a part and consumes its own pointer interactions. The library never reserves a permanent left column. Select all and Deselect all live in the top toolbar. Properties remain closed until requested, and secondary arrangement operations are grouped under a disclosure.
 
+Visible names do not get redundant hover labels. Structural containers, search fields and labelled part cards use referenced accessible names rather than tooltip-triggering aria-label attributes. Icon-only Undo/Redo/Fit controls retain one host tooltip without a native title. Screen-reader names remain available throughout.
+
+Double-clicking a part, wire or junction opens exactly that object's properties, even with Multi enabled. Double-tapping provides the touch equivalent and text annotations retain direct text editing. Pin gestures continue wiring. Blank-canvas right-click leaves the selection, tool and inspector unchanged; an object right-click may inspect that object while Select is active. Property activation does not create a document edit, interrupt wiring or survive a pan/pinch as an unintended double-tap.
+
+File → Keyboard shortcuts configures single letter/number tool keys: V Select, B Box, M Multi, W Wire, R Rotate, F Fit and I Inspect by default. Empty bindings disable an action; conflicts are rejected; defaults can be restored. Keys apply only to the focused drawing, with composition/repeat protection and native input/modifier behavior preserved. Preferences persist through the plugin and notify open views after a successful save.
+
+The inspector presents common fields first. Position & orientation, Pins & connections, Wire connections and selection actions are available through labelled disclosures. Its empty state offers short selection guidance. Objects are grouped by kind, nets show a readable count and expandable terminals, and checks use concise guidance and a quiet success state.
+
 Colors come from Obsidian's background, text, border and interaction CSS variables. The editor has no independent light/dark preference and no forced green palette. The browser development harness supplies representative host variables; this emulation is not shipped. Exports remain self-contained with explicit neutral colors.
 
 Desktop target: 1440x900, full-width canvas until Properties is requested. Phone target: 390x844, compact top toolbars with horizontal scrolling where needed; category previews use three columns and touch controls retain practical hit targets. Popup/inspector sizing uses the actual view container. Palette/property scrolling does not pan the drawing.

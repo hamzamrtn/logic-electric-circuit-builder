@@ -44,7 +44,7 @@
 .lec-editor .lec-tool-group { display: flex; align-items: center; gap: 2px; padding-right: 6px; border-right: 1px solid var(--lec-line); flex-shrink: 0; }
 .lec-editor .lec-tool-group:last-child { border: none; padding-right: 0; margin-left: auto; }
 .lec-editor .lec-tools button { border-color: transparent; font-size: 12px; padding: 4px 7px; }
-.lec-editor .lec-tools .lec-history button span { display: none; }
+.lec-editor .lec-tools .lec-history button span:not([hidden]) { display: none; }
 .lec-editor .lec-tools svg { width: 16px; height: 16px; }
 .lec-editor .lec-part-dismiss { position: absolute; inset: 70px 0 0; z-index: 6; }
 .lec-editor .lec-part-popover { position: absolute; top: 70px; left: 8px; z-index: 7; width: min(640px, calc(100% - 16px)); max-height: calc(100% - 78px); display: flex; flex-direction: column; background: var(--lec-panel); border: 1px solid var(--lec-line); border-radius: 3px; box-shadow: 0 4px 12px #0002; padding: 8px; }
@@ -160,7 +160,7 @@
   .lec-editor .lec-selection-tools button { min-height: 44px; font-size: 10px; padding: 4px 6px; }
   .lec-editor .lec-tools { min-height: 48px; padding: 1px 6px; gap: 2px; }
   .lec-editor .lec-tools button { flex-direction: column; gap: 2px; width: 44px; min-width: 44px; min-height: 44px; padding: 3px; font-size: 9px; }
-  .lec-editor .lec-tools .lec-history button span { display: inline; }
+  .lec-editor .lec-tools .lec-history button span:not([hidden]) { display: inline; }
   .lec-editor .lec-tool-group { padding-right: 2px; gap: 0; }
   .lec-editor .lec-part-dismiss { top: 94px; }
   .lec-editor .lec-part-popover { top: 94px; left: 6px; width: calc(100% - 12px); max-height: calc(100% - 100px); padding: 6px; }
@@ -236,4 +236,51 @@
   .lec-editor button:active:not(:disabled) > svg { transform: none; }
   .lec-editor .lec-placement-ink.is-settling, .lec-editor .lec-target, .lec-editor .lec-alignment-guide, .lec-editor .lec-overlap-cue { animation: none; }
   .lec-editor .lec-wire-feedback, .lec-editor .lec-snap-feedback, .lec-editor .lec-connection-feedback { animation-duration: 100ms; }
+}
+
+/* Names referenced by aria-labelledby stay available without host hover tooltips. */
+.lec-editor [hidden] { display: none; }
+.lec-editor .lec-shortcuts-form { display: flex; flex-direction: column; gap: 8px; }
+.lec-editor .lec-shortcut-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.lec-editor .lec-shortcut-row input { width: 52px; text-align: center; font-family: var(--font-monospace, monospace); }
+
+/* A quiet inspector: common fields first, related actions in disclosures. */
+.lec-editor .lec-inspector { padding: 0 12px; }
+.lec-editor .lec-inspector.is-open { width: 304px; }
+.lec-editor .lec-panel-heading { min-height: 42px; }
+.lec-editor .lec-panel-heading h2 { font-size: 13px; font-weight: 600; }
+.lec-editor .lec-inspector-tabs { gap: 2px; padding: 3px; margin: 0 0 14px; border: 1px solid var(--lec-line); border-radius: var(--radius-m, 6px); }
+.lec-editor .lec-inspector-tabs button { min-height: 30px; border: none; border-radius: var(--radius-s, 3px); font-size: 12px; }
+.lec-editor .lec-inspector-tabs button[aria-selected="true"] { background: var(--lec-accent-wash); font-weight: 600; }
+.lec-editor .lec-inspector-body { padding: 0 0 16px; scrollbar-gutter: stable; }
+.lec-editor .lec-inspector-body > .lec-muted { line-height: 1.5; margin-bottom: 10px; }
+.lec-editor .lec-inspector-empty { padding: 14px 4px 20px; }
+.lec-editor .lec-inspector-empty h3 { color: var(--lec-ink); font-size: 14px; }
+.lec-editor .lec-inspector-empty p { line-height: 1.6; font-size: 12px; padding: 0; text-wrap: pretty; }
+.lec-editor .lec-selection-title { padding: 2px 0 12px; }
+.lec-editor .lec-selection-title small { font-size: 11px; }
+.lec-editor .lec-selection-title h3 { margin: 3px 0 0; line-height: 1.4; font-size: 15px; overflow-wrap: anywhere; }
+.lec-editor .lec-property-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 10px; padding-bottom: 10px; }
+.lec-editor .lec-property-fields .lec-field { margin: 4px 0 8px; }
+.lec-editor .lec-property-fields .lec-field:last-child { grid-column: 1 / -1; }
+.lec-editor .lec-property-fields input { min-height: 32px; }
+.lec-editor .lec-inspector-section, .lec-editor .lec-selection-actions, .lec-editor .lec-annotation-tools { padding: 8px 0; margin: 0; }
+.lec-editor .lec-inspector-section > summary, .lec-editor .lec-selection-actions > summary, .lec-editor .lec-annotation-tools > summary { min-height: 36px; padding: 8px 2px; font-weight: 500; }
+.lec-editor .lec-inspector-section-body { padding: 3px 0 8px; }
+.lec-editor .lec-inspector-section-body > button { width: 100%; justify-content: flex-start; margin-top: 4px; font-size: 12px; }
+.lec-editor .lec-inspector .lec-action-grid { gap: 6px; margin-top: 8px; }
+.lec-editor .lec-inspector .lec-action-grid button { min-height: 32px; padding: 7px; border-color: var(--lec-line); }
+.lec-editor .lec-pin-row { padding: 4px 0; }
+.lec-editor .lec-pin-row button { min-width: 0; overflow-wrap: anywhere; }
+.lec-editor .lec-check-success { margin-top: 12px; padding: 12px; background: var(--lec-accent-wash); border-radius: var(--radius-m, 6px); font-size: 12px; }
+@container (max-width: 700px) {
+  .lec-editor .lec-inspector.is-open { width: min(320px, calc(100% - 16px)); }
+  .lec-editor .lec-inspector-tabs button, .lec-editor .lec-inspector-section > summary, .lec-editor .lec-selection-actions > summary, .lec-editor .lec-annotation-tools > summary, .lec-editor .lec-inspector-section-body button { min-height: 44px; }
+}
+
+.lec-editor .lec-object-section h4 { display: flex; justify-content: space-between; align-items: center; margin: 16px 0 4px; font-size: 11px; font-weight: 500; color: var(--lec-muted); }
+.lec-editor .lec-object-section h4 span { font-variant-numeric: tabular-nums; }
+.lec-editor .lec-object-section .lec-object-row { min-height: 32px; padding: 8px; font-size: 12px; }
+@container (max-width: 700px) {
+  .lec-editor .lec-property-fields input, .lec-editor .lec-shortcut-row input, .lec-editor .lec-object-section .lec-object-row { min-height: 44px; }
 }
