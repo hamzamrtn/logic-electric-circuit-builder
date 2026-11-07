@@ -56,6 +56,8 @@ The owner asks for professional work without mistakes and wants no bugs slipping
 
 ## Proactive improvement
 
+The owner also expects efficient execution and continuous learning. Briefly review the approach during work, correct avoidable rework and scope expansion promptly, sequence verification sensibly, and give realistic progress updates. Preserve the product's quality bar while improving how the work is done. The concrete workflow and lessons are in [AGENTS.md](../AGENTS.md).
+
 The owner explicitly welcomes judgment about missing features, common annoyances, placement, wires, pathfinding and small improvements that make editing smoother and more enjoyable. Do useful work within the requested scope without requiring a detailed design brief for every routine choice.
 
 Look at how actions fit together and what the user experiences, not just individual functions. Prioritize fixes, clarity and workflow completeness. Add a feature when it solves a concrete editing problem and fits the product's organization; keep scope controlled and avoid speculative expansion.
