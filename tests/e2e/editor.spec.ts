@@ -1,15 +1,17 @@
+import { expectDeselectDisabled, insertAction, openParts, selectionAction } from './helpers/toolbar';
 import { expect, test } from '@playwright/test';
 const preview = new URL('../../dev/preview.html', import.meta.url).href;
 test.beforeEach(async ({ page }) => { await page.goto(preview); await expect(page.getByTestId('editor')).toBeVisible(); });
 async function add(page: import('@playwright/test').Page, name: string, x: number, y: number) {
-  await page.getByRole('button', { name: 'Electrical parts', exact: true }).click();
+  await openParts(page, 'Electrical');
   await page.getByRole('textbox', { name: 'Search parts', exact: true }).fill(name.replace(/ Passive$/, ''));
   await page.getByRole('button', { name, exact: true }).click(); await page.getByRole('application').click({ position: { x, y } });
 }
 test('visible placement, rotation and undo', async ({ page }) => {
   await add(page, 'Resistor Passive', 180, 220);
   expect(await page.evaluate(() => window.__lec.session.getSnapshot().document.components.length)).toBe(1);
-  await page.getByRole('button', { name: 'Rotate', exact: true }).click();
+  if (await page.getByRole('button', { name: 'Rotate', exact: true }).isVisible()) await page.getByRole('button', { name: 'Rotate', exact: true }).click();
+  else { await page.getByRole('button', { name: 'More actions' }).click(); await page.getByRole('menuitem', { name: 'Rotate selected' }).click(); }
   expect(await page.evaluate(() => window.__lec.session.getSnapshot().document.components[0].rotation)).toBe(90);
   await page.getByRole('button', { name: 'Undo', exact: true }).click();
   expect(await page.evaluate(() => window.__lec.session.getSnapshot().document.components[0].rotation)).toBe(0);
@@ -28,8 +30,8 @@ test('Finish leaves exactly one wire at the placed endpoint and ignores a traili
 });
 test('toolbar selection and linear zoom are available without opening the inspector', async ({ page }) => {
   await add(page, 'Resistor Passive', 180, 220);
-  await page.getByRole('button', { name: 'Select all', exact: true }).click(); await expect(page.getByRole('button', { name: 'Deselect all', exact: true })).toBeEnabled();
-  await page.getByRole('button', { name: 'Deselect all', exact: true }).click(); await expect(page.getByRole('button', { name: 'Deselect all', exact: true })).toBeDisabled();
+  await selectionAction(page, 'Select all'); await expectDeselectDisabled(page, false);
+  await selectionAction(page, 'Deselect all'); await expectDeselectDisabled(page, true);
   await page.getByRole('button', { name: 'Reset zoom' }).click(); await page.getByRole('button', { name: 'Zoom in' }).click(); await expect(page.getByRole('button', { name: 'Reset zoom' })).toHaveText('125%');
   await page.getByRole('button', { name: 'Zoom in' }).click(); await expect(page.getByRole('button', { name: 'Reset zoom' })).toHaveText('150%');
   await page.getByRole('button', { name: 'Zoom out' }).click(); await expect(page.getByRole('button', { name: 'Reset zoom' })).toHaveText('125%');
@@ -65,7 +67,7 @@ test('wire-draft undo removes corners without undoing document history', async (
 });
 test('annotation handles resize and rotate with one undo step per gesture', async ({ page, isMobile }) => {
   test.skip(isMobile, 'Desktop drag path; numeric annotation controls are tested on both layouts.');
-  await page.getByRole('button', { name: 'Text', exact: true }).click(); await page.getByRole('textbox', { name: 'Text', exact: true }).fill('hello'); await page.getByRole('button', { name: 'Apply', exact: true }).click();
+  await insertAction(page, 'Text'); await page.getByRole('textbox', { name: 'Text', exact: true }).fill('hello'); await page.getByRole('button', { name: 'Apply', exact: true }).click();
   const before = await page.evaluate(() => JSON.stringify(window.__lec.session.getSnapshot().document));
   const corner = (await page.locator('[data-annotation-handle="se"]').boundingBox())!; const revision = await page.evaluate(() => window.__lec.session.getSnapshot().revision);
   await page.mouse.move(corner.x + corner.width / 2, corner.y + corner.height / 2); await page.mouse.down(); await page.mouse.move(corner.x + corner.width / 2 + 80, corner.y + corner.height / 2 + 50, { steps: 20 }); await page.mouse.up();
@@ -78,7 +80,7 @@ test('annotation handles resize and rotate with one undo step per gesture', asyn
   expect(await page.evaluate(() => JSON.stringify(window.__lec.session.getSnapshot().document))).toBe(before);
 });
 test('annotation transforms can be set without dragging', async ({ page }) => {
-  await page.getByRole('button', { name: 'Text', exact: true }).click(); await page.getByRole('textbox', { name: 'Text', exact: true }).fill('label'); await page.getByRole('button', { name: 'Apply', exact: true }).click();
+  await insertAction(page, 'Text'); await page.getByRole('textbox', { name: 'Text', exact: true }).fill('label'); await page.getByRole('button', { name: 'Apply', exact: true }).click();
   await expect(page.locator('[data-annotation-handle]')).toHaveCount(5); await page.getByRole('button', { name: 'Inspect', exact: true }).click();
   await page.getByRole('button', { name: 'Move / resize / rotate…', exact: true }).click();
   await page.getByLabel('Rotation (degrees)', { exact: true }).fill('30'); await page.getByLabel('Width (%)', { exact: true }).fill('200'); await page.getByLabel('Height (%)', { exact: true }).fill('150'); await page.getByRole('button', { name: 'Apply', exact: true }).click();
@@ -94,7 +96,7 @@ test('Multi selects a previously unselected buffer together with its wires', asy
       { id: 'test-wire-b', a: { kind: 'node', nodeId: 'test-end-a' }, b: { kind: 'node', nodeId: 'test-end-b' }, width: 1, locked: false, route: { mode: 'auto', geometry: 'orthogonal', horizontalFirst: true, vertices: [] } },
     ] }; window.__lec.session.replaceRaw(JSON.stringify(d));
   });
-  await expect(page.getByRole('button', { name: 'Deselect all', exact: true })).toBeDisabled();
+  await expectDeselectDisabled(page, true);
   const revision = await page.evaluate(() => window.__lec.session.getSnapshot().revision);
   await page.getByRole('button', { name: 'Multi', exact: true }).click();
   await page.locator('.lec-part-hit').click(); await expect(page.locator('.lec-part.is-selected')).toHaveCount(1);

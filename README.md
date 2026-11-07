@@ -18,7 +18,7 @@ A clean, intuitive workspace with the tools to build complete electrical and log
 
 ## Take your circuits with you
 
-The same circuit tools on a screen that suits you. Swipe to pan, pinch to zoom, and tap to place parts or connect pins. A compact toolbar keeps the drawing in focus, with properties a tap away.
+The same circuit tools on a screen that suits you. Swipe to pan, pinch to zoom, and tap to place parts or connect pins. A reachable bottom dock keeps the main tools together on smaller screens, with Undo/Redo always above and properties a tap away.
 
 <p>
   <a href="docs/screenshots/mobile-power.png"><img src="docs/screenshots/mobile-power.png" width="19%" alt="Phone: protected power supply and rail monitor"></a>
@@ -45,7 +45,7 @@ In Obsidian, open **Settings → Community plugins → Browse**, search for **Lo
 
 ## Usage
 
-Open a new circuit with the ribbon icon or **Logic-Electric Circuit Builder: New circuit** in the command palette. Choose a part from **Electrical**, **Logic** or **Connections**, place it, and tap two pins to connect them.
+Open a new circuit with the ribbon icon or **Logic-Electric Circuit Builder: New circuit** in the command palette. Choose **Add**, pick a part from **Electrical**, **Logic** or **Connections**, place it, and tap two pins to connect them.
 
 From a note, run **Insert circuit preview** to bring the drawing into your notes. Explore the [editable example circuits](examples/showcase/README.md) for ideas, or follow the [editing and shortcuts guide](docs/user-guide.md).
 

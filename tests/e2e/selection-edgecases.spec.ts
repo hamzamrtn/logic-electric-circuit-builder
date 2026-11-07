@@ -1,3 +1,4 @@
+import { selectionAction } from './helpers/toolbar';
 import { expect, test, type Page } from '@playwright/test';
 import { nativeTouch } from './helpers/touch';
 
@@ -9,7 +10,7 @@ async function smallWire(page: Page) {
   await page.getByRole('application').click({ position: { x: 80, y: 180 } });
   await page.getByRole('application').click({ position: { x: 240, y: 180 } });
   await page.getByRole('button', { name: 'Finish', exact: true }).click();
-  await page.getByRole('button', { name: 'Deselect all', exact: true }).click();
+  await selectionAction(page, 'Deselect all');
   await page.getByRole('button', { name: 'Reset zoom', exact: true }).click();
   for (let i = 0; i < 3; i++) await page.getByRole('button', { name: 'Zoom out', exact: true }).click();
   return page.locator('.lec-wire-hit').evaluate(element => {

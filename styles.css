@@ -284,3 +284,121 @@
 @container (max-width: 700px) {
   .lec-editor .lec-property-fields input, .lec-editor .lec-shortcut-row input, .lec-editor .lec-object-section .lec-object-row { min-height: 44px; }
 }
+
+/* Responsive workbench: one calm command row, a reachable dock in compact panes. */
+.lec-editor { --lec-control-radius: 9px; --lec-surface-radius: 16px; }
+.lec-editor .lec-workspace { container: lec-workspace / inline-size; }
+.lec-editor .lec-topbar { min-height: 56px; padding: 6px 8px; gap: 10px; overflow: visible; border-bottom-color: var(--lec-line); }
+.lec-editor .lec-topbar button { min-height: 36px; border-radius: var(--lec-control-radius); white-space: nowrap; }
+.lec-editor .lec-file-cluster, .lec-editor .lec-utility-cluster, .lec-editor .lec-history { display: flex; align-items: center; gap: 3px; flex-shrink: 0; }
+.lec-editor .lec-file-cluster { gap: 8px; }
+.lec-editor .lec-file-trigger { border-color: transparent; padding: 6px 8px; font-size: 12px; }
+.lec-editor .lec-history { padding: 2px; background: var(--lec-paper); border: 1px solid var(--lec-line); border-radius: 11px; }
+.lec-editor .lec-history button { min-width: 32px; min-height: 30px; padding: 5px; border-color: transparent; }
+.lec-editor .lec-icon-only > span:not([hidden]) { display: none; }
+.lec-editor .lec-utility-cluster { margin-left: auto; gap: 5px; }
+.lec-editor .lec-utility-cluster > button { border-color: transparent; font-size: 12px; padding: 6px 9px; }
+.lec-editor .lec-more-trigger { position: relative; min-width: 36px; justify-content: center; }
+.lec-editor .lec-issues-badge { position: absolute; right: -2px; top: -3px; min-width: 15px; padding: 2px 4px; border-radius: 10px; background: var(--lec-warning-bg); color: var(--lec-warning); font-size: 9px; font-style: normal; line-height: 1; }
+.lec-editor .lec-drawing-toolbar { display: flex; align-items: center; gap: 6px; min-width: 0; flex: 1; }
+.lec-editor .lec-drawing-toolbar .lec-tools { min-height: 0; padding: 0; border: none; background: transparent; overflow: visible; flex-shrink: 0; }
+.lec-editor .lec-drawing-toolbar .lec-tool-group { gap: 2px; border: none; padding: 0; }
+.lec-editor .lec-drawing-toolbar .lec-tools button { min-height: 36px; border-radius: var(--lec-control-radius); padding: 6px 7px; }
+.lec-editor .lec-wire-tool { padding-left: 6px; border-left: 1px solid var(--lec-line); }
+.lec-editor .lec-wire-tool button, .lec-editor .lec-rotate-context button { border-color: transparent; font-size: 12px; padding: 6px 8px; }
+.lec-editor .lec-drawing-toolbar .lec-parts-toolbar { flex: 0 0 auto; min-width: 0; min-height: 0; border: none; padding: 0; background: transparent; overflow: visible; }
+.lec-editor .lec-parts-toolbar > button { display: inline-flex; align-items: center; gap: 5px; }
+.lec-editor .lec-drawing-toolbar .lec-parts-toolbar > button { padding: 6px 10px; background: var(--lec-paper); border: 1px solid var(--lec-line); }
+.lec-editor .lec-drawing-toolbar .lec-parts-toolbar > button[aria-expanded="true"] { background: var(--lec-accent-wash); }
+.lec-editor .lec-rotate-context { display: flex; align-items: center; gap: 8px; margin-left: 2px; }
+.lec-editor .lec-context-name { display: none; }
+.lec-editor .lec-dock-spacer { display: none; }
+.lec-editor .lec-statusbar { height: 26px; min-height: 26px; flex-shrink: 0; gap: 8px; padding: 3px 10px; font-size: 10px; }
+.lec-editor .lec-statusbar > span { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.lec-editor .lec-status-actions { flex-shrink: 0; gap: 8px; }
+.lec-editor .lec-status-actions .lec-save { max-width: 160px; margin: 0; font-size: 10px; }
+.lec-editor .lec-status-issues { color: var(--lec-warning); font-variant-numeric: tabular-nums; }
+.lec-editor .lec-status-divider { padding: 0 6px; }
+.lec-editor .lec-file-menu { padding: 6px; border-radius: 12px; box-shadow: 0 8px 28px #0002, 0 2px 6px #0001; }
+.lec-editor .lec-file-menu button { padding: 8px 10px; border-radius: 7px; gap: 8px; }
+.lec-editor .lec-menu-caption { padding: 9px 10px 5px; color: var(--lec-muted); font-size: 10px; font-weight: 500; }
+.lec-editor .lec-menu-caption:not(:first-child) { border-top: 1px solid var(--lec-line); margin-top: 5px; }
+.lec-editor .lec-menu-check { display: inline-block; width: 12px; }
+.lec-editor .lec-menu-count { margin-left: auto; font-size: 10px; color: var(--lec-warning); }
+.lec-editor .is-compact .lec-topbar { min-height: 56px; gap: 4px; padding: 5px 8px; }
+.lec-editor .is-compact .lec-topbar button { min-height: 44px; }
+.lec-editor .is-compact .lec-history button { min-width: 36px; min-height: 40px; }
+.lec-editor .is-compact .lec-file-cluster { gap: 6px; }
+.lec-editor .is-compact .lec-utility-cluster { gap: 3px; }
+.lec-editor .is-compact .lec-utility-cluster > button { padding: 6px 8px; }
+.lec-editor .is-compact .lec-drawing-toolbar { position: absolute; z-index: 5; left: 8px; right: 8px; bottom: 34px; display: grid; grid-template-columns: minmax(132px, 3fr) minmax(44px, 1fr) minmax(48px, 1fr); grid-template-areas: 'selection wire add'; gap: 6px; padding: 6px; background: var(--lec-panel); border: 1px solid var(--lec-line); border-radius: var(--lec-surface-radius); box-shadow: 0 3px 12px #0001, 0 1px 3px #0001; }
+.lec-editor .is-compact .lec-drawing-toolbar .lec-tools { grid-area: selection; width: 100%; min-height: 0; }
+.lec-editor .is-compact .lec-drawing-toolbar .lec-tool-group { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; gap: 2px; }
+.lec-editor .is-compact .lec-drawing-toolbar button { min-width: 44px; min-height: 50px; padding: 5px 2px; font-size: 10px; gap: 4px; flex-direction: column; border-radius: 10px; }
+.lec-editor .is-compact .lec-drawing-toolbar button > svg { width: 20px; height: 20px; }
+.lec-editor .is-compact .lec-wire-tool { grid-area: wire; padding: 0; border: none; }
+.lec-editor .is-compact .lec-wire-tool > button { width: 100%; }
+.lec-editor .is-compact .lec-drawing-toolbar .lec-parts-toolbar { grid-area: add; width: 100%; min-height: 0; }
+.lec-editor .is-compact .lec-drawing-toolbar .lec-parts-toolbar > button { width: 100%; min-height: 50px; padding: 5px 2px; }
+.lec-editor .is-compact .lec-rotate-context { display: none; }
+.lec-editor .is-compact .lec-drawing-toolbar.has-context { grid-template-areas: 'rotate rotate rotate' 'selection wire add'; }
+.lec-editor .is-compact .has-context .lec-rotate-context { grid-area: rotate; display: flex; margin: 0; gap: 8px; padding: 0 2px 6px; border-bottom: 1px solid var(--lec-line); }
+.lec-editor .is-compact .lec-context-name { display: block; flex: 1; min-width: 0; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--lec-muted); font-size: 11px; }
+.lec-editor .is-compact .lec-rotate-context > button { min-height: 36px; padding: 5px 8px; flex-direction: row; gap: 5px; }
+.lec-editor .is-compact .lec-dock-spacer { display: block; flex-shrink: 0; height: var(--lec-dock-space, 76px); }
+.lec-editor .is-compact .lec-status-actions .lec-save { max-width: 96px; }
+.lec-editor .lec-part-dismiss { position: absolute; inset: 0; z-index: 29; background: #0002; }
+.lec-editor .lec-part-popover { z-index: 30; top: auto; bottom: auto; max-height: none; width: auto; padding: 12px; gap: 10px; border-radius: var(--lec-surface-radius); box-shadow: 0 12px 38px #0003, 0 2px 8px #0001; outline: none; animation: lec-picker-enter 120ms ease-out; }
+.lec-editor .lec-part-popover.is-compact { border-radius: 20px; }
+.lec-editor .lec-picker-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-shrink: 0; }
+.lec-editor .lec-picker-heading h2 { font-size: 14px; font-weight: 600; }
+.lec-editor .lec-picker-heading > button { border: none; border-radius: 8px; width: 32px; min-height: 32px; padding: 2px; font-size: 22px; }
+.lec-editor .lec-part-search { flex-shrink: 0; margin: 0; }
+.lec-editor .lec-part-search input { min-height: 36px; border-radius: var(--lec-control-radius); padding: 7px 10px; font-size: 12px; }
+.lec-editor .lec-part-families { display: flex; gap: 4px; padding: 3px; background: var(--lec-paper); border: 1px solid var(--lec-line); border-radius: 11px; flex-shrink: 0; }
+.lec-editor .lec-part-families > button { flex: 1; min-width: 0; justify-content: center; border: none; border-radius: 8px; padding: 7px 8px; font-size: 12px; }
+.lec-editor .lec-part-categories { flex-wrap: wrap; gap: 4px; border: none; padding: 0; overflow: visible; }
+.lec-editor .lec-part-categories > button { padding: 5px 8px; min-height: 30px; border: 1px solid var(--lec-line); border-radius: 8px; font-size: 11px; }
+.lec-editor .lec-parts-grid { grid-template-columns: repeat(auto-fit, minmax(84px, 1fr)); gap: 5px; padding: 3px 0; }
+.lec-editor .lec-part-choice { min-height: 88px; padding: 10px 5px; gap: 8px; border-radius: 10px; }
+.lec-editor .lec-part-choice svg { width: 58px; height: 40px; }
+.lec-editor .lec-part-choice > span:not([hidden]) { font-size: 11px; line-height: 1.3; }
+.lec-editor .lec-picker-footer { display: flex; gap: 8px; padding-top: 10px; border-top: 1px solid var(--lec-line); flex-shrink: 0; }
+.lec-editor .lec-picker-footer > button { flex: 1; justify-content: center; min-height: 34px; border-radius: 9px; font-size: 12px; }
+.lec-editor .lec-part-popover.is-compact .lec-picker-heading > button,
+.lec-editor .lec-part-popover.is-compact .lec-part-search input,
+.lec-editor .lec-part-popover.is-compact .lec-part-families > button,
+.lec-editor .lec-part-popover.is-compact .lec-part-categories > button,
+.lec-editor .lec-part-popover.is-compact .lec-picker-footer > button { min-height: 44px; }
+.lec-editor .lec-dialog, .lec-editor .lec-inspector-tabs { border-radius: 12px; }
+.lec-editor .lec-field input, .lec-editor .lec-field select, .lec-editor .lec-field textarea { border-radius: 8px; }
+@container (max-width: 1000px) {
+  .lec-editor .lec-inspector.is-open { top: 56px; bottom: calc(var(--lec-dock-space, 0px) + 34px); left: auto; right: 8px; width: min(360px, calc(100% - 16px)); border: 1px solid var(--lec-line); border-radius: var(--lec-surface-radius); box-shadow: 0 4px 18px #0002; }
+}
+@media (pointer: coarse) {
+  .lec-editor .lec-topbar button, .lec-editor .lec-file-menu button { min-height: 44px; }
+}
+@keyframes lec-picker-enter { from { opacity: .8; transform: translateY(3px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .lec-editor .lec-part-popover { animation: none; } }
+
+.lec-editor .lec-zoom-controls { border-radius: 12px; padding: 2px; overflow: hidden; box-shadow: 0 2px 8px #0001; }
+.lec-editor .is-compact .lec-history { padding: 0; }
+.lec-editor .is-compact .lec-history button { min-width: 44px; min-height: 44px; }
+.lec-editor .is-compact .lec-more-trigger { min-width: 44px; }
+.lec-editor .lec-picker-content { display: flex; flex-direction: column; gap: 10px; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+.lec-editor .lec-picker-content .lec-parts-grid { flex-shrink: 0; overflow: visible; }
+@media (pointer: coarse) {
+  .lec-editor .lec-topbar { padding: 5px 8px; }
+  .lec-editor .lec-history { padding: 0; }
+  .lec-editor .lec-history button, .lec-editor .lec-more-trigger { min-width: 44px; }
+}
+
+.lec-editor .lec-picker-content { flex: 1 1 auto; }
+.lec-editor .lec-part-search > button { min-width: 36px; border: none; border-radius: 8px; font-size: 20px; }
+.lec-editor .lec-part-popover.is-compact .lec-part-search > button { min-width: 44px; min-height: 44px; }
+
+.lec-editor .lec-inspector-tabs button { border-radius: 8px; }
+.lec-editor .lec-zoom-controls > button { border-radius: 9px; }
+.lec-editor .is-compact .lec-topbar { padding-top: 4px; padding-bottom: 4px; }
+.lec-editor .is-compact .lec-rotate-context > button { min-height: 44px; }
+@media (pointer: coarse) { .lec-editor .lec-topbar { padding-top: 4px; padding-bottom: 4px; } }

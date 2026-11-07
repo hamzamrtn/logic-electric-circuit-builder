@@ -1,10 +1,11 @@
+import { insertAction, openParts } from './helpers/toolbar';
 import { expect, test } from '@playwright/test';
 
 const preview = new URL('../../dev/preview.html', import.meta.url).href;
 test.beforeEach(async ({ page }) => { await page.goto(preview); await expect(page.getByTestId('editor')).toBeVisible(); });
 
 for (const grouped of [false, true]) test(`annotation controls respect ${grouped ? 'group' : 'object'} locking and offer an unlock action`, async ({ page }) => {
-  await page.getByRole('button', { name: 'Text', exact: true }).click();
+  await insertAction(page, 'Text');
   await page.getByRole('textbox', { name: 'Text', exact: true }).fill('Protected label');
   await page.getByRole('button', { name: 'Apply', exact: true }).click();
   await page.evaluate(grouped => window.__lec.session.edit('Protect annotation', doc => {
@@ -32,7 +33,7 @@ test('locked wire geometry cannot be edited through the inspector', async ({ pag
 });
 
 test('a transform dialog opened before a lock change cannot bypass the new lock', async ({ page }) => {
-  await page.getByRole('button', { name: 'Text', exact: true }).click();
+  await insertAction(page, 'Text');
   await page.getByRole('textbox', { name: 'Text', exact: true }).fill('Label');
   await page.getByRole('button', { name: 'Apply', exact: true }).click();
   await page.getByRole('button', { name: 'Inspect', exact: true }).click();
@@ -45,7 +46,7 @@ test('a transform dialog opened before a lock change cannot bypass the new lock'
 });
 
 test('coordinate dialogs use absolute positions after an external move', async ({ page }) => {
-  await page.getByRole('button', { name: 'Electrical parts', exact: true }).click();
+  await openParts(page, 'Electrical');
   await page.getByRole('textbox', { name: 'Search parts', exact: true }).fill('Resistor');
   await page.getByRole('button', { name: 'Resistor Passive', exact: true }).click();
   await page.getByRole('application').click({ position: { x: 180, y: 240 } });

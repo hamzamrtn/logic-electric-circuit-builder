@@ -1,7 +1,7 @@
 import { useId, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 
-export function FileMenu({ anchor, boundary, onClose, children, footer }: {
-  anchor: HTMLElement | null; boundary: HTMLElement | null; onClose: () => void; children: ReactNode; footer: ReactNode;
+export function FileMenu({ anchor, boundary, onClose, children, footer, label = 'File' }: {
+  anchor: HTMLElement | null; boundary: HTMLElement | null; onClose: () => void; children: ReactNode; footer?: ReactNode; label?: string;
 }) {
   const labelId = useId();
   const ref = useRef<HTMLDivElement>(null);
@@ -18,18 +18,22 @@ export function FileMenu({ anchor, boundary, onClose, children, footer }: {
       const target = event.target as Node | null;
       if (!ref.current?.contains(target) && !anchor.contains(target)) { event.preventDefault(); event.stopPropagation(); onClose(); }
     };
-    place(); ref.current.querySelector<HTMLButtonElement>('[role=menuitem]:not(:disabled)')?.focus();
+    const menu = ref.current;
+    place(); menu.querySelector<HTMLButtonElement>('[role^=menuitem]:not(:disabled)')?.focus();
     const observer = new win.ResizeObserver(place); observer.observe(boundary);
     doc.addEventListener('pointerdown', outside, true); doc.addEventListener('scroll', place, true); win.addEventListener('resize', place);
-    return () => { observer.disconnect(); doc.removeEventListener('pointerdown', outside, true); doc.removeEventListener('scroll', place, true); win.removeEventListener('resize', place); anchor.focus(); };
+    return () => {
+      observer.disconnect(); doc.removeEventListener('pointerdown', outside, true); doc.removeEventListener('scroll', place, true); win.removeEventListener('resize', place);
+      const active = doc.activeElement; if (!active || active === doc.body || menu.contains(active)) anchor.focus({ preventScroll: true });
+    };
   }, [anchor, boundary, onClose]);
   return <div ref={ref} className="lec-file-menu" role="menu" aria-labelledby={labelId} style={position} onKeyDown={event => {
     if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); onClose(); return; }
     if (['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(event.key)) {
       event.preventDefault(); event.stopPropagation();
-      const items = [...event.currentTarget.querySelectorAll<HTMLButtonElement>('[role=menuitem]:not(:disabled)')], current = items.indexOf(event.target as HTMLButtonElement);
+      const items = [...event.currentTarget.querySelectorAll<HTMLButtonElement>('[role^=menuitem]:not(:disabled)')], current = items.indexOf(event.target as HTMLButtonElement);
       const next = event.key === 'Home' ? 0 : event.key === 'End' ? items.length - 1 : (current + (event.key === 'ArrowDown' ? 1 : -1) + items.length) % items.length;
       items[next]?.focus();
     }
-  }}><div className="lec-file-menu-body"><span id={labelId} hidden>File</span>{children}</div><div className="lec-file-menu-footer">{footer}</div></div>;
+  }}><div className="lec-file-menu-body"><span id={labelId} hidden>{label}</span>{children}</div>{footer && <div className="lec-file-menu-footer">{footer}</div>}</div>;
 }

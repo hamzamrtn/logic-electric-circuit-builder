@@ -1,3 +1,4 @@
+import { openParts } from './helpers/toolbar';
 import { expect, test, type Page } from '@playwright/test';
 
 const preview = new URL('../../dev/preview.html', import.meta.url).href;
@@ -70,7 +71,7 @@ test('canceling a pinch clears pending movement and the next drag starts normall
 });
 
 test('pinching while placing a part does not place it on release', async ({ page }) => {
-  await page.getByRole('button', { name: 'Electrical parts', exact: true }).click();
+  await openParts(page, 'Electrical');
   await page.getByRole('textbox', { name: 'Search parts', exact: true }).fill('Resistor');
   await page.getByRole('button', { name: 'Resistor Passive', exact: true }).click();
   await samples(page, [sample('pointerdown', 1, 80), sample('pointerdown', 2, 280), sample('pointermove', 1, 130), sample('pointermove', 2, 230)]);

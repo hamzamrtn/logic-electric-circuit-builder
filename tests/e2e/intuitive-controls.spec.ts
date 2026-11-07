@@ -1,3 +1,4 @@
+import { openParts } from './helpers/toolbar';
 import { expect, test, type Page } from '@playwright/test';
 import { nativeTouch } from './helpers/touch';
 
@@ -15,7 +16,7 @@ async function parts(page: Page) {
   await page.getByRole('button', { name: 'Fit circuit', exact: true }).click();
 }
 async function shortcuts(page: Page) {
-  await page.getByRole('button', { name: 'Document menu' }).click();
+  await page.getByRole('button', { name: 'More actions' }).click();
   await page.getByRole('menuitem', { name: 'Keyboard shortcuts…', exact: true }).click();
 }
 
@@ -48,11 +49,11 @@ test('right-click inspects a component without toggling off Multi selection', as
 test('toolbar and picker retain accessible names without redundant host or native hover labels', async ({ page }) => {
   await expect(page.getByRole('toolbar', { name: 'Circuit tools' })).not.toHaveAttribute('aria-label');
   await expect(page.getByRole('group', { name: 'Editing tools' })).not.toHaveAttribute('aria-label');
-  await expect(page.getByRole('group', { name: 'Parts and selection' })).not.toHaveAttribute('aria-label');
+  await expect(page.getByRole('group', { name: 'Add to circuit' })).not.toHaveAttribute('aria-label');
   await expect(page.getByRole('button', { name: 'Undo', exact: true })).toHaveAttribute('aria-label', 'Undo');
   await expect(page.getByRole('button', { name: 'Undo', exact: true })).not.toHaveAttribute('title');
   await expect(page.getByRole('button', { name: 'Select', exact: true })).not.toHaveAttribute('aria-label');
-  await page.getByRole('button', { name: 'Connections parts' }).click();
+  await openParts(page, 'Connections');
   await expect(page.getByRole('dialog', { name: 'Parts library' })).not.toHaveAttribute('aria-label');
   await expect(page.getByRole('tablist', { name: 'Connections categories' })).not.toHaveAttribute('aria-label');
   await expect(page.getByRole('textbox', { name: 'Search parts' })).not.toHaveAttribute('aria-label');
@@ -75,7 +76,7 @@ test('custom tool keys apply only to the focused drawing and can be reset', asyn
   await expect(page.getByRole('button', { name: 'Wire', exact: true })).toHaveAttribute('aria-pressed', 'false');
   await page.keyboard.press('l'); await expect(page.getByRole('button', { name: 'Wire', exact: true })).toHaveAttribute('aria-pressed', 'true');
   await page.keyboard.press('s'); await expect(page.getByRole('button', { name: 'Select', exact: true })).toHaveAttribute('aria-pressed', 'true');
-  await page.getByRole('button', { name: 'Electrical parts' }).click();
+  await openParts(page, 'Electrical');
   await page.getByRole('textbox', { name: 'Search parts' }).fill('w');
   await expect(page.getByRole('button', { name: 'Select', exact: true })).toHaveAttribute('aria-pressed', 'true');
   await page.getByRole('button', { name: 'Close parts library' }).click();

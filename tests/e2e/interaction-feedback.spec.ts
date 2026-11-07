@@ -1,10 +1,11 @@
+import { insertAction, openParts, selectionAction } from './helpers/toolbar';
 import { expect, test, type Page } from '@playwright/test';
 import { nativeTouch } from './helpers/touch';
 
 const preview = new URL('../../dev/preview.html', import.meta.url).href;
 test.beforeEach(async ({ page }) => { await page.emulateMedia({ reducedMotion: 'no-preference' }); await page.goto(preview); await expect(page.getByTestId('editor')).toBeVisible(); });
 async function chooseResistor(page: Page) {
-  await page.getByRole('button', { name: 'Electrical parts', exact: true }).click();
+  await openParts(page, 'Electrical');
   await page.getByRole('textbox', { name: 'Search parts', exact: true }).fill('Resistor');
   await page.getByRole('button', { name: 'Resistor Passive', exact: true }).click();
 }
@@ -65,10 +66,10 @@ test('alignment and overlap cues assist placement without nudging or blocking it
   await expect(page.locator('.lec-alignment-guide')).toHaveCount(0); await expect(page.locator('.lec-overlap-cue')).toHaveCount(0);
 });
 test('deselected annotation handles stop intercepting input during their fade', async ({ page }) => {
-  await page.getByRole('button', { name: 'Text', exact: true }).click();
+  await insertAction(page, 'Text');
   await page.getByRole('textbox', { name: 'Text', exact: true }).fill('Label'); await page.getByRole('button', { name: 'Apply', exact: true }).click();
   const revision = await page.evaluate(() => window.__lec.session.getSnapshot().revision);
-  await page.getByRole('button', { name: 'Deselect all', exact: true }).click();
+  await selectionAction(page, 'Deselect all');
   expect(await page.locator('.lec-annotation-handles').evaluateAll(elements => elements.every(element => element.getAttribute('pointer-events') === 'none'))).toBe(true);
   await expect(page.locator('.lec-annotation-handles')).toHaveCount(0);
   expect(await page.evaluate(() => window.__lec.session.getSnapshot().revision)).toBe(revision);

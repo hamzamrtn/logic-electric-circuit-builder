@@ -1,9 +1,10 @@
+import { insertAction, openParts } from './helpers/toolbar';
 import { expect, test, type Page } from '@playwright/test';
 
 const preview = new URL('../../dev/preview.html', import.meta.url).href;
 test.beforeEach(async ({ page }) => { await page.goto(preview); await expect(page.getByTestId('editor')).toBeVisible(); });
 async function addResistor(page: Page, x: number) {
-  await page.getByRole('button', { name: 'Electrical parts', exact: true }).click();
+  await openParts(page, 'Electrical');
   await page.getByRole('textbox', { name: 'Search parts', exact: true }).fill('Resistor');
   await page.getByRole('button', { name: 'Resistor Passive', exact: true }).click();
   await page.getByRole('application').click({ position: { x, y: 240 } });
@@ -119,7 +120,7 @@ test('removed connection choices close safely while preserving a free-start draf
 });
 
 test('creating a custom block keeps the placement focus chosen by the action', async ({ page }) => {
-  await page.getByRole('button', { name: 'Custom block', exact: true }).click();
+  await insertAction(page, 'Custom block');
   await page.getByRole('button', { name: 'Place block', exact: true }).click();
   await expect(page.getByRole('dialog')).toHaveCount(0); await expect(page.getByTestId('editor')).toBeFocused();
   await page.getByRole('application').click({ position: { x: 180, y: 240 } });

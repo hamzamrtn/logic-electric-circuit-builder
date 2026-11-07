@@ -1,3 +1,4 @@
+import { openParts } from './helpers/toolbar';
 import { expect, test, type Page } from '@playwright/test';
 import { nativeTouch } from './helpers/touch';
 
@@ -5,7 +6,7 @@ const preview = new URL('../../dev/preview.html', import.meta.url).href;
 test.beforeEach(async ({ page }) => { await page.goto(preview); await expect(page.getByTestId('editor')).toBeVisible(); });
 
 async function chooseResistor(page: Page) {
-  await page.getByRole('button', { name: 'Electrical parts', exact: true }).click();
+  await openParts(page, 'Electrical');
   await page.getByRole('textbox', { name: 'Search parts', exact: true }).fill('Resistor');
   await page.getByRole('button', { name: 'Resistor Passive', exact: true }).click();
 }

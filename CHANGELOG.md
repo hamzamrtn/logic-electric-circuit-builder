@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Add a responsive workbench: a stable bottom drawing dock in compact panes and one tidy top toolbar in wide panes, including split desktop workspaces.
+- Keep Undo/Redo visible and paired; combine parts, Text and Custom blocks in Add; move secondary actions into More.
+- Give the picker a compact sheet layout, stable search position, remembered categories, touch-friendly controls and short-screen/keyboard-height support.
+- Use softer corners, balanced spacing and subtle depth while retaining Obsidian theme colors and reduced-motion behavior.
+
 - Remove duplicate native/host tooltips and redundant hover labels from named controls and containers while preserving screen-reader names.
 - Make double-click/double-tap inspection reliable with Multi selection and touch gestures; stop blank-canvas right-clicks from opening an empty inspector.
 - Add configurable canvas tool keys under File → Keyboard shortcuts, with conflict validation, disabled bindings, reset defaults and saved preferences shared by open views.

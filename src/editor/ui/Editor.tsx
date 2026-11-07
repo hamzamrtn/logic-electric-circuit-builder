@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useId, useMemo, useRef, useState, useSyncExternalStore, type ReactNode, type PointerEvent as ReactPointerEvent, type KeyboardEvent as ReactKeyboardEvent } from 'react';
+import { useCallback, useEffect, useId, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore, type CSSProperties, type PointerEvent as ReactPointerEvent, type KeyboardEvent as ReactKeyboardEvent } from 'react';
 import { type Anchor, type CircuitDocument, type Component, type Definition, type Point, anchorKey, clone, emptyDocument, getDefinition, pinWidth, parseDocument, serializeDocument, uid, definitionSchema } from '../../core/model/document';
 import { addWire, align, annotate, assertUnlocked, deleteSelection, detachComponent, disconnectNode, finishDanglingWire, fragment, commonJoinPoint, insertComponent, joinAndConnect, joinWires, lockedObjects, moveSelection, movableSelection, paste, place, reconfigure, resolveTarget, selectionMembers, splitWire, transformSelection, type Target } from '../../core/commands/operations';
 import { anchorPosition, bounds, GRID, snapToSegment, snap, transform, wirePoints, SpatialIndex } from '../../core/geometry/geometry';
@@ -11,6 +11,7 @@ import { Scene, SymbolDrawing } from '../render/Scene';
 import { anchorDescription, terminalDescription, componentTransform, findCrossings, objectDescription, overlapWarnings, pathData } from '../render/drawing';
 import { type Camera, type Candidate, type Gesture, type Placement, type Reconnect, type Tool, type WireDraft, screenToWorld, stepZoomAt, targetExists, zoomAt } from '../input/types';
 import { Dialog, DialogFrame, type DialogSpec } from './Dialog';
+import { Icon, ToolButton } from './Controls';
 import { PartsToolbar } from './PartsToolbar';
 import { FileMenu } from './FileMenu';
 import { AnnotationHandles } from '../render/Annotations';
@@ -34,12 +35,6 @@ export interface EditorHost {
 }
 const savedSnapshot = { status: 'saved', message: 'In memory · export to keep a file', durableRevision: 0 } as const;
 const subscribeNothing = () => () => {};
-const iconPaths: Record<string, string> = { add: 'M 12 4 V 20 M 4 12 H 20', wire: 'M 4 18 V 6 H 20 M 2 16 H 6 V 20 H 2 Z M 18 4 H 22 V 8 H 18 Z', select: 'M 5 3 L 19 13 L 12 14 L 9 21 Z', 'box-select': 'M 4 7 V 4 H 7 M 11 4 H 13 M 17 4 H 20 V 7 M 20 11 V 13 M 20 17 V 20 H 17 M 13 20 H 11 M 7 20 H 4 V 17 M 4 13 V 11', multi: 'M 8 4 H 20 V 16 H 8 Z M 4 8 V 20 H 16 M 11 10 L 13 12 L 17 8', undo: 'M 8 5 L 3 10 L 8 15 M 3 10 H 14 C 23 10 23 21 14 21', redo: 'M 16 5 L 21 10 L 16 15 M 21 10 H 10 C 1 10 1 21 10 21', fit: 'M 9 3 H 3 V 9 M 15 3 H 21 V 9 M 21 15 V 21 H 15 M 9 21 H 3 V 15 M 8 8 H 16 V 16 H 8 Z', rotate: 'M 4 10 A 8 8 0 1 1 8 20 M 4 3 V 10 H 11', grid: 'M 8 2 V 22 M 16 2 V 22 M 2 8 H 22 M 2 16 H 22', inspect: 'M 4 4 H 20 V 20 H 4 Z M 9 4 V 20 M 13 9 H 17 M 13 14 H 17' };
-function Icon({ name }: { name: string }) { return <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={iconPaths[name] ?? iconPaths.select} /></svg>; }
-function ToolButton({ label, icon, active, onClick, disabled, children, shortcut }: { label: string; icon?: string; active?: boolean; onClick: () => void; disabled?: boolean; children?: ReactNode; shortcut?: string }) {
-  const nameId = useId(), iconOnly = ['Undo', 'Redo', 'Fit circuit'].includes(label);
-  return <button type="button" aria-label={iconOnly ? label : undefined} aria-labelledby={iconOnly ? undefined : nameId} aria-keyshortcuts={shortcut?.toUpperCase() || undefined} aria-pressed={active === undefined ? undefined : active} className={active ? 'is-active' : ''} onClick={onClick} disabled={disabled}><span id={nameId} hidden>{label}</span>{icon && <Icon name={icon} />}{children ?? <span>{label}</span>}</button>;
-}
 
 export function Editor({ session, host, save }: { session: DocumentSession; host: EditorHost; save?: SaveCoordinator }) {
   const [localShortcuts] = useState(() => new MemoryShortcuts()), [shortcutsOpen, setShortcutsOpen] = useState(false);
@@ -48,11 +43,12 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
   const snapshot = useSyncExternalStore(session.subscribe, session.getSnapshot), doc = snapshot.document;
   const saveState = useSyncExternalStore(save?.subscribe ?? subscribeNothing, save?.getSnapshot ?? (() => savedSnapshot));
   const root = useRef<HTMLDivElement>(null), svg = useRef<SVGSVGElement>(null), viewport = useRef<HTMLDivElement>(null), workspace = useRef<HTMLElement>(null);
-  const fileTrigger = useRef<HTMLButtonElement>(null), cornerRedo = useRef<Point[]>([]);
+  const fileTrigger = useRef<HTMLButtonElement>(null), moreTrigger = useRef<HTMLButtonElement>(null), dock = useRef<HTMLDivElement>(null), cornerRedo = useRef<Point[]>([]);
   const closeMenu = useCallback(() => setMenu(false), []);
+  const closeMore = useCallback(() => setMoreOpen(false), []);
   const gridId = `lec-grid-${useId().replace(/[^a-zA-Z0-9_-]/g, '')}`;
   const toolsLabel = useId(), editingLabel = useId(), canvasLabel = useId(), inspectorLabel = useId(), zoomLabel = useId(), documentLabel = useId();
-  const [size, setSize] = useState({ width: 0, height: 0 });
+  const [size, setSize] = useState({ width: 0, height: 0 }), [compact, setCompact] = useState(false), [dockHeight, setDockHeight] = useState(60);
   const { camera, current: cameraRef, setCamera, animate: animateCamera, destination: cameraDestination, stop: stopCamera, isAnimating: cameraAnimating } = useCamera(root);
   const { feedback, placed: confirmPlacement, connected: confirmConnection, snapped: confirmSnap, clear: clearFeedback } = useInteractionFeedback(root);
   const [pointing, setPointing] = useState(false), pointerKind = useRef('mouse');
@@ -65,7 +61,7 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
   const [reconnect, setReconnect] = useState<Reconnect | null>(null), [grid, setGrid] = useState(host.defaultGrid ?? true), [snapping, setSnapping] = useState(host.defaultSnap ?? true);
   const [horizontalFirst, setHorizontalFirst] = useState(true), [freeAngle, setFreeAngle] = useState(false), [repeat, setRepeat] = useState(false), [multi, setMulti] = useState(false);
   const [paletteOpen, setPaletteOpen] = useState(false), [inspectorOpen, setInspectorOpen] = useState(false);
-  const [inspector, setInspector] = useState<'properties' | 'objects' | 'nets' | 'checks'>('properties'), [dialog, setDialog] = useState<DialogSpec | null>(null), [menu, setMenu] = useState(false);
+  const [inspector, setInspector] = useState<'properties' | 'objects' | 'nets' | 'checks'>('properties'), [dialog, setDialog] = useState<DialogSpec | null>(null), [menu, setMenu] = useState(false), [moreOpen, setMoreOpen] = useState(false);
   const [notice, setNotice] = useState(''), [clipboard, setClipboard] = useState(''), [candidates, setCandidates] = useState<Candidate[]>([]), [candidateAction, setCandidateAction] = useState<'wire' | 'select'>('wire');
   const [highlighted, setHighlighted] = useState<Set<string>>(new Set());
   const candidateAdditive = useRef(false);
@@ -85,20 +81,30 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
   const edit = (name: string, fn: (d: CircuitDocument) => void, coalesceKey?: string) => { try { session.edit(name, fn, coalesceKey); setNotice(''); return true; } catch (e) { notify(e); return false; } };
   const cancel = useCallback(() => { lastTap.current = undefined; stopCamera(); clearFeedback(); setPointing(false); if (moveFrame.current !== undefined) { svg.current?.ownerDocument.defaultView?.cancelAnimationFrame(moveFrame.current); moveFrame.current = undefined; } latestMove.current = null; cornerRedo.current = []; setDraft(null); setPlacement(null); setReconnect(null); setTool('select'); gestureRef.current = { kind: 'idle' }; setGesture({ kind: 'idle' }); pointers.current.clear(); setCandidates([]); }, [stopCamera, clearFeedback]);
   const fit = useCallback((ids?: Set<string>, animated = true) => {
-    if (!size.width || !size.height) return;
+    const measured = viewport.current?.getBoundingClientRect(), width = measured?.width ?? size.width, height = measured?.height ?? size.height;
+    if (!width || !height) return;
     const current = session.getSnapshot().document;
     let target: Camera;
-    if (!current.components.length && !current.wires.length && !current.annotations.length) target = { x: size.width / 2, y: size.height / 2, zoom: 1 };
+    if (!current.components.length && !current.wires.length && !current.annotations.length) target = { x: width / 2, y: height / 2, zoom: 1 };
     else {
       const b = bounds(current, ids), top = 50, bottom = Math.max(50, (viewport.current?.querySelector('.lec-zoom-controls')?.getBoundingClientRect().height ?? 28) + 24);
-      const zoom = Math.max(0.125, Math.min(1.5, (size.width - (size.width < 700 ? 48 : 100)) / b.width, Math.max(1, size.height - top - bottom) / b.height));
-      target = { zoom, x: size.width / 2 - (b.x + b.width / 2) * zoom, y: (top + size.height - bottom) / 2 - (b.y + b.height / 2) * zoom };
+      const zoom = Math.max(0.125, Math.min(1.5, (width - (width < 700 ? 48 : 100)) / b.width, Math.max(1, height - top - bottom) / b.height));
+      target = { zoom, x: width / 2 - (b.x + b.width / 2) * zoom, y: (top + height - bottom) / 2 - (b.y + b.height / 2) * zoom };
     }
     if (animated) animateCamera(target); else setCamera(target);
   }, [session, size, animateCamera, setCamera]);
-  useEffect(() => {
+  useLayoutEffect(() => {
     const element = viewport.current; if (!element) return; const win = element.ownerDocument.defaultView; if (!win) return;
-    const observer = new win.ResizeObserver(entries => { const r = entries[0].contentRect; if (r.width && r.height) setSize({ width: r.width, height: r.height }); }); observer.observe(element);
+    if (workspace.current) setCompact(workspace.current.getBoundingClientRect().width <= 900);
+    const observer = new win.ResizeObserver(entries => {
+      for (const entry of entries) {
+        const r = entry.contentRect;
+        if (entry.target === element && r.width && r.height) setSize({ width: r.width, height: r.height });
+        if (entry.target === workspace.current && r.width) setCompact(r.width <= 900);
+        if (entry.target === dock.current) setDockHeight(entry.target.getBoundingClientRect().height);
+      }
+    });
+    observer.observe(element); if (workspace.current) observer.observe(workspace.current); if (dock.current) observer.observe(dock.current);
     const onHide = () => { cancel(); void save?.flush(); };
     element.ownerDocument.addEventListener('visibilitychange', onHide); win.addEventListener('pagehide', onHide); win.addEventListener('orientationchange', cancel);
     return () => { if (moveFrame.current !== undefined) win.cancelAnimationFrame(moveFrame.current); observer.disconnect(); element.ownerDocument.removeEventListener('visibilitychange', onHide); win.removeEventListener('pagehide', onHide); win.removeEventListener('orientationchange', cancel); };
@@ -382,7 +388,7 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
     } });
   }
   function onKeyDown(e: ReactKeyboardEvent<HTMLDivElement>) {
-    if (e.defaultPrevented || e.nativeEvent.isComposing || dialog || shortcutsOpen || paletteOpen || menu || candidates.length || e.target !== root.current && e.target !== svg.current) return;
+    if (e.defaultPrevented || e.nativeEvent.isComposing || dialog || shortcutsOpen || paletteOpen || menu || moreOpen || candidates.length || e.target !== root.current && e.target !== svg.current) return;
     const command = e.ctrlKey || e.metaKey;
     if (e.key === 'Enter' && draft && !command && !e.altKey && !e.shiftKey && !e.repeat && !e.nativeEvent.isComposing && !paletteOpen && !menu && !candidates.length && !(e.target as Element).closest('button,[role=button]')) {
       e.preventDefault(); e.stopPropagation(); if (draft.bends.length) finishWire(); return;
@@ -404,7 +410,7 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
     e.preventDefault(); e.stopPropagation();
     if (action === 'select') cancel();
     if (action === 'wire') startWire();
-    if (action === 'rotate') doTransform('rotate');
+    if (action === 'rotate' && canRotate) doTransform('rotate');
     if (action === 'fit') fit();
     if (action === 'box') { cancel(); setTool('box'); }
     if (action === 'multi') { cancel(); setMulti(!multi); }
@@ -453,12 +459,29 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
   }
   function changeProperty(key: string, value: string) { if (selectedComponent) edit('Edit component', d => { const c = d.components.find(c => c.id === selectedComponent.id)!; assertUnlocked(d, selectedComponent.id); if (key === 'reference') c.reference = value; else c.properties[key] = value; }); }
   function positionDialog() { const object = selectedComponent ?? selectedNode ?? selectedAnnotation; if (!object) return; setDialog({ title: 'Move selection', fields: [{ name: 'x', label: 'Selected object X', type: 'number', value: String(object.position.x) }, { name: 'y', label: 'Selected object Y', type: 'number', value: String(object.position.y) }], onSubmit: v => session.edit('Move by coordinates', d => { const current = [...d.components, ...d.nodes, ...d.annotations].find(item => item.id === object.id); if (!current) throw new Error('Selected object no longer exists'); assertUnlocked(d, current.id); moveSelection(d, selection, { x: Number(v.x) - current.position.x, y: Number(v.y) - current.position.y }); }) }); }
+  function selectDrawingTool(action: () => void) {
+    if ((root.current?.clientWidth ?? 0) <= 1000) closeInspector();
+    action(); root.current?.focus({ preventScroll: true });
+  }
+  function openParts(open: boolean) {
+    setPaletteOpen(open);
+    if (open) { setMenu(false); setMoreOpen(false); if ((root.current?.clientWidth ?? 0) <= 1000) closeInspector(); }
+  }
+  function moreAction(action: () => void) { setMoreOpen(false); action(); root.current?.focus({ preventScroll: true }); }
+  function showChecks() { setMenu(false); setMoreOpen(false); setPaletteOpen(false); setInspector('checks'); setInspectorOpen(true); root.current?.focus({ preventScroll: true }); }
+  useEffect(() => {
+    const element = root.current; if (!element) return;
+    element.addEventListener('lec:show-checks', showChecks);
+    return () => element.removeEventListener('lec:show-checks', showChecks);
+  }, []);
+  const canRotate = !!placement || doc.components.some(item => displaySelection.has(item.id) && !lockedIds.has(item.id)) || doc.annotations.some(item => displaySelection.has(item.id) && !lockedIds.has(item.id));
+  const contextRotate = canRotate && !!placement;
   function customBlockDialog(editExisting = false) {
     const def = editExisting && selectedComponent ? getDefinition(doc, selectedComponent) : undefined;
     setDialog({ title: editExisting ? 'Edit block pins' : 'Create custom block', description: 'One pin per line: stable ID, label, side, role, bit width. Sides: left/right/top/bottom. Roles: passive/input/output/power/bidirectional/tristate. Removed or width-changed pins leave dangling wire ends.', fields: [{ name: 'name', label: 'Block name', value: def?.name ?? 'Custom IC', required: true }, { name: 'pins', label: 'Pins', type: 'textarea', value: def?.pins.map(p => `${p.id}, ${p.name}, ${p.side}, ${p.role}, ${p.width}`).join('\n') ?? 'in-0, IN, left, input, 1\nout-0, OUT, right, output, 1', required: true }], submit: editExisting ? 'Update pins' : 'Place block', onSubmit: v => { const block = makeCustomBlock(v.name, v.pins); definitionSchema.parse(block); if (editExisting && selectedComponent) session.edit('Reconfigure pins', d => reconfigure(d, selectedComponent.id, block)); else startPart(block); } });
   }
 
-  return <div className="lec-editor" ref={root} tabIndex={0} onKeyDown={onKeyDown} onPointerDownCapture={event => { if (!svg.current?.contains(event.target as Node)) lastTap.current = undefined; }} onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) lastTap.current = undefined; }} data-testid="editor" data-camera-animating={cameraAnimating || undefined}>
+  return <div className="lec-editor" style={{ '--lec-dock-space': `${compact ? dockHeight + 16 : 0}px` } as CSSProperties} ref={root} tabIndex={0} onKeyDown={onKeyDown} onPointerDownCapture={event => { if (!svg.current?.contains(event.target as Node)) lastTap.current = undefined; }} onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) lastTap.current = undefined; }} data-testid="editor" data-camera-animating={cameraAnimating || undefined}>
 
     {menu && <FileMenu anchor={fileTrigger.current} boundary={root.current} onClose={closeMenu} footer={<button role="menuitem" className="lec-danger" onClick={() => { setMenu(false); setDialog({ title: 'Clear circuit?', description: 'Remove all parts, wires and annotations. Undo restores the circuit.', fields: [], danger: true, submit: 'Clear circuit', onSubmit: () => { cancel(); session.edit('Clear circuit', d => Object.assign(d, emptyDocument(doc.title))); } }); }}>Clear circuit…</button>}>
       <button role="menuitem" onClick={() => { setMenu(false); if (host.newDocument) void host.newDocument().catch(notify); else setDialog({ title: 'New circuit', description: 'Clear this workspace. Export your current circuit first if you want a separate file. Undo remains available.', fields: [], submit: 'New circuit', onSubmit: () => { cancel(); session.edit('New circuit', d => Object.assign(d, emptyDocument())); } }); }}>New circuit</button>
@@ -473,11 +496,38 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
       {!!host.examples?.length && <button role="menuitem" onClick={() => { setMenu(false); setDialog({ title: 'Open example', description: 'Replace the current drawing with an example. Undo restores your drawing.', fields: [{ name: 'example', label: 'Example', type: 'select', options: host.examples!.map((example, i) => ({ value: String(i), label: example.name })) }], submit: 'Open example', onSubmit: v => { const example = host.examples![Number(v.example)]; if (!example) throw new Error('Choose an example'); cancel(); session.edit('Open example', d => Object.assign(d, clone(example.document))); fit(); } }); }}>Examples…</button>}
 
 
-      <button role="menuitem" onClick={() => { setMenu(false); setShortcutsOpen(true); }}>Keyboard shortcuts…</button>
+    </FileMenu>}
+    {moreOpen && <FileMenu label="More actions" anchor={moreTrigger.current} boundary={root.current} onClose={closeMore}>
+      <div className="lec-menu-caption">Selection</div>
+      <button role="menuitem" disabled={!doc.components.length && !doc.wires.length && !doc.nodes.length && !doc.annotations.length && !doc.groups.length} onClick={() => moreAction(() => setSelection(new Set([...doc.components, ...doc.nodes, ...doc.wires, ...doc.annotations, ...doc.groups].map(item => item.id))))}>Select all</button>
+      <button role="menuitem" disabled={!selection.size} onClick={() => moreAction(() => setSelection(new Set()))}>Deselect all</button>
+      {canRotate && !placement && <button role="menuitem" onClick={() => moreAction(() => doTransform('rotate'))}>Rotate selected</button>}
+      <div className="lec-menu-caption">Drawing</div>
+      <button role="menuitemcheckbox" aria-checked={grid} onClick={() => moreAction(() => setGrid(!grid))}><span className="lec-menu-check" aria-hidden="true">{grid ? '✓' : ''}</span>Show grid</button>
+      <button role="menuitemcheckbox" aria-checked={snapping} onClick={() => moreAction(() => setSnapping(!snapping))}><span className="lec-menu-check" aria-hidden="true">{snapping ? '✓' : ''}</span>Snap to grid</button>
+      <button role="menuitem" onClick={() => moreAction(showChecks)}>Checks{checks.length > 0 && <small aria-hidden="true" className="lec-menu-count">{checks.length}</small>}</button>
+      <button role="menuitem" onClick={() => moreAction(() => setShortcutsOpen(true))}>Keyboard shortcuts…</button>
     </FileMenu>}
     {['error', 'conflict', 'deleted'].includes(saveState.status) && <div className="lec-save-alert" role="alert"><span>{saveState.message}</span>{saveState.status === 'error' && <button onClick={() => void save?.retry()}>Retry</button>}{saveState.status === 'conflict' && <><button onClick={() => setDialog({ title: 'Review both versions', fields: [{ name: 'local', label: 'Local version', type: 'textarea', value: serializeDocument(doc) }, { name: 'external', label: 'External version', type: 'textarea', value: saveState.external ?? '' }], submit: 'Close', onSubmit: () => {} })}>Review</button><button onClick={() => void save?.resolve('local').catch(notify)}>Keep local</button><button onClick={() => void save?.resolve('external').catch(notify)}>Use external</button></>}<button onClick={() => void doExport('json')}>Save a copy</button></div>}
     <div className="lec-layout">
-      <main className="lec-workspace" ref={workspace}><div className="lec-topbar" role="toolbar" aria-labelledby={toolsLabel}><span id={toolsLabel} hidden>Circuit tools</span><button className="lec-file-trigger" ref={fileTrigger} onClick={() => setMenu(!menu)} aria-expanded={menu} aria-labelledby={documentLabel}><span id={documentLabel} hidden>Document menu</span>File ⌄</button><div className="lec-tools" role="group" aria-labelledby={editingLabel} onClick={event => { if (event.detail > 0) root.current?.focus({ preventScroll: true }); }}><span id={editingLabel} hidden>Editing tools</span><div className="lec-tool-group"><ToolButton label="Select" shortcut={shortcuts.select} icon="select" active={tool === 'select'} onClick={cancel} /><ToolButton label="Box select" shortcut={shortcuts.box} icon="box-select" active={tool === 'box'} onClick={() => { cancel(); setTool('box'); }}><span>Box</span></ToolButton><ToolButton label="Multi" shortcut={shortcuts.multi} icon="multi" active={multi} onClick={() => { cancel(); setMulti(!multi); }} /></div><div className="lec-tool-group"><ToolButton label="Wire" shortcut={shortcuts.wire} icon="wire" active={tool === 'wire' || tool === 'reconnect'} onClick={startWire} /></div><div className="lec-tool-group lec-history"><ToolButton label="Undo" icon="undo" disabled={draft ? !draft.bends.length : !snapshot.canUndo} onClick={() => draft ? undoCorner() : session.undo()} /><ToolButton label="Redo" icon="redo" disabled={draft ? !cornerRedo.current.length : !snapshot.canRedo} onClick={() => draft ? redoCorner() : session.redo()} /></div><div className="lec-tool-group"><ToolButton label="Rotate" shortcut={shortcuts.rotate} icon="rotate" disabled={!selection.size && !placement} onClick={() => doTransform('rotate')} /></div></div><PartsToolbar container={workspace.current} open={paletteOpen} onOpenChange={setPaletteOpen} onPart={startPart} onCustomBlock={() => customBlockDialog()} onText={() => annotationDialog('text')} onSelectAll={() => setSelection(new Set([...doc.components, ...doc.nodes, ...doc.wires, ...doc.annotations, ...doc.groups].map(x => x.id)))} onDeselectAll={() => setSelection(new Set())} selectionCount={selection.size} /><ToolButton label="Inspect" shortcut={shortcuts.inspect} icon="inspect" active={inspectorOpen} onClick={() => { if (inspectorOpen) closeInspector(); else setInspectorOpen(true); }} /></div>
+      <main className={`lec-workspace${compact ? ' is-compact' : ''}`} ref={workspace}>
+        <div className="lec-topbar" role="toolbar" aria-labelledby={toolsLabel} data-ignore-swipe="true" onTouchStart={event => event.stopPropagation()} onTouchMove={event => event.stopPropagation()} onTouchEnd={event => event.stopPropagation()}>
+          <span id={toolsLabel} hidden>Circuit tools</span>
+          <div className="lec-file-cluster"><button className="lec-file-trigger" ref={fileTrigger} onClick={() => { setMoreOpen(false); setPaletteOpen(false); setMenu(!menu); }} aria-expanded={menu} aria-labelledby={documentLabel}><span id={documentLabel} hidden>Document menu</span>File <span aria-hidden="true">⌄</span></button>
+            <div className="lec-history" onClick={event => { if (event.detail > 0) root.current?.focus({ preventScroll: true }); }}><ToolButton label="Undo" icon="undo" disabled={draft ? !draft.bends.length : !snapshot.canUndo} onClick={() => draft ? undoCorner() : session.undo()} /><ToolButton label="Redo" icon="redo" disabled={draft ? !cornerRedo.current.length : !snapshot.canRedo} onClick={() => draft ? redoCorner() : session.redo()} /></div>
+          </div>
+          <div ref={dock} className={`lec-drawing-toolbar${contextRotate ? ' has-context' : ''}`} data-ignore-swipe="true">
+            <div className="lec-tools" role="group" aria-labelledby={editingLabel} onClick={event => { if (event.detail > 0) root.current?.focus({ preventScroll: true }); }}><span id={editingLabel} hidden>Editing tools</span><div className="lec-tool-group">
+              <ToolButton label="Select" shortcut={shortcuts.select} icon="select" active={tool === 'select'} onClick={() => selectDrawingTool(cancel)} />
+              <ToolButton label="Box select" shortcut={shortcuts.box} icon="box-select" active={tool === 'box'} onClick={() => selectDrawingTool(() => { cancel(); setTool('box'); })}><span>Box</span></ToolButton>
+              <ToolButton label="Multi" shortcut={shortcuts.multi} icon="multi" active={multi} onClick={() => selectDrawingTool(() => { cancel(); setMulti(!multi); })} />
+            </div></div>
+            <div className="lec-wire-tool"><ToolButton label="Wire" shortcut={shortcuts.wire} icon="wire" active={tool === 'wire' || tool === 'reconnect'} onClick={() => selectDrawingTool(startWire)} /></div>
+            <PartsToolbar container={workspace.current} compact={compact} dockHeight={dockHeight} open={paletteOpen} onOpenChange={openParts} onPart={startPart} onCustomBlock={() => customBlockDialog()} onText={() => annotationDialog('text')} />
+            <div className="lec-rotate-context" onClick={event => { if (event.detail > 0) root.current?.focus({ preventScroll: true }); }}><span className="lec-context-name">{placement ? placement.definition.name : selection.size > 1 ? `${selection.size} selected` : selectedComponent?.reference || 'Selected object'}</span><ToolButton label="Rotate" shortcut={shortcuts.rotate} icon="rotate" disabled={!canRotate} onClick={() => doTransform('rotate')} />{compact && placement && <button onClick={cancel}>Cancel</button>}</div>
+          </div>
+          <div className="lec-utility-cluster"><ToolButton label="Inspect" shortcut={shortcuts.inspect} icon="inspect" active={inspectorOpen} onClick={() => { setMoreOpen(false); setMenu(false); if (inspectorOpen) closeInspector(); else setInspectorOpen(true); }} /><button ref={moreTrigger} className={`lec-more-trigger${moreOpen ? ' is-active' : ''}`} aria-label="More actions" aria-expanded={moreOpen} aria-haspopup="menu" onClick={() => { setMenu(false); setPaletteOpen(false); setMoreOpen(!moreOpen); }}><Icon name="more" />{checks.length > 0 && <small aria-hidden="true" className="lec-issues-badge">{checks.length}</small>}</button></div>
+        </div>
         <span id={canvasLabel} hidden>Circuit drawing. Use the object list and Connect pins for keyboard access.</span><div className="lec-viewport" ref={viewport} data-ignore-swipe="true" style={{ touchAction: 'none' }}><svg ref={svg} className="lec-canvas" role="application" aria-labelledby={canvasLabel} width="100%" height="100%" onPointerDown={e => { if (!pointers.current.size) suppressClick.current = false; onPointerDown(e); }} onPointerMove={queuePointerMove} onPointerLeave={() => { if (!pointers.current.size) setPointing(false); }} onPointerUp={onPointerUp} onPointerCancel={e => { e.stopPropagation(); finishPointers(); }} onLostPointerCapture={e => { e.stopPropagation(); if (pointers.current.has(e.pointerId)) finishPointers(); }} onDoubleClick={e => {
           e.preventDefault(); e.stopPropagation();
           if (pointerKind.current === 'touch' || tool !== 'select' || draft || reconnect || suppressClick.current || pointers.current.size) return;
@@ -504,9 +554,10 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
         </svg>
 
         <div className="lec-zoom-controls" role="group" aria-labelledby={zoomLabel} onClick={event => { if (event.detail > 0) root.current?.focus({ preventScroll: true }); }}><span id={zoomLabel} hidden>Zoom controls</span><button aria-label="Zoom out" onClick={() => setCamera(stepZoomAt(cameraDestination(), { x: size.width / 2, y: size.height / 2 }, -1))}>−</button><button aria-label="Reset zoom" onClick={() => { const target = cameraDestination(); animateCamera(zoomAt(target, { x: size.width / 2, y: size.height / 2 }, 1 / target.zoom)); }}>{Math.round(camera.zoom * 100)}%</button><button aria-label="Zoom in" onClick={() => setCamera(stepZoomAt(cameraDestination(), { x: size.width / 2, y: size.height / 2 }, 1))}>+</button><ToolButton label="Fit circuit" shortcut={shortcuts.fit} icon="fit" onClick={() => fit()} /></div>
-        {(draft || placement || tool === 'move' || reconnect) && <div className="lec-gesture-bar" onPointerDown={consumeControlPointer} onPointerUp={consumeControlPointer} onClick={e => e.stopPropagation()}><span>{placement ? `Place ${placement.definition.name}${guidance.overlaps.length ? ' · overlaps a part' : ''}` : reconnect ? 'Choose a new endpoint' : draft ? `${draft.bends.length} point${draft.bends.length === 1 ? '' : 's'} placed · ${activeTarget?.label ?? 'tap to place a point'}${targetMismatch ? ' · incompatible width' : targetLocked ? ' · locked route' : ''}` : 'Tap a destination'}</span>{draft && <><button onClick={undoCorner} disabled={!draft.bends.length}>Undo corner</button><button className="lec-primary" disabled={!draft.bends.length} title="Finish at the last placed point (Enter)" aria-keyshortcuts="Enter" onClick={finishWire}>Finish</button></>}<button onClick={cancel}>Cancel</button></div>}
+        {(draft || placement && !compact || tool === 'move' || reconnect) && <div className="lec-gesture-bar" onPointerDown={consumeControlPointer} onPointerUp={consumeControlPointer} onClick={e => e.stopPropagation()}><span>{placement ? `Place ${placement.definition.name}${guidance.overlaps.length ? ' · overlaps a part' : ''}` : reconnect ? 'Choose a new endpoint' : draft ? `${draft.bends.length} point${draft.bends.length === 1 ? '' : 's'} placed · ${activeTarget?.label ?? 'tap to place a point'}${targetMismatch ? ' · incompatible width' : targetLocked ? ' · locked route' : ''}` : 'Tap a destination'}</span>{draft && <><button onClick={undoCorner} disabled={!draft.bends.length}>Undo corner</button><button className="lec-primary" disabled={!draft.bends.length} title="Finish at the last placed point (Enter)" aria-keyshortcuts="Enter" onClick={finishWire}>Finish</button></>}<button onClick={cancel}>Cancel</button></div>}
         </div>
-        <footer className="lec-statusbar"><span>{tool === 'place' ? 'PLACE' : tool === 'wire' ? 'WIRE' : tool.toUpperCase()}<span className="lec-status-divider">/</span>{selection.size ? `${selection.size} selected` : `${doc.components.length} parts · ${doc.wires.length} wires`}</span><div className="lec-status-actions"><span className={`lec-save lec-save-${saveState.status}`} role="status" title={saveState.message}>{save ? saveState.message : 'In memory'}</span><button aria-pressed={grid} onClick={() => setGrid(!grid)}>Grid</button><button aria-pressed={snapping} onClick={() => setSnapping(!snapping)}>Snap {snapping ? 'on' : 'off'}</button><button onClick={() => { setInspector('checks'); setInspectorOpen(true); }}>{checks.length ? `⚠ ${checks.length}` : '✓'} Checks</button></div></footer>
+        <div className="lec-dock-spacer" aria-hidden="true" />
+        <footer className="lec-statusbar"><span>{tool === 'place' ? 'PLACE' : tool === 'wire' ? 'WIRE' : tool.toUpperCase()}<span className="lec-status-divider">/</span>{selection.size ? `${selection.size} selected` : `${doc.components.length} parts · ${doc.wires.length} wires`}</span><div className="lec-status-actions">{checks.length > 0 && <span className="lec-status-issues">{checks.length} {checks.length === 1 ? 'issue' : 'issues'}</span>}<span className={`lec-save lec-save-${saveState.status}`} role="status" title={saveState.message}>{save ? saveState.message : 'In memory'}</span></div></footer>
       </main>
       <aside className={`lec-inspector${inspectorOpen ? ' is-open' : ''}`} aria-labelledby={inspectorLabel}><span id={inspectorLabel} hidden>Circuit inspector</span><div className="lec-panel-heading"><h2>Properties</h2><button className="lec-panel-close" onClick={closeInspector} aria-label="Close inspector">×</button></div><div className="lec-inspector-tabs" role="tablist">{(['properties', 'objects', 'nets', 'checks'] as const).map(t => <button key={t} role="tab" aria-selected={inspector === t} onClick={() => setInspector(t)}>{t === 'properties' ? 'Edit' : t[0].toUpperCase() + t.slice(1)}</button>)}</div><div className="lec-inspector-body">
         {inspector === 'objects' && <><h3>Objects</h3><p className="lec-muted">Select an item to edit. Use Multi for several objects.</p>{[
