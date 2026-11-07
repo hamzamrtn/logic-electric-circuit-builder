@@ -1,0 +1,2905 @@
+{
+  "format": "logic-electric-circuit",
+  "schemaVersion": 1,
+  "id": "showcase.desktop-bus.doc1",
+  "title": "8-bit control bus",
+  "components": [
+    {
+      "id": "showcase.desktop-bus.c1",
+      "definitionId": "showcase.desktop-bus.def1",
+      "position": {
+        "x": 208,
+        "y": 192
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U1",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.c2",
+      "definitionId": "builtin.splitter-8.v1",
+      "position": {
+        "x": 512,
+        "y": 192
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "B1",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.c3",
+      "definitionId": "builtin.test-point.v1",
+      "position": {
+        "x": 848,
+        "y": 336
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "TP1",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.c4",
+      "definitionId": "builtin.test-point.v1",
+      "position": {
+        "x": 848,
+        "y": 400
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "TP2",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.c5",
+      "definitionId": "builtin.test-point.v1",
+      "position": {
+        "x": 848,
+        "y": 464
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "TP3",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.c6",
+      "definitionId": "builtin.test-point.v1",
+      "position": {
+        "x": 848,
+        "y": 528
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "TP4",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.c7",
+      "definitionId": "builtin.test-point.v1",
+      "position": {
+        "x": 848,
+        "y": 592
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "TP5",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.c8",
+      "definitionId": "builtin.test-point.v1",
+      "position": {
+        "x": 848,
+        "y": 656
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "TP6",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.c9",
+      "definitionId": "builtin.test-point.v1",
+      "position": {
+        "x": 848,
+        "y": 720
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "TP7",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.c10",
+      "definitionId": "builtin.test-point.v1",
+      "position": {
+        "x": 848,
+        "y": 784
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "TP8",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.c11",
+      "definitionId": "builtin.dc-voltage.v1",
+      "position": {
+        "x": 32,
+        "y": 608
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "V1",
+      "properties": {
+        "value": "9 V"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.c12",
+      "definitionId": "builtin.fuse.v1",
+      "position": {
+        "x": 144,
+        "y": 528
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "F1",
+      "properties": {
+        "value": "250 mA"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.c13",
+      "definitionId": "builtin.diode-0.v1",
+      "position": {
+        "x": 288,
+        "y": 528
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "D1",
+      "properties": {
+        "value": "1N5819"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.c14",
+      "definitionId": "builtin.polar-capacitor.v1",
+      "position": {
+        "x": 384,
+        "y": 608
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "C1",
+      "properties": {
+        "value": "100 uF"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.c15",
+      "definitionId": "builtin.gate-xor-2.v1",
+      "position": {
+        "x": 1088,
+        "y": 216
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U2",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.c16",
+      "definitionId": "builtin.gate-and-2.v1",
+      "position": {
+        "x": 1280,
+        "y": 216
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U3",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.c17",
+      "definitionId": "builtin.gate-not-1.v1",
+      "position": {
+        "x": 1088,
+        "y": 360
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U4",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.c18",
+      "definitionId": "builtin.gate-or-2.v1",
+      "position": {
+        "x": 1280,
+        "y": 360
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U5",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.c19",
+      "definitionId": "builtin.block-output-probe.v1",
+      "position": {
+        "x": 1424,
+        "y": 216
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "DS1",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.c20",
+      "definitionId": "builtin.block-output-probe.v1",
+      "position": {
+        "x": 1424,
+        "y": 360
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "DS2",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.c21",
+      "definitionId": "builtin.resistor.v1",
+      "position": {
+        "x": 1024,
+        "y": 648
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "R1",
+      "properties": {
+        "value": "1k"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.c22",
+      "definitionId": "builtin.diode-2.v1",
+      "position": {
+        "x": 1024,
+        "y": 792
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "D2",
+      "properties": {
+        "value": "Green"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.c23",
+      "definitionId": "builtin.resistor.v1",
+      "position": {
+        "x": 1184,
+        "y": 648
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "R2",
+      "properties": {
+        "value": "1k"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.c24",
+      "definitionId": "builtin.diode-2.v1",
+      "position": {
+        "x": 1184,
+        "y": 792
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "D3",
+      "properties": {
+        "value": "Amber"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.c25",
+      "definitionId": "builtin.resistor.v1",
+      "position": {
+        "x": 1344,
+        "y": 648
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "R3",
+      "properties": {
+        "value": "1k"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.c26",
+      "definitionId": "builtin.diode-2.v1",
+      "position": {
+        "x": 1344,
+        "y": 792
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "D4",
+      "properties": {
+        "value": "Blue"
+      },
+      "locked": false
+    }
+  ],
+  "nodes": [
+    {
+      "id": "showcase.desktop-bus.n1",
+      "position": {
+        "x": 384,
+        "y": 528
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.desktop-bus.n2",
+      "position": {
+        "x": 384,
+        "y": 704
+      },
+      "explicit": false
+    }
+  ],
+  "wires": [
+    {
+      "id": "showcase.desktop-bus.w1",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c1",
+        "pinId": "data"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c2",
+        "pinId": "in-0"
+      },
+      "width": 8,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.w2",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c2",
+        "pinId": "out-0"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c3",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 680,
+            "y": 136,
+            "id": "showcase.desktop-bus.bend1",
+            "locked": true
+          },
+          {
+            "x": 680,
+            "y": 336,
+            "id": "showcase.desktop-bus.bend2",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.w3",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c2",
+        "pinId": "out-1"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c4",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 672,
+            "y": 152,
+            "id": "showcase.desktop-bus.bend3",
+            "locked": true
+          },
+          {
+            "x": 672,
+            "y": 400,
+            "id": "showcase.desktop-bus.bend4",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.w4",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c2",
+        "pinId": "out-2"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c5",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 664,
+            "y": 168,
+            "id": "showcase.desktop-bus.bend5",
+            "locked": true
+          },
+          {
+            "x": 664,
+            "y": 464,
+            "id": "showcase.desktop-bus.bend6",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.w5",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c2",
+        "pinId": "out-3"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c6",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 656,
+            "y": 184,
+            "id": "showcase.desktop-bus.bend7",
+            "locked": true
+          },
+          {
+            "x": 656,
+            "y": 528,
+            "id": "showcase.desktop-bus.bend8",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.w6",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c2",
+        "pinId": "out-4"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c7",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 648,
+            "y": 200,
+            "id": "showcase.desktop-bus.bend9",
+            "locked": true
+          },
+          {
+            "x": 648,
+            "y": 592,
+            "id": "showcase.desktop-bus.bend10",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.w7",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c2",
+        "pinId": "out-5"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c8",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 640,
+            "y": 216,
+            "id": "showcase.desktop-bus.bend11",
+            "locked": true
+          },
+          {
+            "x": 640,
+            "y": 656,
+            "id": "showcase.desktop-bus.bend12",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.w8",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c2",
+        "pinId": "out-6"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c9",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 632,
+            "y": 232,
+            "id": "showcase.desktop-bus.bend13",
+            "locked": true
+          },
+          {
+            "x": 632,
+            "y": 720,
+            "id": "showcase.desktop-bus.bend14",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.w9",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c2",
+        "pinId": "out-7"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c10",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 624,
+            "y": 248,
+            "id": "showcase.desktop-bus.bend15",
+            "locked": true
+          },
+          {
+            "x": 624,
+            "y": 784,
+            "id": "showcase.desktop-bus.bend16",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.w10",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c11",
+        "pinId": "1"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c12",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 32,
+            "y": 528,
+            "id": "showcase.desktop-bus.bend17",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.w11",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c12",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c13",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.w12",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c13",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-bus.n1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.w13",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-bus.n1"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c14",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.w14",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c14",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-bus.n2"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.w15",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c11",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-bus.n2"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 32,
+            "y": 704,
+            "id": "showcase.desktop-bus.bend18",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.w16",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c15",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c16",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 1184,
+            "y": 216,
+            "id": "showcase.desktop-bus.bend19",
+            "locked": true
+          },
+          {
+            "x": 1184,
+            "y": 208,
+            "id": "showcase.desktop-bus.bend20",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.w17",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c17",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c18",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 1184,
+            "y": 360,
+            "id": "showcase.desktop-bus.bend21",
+            "locked": true
+          },
+          {
+            "x": 1184,
+            "y": 352,
+            "id": "showcase.desktop-bus.bend22",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.w18",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c16",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c19",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.w19",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c18",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c20",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.w20",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c21",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c22",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.w21",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c23",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c24",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-bus.w22",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c25",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c26",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    }
+  ],
+  "annotations": [
+    {
+      "id": "showcase.desktop-bus.a1",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "text": "8-bit control bus",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 30
+    },
+    {
+      "id": "showcase.desktop-bus.a2",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 32
+      },
+      "text": "Custom pin layouts, explicit lane mapping and output stages",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 13
+    },
+    {
+      "id": "showcase.desktop-bus.a3",
+      "kind": "label",
+      "position": {
+        "x": 248,
+        "y": 104
+      },
+      "text": "3V3",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c1",
+        "pinId": "vcc"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-bus.a4",
+      "kind": "label",
+      "position": {
+        "x": 216,
+        "y": 296
+      },
+      "text": "GND",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c1",
+        "pinId": "gnd"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-bus.a5",
+      "kind": "label",
+      "position": {
+        "x": 104,
+        "y": 176
+      },
+      "text": "CLK",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c1",
+        "pinId": "clk"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-bus.a6",
+      "kind": "label",
+      "position": {
+        "x": 104,
+        "y": 224
+      },
+      "text": "RESET",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c1",
+        "pinId": "rst"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-bus.a7",
+      "kind": "label",
+      "position": {
+        "x": 824,
+        "y": 328
+      },
+      "text": "D0",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c3",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-bus.a8",
+      "kind": "label",
+      "position": {
+        "x": 824,
+        "y": 392
+      },
+      "text": "D1",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c4",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-bus.a9",
+      "kind": "label",
+      "position": {
+        "x": 824,
+        "y": 456
+      },
+      "text": "D2",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c5",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-bus.a10",
+      "kind": "label",
+      "position": {
+        "x": 824,
+        "y": 520
+      },
+      "text": "D3",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c6",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-bus.a11",
+      "kind": "label",
+      "position": {
+        "x": 824,
+        "y": 584
+      },
+      "text": "D4",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c7",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-bus.a12",
+      "kind": "label",
+      "position": {
+        "x": 824,
+        "y": 648
+      },
+      "text": "D5",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c8",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-bus.a13",
+      "kind": "label",
+      "position": {
+        "x": 824,
+        "y": 712
+      },
+      "text": "D6",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c9",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-bus.a14",
+      "kind": "label",
+      "position": {
+        "x": 824,
+        "y": 776
+      },
+      "text": "D7",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c10",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-bus.a15",
+      "kind": "text",
+      "position": {
+        "x": 160,
+        "y": 320
+      },
+      "text": "DATA[7:0]",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 18
+    },
+    {
+      "id": "showcase.desktop-bus.a16",
+      "kind": "text",
+      "position": {
+        "x": 160,
+        "y": 352
+      },
+      "text": "Eight explicit scalar lanes",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 12
+    },
+    {
+      "id": "showcase.desktop-bus.a17",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 416
+      },
+      "text": "01  Protected input",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 19
+    },
+    {
+      "id": "showcase.desktop-bus.a18",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 440
+      },
+      "text": "Fuse, reverse-polarity diode and reservoir",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 12
+    },
+    {
+      "id": "showcase.desktop-bus.a19",
+      "kind": "label",
+      "position": {
+        "x": 392,
+        "y": 520
+      },
+      "text": "VIN",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-bus.n1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-bus.a20",
+      "kind": "label",
+      "position": {
+        "x": 392,
+        "y": 696
+      },
+      "text": "GND",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-bus.n2"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-bus.a21",
+      "kind": "text",
+      "position": {
+        "x": 976,
+        "y": 88
+      },
+      "text": "03  Output control",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 19
+    },
+    {
+      "id": "showcase.desktop-bus.a22",
+      "kind": "text",
+      "position": {
+        "x": 976,
+        "y": 112
+      },
+      "text": "Enable, overflow detection and status outputs",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 12
+    },
+    {
+      "id": "showcase.desktop-bus.a23",
+      "kind": "label",
+      "position": {
+        "x": 1008,
+        "y": 200
+      },
+      "text": "C1",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c15",
+        "pinId": "in-0"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-bus.a24",
+      "kind": "label",
+      "position": {
+        "x": 1008,
+        "y": 248
+      },
+      "text": "C2",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c15",
+        "pinId": "in-1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-bus.a25",
+      "kind": "label",
+      "position": {
+        "x": 1208,
+        "y": 256
+      },
+      "text": "ENABLE",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c16",
+        "pinId": "in-1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-bus.a26",
+      "kind": "label",
+      "position": {
+        "x": 992,
+        "y": 352
+      },
+      "text": "RESET",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c17",
+        "pinId": "in-0"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-bus.a27",
+      "kind": "label",
+      "position": {
+        "x": 1208,
+        "y": 400
+      },
+      "text": "ENABLE",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c18",
+        "pinId": "in-1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-bus.a28",
+      "kind": "text",
+      "position": {
+        "x": 976,
+        "y": 504
+      },
+      "text": "04  Indicator outputs",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 19
+    },
+    {
+      "id": "showcase.desktop-bus.a29",
+      "kind": "text",
+      "position": {
+        "x": 976,
+        "y": 528
+      },
+      "text": "Pulse and supply indicators with series resistance",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 12
+    },
+    {
+      "id": "showcase.desktop-bus.a30",
+      "kind": "label",
+      "position": {
+        "x": 1032,
+        "y": 592
+      },
+      "text": "PULSE",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c21",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-bus.a31",
+      "kind": "label",
+      "position": {
+        "x": 1032,
+        "y": 856
+      },
+      "text": "GND",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c22",
+        "pinId": "2"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-bus.a32",
+      "kind": "label",
+      "position": {
+        "x": 1192,
+        "y": 592
+      },
+      "text": "5V",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c23",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-bus.a33",
+      "kind": "label",
+      "position": {
+        "x": 1192,
+        "y": 856
+      },
+      "text": "GND",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c24",
+        "pinId": "2"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-bus.a34",
+      "kind": "label",
+      "position": {
+        "x": 1352,
+        "y": 592
+      },
+      "text": "3V3",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c25",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-bus.a35",
+      "kind": "label",
+      "position": {
+        "x": 1352,
+        "y": 856
+      },
+      "text": "GND",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-bus.c26",
+        "pinId": "2"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    }
+  ],
+  "groups": [],
+  "definitions": [
+    {
+      "id": "showcase.desktop-bus.def1",
+      "version": 1,
+      "name": "MCU",
+      "category": "Custom",
+      "aliases": [],
+      "prefix": "U",
+      "pins": [
+        {
+          "id": "clk",
+          "name": "CLK",
+          "x": -80,
+          "y": -8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "rst",
+          "name": "RST",
+          "x": -80,
+          "y": 8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "data",
+          "name": "DATA",
+          "x": 80,
+          "y": 0,
+          "side": "right",
+          "role": "bidirectional",
+          "width": 8
+        },
+        {
+          "id": "vcc",
+          "name": "VCC",
+          "x": 0,
+          "y": -80,
+          "side": "top",
+          "role": "power",
+          "width": 1
+        },
+        {
+          "id": "gnd",
+          "name": "GND",
+          "x": 0,
+          "y": 80,
+          "side": "bottom",
+          "role": "power",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "rect",
+          "x": -64,
+          "y": -64,
+          "width": 128,
+          "height": 128
+        },
+        {
+          "kind": "text",
+          "x": 0,
+          "y": 5,
+          "text": "MCU",
+          "size": 12
+        },
+        {
+          "kind": "path",
+          "d": "M -80 -8 L -64 -8"
+        },
+        {
+          "kind": "text",
+          "x": -42,
+          "y": -4,
+          "text": "CLK",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M -80 8 L -64 8"
+        },
+        {
+          "kind": "text",
+          "x": -42,
+          "y": 12,
+          "text": "RST",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 80 0 L 64 0"
+        },
+        {
+          "kind": "text",
+          "x": 42,
+          "y": 4,
+          "text": "DATA",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 0 -80 L 0 -64"
+        },
+        {
+          "kind": "text",
+          "x": 0,
+          "y": -48,
+          "text": "VCC",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 0 80 L 0 64"
+        },
+        {
+          "kind": "text",
+          "x": 0,
+          "y": 52,
+          "text": "GND",
+          "size": 9
+        }
+      ],
+      "bounds": {
+        "x": -80,
+        "y": -80,
+        "width": 160,
+        "height": 160
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.splitter-8.v1",
+      "version": 1,
+      "name": "8-bit splitter",
+      "category": "Buses",
+      "aliases": [],
+      "prefix": "B",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "BUS",
+          "x": -64,
+          "y": 0,
+          "side": "left",
+          "role": "bidirectional",
+          "width": 8
+        },
+        {
+          "id": "out-0",
+          "name": "0",
+          "x": 64,
+          "y": -56,
+          "side": "right",
+          "role": "bidirectional",
+          "width": 1
+        },
+        {
+          "id": "out-1",
+          "name": "1",
+          "x": 64,
+          "y": -40,
+          "side": "right",
+          "role": "bidirectional",
+          "width": 1
+        },
+        {
+          "id": "out-2",
+          "name": "2",
+          "x": 64,
+          "y": -24,
+          "side": "right",
+          "role": "bidirectional",
+          "width": 1
+        },
+        {
+          "id": "out-3",
+          "name": "3",
+          "x": 64,
+          "y": -8,
+          "side": "right",
+          "role": "bidirectional",
+          "width": 1
+        },
+        {
+          "id": "out-4",
+          "name": "4",
+          "x": 64,
+          "y": 8,
+          "side": "right",
+          "role": "bidirectional",
+          "width": 1
+        },
+        {
+          "id": "out-5",
+          "name": "5",
+          "x": 64,
+          "y": 24,
+          "side": "right",
+          "role": "bidirectional",
+          "width": 1
+        },
+        {
+          "id": "out-6",
+          "name": "6",
+          "x": 64,
+          "y": 40,
+          "side": "right",
+          "role": "bidirectional",
+          "width": 1
+        },
+        {
+          "id": "out-7",
+          "name": "7",
+          "x": 64,
+          "y": 56,
+          "side": "right",
+          "role": "bidirectional",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "rect",
+          "x": -48,
+          "y": -96,
+          "width": 96,
+          "height": 168
+        },
+        {
+          "kind": "text",
+          "x": 0,
+          "y": -80,
+          "text": "8-bit splitter",
+          "size": 10
+        },
+        {
+          "kind": "path",
+          "d": "M -64 0 H -48"
+        },
+        {
+          "kind": "text",
+          "x": -28,
+          "y": 4,
+          "text": "BUS",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 64 -56 H 48"
+        },
+        {
+          "kind": "text",
+          "x": 28,
+          "y": -52,
+          "text": "0",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 64 -40 H 48"
+        },
+        {
+          "kind": "text",
+          "x": 28,
+          "y": -36,
+          "text": "1",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 64 -24 H 48"
+        },
+        {
+          "kind": "text",
+          "x": 28,
+          "y": -20,
+          "text": "2",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 64 -8 H 48"
+        },
+        {
+          "kind": "text",
+          "x": 28,
+          "y": -4,
+          "text": "3",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 64 8 H 48"
+        },
+        {
+          "kind": "text",
+          "x": 28,
+          "y": 12,
+          "text": "4",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 64 24 H 48"
+        },
+        {
+          "kind": "text",
+          "x": 28,
+          "y": 28,
+          "text": "5",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 64 40 H 48"
+        },
+        {
+          "kind": "text",
+          "x": 28,
+          "y": 44,
+          "text": "6",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 64 56 H 48"
+        },
+        {
+          "kind": "text",
+          "x": 28,
+          "y": 60,
+          "text": "7",
+          "size": 9
+        }
+      ],
+      "bounds": {
+        "x": -64,
+        "y": -96,
+        "width": 128,
+        "height": 168
+      },
+      "defaults": {},
+      "laneLinks": [
+        {
+          "a": "in-0",
+          "aLane": 0,
+          "b": "out-0",
+          "bLane": 0
+        },
+        {
+          "a": "in-0",
+          "aLane": 1,
+          "b": "out-1",
+          "bLane": 0
+        },
+        {
+          "a": "in-0",
+          "aLane": 2,
+          "b": "out-2",
+          "bLane": 0
+        },
+        {
+          "a": "in-0",
+          "aLane": 3,
+          "b": "out-3",
+          "bLane": 0
+        },
+        {
+          "a": "in-0",
+          "aLane": 4,
+          "b": "out-4",
+          "bLane": 0
+        },
+        {
+          "a": "in-0",
+          "aLane": 5,
+          "b": "out-5",
+          "bLane": 0
+        },
+        {
+          "a": "in-0",
+          "aLane": 6,
+          "b": "out-6",
+          "bLane": 0
+        },
+        {
+          "a": "in-0",
+          "aLane": 7,
+          "b": "out-7",
+          "bLane": 0
+        }
+      ]
+    },
+    {
+      "id": "builtin.test-point.v1",
+      "version": 1,
+      "name": "Test point",
+      "category": "Connectivity",
+      "aliases": [],
+      "prefix": "TP",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "x": 0,
+          "y": 32,
+          "side": "bottom",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M 0 32 V 6"
+        },
+        {
+          "kind": "circle",
+          "x": 0,
+          "y": 0,
+          "radius": 6
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.dc-voltage.v1",
+      "version": 1,
+      "name": "DC voltage source",
+      "category": "Sources",
+      "aliases": [
+        "voltage",
+        "dc",
+        "source"
+      ],
+      "prefix": "V",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24 M 24 0 H 48"
+        },
+        {
+          "kind": "circle",
+          "x": 0,
+          "y": 0,
+          "radius": 24
+        },
+        {
+          "kind": "path",
+          "d": "M -15 -5 H -5 M -10 -10 V 0 M 5 5 H 15"
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {
+        "value": "5V"
+      }
+    },
+    {
+      "id": "builtin.fuse.v1",
+      "version": 1,
+      "name": "Fuse",
+      "category": "Passive",
+      "aliases": [],
+      "prefix": "F",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 -8 H 24 V 8 H -24 Z M -24 0 H 24"
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {
+        "value": "1A"
+      }
+    },
+    {
+      "id": "builtin.diode-0.v1",
+      "version": 1,
+      "name": "Diode",
+      "category": "Semiconductors",
+      "aliases": [
+        "diode"
+      ],
+      "prefix": "D",
+      "pins": [
+        {
+          "id": "1",
+          "name": "Anode",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "2",
+          "name": "Cathode",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 0 H -14 M -14 -18 L 14 0 L -14 18 Z M 14 -18 V 18 M 14 0 H 24"
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {
+        "value": ""
+      }
+    },
+    {
+      "id": "builtin.polar-capacitor.v1",
+      "version": 1,
+      "name": "Polarized capacitor",
+      "category": "Passive",
+      "aliases": [],
+      "prefix": "C",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 0 H -6 M -6 -20 V 20 M 12 -20 Q 0 0 12 20 M 8 0 H 24 M -20 -25 H -10 M -15 -30 V -20"
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {
+        "value": "10µF"
+      }
+    },
+    {
+      "id": "builtin.gate-xor-2.v1",
+      "version": 1,
+      "name": "XOR",
+      "category": "Logic gates",
+      "aliases": [
+        "xor",
+        "gate"
+      ],
+      "prefix": "U",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "x": -48,
+          "y": -8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-1",
+          "name": "B",
+          "x": -48,
+          "y": 8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "out",
+          "name": "Y",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -28 -32 Q 4 0 -28 32 Q 12 32 28 0 Q 12 -32 -28 -32 Z"
+        },
+        {
+          "kind": "path",
+          "d": "M -34 -32 Q -2 0 -34 32"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 -8 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 8 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M 28 0 H 48"
+        }
+      ],
+      "bounds": {
+        "x": -48,
+        "y": -32,
+        "width": 96,
+        "height": 64
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.gate-and-2.v1",
+      "version": 1,
+      "name": "AND",
+      "category": "Logic gates",
+      "aliases": [
+        "and",
+        "gate"
+      ],
+      "prefix": "U",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "x": -48,
+          "y": -8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-1",
+          "name": "B",
+          "x": -48,
+          "y": 8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "out",
+          "name": "Y",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -24 -32 H 0 C 38 -32 38 32 0 32 H -24 Z"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 -8 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 8 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M 28 0 H 48"
+        }
+      ],
+      "bounds": {
+        "x": -48,
+        "y": -32,
+        "width": 96,
+        "height": 64
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.gate-not-1.v1",
+      "version": 1,
+      "name": "NOT",
+      "category": "Logic gates",
+      "aliases": [
+        "not",
+        "gate"
+      ],
+      "prefix": "U",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "out",
+          "name": "Y",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -24 -24 L 24 0 L -24 24 Z"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M 36 0 H 48"
+        },
+        {
+          "kind": "circle",
+          "x": 32,
+          "y": 0,
+          "radius": 4
+        }
+      ],
+      "bounds": {
+        "x": -48,
+        "y": -32,
+        "width": 96,
+        "height": 64
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.gate-or-2.v1",
+      "version": 1,
+      "name": "OR",
+      "category": "Logic gates",
+      "aliases": [
+        "or",
+        "gate"
+      ],
+      "prefix": "U",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "x": -48,
+          "y": -8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-1",
+          "name": "B",
+          "x": -48,
+          "y": 8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "out",
+          "name": "Y",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -28 -32 Q 4 0 -28 32 Q 12 32 28 0 Q 12 -32 -28 -32 Z"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 -8 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 8 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M 28 0 H 48"
+        }
+      ],
+      "bounds": {
+        "x": -48,
+        "y": -32,
+        "width": 96,
+        "height": 64
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.block-output-probe.v1",
+      "version": 1,
+      "name": "Output probe",
+      "category": "Logic I/O",
+      "aliases": [],
+      "prefix": "DS",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "IN",
+          "x": -64,
+          "y": 0,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "rect",
+          "x": -48,
+          "y": -56,
+          "width": 96,
+          "height": 88
+        },
+        {
+          "kind": "text",
+          "x": 0,
+          "y": -40,
+          "text": "Output probe",
+          "size": 11
+        },
+        {
+          "kind": "path",
+          "d": "M -64 0 H -48"
+        },
+        {
+          "kind": "text",
+          "x": -28,
+          "y": 4,
+          "text": "IN",
+          "size": 9
+        }
+      ],
+      "bounds": {
+        "x": -64,
+        "y": -56,
+        "width": 128,
+        "height": 88
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.resistor.v1",
+      "version": 1,
+      "name": "Resistor",
+      "category": "Passive",
+      "aliases": [
+        "resistance",
+        "ohm"
+      ],
+      "prefix": "R",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 -10 H 24 V 10 H -24 Z"
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {
+        "value": "10k"
+      }
+    },
+    {
+      "id": "builtin.diode-2.v1",
+      "version": 1,
+      "name": "LED",
+      "category": "Semiconductors",
+      "aliases": [
+        "light emitting diode"
+      ],
+      "prefix": "D",
+      "pins": [
+        {
+          "id": "1",
+          "name": "Anode",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "2",
+          "name": "Cathode",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 0 H -14 M -14 -18 L 14 0 L -14 18 Z M 14 -18 V 18 M 14 0 H 24"
+        },
+        {
+          "kind": "path",
+          "d": "M 8 -28 L 24 -44 M 16 -44 H 24 V -36 M -4 -32 L 12 -48 M 4 -48 H 12 V -40"
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -48,
+        "width": 64,
+        "height": 80
+      },
+      "defaults": {
+        "value": ""
+      }
+    }
+  ],
+  "metadata": {
+    "purpose": "Editable gallery drawing; not simulated or electrically qualified.",
+    "layout": "Desktop"
+  }
+}

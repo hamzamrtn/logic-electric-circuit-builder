@@ -1,0 +1,2829 @@
+{
+  "format": "logic-electric-circuit",
+  "schemaVersion": 1,
+  "id": "showcase.desktop-logic.doc1",
+  "title": "Inside a ripple-carry adder",
+  "components": [
+    {
+      "id": "showcase.desktop-logic.c1",
+      "definitionId": "builtin.gate-xor-2.v1",
+      "position": {
+        "x": 144,
+        "y": 216
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U1",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.c2",
+      "definitionId": "builtin.gate-xor-2.v1",
+      "position": {
+        "x": 336,
+        "y": 216
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U2",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.c3",
+      "definitionId": "builtin.gate-and-2.v1",
+      "position": {
+        "x": 144,
+        "y": 360
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U3",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.c4",
+      "definitionId": "builtin.gate-and-2.v1",
+      "position": {
+        "x": 336,
+        "y": 360
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U4",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.c5",
+      "definitionId": "builtin.gate-or-2.v1",
+      "position": {
+        "x": 432,
+        "y": 432
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U5",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.c6",
+      "definitionId": "builtin.gate-xor-2.v1",
+      "position": {
+        "x": 720,
+        "y": 216
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U6",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.c7",
+      "definitionId": "builtin.gate-xor-2.v1",
+      "position": {
+        "x": 912,
+        "y": 216
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U7",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.c8",
+      "definitionId": "builtin.gate-and-2.v1",
+      "position": {
+        "x": 720,
+        "y": 360
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U8",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.c9",
+      "definitionId": "builtin.gate-and-2.v1",
+      "position": {
+        "x": 912,
+        "y": 360
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U9",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.c10",
+      "definitionId": "builtin.gate-or-2.v1",
+      "position": {
+        "x": 1008,
+        "y": 432
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U10",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.c11",
+      "definitionId": "builtin.gate-xor-2.v1",
+      "position": {
+        "x": 112,
+        "y": 616
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U11",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.c12",
+      "definitionId": "builtin.gate-and-2.v1",
+      "position": {
+        "x": 304,
+        "y": 616
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U12",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.c13",
+      "definitionId": "builtin.gate-not-1.v1",
+      "position": {
+        "x": 112,
+        "y": 760
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U13",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.c14",
+      "definitionId": "builtin.gate-or-2.v1",
+      "position": {
+        "x": 304,
+        "y": 760
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U14",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.c15",
+      "definitionId": "builtin.block-output-probe.v1",
+      "position": {
+        "x": 448,
+        "y": 616
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "DS1",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.c16",
+      "definitionId": "builtin.block-output-probe.v1",
+      "position": {
+        "x": 448,
+        "y": 760
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "DS2",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.c17",
+      "definitionId": "builtin.block-clock.v1",
+      "position": {
+        "x": 640,
+        "y": 632
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "IN1",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.c18",
+      "definitionId": "builtin.block-counter.v1",
+      "position": {
+        "x": 832,
+        "y": 648
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U15",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.c19",
+      "definitionId": "builtin.block-decoder.v1",
+      "position": {
+        "x": 832,
+        "y": 792
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U16",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.c20",
+      "definitionId": "builtin.test-point.v1",
+      "position": {
+        "x": 992,
+        "y": 736
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "TP1",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.c21",
+      "definitionId": "builtin.test-point.v1",
+      "position": {
+        "x": 1072,
+        "y": 784
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "TP2",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.c22",
+      "definitionId": "builtin.test-point.v1",
+      "position": {
+        "x": 992,
+        "y": 832
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "TP3",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.c23",
+      "definitionId": "builtin.test-point.v1",
+      "position": {
+        "x": 1072,
+        "y": 880
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "TP4",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    }
+  ],
+  "nodes": [
+    {
+      "id": "showcase.desktop-logic.n1",
+      "position": {
+        "x": 48,
+        "y": 208
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.desktop-logic.n2",
+      "position": {
+        "x": 32,
+        "y": 224
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.desktop-logic.n3",
+      "position": {
+        "x": 240,
+        "y": 224
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.desktop-logic.n4",
+      "position": {
+        "x": 224,
+        "y": 216
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.desktop-logic.n5",
+      "position": {
+        "x": 624,
+        "y": 208
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.desktop-logic.n6",
+      "position": {
+        "x": 608,
+        "y": 224
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.desktop-logic.n7",
+      "position": {
+        "x": 816,
+        "y": 224
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.desktop-logic.n8",
+      "position": {
+        "x": 800,
+        "y": 216
+      },
+      "explicit": false
+    }
+  ],
+  "wires": [
+    {
+      "id": "showcase.desktop-logic.w1",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-logic.n1"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c1",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.w2",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-logic.n2"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c1",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.w3",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c1",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-logic.n4"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.w4",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-logic.n4"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c2",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 256,
+            "y": 216,
+            "id": "showcase.desktop-logic.bend1",
+            "locked": true
+          },
+          {
+            "x": 256,
+            "y": 208,
+            "id": "showcase.desktop-logic.bend2",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.w5",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-logic.n3"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c2",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.w6",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-logic.n1"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c3",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 48,
+            "y": 352,
+            "id": "showcase.desktop-logic.bend3",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.w7",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-logic.n2"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c3",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 32,
+            "y": 368,
+            "id": "showcase.desktop-logic.bend4",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.w8",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-logic.n4"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c4",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 224,
+            "y": 296,
+            "id": "showcase.desktop-logic.bend5",
+            "locked": true
+          },
+          {
+            "x": 256,
+            "y": 296,
+            "id": "showcase.desktop-logic.bend6",
+            "locked": true
+          },
+          {
+            "x": 256,
+            "y": 352,
+            "id": "showcase.desktop-logic.bend7",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.w9",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-logic.n3"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c4",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 240,
+            "y": 368,
+            "id": "showcase.desktop-logic.bend8",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.w10",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c3",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c5",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 208,
+            "y": 360,
+            "id": "showcase.desktop-logic.bend9",
+            "locked": true
+          },
+          {
+            "x": 208,
+            "y": 424,
+            "id": "showcase.desktop-logic.bend10",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.w11",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c4",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c5",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 400,
+            "y": 360,
+            "id": "showcase.desktop-logic.bend11",
+            "locked": true
+          },
+          {
+            "x": 400,
+            "y": 440,
+            "id": "showcase.desktop-logic.bend12",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.w12",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-logic.n5"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c6",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.w13",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-logic.n6"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c6",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.w14",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c6",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-logic.n8"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.w15",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-logic.n8"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c7",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 832,
+            "y": 216,
+            "id": "showcase.desktop-logic.bend13",
+            "locked": true
+          },
+          {
+            "x": 832,
+            "y": 208,
+            "id": "showcase.desktop-logic.bend14",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.w16",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-logic.n7"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c7",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.w17",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-logic.n5"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c8",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 624,
+            "y": 352,
+            "id": "showcase.desktop-logic.bend15",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.w18",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-logic.n6"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c8",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 608,
+            "y": 368,
+            "id": "showcase.desktop-logic.bend16",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.w19",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-logic.n8"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c9",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 800,
+            "y": 296,
+            "id": "showcase.desktop-logic.bend17",
+            "locked": true
+          },
+          {
+            "x": 832,
+            "y": 296,
+            "id": "showcase.desktop-logic.bend18",
+            "locked": true
+          },
+          {
+            "x": 832,
+            "y": 352,
+            "id": "showcase.desktop-logic.bend19",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.w20",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-logic.n7"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c9",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 816,
+            "y": 368,
+            "id": "showcase.desktop-logic.bend20",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.w21",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c8",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c10",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 784,
+            "y": 360,
+            "id": "showcase.desktop-logic.bend21",
+            "locked": true
+          },
+          {
+            "x": 784,
+            "y": 424,
+            "id": "showcase.desktop-logic.bend22",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.w22",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c9",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c10",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 976,
+            "y": 360,
+            "id": "showcase.desktop-logic.bend23",
+            "locked": true
+          },
+          {
+            "x": 976,
+            "y": 440,
+            "id": "showcase.desktop-logic.bend24",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.w23",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c11",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c12",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 208,
+            "y": 616,
+            "id": "showcase.desktop-logic.bend25",
+            "locked": true
+          },
+          {
+            "x": 208,
+            "y": 608,
+            "id": "showcase.desktop-logic.bend26",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.w24",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c13",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c14",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 208,
+            "y": 760,
+            "id": "showcase.desktop-logic.bend27",
+            "locked": true
+          },
+          {
+            "x": 208,
+            "y": 752,
+            "id": "showcase.desktop-logic.bend28",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.w25",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c12",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c15",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.w26",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c14",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c16",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.w27",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c17",
+        "pinId": "out-0"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c18",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 736,
+            "y": 632,
+            "id": "showcase.desktop-logic.bend29",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.w28",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c19",
+        "pinId": "out-0"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c20",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 928,
+            "y": 768,
+            "id": "showcase.desktop-logic.bend30",
+            "locked": true
+          },
+          {
+            "x": 928,
+            "y": 736,
+            "id": "showcase.desktop-logic.bend31",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.w29",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c19",
+        "pinId": "out-1"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c21",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 944,
+            "y": 784,
+            "id": "showcase.desktop-logic.bend32",
+            "locked": true
+          },
+          {
+            "x": 944,
+            "y": 784,
+            "id": "showcase.desktop-logic.bend33",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.w30",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c19",
+        "pinId": "out-2"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c22",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 960,
+            "y": 800,
+            "id": "showcase.desktop-logic.bend34",
+            "locked": true
+          },
+          {
+            "x": 960,
+            "y": 832,
+            "id": "showcase.desktop-logic.bend35",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-logic.w31",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c19",
+        "pinId": "out-3"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c23",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 976,
+            "y": 816,
+            "id": "showcase.desktop-logic.bend36",
+            "locked": true
+          },
+          {
+            "x": 976,
+            "y": 880,
+            "id": "showcase.desktop-logic.bend37",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    }
+  ],
+  "annotations": [
+    {
+      "id": "showcase.desktop-logic.a1",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "text": "Inside a ripple-carry adder",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 30
+    },
+    {
+      "id": "showcase.desktop-logic.a2",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 32
+      },
+      "text": "Gate-level arithmetic / explicit carry nets / output control",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 13
+    },
+    {
+      "id": "showcase.desktop-logic.a3",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 88
+      },
+      "text": "01  Adder / bit 0",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 19
+    },
+    {
+      "id": "showcase.desktop-logic.a4",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 112
+      },
+      "text": "SUM = A xor B xor C; carry uses explicit gates",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 12
+    },
+    {
+      "id": "showcase.desktop-logic.a5",
+      "kind": "label",
+      "position": {
+        "x": 24,
+        "y": 200
+      },
+      "text": "A0",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-logic.n1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-logic.a6",
+      "kind": "label",
+      "position": {
+        "x": 8,
+        "y": 248
+      },
+      "text": "B0",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-logic.n2"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-logic.a7",
+      "kind": "label",
+      "position": {
+        "x": 240,
+        "y": 256
+      },
+      "text": "C0",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-logic.n3"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-logic.a8",
+      "kind": "label",
+      "position": {
+        "x": 400,
+        "y": 208
+      },
+      "text": "S0",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c2",
+        "pinId": "out"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-logic.a9",
+      "kind": "label",
+      "position": {
+        "x": 488,
+        "y": 424
+      },
+      "text": "C1",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c5",
+        "pinId": "out"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-logic.a10",
+      "kind": "text",
+      "position": {
+        "x": 576,
+        "y": 88
+      },
+      "text": "02  Adder / bit 1",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 19
+    },
+    {
+      "id": "showcase.desktop-logic.a11",
+      "kind": "text",
+      "position": {
+        "x": 576,
+        "y": 112
+      },
+      "text": "SUM = A xor B xor C; carry uses explicit gates",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 12
+    },
+    {
+      "id": "showcase.desktop-logic.a12",
+      "kind": "label",
+      "position": {
+        "x": 600,
+        "y": 200
+      },
+      "text": "A1",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-logic.n5"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-logic.a13",
+      "kind": "label",
+      "position": {
+        "x": 584,
+        "y": 248
+      },
+      "text": "B1",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-logic.n6"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-logic.a14",
+      "kind": "label",
+      "position": {
+        "x": 816,
+        "y": 256
+      },
+      "text": "C1",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-logic.n7"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-logic.a15",
+      "kind": "label",
+      "position": {
+        "x": 976,
+        "y": 208
+      },
+      "text": "S1",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c7",
+        "pinId": "out"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-logic.a16",
+      "kind": "label",
+      "position": {
+        "x": 1064,
+        "y": 424
+      },
+      "text": "C2",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c10",
+        "pinId": "out"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-logic.a17",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 488
+      },
+      "text": "03  Output control",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 19
+    },
+    {
+      "id": "showcase.desktop-logic.a18",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 512
+      },
+      "text": "Enable, overflow detection and status outputs",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 12
+    },
+    {
+      "id": "showcase.desktop-logic.a19",
+      "kind": "label",
+      "position": {
+        "x": 32,
+        "y": 600
+      },
+      "text": "C1",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c11",
+        "pinId": "in-0"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-logic.a20",
+      "kind": "label",
+      "position": {
+        "x": 32,
+        "y": 648
+      },
+      "text": "C2",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c11",
+        "pinId": "in-1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-logic.a21",
+      "kind": "label",
+      "position": {
+        "x": 232,
+        "y": 656
+      },
+      "text": "ENABLE",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c12",
+        "pinId": "in-1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-logic.a22",
+      "kind": "label",
+      "position": {
+        "x": 16,
+        "y": 752
+      },
+      "text": "RESET",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c13",
+        "pinId": "in-0"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-logic.a23",
+      "kind": "label",
+      "position": {
+        "x": 232,
+        "y": 800
+      },
+      "text": "ENABLE",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c14",
+        "pinId": "in-1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-logic.a24",
+      "kind": "text",
+      "position": {
+        "x": 576,
+        "y": 488
+      },
+      "text": "04  Clock & state",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 19
+    },
+    {
+      "id": "showcase.desktop-logic.a25",
+      "kind": "text",
+      "position": {
+        "x": 576,
+        "y": 512
+      },
+      "text": "Counter and decoder with named control nets",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 12
+    },
+    {
+      "id": "showcase.desktop-logic.a26",
+      "kind": "label",
+      "position": {
+        "x": 720,
+        "y": 664
+      },
+      "text": "ENABLE",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c18",
+        "pinId": "in-1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-logic.a27",
+      "kind": "label",
+      "position": {
+        "x": 720,
+        "y": 688
+      },
+      "text": "RESET",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c18",
+        "pinId": "in-2"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-logic.a28",
+      "kind": "label",
+      "position": {
+        "x": 912,
+        "y": 576
+      },
+      "text": "Q0",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c18",
+        "pinId": "out-0"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-logic.a29",
+      "kind": "label",
+      "position": {
+        "x": 912,
+        "y": 608
+      },
+      "text": "Q1",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c18",
+        "pinId": "out-1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-logic.a30",
+      "kind": "label",
+      "position": {
+        "x": 912,
+        "y": 632
+      },
+      "text": "Q2",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c18",
+        "pinId": "out-2"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-logic.a31",
+      "kind": "label",
+      "position": {
+        "x": 912,
+        "y": 664
+      },
+      "text": "Q3",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c18",
+        "pinId": "out-3"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-logic.a32",
+      "kind": "label",
+      "position": {
+        "x": 736,
+        "y": 776
+      },
+      "text": "Q0",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c19",
+        "pinId": "in-0"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-logic.a33",
+      "kind": "label",
+      "position": {
+        "x": 736,
+        "y": 824
+      },
+      "text": "Q1",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-logic.c19",
+        "pinId": "in-1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    }
+  ],
+  "groups": [],
+  "definitions": [
+    {
+      "id": "builtin.gate-xor-2.v1",
+      "version": 1,
+      "name": "XOR",
+      "category": "Logic gates",
+      "aliases": [
+        "xor",
+        "gate"
+      ],
+      "prefix": "U",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "x": -48,
+          "y": -8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-1",
+          "name": "B",
+          "x": -48,
+          "y": 8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "out",
+          "name": "Y",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -28 -32 Q 4 0 -28 32 Q 12 32 28 0 Q 12 -32 -28 -32 Z"
+        },
+        {
+          "kind": "path",
+          "d": "M -34 -32 Q -2 0 -34 32"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 -8 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 8 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M 28 0 H 48"
+        }
+      ],
+      "bounds": {
+        "x": -48,
+        "y": -32,
+        "width": 96,
+        "height": 64
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.gate-and-2.v1",
+      "version": 1,
+      "name": "AND",
+      "category": "Logic gates",
+      "aliases": [
+        "and",
+        "gate"
+      ],
+      "prefix": "U",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "x": -48,
+          "y": -8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-1",
+          "name": "B",
+          "x": -48,
+          "y": 8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "out",
+          "name": "Y",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -24 -32 H 0 C 38 -32 38 32 0 32 H -24 Z"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 -8 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 8 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M 28 0 H 48"
+        }
+      ],
+      "bounds": {
+        "x": -48,
+        "y": -32,
+        "width": 96,
+        "height": 64
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.gate-or-2.v1",
+      "version": 1,
+      "name": "OR",
+      "category": "Logic gates",
+      "aliases": [
+        "or",
+        "gate"
+      ],
+      "prefix": "U",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "x": -48,
+          "y": -8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-1",
+          "name": "B",
+          "x": -48,
+          "y": 8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "out",
+          "name": "Y",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -28 -32 Q 4 0 -28 32 Q 12 32 28 0 Q 12 -32 -28 -32 Z"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 -8 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 8 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M 28 0 H 48"
+        }
+      ],
+      "bounds": {
+        "x": -48,
+        "y": -32,
+        "width": 96,
+        "height": 64
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.gate-not-1.v1",
+      "version": 1,
+      "name": "NOT",
+      "category": "Logic gates",
+      "aliases": [
+        "not",
+        "gate"
+      ],
+      "prefix": "U",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "out",
+          "name": "Y",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -24 -24 L 24 0 L -24 24 Z"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M 36 0 H 48"
+        },
+        {
+          "kind": "circle",
+          "x": 32,
+          "y": 0,
+          "radius": 4
+        }
+      ],
+      "bounds": {
+        "x": -48,
+        "y": -32,
+        "width": 96,
+        "height": 64
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.block-output-probe.v1",
+      "version": 1,
+      "name": "Output probe",
+      "category": "Logic I/O",
+      "aliases": [],
+      "prefix": "DS",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "IN",
+          "x": -64,
+          "y": 0,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "rect",
+          "x": -48,
+          "y": -56,
+          "width": 96,
+          "height": 88
+        },
+        {
+          "kind": "text",
+          "x": 0,
+          "y": -40,
+          "text": "Output probe",
+          "size": 11
+        },
+        {
+          "kind": "path",
+          "d": "M -64 0 H -48"
+        },
+        {
+          "kind": "text",
+          "x": -28,
+          "y": 4,
+          "text": "IN",
+          "size": 9
+        }
+      ],
+      "bounds": {
+        "x": -64,
+        "y": -56,
+        "width": 128,
+        "height": 88
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.block-clock.v1",
+      "version": 1,
+      "name": "Clock",
+      "category": "Logic I/O",
+      "aliases": [],
+      "prefix": "IN",
+      "pins": [
+        {
+          "id": "out-0",
+          "name": "OUT",
+          "x": 64,
+          "y": 0,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "rect",
+          "x": -48,
+          "y": -56,
+          "width": 96,
+          "height": 88
+        },
+        {
+          "kind": "text",
+          "x": 0,
+          "y": -40,
+          "text": "Clock",
+          "size": 11
+        },
+        {
+          "kind": "path",
+          "d": "M 64 0 H 48"
+        },
+        {
+          "kind": "text",
+          "x": 28,
+          "y": 4,
+          "text": "OUT",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M -24 12 H -12 V 0 H 0 V 12 H 12 V 0 H 24"
+        }
+      ],
+      "bounds": {
+        "x": -64,
+        "y": -56,
+        "width": 128,
+        "height": 88
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.block-counter.v1",
+      "version": 1,
+      "name": "Counter",
+      "category": "Logic blocks",
+      "aliases": [],
+      "prefix": "U",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "CLK",
+          "x": -64,
+          "y": -16,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-1",
+          "name": "EN",
+          "x": -64,
+          "y": 0,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-2",
+          "name": "RST",
+          "x": -64,
+          "y": 16,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "out-0",
+          "name": "Q0",
+          "x": 64,
+          "y": -24,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        },
+        {
+          "id": "out-1",
+          "name": "Q1",
+          "x": 64,
+          "y": -8,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        },
+        {
+          "id": "out-2",
+          "name": "Q2",
+          "x": 64,
+          "y": 8,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        },
+        {
+          "id": "out-3",
+          "name": "Q3",
+          "x": 64,
+          "y": 24,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "rect",
+          "x": -48,
+          "y": -64,
+          "width": 96,
+          "height": 104
+        },
+        {
+          "kind": "text",
+          "x": 0,
+          "y": -48,
+          "text": "Counter",
+          "size": 11
+        },
+        {
+          "kind": "path",
+          "d": "M -64 -16 H -48"
+        },
+        {
+          "kind": "text",
+          "x": -28,
+          "y": -12,
+          "text": "CLK",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M -64 0 H -48"
+        },
+        {
+          "kind": "text",
+          "x": -28,
+          "y": 4,
+          "text": "EN",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M -64 16 H -48"
+        },
+        {
+          "kind": "text",
+          "x": -28,
+          "y": 20,
+          "text": "RST",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 64 -24 H 48"
+        },
+        {
+          "kind": "text",
+          "x": 28,
+          "y": -20,
+          "text": "Q0",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 64 -8 H 48"
+        },
+        {
+          "kind": "text",
+          "x": 28,
+          "y": -4,
+          "text": "Q1",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 64 8 H 48"
+        },
+        {
+          "kind": "text",
+          "x": 28,
+          "y": 12,
+          "text": "Q2",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 64 24 H 48"
+        },
+        {
+          "kind": "text",
+          "x": 28,
+          "y": 28,
+          "text": "Q3",
+          "size": 9
+        }
+      ],
+      "bounds": {
+        "x": -64,
+        "y": -64,
+        "width": 128,
+        "height": 104
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.block-decoder.v1",
+      "version": 1,
+      "name": "Decoder",
+      "category": "Logic blocks",
+      "aliases": [],
+      "prefix": "U",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A0",
+          "x": -64,
+          "y": -8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-1",
+          "name": "A1",
+          "x": -64,
+          "y": 8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "out-0",
+          "name": "Y0",
+          "x": 64,
+          "y": -24,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        },
+        {
+          "id": "out-1",
+          "name": "Y1",
+          "x": 64,
+          "y": -8,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        },
+        {
+          "id": "out-2",
+          "name": "Y2",
+          "x": 64,
+          "y": 8,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        },
+        {
+          "id": "out-3",
+          "name": "Y3",
+          "x": 64,
+          "y": 24,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "rect",
+          "x": -48,
+          "y": -64,
+          "width": 96,
+          "height": 104
+        },
+        {
+          "kind": "text",
+          "x": 0,
+          "y": -48,
+          "text": "Decoder",
+          "size": 11
+        },
+        {
+          "kind": "path",
+          "d": "M -64 -8 H -48"
+        },
+        {
+          "kind": "text",
+          "x": -28,
+          "y": -4,
+          "text": "A0",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M -64 8 H -48"
+        },
+        {
+          "kind": "text",
+          "x": -28,
+          "y": 12,
+          "text": "A1",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 64 -24 H 48"
+        },
+        {
+          "kind": "text",
+          "x": 28,
+          "y": -20,
+          "text": "Y0",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 64 -8 H 48"
+        },
+        {
+          "kind": "text",
+          "x": 28,
+          "y": -4,
+          "text": "Y1",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 64 8 H 48"
+        },
+        {
+          "kind": "text",
+          "x": 28,
+          "y": 12,
+          "text": "Y2",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 64 24 H 48"
+        },
+        {
+          "kind": "text",
+          "x": 28,
+          "y": 28,
+          "text": "Y3",
+          "size": 9
+        }
+      ],
+      "bounds": {
+        "x": -64,
+        "y": -64,
+        "width": 128,
+        "height": 104
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.test-point.v1",
+      "version": 1,
+      "name": "Test point",
+      "category": "Connectivity",
+      "aliases": [],
+      "prefix": "TP",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "x": 0,
+          "y": 32,
+          "side": "bottom",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M 0 32 V 6"
+        },
+        {
+          "kind": "circle",
+          "x": 0,
+          "y": 0,
+          "radius": 6
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {}
+    }
+  ],
+  "metadata": {
+    "purpose": "Editable gallery drawing; not simulated or electrically qualified.",
+    "layout": "Desktop"
+  }
+}

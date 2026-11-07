@@ -1,4 +1,5 @@
 .lec-editor {
+  --lec-motion-fast: 120ms; --lec-motion-brief: 180ms; --lec-motion-camera: 160ms; --lec-motion-ease: cubic-bezier(.2, .7, .2, 1);
   --lec-paper: var(--background-primary, #fff); --lec-panel: var(--background-secondary, #f5f5f5); --lec-chrome: var(--background-secondary-alt, #ebebeb);
   --lec-ink: var(--text-normal, #242424); --lec-muted: var(--text-muted, #666); --lec-grid: var(--text-faint, #888); --lec-line: var(--background-modifier-border, #d5d5d5);
   --lec-accent: var(--interactive-accent, #606060); --lec-accent-wash: var(--background-modifier-hover, #e6e6e6); --lec-on-accent: var(--text-on-accent, #fff);
@@ -13,7 +14,7 @@
 .lec-editor *, .lec-editor *::before, .lec-editor *::after { box-sizing: border-box; }
 .lec-editor button, .lec-editor input, .lec-editor textarea, .lec-editor select { font: inherit; color: inherit; }
 .lec-editor button { display: inline-flex; align-items: center; justify-content: center; gap: 5px; min-height: 28px; padding: 4px 8px; border: 1px solid var(--lec-line); border-radius: var(--radius-s, 3px); background: transparent; cursor: pointer; box-shadow: none; line-height: 1.25; text-align: left; white-space: normal; }
-.lec-editor button:hover { background: var(--lec-accent-wash); }
+@media (hover: hover) { .lec-editor button:not(:disabled):hover { background: var(--lec-accent-wash); } }
 .lec-editor button:disabled { opacity: .35; cursor: default; }
 .lec-editor button:focus-visible, .lec-editor input:focus-visible, .lec-editor textarea:focus-visible, .lec-editor select:focus-visible, .lec-editor summary:focus-visible { outline: 2px solid var(--lec-accent); outline-offset: 2px; }
 .lec-editor button.is-active, .lec-editor button[aria-pressed="true"], .lec-editor button[aria-selected="true"] { background: var(--lec-accent-wash); color: var(--lec-ink); }
@@ -56,7 +57,7 @@
 .lec-editor .lec-part-choice { display: flex; flex-direction: column; align-items: center; justify-content: start; gap: 6px; padding: 8px 3px; min-width: 0; min-height: 78px; border-color: transparent; font-size: 11px; text-align: center; }
 .lec-editor .lec-part-choice svg { width: 54px; height: 36px; color: var(--lec-ink); flex-shrink: 0; }
 .lec-editor .lec-part-choice span { overflow-wrap: anywhere; }
-.lec-editor .lec-viewport { position: relative; flex: 1; min-height: 0; overflow: hidden; }
+.lec-editor .lec-viewport { position: relative; flex: 1; min-height: 0; overflow: hidden; overscroll-behavior: none; }
 .lec-editor .lec-canvas { display: block; touch-action: none; user-select: none; -webkit-user-select: none; }
 .lec-editor .lec-part { color: var(--lec-ink); cursor: grab; }
 .lec-editor .lec-part.is-selected { color: var(--lec-accent); }
@@ -204,3 +205,35 @@
 .lec-preview { box-sizing: border-box; max-width: 100%; }
 .lec-preview .lec-preview-open { align-self: flex-start; margin-top: 6px; }
 @container (max-width: 700px) { .lec-editor .lec-file-menu button { min-height: 44px; } }
+
+/* Brief state feedback; the drawing geometry and hit targets remain authoritative. */
+.lec-editor button { transition: background-color var(--lec-motion-fast) ease-out, color var(--lec-motion-fast) ease-out, border-color var(--lec-motion-fast) ease-out; }
+.lec-editor button > svg { transition: transform 80ms ease-out; }
+.lec-editor button:active:not(:disabled) > svg { transform: scale(.96); }
+.lec-editor .lec-zoom-controls button { font-variant-numeric: tabular-nums; }
+.lec-editor .lec-placement-ink { transform-box: fill-box; transform-origin: center; }
+.lec-editor .lec-placement-ink.is-settling { animation: lec-place-settle var(--lec-motion-fast) var(--lec-motion-ease) both; }
+.lec-editor .lec-selection-frame, .lec-editor .lec-annotation-handles { transition: opacity var(--lec-motion-fast) ease-out; }
+.lec-editor .lec-annotation-handles { opacity: 1; }
+.lec-editor .lec-annotation-handles.is-exiting { opacity: 0; transition-duration: 80ms; }
+.lec-editor .lec-wire { transition: color var(--lec-motion-fast) ease-out; }
+.lec-editor .lec-wire.is-highlighted > path:first-of-type { stroke-width: 4; }
+.lec-editor .lec-wire-feedback { opacity: 0; animation: lec-feedback-fade var(--lec-motion-brief) ease-out both; }
+.lec-editor .lec-target { stroke-width: 1.5; animation: lec-target-acquire 80ms ease-out both; }
+.lec-editor .lec-target.is-unavailable { stroke: var(--lec-warning); fill: var(--lec-warning); stroke-dasharray: 3 2; }
+.lec-editor .lec-placement-preview.is-overlapping { stroke: var(--lec-warning); }
+.lec-editor .lec-alignment-guide { stroke: var(--lec-accent); stroke-width: 1; stroke-dasharray: 4 3; opacity: .55; animation: lec-cue-enter 80ms ease-out both; }
+.lec-editor .lec-overlap-cue { fill: none; stroke: var(--lec-warning); stroke-width: 1; stroke-dasharray: 4 3; opacity: .7; animation: lec-cue-enter 80ms ease-out both; }
+.lec-editor .lec-snap-feedback { fill: none; stroke: var(--lec-accent); stroke-width: 1; animation: lec-feedback-fade 160ms ease-out both; }
+.lec-editor .lec-connection-feedback { fill: none; stroke: var(--lec-accent); stroke-width: 1.5; animation: lec-feedback-fade var(--lec-motion-brief) ease-out both; }
+@starting-style { .lec-editor .lec-annotation-handles { opacity: 0; } }
+@keyframes lec-place-settle { from { opacity: .65; transform: scale(.98); } to { opacity: 1; transform: scale(1); } }
+@keyframes lec-feedback-fade { from { opacity: .6; } to { opacity: 0; } }
+@keyframes lec-target-acquire { from { opacity: .35; } to { opacity: 1; } }
+@keyframes lec-cue-enter { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .lec-editor button, .lec-editor button > svg, .lec-editor .lec-selection-frame, .lec-editor .lec-annotation-handles, .lec-editor .lec-wire { transition-duration: 0ms; }
+  .lec-editor button:active:not(:disabled) > svg { transform: none; }
+  .lec-editor .lec-placement-ink.is-settling, .lec-editor .lec-target, .lec-editor .lec-alignment-guide, .lec-editor .lec-overlap-cue { animation: none; }
+  .lec-editor .lec-wire-feedback, .lec-editor .lec-snap-feedback, .lec-editor .lec-connection-feedback { animation-duration: 100ms; }
+}

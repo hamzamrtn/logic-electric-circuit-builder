@@ -1,0 +1,3 @@
+# Completed checkpoint — 2026-11-07
+
+The UX and README/gallery work saved here is now complete locally. Current implementation and verification are recorded in [interaction-feedback.md](interaction-feedback.md), [screenshots/README.md](screenshots/README.md), [listing-description.md](listing-description.md), and [evidence/final-quality-checks.json](evidence/final-quality-checks.json). The two distributable ZIPs are in `dist/`. The subsequent owner request is to push the source and prepare 0.1.6; the owner will publish the release. Read the current manifest, Git history and GitHub Actions for release state. Real-device and Safari qualification remain separate.

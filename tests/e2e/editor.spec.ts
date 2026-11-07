@@ -35,7 +35,7 @@ test('toolbar selection and linear zoom are available without opening the inspec
   await page.getByRole('button', { name: 'Zoom out' }).click(); await expect(page.getByRole('button', { name: 'Reset zoom' })).toHaveText('125%');
 });
 test('selection marquee stays transparent while selecting', async ({ page, isMobile }) => {
-  test.skip(isMobile, 'Mouse box selection path'); await add(page, 'Resistor Passive', 180, 220); await page.getByRole('button', { name: 'Box', exact: true }).click();
+  test.skip(isMobile, 'Mouse box selection path'); await add(page, 'Resistor Passive', 180, 220); await page.getByRole('button', { name: 'Box select', exact: true }).click();
   const b = (await page.getByRole('application').boundingBox())!; await page.mouse.move(b.x + 50, b.y + 80); await page.mouse.down(); await page.mouse.move(b.x + 300, b.y + 300);
   expect(await page.locator('.lec-box-selection').evaluate(el => Number(getComputedStyle(el).fillOpacity))).toBeLessThan(.2); await page.mouse.up();
 });

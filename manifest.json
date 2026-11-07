@@ -1,9 +1,9 @@
 {
   "id": "logic-electric-circuit-builder",
   "name": "Logic-Electric Circuit Builder",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "minAppVersion": "1.14.0",
-  "description": "Create electrical and logic schematics with explicit connections, touch controls, and portable SVG exports.",
+  "description": "Design electrical and logic circuits with 72 symbols, custom blocks and smart wire routing. Keep editable diagrams in your notes, or export SVG/PNG. Offline on desktop, tablet and phone.",
   "author": "Hamza",
   "isDesktopOnly": false
 }

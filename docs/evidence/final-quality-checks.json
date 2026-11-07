@@ -1,0 +1,53 @@
+{
+  "date": "2026-11-07",
+  "status": "0.1.6 release preparation verified locally; publication is owner-controlled",
+  "packageVersion": "0.1.6",
+  "commands": {
+    "npm run check": "passed: 143 core/adapter tests in 27 files, strict TypeScript, production build, artifact audit",
+    "npm run lint": "passed: source boundaries and official Obsidian ESLint rules",
+    "npm run check:install": "passed: seven commands and one view against a public Obsidian host stub",
+    "npm run preview:build": "passed",
+    "npm run package": "passed",
+    "npx playwright test --project=chromium --project=android-tablet --project=android-phone --workers=3": "175 passed; 14 mouse-only skips on touch layouts; 189 combinations",
+    "node scripts/generate-showcase.mjs": "ten schema/graph/width-valid fixtures; no structural or overlap diagnostics; regeneration byte-for-byte identical",
+    "node scripts/capture-showcase.mjs": "ten captures without page errors, clipping or drawing hidden behind zoom controls; all visually inspected",
+    "node scripts/package-showcase.mjs": "passed: ten PNGs and ten editable drawings; short copy 186/200; long copy 944/1000 characters",
+    "ZIP verification": "CRC integrity passed; all three plugin assets and all gallery images, drawings and listing text match current files byte-for-byte",
+    "README/gallery local links": "all resolve",
+    "git diff --check": "passed"
+  },
+  "artifacts": [
+    {
+      "path": "dist/logic-electric-circuit-builder-0.1.6.zip",
+      "bytes": 197503,
+      "sha256": "77a986042f9013710e3d8db93a8de9c4c0e67ffb9b62db213102997c06ed48d2"
+    },
+    {
+      "path": "dist/plugin-listing-screenshots.zip",
+      "bytes": 4121645,
+      "sha256": "3d683fd89822314d26c237e6b15c64431343cbef932dc7dd89c5701580258f2e"
+    }
+  ],
+  "gallery": {
+    "desktopImages": 5,
+    "phoneImages": 5,
+    "desktopPixels": [
+      3200,
+      2100
+    ],
+    "phonePixels": [
+      1290,
+      2796
+    ],
+    "imageHashes": "docs/screenshots/image-hashes.json",
+    "captureMetadata": "docs/screenshots/captures.json",
+    "editableDrawings": "examples/showcase"
+  },
+  "limitations": [
+    "Android layouts and native Chromium touch input are emulation, not execution in Android Obsidian",
+    "WebKit/Safari not run: prior browser-download mirrors timed out",
+    "Real host/device lifecycle, sync and force-kill durability remain platform qualification",
+    "Showcase drawings illustrate drafting features; they have not been simulated or electrically qualified",
+    "Remote CI is recorded separately in GitHub Actions; local counts do not imply a remote CI pass. Release publication is owner-controlled."
+  ]
+}

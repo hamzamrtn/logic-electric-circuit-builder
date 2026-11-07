@@ -1,0 +1,1646 @@
+{
+  "format": "logic-electric-circuit",
+  "schemaVersion": 1,
+  "id": "showcase.mobile-bus.doc1",
+  "title": "8-bit control bus",
+  "components": [
+    {
+      "id": "showcase.mobile-bus.c1",
+      "definitionId": "showcase.mobile-bus.def1",
+      "position": {
+        "x": 96,
+        "y": 192
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U1",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-bus.c2",
+      "definitionId": "builtin.splitter-8.v1",
+      "position": {
+        "x": 304,
+        "y": 192
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "B1",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-bus.c3",
+      "definitionId": "builtin.test-point.v1",
+      "position": {
+        "x": 496,
+        "y": 336
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "TP1",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-bus.c4",
+      "definitionId": "builtin.test-point.v1",
+      "position": {
+        "x": 496,
+        "y": 400
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "TP2",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-bus.c5",
+      "definitionId": "builtin.test-point.v1",
+      "position": {
+        "x": 496,
+        "y": 464
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "TP3",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-bus.c6",
+      "definitionId": "builtin.test-point.v1",
+      "position": {
+        "x": 496,
+        "y": 528
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "TP4",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-bus.c7",
+      "definitionId": "builtin.test-point.v1",
+      "position": {
+        "x": 496,
+        "y": 592
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "TP5",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-bus.c8",
+      "definitionId": "builtin.test-point.v1",
+      "position": {
+        "x": 496,
+        "y": 656
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "TP6",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-bus.c9",
+      "definitionId": "builtin.test-point.v1",
+      "position": {
+        "x": 496,
+        "y": 720
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "TP7",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-bus.c10",
+      "definitionId": "builtin.test-point.v1",
+      "position": {
+        "x": 496,
+        "y": 784
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "TP8",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-bus.c11",
+      "definitionId": "builtin.block-clock.v1",
+      "position": {
+        "x": 96,
+        "y": 536
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "IN1",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-bus.c12",
+      "definitionId": "builtin.capacitor.v1",
+      "position": {
+        "x": 48,
+        "y": 704
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "C1",
+      "properties": {
+        "value": "100 nF"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-bus.c13",
+      "definitionId": "builtin.resistor.v1",
+      "position": {
+        "x": 224,
+        "y": 704
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "R1",
+      "properties": {
+        "value": "10k"
+      },
+      "locked": false
+    }
+  ],
+  "nodes": [],
+  "wires": [
+    {
+      "id": "showcase.mobile-bus.w1",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c1",
+        "pinId": "data"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c2",
+        "pinId": "in-0"
+      },
+      "width": 8,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-bus.w2",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c2",
+        "pinId": "out-0"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c3",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 440,
+            "y": 136,
+            "id": "showcase.mobile-bus.bend1",
+            "locked": true
+          },
+          {
+            "x": 440,
+            "y": 336,
+            "id": "showcase.mobile-bus.bend2",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-bus.w3",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c2",
+        "pinId": "out-1"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c4",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 432,
+            "y": 152,
+            "id": "showcase.mobile-bus.bend3",
+            "locked": true
+          },
+          {
+            "x": 432,
+            "y": 400,
+            "id": "showcase.mobile-bus.bend4",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-bus.w4",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c2",
+        "pinId": "out-2"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c5",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 424,
+            "y": 168,
+            "id": "showcase.mobile-bus.bend5",
+            "locked": true
+          },
+          {
+            "x": 424,
+            "y": 464,
+            "id": "showcase.mobile-bus.bend6",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-bus.w5",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c2",
+        "pinId": "out-3"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c6",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 416,
+            "y": 184,
+            "id": "showcase.mobile-bus.bend7",
+            "locked": true
+          },
+          {
+            "x": 416,
+            "y": 528,
+            "id": "showcase.mobile-bus.bend8",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-bus.w6",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c2",
+        "pinId": "out-4"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c7",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 408,
+            "y": 200,
+            "id": "showcase.mobile-bus.bend9",
+            "locked": true
+          },
+          {
+            "x": 408,
+            "y": 592,
+            "id": "showcase.mobile-bus.bend10",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-bus.w7",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c2",
+        "pinId": "out-5"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c8",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 400,
+            "y": 216,
+            "id": "showcase.mobile-bus.bend11",
+            "locked": true
+          },
+          {
+            "x": 400,
+            "y": 656,
+            "id": "showcase.mobile-bus.bend12",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-bus.w8",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c2",
+        "pinId": "out-6"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c9",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 392,
+            "y": 232,
+            "id": "showcase.mobile-bus.bend13",
+            "locked": true
+          },
+          {
+            "x": 392,
+            "y": 720,
+            "id": "showcase.mobile-bus.bend14",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-bus.w9",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c2",
+        "pinId": "out-7"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c10",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 384,
+            "y": 248,
+            "id": "showcase.mobile-bus.bend15",
+            "locked": true
+          },
+          {
+            "x": 384,
+            "y": 784,
+            "id": "showcase.mobile-bus.bend16",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    }
+  ],
+  "annotations": [
+    {
+      "id": "showcase.mobile-bus.a1",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "text": "8-bit control bus",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 26
+    },
+    {
+      "id": "showcase.mobile-bus.a2",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 32
+      },
+      "text": "Custom pin layouts, explicit lane mapping and output stages",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 13
+    },
+    {
+      "id": "showcase.mobile-bus.a3",
+      "kind": "label",
+      "position": {
+        "x": 136,
+        "y": 104
+      },
+      "text": "3V3",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c1",
+        "pinId": "vcc"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-bus.a4",
+      "kind": "label",
+      "position": {
+        "x": 104,
+        "y": 296
+      },
+      "text": "GND",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c1",
+        "pinId": "gnd"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-bus.a5",
+      "kind": "label",
+      "position": {
+        "x": -8,
+        "y": 176
+      },
+      "text": "CLK",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c1",
+        "pinId": "clk"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-bus.a6",
+      "kind": "label",
+      "position": {
+        "x": -8,
+        "y": 224
+      },
+      "text": "RESET",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c1",
+        "pinId": "rst"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-bus.a7",
+      "kind": "label",
+      "position": {
+        "x": 472,
+        "y": 328
+      },
+      "text": "D0",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c3",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-bus.a8",
+      "kind": "label",
+      "position": {
+        "x": 472,
+        "y": 392
+      },
+      "text": "D1",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c4",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-bus.a9",
+      "kind": "label",
+      "position": {
+        "x": 472,
+        "y": 456
+      },
+      "text": "D2",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c5",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-bus.a10",
+      "kind": "label",
+      "position": {
+        "x": 472,
+        "y": 520
+      },
+      "text": "D3",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c6",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-bus.a11",
+      "kind": "label",
+      "position": {
+        "x": 472,
+        "y": 584
+      },
+      "text": "D4",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c7",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-bus.a12",
+      "kind": "label",
+      "position": {
+        "x": 472,
+        "y": 648
+      },
+      "text": "D5",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c8",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-bus.a13",
+      "kind": "label",
+      "position": {
+        "x": 472,
+        "y": 712
+      },
+      "text": "D6",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c9",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-bus.a14",
+      "kind": "label",
+      "position": {
+        "x": 472,
+        "y": 776
+      },
+      "text": "D7",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c10",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-bus.a15",
+      "kind": "text",
+      "position": {
+        "x": 16,
+        "y": 320
+      },
+      "text": "DATA[7:0]",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 18
+    },
+    {
+      "id": "showcase.mobile-bus.a16",
+      "kind": "text",
+      "position": {
+        "x": 16,
+        "y": 352
+      },
+      "text": "Eight explicit scalar lanes",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 12
+    },
+    {
+      "id": "showcase.mobile-bus.a17",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 416
+      },
+      "text": "02  Local support",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 19
+    },
+    {
+      "id": "showcase.mobile-bus.a18",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 440
+      },
+      "text": "Clock, reset pull-up and decoupling",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 12
+    },
+    {
+      "id": "showcase.mobile-bus.a19",
+      "kind": "label",
+      "position": {
+        "x": 168,
+        "y": 528
+      },
+      "text": "CLK",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c11",
+        "pinId": "out-0"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-bus.a20",
+      "kind": "label",
+      "position": {
+        "x": 56,
+        "y": 648
+      },
+      "text": "3V3",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c12",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-bus.a21",
+      "kind": "label",
+      "position": {
+        "x": 56,
+        "y": 744
+      },
+      "text": "GND",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c12",
+        "pinId": "2"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-bus.a22",
+      "kind": "label",
+      "position": {
+        "x": 232,
+        "y": 648
+      },
+      "text": "3V3",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c13",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-bus.a23",
+      "kind": "label",
+      "position": {
+        "x": 232,
+        "y": 744
+      },
+      "text": "RESET",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-bus.c13",
+        "pinId": "2"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    }
+  ],
+  "groups": [],
+  "definitions": [
+    {
+      "id": "showcase.mobile-bus.def1",
+      "version": 1,
+      "name": "MCU",
+      "category": "Custom",
+      "aliases": [],
+      "prefix": "U",
+      "pins": [
+        {
+          "id": "clk",
+          "name": "CLK",
+          "x": -80,
+          "y": -8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "rst",
+          "name": "RST",
+          "x": -80,
+          "y": 8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "data",
+          "name": "DATA",
+          "x": 80,
+          "y": 0,
+          "side": "right",
+          "role": "bidirectional",
+          "width": 8
+        },
+        {
+          "id": "vcc",
+          "name": "VCC",
+          "x": 0,
+          "y": -80,
+          "side": "top",
+          "role": "power",
+          "width": 1
+        },
+        {
+          "id": "gnd",
+          "name": "GND",
+          "x": 0,
+          "y": 80,
+          "side": "bottom",
+          "role": "power",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "rect",
+          "x": -64,
+          "y": -64,
+          "width": 128,
+          "height": 128
+        },
+        {
+          "kind": "text",
+          "x": 0,
+          "y": 5,
+          "text": "MCU",
+          "size": 12
+        },
+        {
+          "kind": "path",
+          "d": "M -80 -8 L -64 -8"
+        },
+        {
+          "kind": "text",
+          "x": -42,
+          "y": -4,
+          "text": "CLK",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M -80 8 L -64 8"
+        },
+        {
+          "kind": "text",
+          "x": -42,
+          "y": 12,
+          "text": "RST",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 80 0 L 64 0"
+        },
+        {
+          "kind": "text",
+          "x": 42,
+          "y": 4,
+          "text": "DATA",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 0 -80 L 0 -64"
+        },
+        {
+          "kind": "text",
+          "x": 0,
+          "y": -48,
+          "text": "VCC",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 0 80 L 0 64"
+        },
+        {
+          "kind": "text",
+          "x": 0,
+          "y": 52,
+          "text": "GND",
+          "size": 9
+        }
+      ],
+      "bounds": {
+        "x": -80,
+        "y": -80,
+        "width": 160,
+        "height": 160
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.splitter-8.v1",
+      "version": 1,
+      "name": "8-bit splitter",
+      "category": "Buses",
+      "aliases": [],
+      "prefix": "B",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "BUS",
+          "x": -64,
+          "y": 0,
+          "side": "left",
+          "role": "bidirectional",
+          "width": 8
+        },
+        {
+          "id": "out-0",
+          "name": "0",
+          "x": 64,
+          "y": -56,
+          "side": "right",
+          "role": "bidirectional",
+          "width": 1
+        },
+        {
+          "id": "out-1",
+          "name": "1",
+          "x": 64,
+          "y": -40,
+          "side": "right",
+          "role": "bidirectional",
+          "width": 1
+        },
+        {
+          "id": "out-2",
+          "name": "2",
+          "x": 64,
+          "y": -24,
+          "side": "right",
+          "role": "bidirectional",
+          "width": 1
+        },
+        {
+          "id": "out-3",
+          "name": "3",
+          "x": 64,
+          "y": -8,
+          "side": "right",
+          "role": "bidirectional",
+          "width": 1
+        },
+        {
+          "id": "out-4",
+          "name": "4",
+          "x": 64,
+          "y": 8,
+          "side": "right",
+          "role": "bidirectional",
+          "width": 1
+        },
+        {
+          "id": "out-5",
+          "name": "5",
+          "x": 64,
+          "y": 24,
+          "side": "right",
+          "role": "bidirectional",
+          "width": 1
+        },
+        {
+          "id": "out-6",
+          "name": "6",
+          "x": 64,
+          "y": 40,
+          "side": "right",
+          "role": "bidirectional",
+          "width": 1
+        },
+        {
+          "id": "out-7",
+          "name": "7",
+          "x": 64,
+          "y": 56,
+          "side": "right",
+          "role": "bidirectional",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "rect",
+          "x": -48,
+          "y": -96,
+          "width": 96,
+          "height": 168
+        },
+        {
+          "kind": "text",
+          "x": 0,
+          "y": -80,
+          "text": "8-bit splitter",
+          "size": 10
+        },
+        {
+          "kind": "path",
+          "d": "M -64 0 H -48"
+        },
+        {
+          "kind": "text",
+          "x": -28,
+          "y": 4,
+          "text": "BUS",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 64 -56 H 48"
+        },
+        {
+          "kind": "text",
+          "x": 28,
+          "y": -52,
+          "text": "0",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 64 -40 H 48"
+        },
+        {
+          "kind": "text",
+          "x": 28,
+          "y": -36,
+          "text": "1",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 64 -24 H 48"
+        },
+        {
+          "kind": "text",
+          "x": 28,
+          "y": -20,
+          "text": "2",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 64 -8 H 48"
+        },
+        {
+          "kind": "text",
+          "x": 28,
+          "y": -4,
+          "text": "3",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 64 8 H 48"
+        },
+        {
+          "kind": "text",
+          "x": 28,
+          "y": 12,
+          "text": "4",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 64 24 H 48"
+        },
+        {
+          "kind": "text",
+          "x": 28,
+          "y": 28,
+          "text": "5",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 64 40 H 48"
+        },
+        {
+          "kind": "text",
+          "x": 28,
+          "y": 44,
+          "text": "6",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 64 56 H 48"
+        },
+        {
+          "kind": "text",
+          "x": 28,
+          "y": 60,
+          "text": "7",
+          "size": 9
+        }
+      ],
+      "bounds": {
+        "x": -64,
+        "y": -96,
+        "width": 128,
+        "height": 168
+      },
+      "defaults": {},
+      "laneLinks": [
+        {
+          "a": "in-0",
+          "aLane": 0,
+          "b": "out-0",
+          "bLane": 0
+        },
+        {
+          "a": "in-0",
+          "aLane": 1,
+          "b": "out-1",
+          "bLane": 0
+        },
+        {
+          "a": "in-0",
+          "aLane": 2,
+          "b": "out-2",
+          "bLane": 0
+        },
+        {
+          "a": "in-0",
+          "aLane": 3,
+          "b": "out-3",
+          "bLane": 0
+        },
+        {
+          "a": "in-0",
+          "aLane": 4,
+          "b": "out-4",
+          "bLane": 0
+        },
+        {
+          "a": "in-0",
+          "aLane": 5,
+          "b": "out-5",
+          "bLane": 0
+        },
+        {
+          "a": "in-0",
+          "aLane": 6,
+          "b": "out-6",
+          "bLane": 0
+        },
+        {
+          "a": "in-0",
+          "aLane": 7,
+          "b": "out-7",
+          "bLane": 0
+        }
+      ]
+    },
+    {
+      "id": "builtin.test-point.v1",
+      "version": 1,
+      "name": "Test point",
+      "category": "Connectivity",
+      "aliases": [],
+      "prefix": "TP",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "x": 0,
+          "y": 32,
+          "side": "bottom",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M 0 32 V 6"
+        },
+        {
+          "kind": "circle",
+          "x": 0,
+          "y": 0,
+          "radius": 6
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.block-clock.v1",
+      "version": 1,
+      "name": "Clock",
+      "category": "Logic I/O",
+      "aliases": [],
+      "prefix": "IN",
+      "pins": [
+        {
+          "id": "out-0",
+          "name": "OUT",
+          "x": 64,
+          "y": 0,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "rect",
+          "x": -48,
+          "y": -56,
+          "width": 96,
+          "height": 88
+        },
+        {
+          "kind": "text",
+          "x": 0,
+          "y": -40,
+          "text": "Clock",
+          "size": 11
+        },
+        {
+          "kind": "path",
+          "d": "M 64 0 H 48"
+        },
+        {
+          "kind": "text",
+          "x": 28,
+          "y": 4,
+          "text": "OUT",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M -24 12 H -12 V 0 H 0 V 12 H 12 V 0 H 24"
+        }
+      ],
+      "bounds": {
+        "x": -64,
+        "y": -56,
+        "width": 128,
+        "height": 88
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.capacitor.v1",
+      "version": 1,
+      "name": "Capacitor",
+      "category": "Passive",
+      "aliases": [],
+      "prefix": "C",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 0 H -6 M -6 -20 V 20 M 6 -20 V 20 M 6 0 H 24"
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {
+        "value": "100nF"
+      }
+    },
+    {
+      "id": "builtin.resistor.v1",
+      "version": 1,
+      "name": "Resistor",
+      "category": "Passive",
+      "aliases": [
+        "resistance",
+        "ohm"
+      ],
+      "prefix": "R",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 -10 H 24 V 10 H -24 Z"
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {
+        "value": "10k"
+      }
+    }
+  ],
+  "metadata": {
+    "purpose": "Editable gallery drawing; not simulated or electrically qualified.",
+    "layout": "Portrait"
+  }
+}

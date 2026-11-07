@@ -14,6 +14,7 @@ export class SaveCoordinator {
   private pendingContent?: string;
   private disposed = false;
   private replacing = false;
+  private restorePending = false;
   private unsubscribe: () => void;
   private recovery: string[] = [];
   constructor(readonly session: DocumentSession, private persistence: Persistence, initial: string) {
@@ -27,21 +28,28 @@ export class SaveCoordinator {
   getSnapshot = () => this.state;
   subscribe = (listener: () => void) => { this.listeners.add(listener); return () => { this.listeners.delete(listener); }; };
   private set(state: SaveState) { this.state = state; this.listeners.forEach(l => l()); }
+  private needsWrite() { return this.restorePending || this.session.getSnapshot().revision > this.state.durableRevision; }
   async flush(): Promise<void> {
-    if (this.writing) { await this.writing; if (this.session.getSnapshot().revision > this.state.durableRevision && !['conflict', 'error', 'deleted'].includes(this.state.status)) return this.flush(); return; }
-    if (this.disposed || ['conflict', 'error', 'deleted'].includes(this.state.status) || this.session.getSnapshot().revision === this.state.durableRevision) return;
+    if (this.writing) { await this.writing; if (this.needsWrite() && !['conflict', 'error', 'deleted'].includes(this.state.status)) return this.flush(); return; }
+    if (this.disposed || ['conflict', 'error', 'deleted'].includes(this.state.status) || !this.needsWrite()) return;
     this.writing = this.drain();
     try { await this.writing; } finally { this.writing = undefined; }
   }
   private async drain() {
-    while (!this.disposed && this.session.getSnapshot().revision > this.state.durableRevision && !['conflict', 'error', 'deleted'].includes(this.state.status)) {
+    while (!this.disposed && this.needsWrite() && !['conflict', 'error', 'deleted'].includes(this.state.status)) {
       const { document, revision } = this.session.getSnapshot(); const content = serializeDocument(document);
       this.pendingContent = content; this.set({ ...this.state, status: 'saving', message: 'Saving…' });
       try {
         const result = await this.persistence.compareAndWrite(this.baseline, content);
-        if (!result.written) { this.set({ ...this.state, status: 'conflict', message: 'File changed elsewhere. Both versions are retained.', external: result.external }); await this.persistence.recover(content, 'conflict'); break; }
+        if (!result.written) {
+          this.set({ ...this.state, status: 'conflict', message: 'File changed elsewhere. Both versions are retained.', external: result.external });
+          try { await this.persistence.recover(content, 'conflict'); }
+          catch { if (this.state.status === 'conflict') this.set({ ...this.state, message: 'File changed elsewhere. Both versions are retained in memory; recovery copy unavailable.' }); }
+          break;
+        }
         this.baseline = content;
         if (this.state.status === 'deleted' || this.state.status === 'conflict') break;
+        this.restorePending = false;
         this.set({ status: revision === this.session.getSnapshot().revision ? 'saved' : 'unsaved', message: revision === this.session.getSnapshot().revision ? 'Saved' : 'Unsaved changes', durableRevision: revision });
         try { await this.persistence.recover(content, 'autosave'); } catch { this.set({ ...this.state, message: 'Saved · recovery copy unavailable' }); }
       } catch (e) {
@@ -53,7 +61,7 @@ export class SaveCoordinator {
   }
   async externalChanged(raw: string) {
     if (raw === this.baseline || raw === this.pendingContent || this.disposed || this.state.status === 'deleted') return;
-    if (this.session.getSnapshot().revision === this.state.durableRevision && !this.writing) {
+    if (!this.needsWrite() && !this.writing) {
       try { this.replacing = true; this.session.replaceRaw(raw); this.baseline = raw; this.set({ status: 'saved', message: 'Reloaded external version', durableRevision: this.session.getSnapshot().revision }); }
       catch (e) { this.set({ ...this.state, status: 'conflict', external: raw, message: `External file cannot be loaded: ${String(e)}` }); }
       finally { this.replacing = false; }
@@ -68,10 +76,10 @@ export class SaveCoordinator {
     if (choice === 'external') {
       await this.persistence.recover(serializeDocument(this.session.getSnapshot().document), 'before-external');
       // Parse first; an invalid external version must not unlock autosave.
-      try { this.replacing = true; this.session.replaceRaw(raw); this.baseline = raw; } finally { this.replacing = false; }
+      try { this.replacing = true; this.session.replaceRaw(raw); this.baseline = raw; this.restorePending = false; } finally { this.replacing = false; }
       this.set({ status: 'saved', message: 'Using external version', durableRevision: this.session.getSnapshot().revision });
     } else {
-      await this.persistence.recover(raw, 'external-version'); this.baseline = raw;
+      await this.persistence.recover(raw, 'external-version'); this.baseline = raw; this.restorePending = true;
       this.set({ ...this.state, status: 'unsaved', message: 'Keeping local version', external: undefined }); await this.flush();
     }
   }

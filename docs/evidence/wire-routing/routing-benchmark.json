@@ -1,0 +1,27 @@
+{
+  "recorded": "2026-11-06",
+  "kind": "Node desktop routing smoke; single samples, not mobile performance qualification",
+  "fixture": "Resistor grid, 20 columns at 160-unit spacing; 200 right-pin to left-pin requests per size; source i % count, destination (i * 37 + 17) % count",
+  "baseline": {
+    "router": "HEAD before local changes",
+    "expansionLimit": 2500,
+    "fixtures": [
+      { "parts": 100, "requests": 200, "medianMs": 3.303, "p95Ms": 6.39, "maxMs": 20.389, "fallbacks": 76 },
+      { "parts": 500, "requests": 200, "medianMs": 9.224, "p95Ms": 11.263, "maxMs": 17.382, "fallbacks": 154 }
+    ]
+  },
+  "directionAwareSameLimit": {
+    "expansionLimit": 2500,
+    "fixtures": [
+      { "parts": 100, "requests": 200, "medianMs": 0.144, "p95Ms": 0.665, "maxMs": 2.369, "fallbacks": 0 },
+      { "parts": 500, "requests": 200, "medianMs": 0.531, "p95Ms": 5.582, "maxMs": 10.916, "fallbacks": 2 }
+    ]
+  },
+  "directionAwareDefaultLimit": {
+    "expansionLimit": 4000,
+    "fixtures": [
+      { "parts": 100, "requests": 200, "medianMs": 0.144, "p95Ms": 0.629, "maxMs": 5.262, "fallbacks": 0 },
+      { "parts": 500, "requests": 200, "medianMs": 0.51, "p95Ms": 5.51, "maxMs": 11.616, "fallbacks": 0 }
+    ]
+  }
+}

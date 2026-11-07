@@ -35,28 +35,38 @@ class PreviewChild extends MarkdownRenderChild {
   private root?: Root;
   private entry?: Entry;
   private dead = false;
+  private missing = false;
+  private loading = new AbortController();
   private restoreHeading?: () => void;
   constructor(element: HTMLElement, private plugin: CircuitPlugin, private file: TFile, private options: PreviewOptions, private sourcePath: string) { super(element); }
   private render() {
     if (!this.entry || !this.root) return;
     this.root.render(<Preview entry={this.entry} filename={this.file.basename} path={this.file.path} open={() => { void this.plugin.app.workspace.getLeaf('tab').openFile(this.file); }} />);
   }
-  onload() { void this.loadPreview(); }
+  onload() {
+    this.registerEvent(this.plugin.app.vault.on('rename', file => { if (file === this.file && !this.dead && !this.missing) this.render(); }));
+    this.registerEvent(this.plugin.app.vault.on('delete', file => {
+      if (file === this.file && !this.dead) { this.missing = true; this.loading.abort(); this.clearPreview(); this.containerEl.setText('Circuit file is missing. Repair the preview path to reconnect it.'); }
+    }));
+    void this.loadPreview();
+  }
+  private clearPreview() {
+    this.root?.unmount(); this.root = undefined; this.restoreHeading?.(); this.restoreHeading = undefined;
+    const entry = this.entry; this.entry = undefined;
+    if (entry) void this.plugin.sessions.release(entry);
+  }
   private async loadPreview() {
     try {
-      const raw = await this.plugin.app.vault.read(this.file); if (this.dead) return;
-      this.entry = this.plugin.sessions.acquire(this.file, raw);
+      const entry = await this.plugin.sessions.acquireFile(this.file, this.loading.signal);
+      if (this.dead || this.missing) { void this.plugin.sessions.release(entry); return; }
+      this.entry = entry;
       this.containerEl.addClass('lec-editor', 'lec-preview');
       this.containerEl.setCssProps({ '--lec-preview-width': this.options.width });
       this.root = createRoot(this.containerEl); this.render();
       this.restoreHeading = hideLegacyHeading(this.containerEl, this.plugin, this.file, this.sourcePath);
-      this.registerEvent(this.plugin.app.vault.on('rename', file => { if (file === this.file && !this.dead) this.render(); }));
-      this.registerEvent(this.plugin.app.vault.on('delete', file => {
-        if (file === this.file) { this.root?.unmount(); this.root = undefined; this.restoreHeading?.(); this.restoreHeading = undefined; this.containerEl.setText('Circuit file is missing. Repair the preview path to reconnect it.'); }
-      }));
-    } catch (e) { if (!this.dead) this.containerEl.setText(`Circuit preview unavailable: ${String(e)}`); }
+    } catch (e) { this.clearPreview(); if (!this.dead && !this.missing) this.containerEl.setText(`Circuit preview unavailable: ${String(e)}`); }
   }
-  onunload() { this.dead = true; this.root?.unmount(); this.restoreHeading?.(); if (this.entry) void this.plugin.sessions.release(this.entry); }
+  onunload() { this.dead = true; this.loading.abort(); this.clearPreview(); }
 }
 export function processPreview(plugin: CircuitPlugin, source: string, element: HTMLElement, ctx: MarkdownPostProcessorContext) {
   let options: PreviewOptions;

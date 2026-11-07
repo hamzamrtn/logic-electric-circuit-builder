@@ -1,0 +1,71 @@
+# Standing product goals
+
+Owner-confirmed priorities, recorded 2026-11-07 from the project conversation. This is the first document an agent should read in a fresh session. These goals apply across tasks; the owner should not have to restate them. New explicit owner instructions can refine or change them.
+
+## The product we are building
+
+Build a **comprehensive, very intuitive, organized and powerful circuit editor inside Obsidian, with a smooth interface and clean UI**. The plugin already has users. Treat quality, trust and everyday usability as continuing responsibilities rather than a final cosmetic pass.
+
+Support meaningful electrical and digital logic schematics in the same coherent workspace. A user should be able to start easily, develop a substantial circuit, reorganize connected parts, document it in notes, and export a readable result. Capability and approachability must grow together.
+
+The current product is an offline schematic editor for drawing and documentation. Symbols and structural checks do not imply electrical simulation. The owner's openness to useful features is not a request to introduce a simulator or redesign the product around one.
+
+## Intuitive and organized
+
+- Make the next action discoverable through recognizable controls, clear labels, useful previews and visible confirmation of what happened.
+- Keep related actions together. Select, Box and Multi belong together in that order. Their icon-and-label treatment should be consistent; the owner specifically approved Select's compact, organized presentation as the model.
+- Keep the schematic as the primary surface. Open properties and secondary controls when needed. A blank document starts with a clean grid.
+- Support complete workflows, including cancel, undo, correction and recovery. A feature is not finished merely because its happy-path command exists.
+- Prevent surprising tool changes, accidental selections, unexplained connections and dialogs that strand focus. Keyboard, list and coordinate alternatives should complement direct manipulation.
+
+“Powerful” means useful operations that work predictably together. It does not mean displaying every control at once, adding settings for routine choices, or maximizing feature/symbol counts at the expense of everyday editing.
+
+## Clean visual design and restrained feedback
+
+Favor compact, readable layouts, consistent spacing and control treatments, clear hierarchy and host-theme integration. Light and dark appearances should both work. Keep decoration subordinate to the circuit.
+
+The owner approved subtle, brief placement and wire feedback, pin-target confirmation, selection fades, alignment/overlap cues and smooth camera transitions. Keep motion controlled, informative and easy to interrupt. Honor Reduce Motion. Feedback must not move authoritative pins, shift hit targets, obstruct input or suggest an edit that did not commit.
+
+Alignment aids should help users make deliberate choices. Avoid unexpected coordinate nudges. Warnings should be useful and quiet, with a clear recovery path rather than persistent visual noise.
+
+## Touch and mobile are core workflows
+
+Desktop, tablet and phone should share essential editing capabilities, with layouts appropriate to each screen and practical touch targets. Do not depend on hover, a hardware keyboard, desktop APIs or precision mouse input for essential operations.
+
+The owner reported pinch problems on Android tablet and phone, and canvas swipes opening Obsidian side panels or pull-down actions. Preserve these fixes: navigation gestures belong to the canvas; pinch follows both fingers and their midpoint; lifting either finger continues a sensible pan; navigation must not accidentally place a part or commit a drag.
+
+Keep drawings readable and accessible around toolbars, inspectors, zoom controls, the soft keyboard and orientation changes. Browser touch emulation is valuable evidence and must be described accurately; it does not establish behavior inside a real Android/iOS Obsidian installation.
+
+## Circuit-specific precision and reliability
+
+Electrical connectivity is explicit. Moving, rotating, mirroring, redrawing or rerouting must preserve what is connected unless the user deliberately changes a connection. Stable pin identity, explicit junctions, unjoined crossings and bus-width/lane semantics are central product behavior.
+
+Wire routing should be specialized for circuit drafting: clear pin exits, sensible orthogonal paths around component bodies, reasonable clearance, few unnecessary bends, stable previews and control over manual waypoints. Placement and connected moves should feel precise and predictable, including larger or crowded drawings.
+
+Protect user data through valid, portable files, atomic commands, dependable undo/redo, accurate save status, conflict handling and accessible recovery. Concurrent views, imports, previews and external file changes must not silently corrupt or overwrite a circuit.
+
+The owner asks for professional work without mistakes and wants no bugs slipping through. Treat that as a high quality bar: reproduce reported problems, inspect related failure modes, fix root causes and verify the relevant complete workflows. Passing tests alone is not proof of flawless behavior. Be candid about real qualification gaps; never promise a universal zero-bug guarantee.
+
+## Proactive improvement
+
+The owner explicitly welcomes judgment about missing features, common annoyances, placement, wires, pathfinding and small improvements that make editing smoother and more enjoyable. Do useful work within the requested scope without requiring a detailed design brief for every routine choice.
+
+Look at how actions fit together and what the user experiences, not just individual functions. Prioritize fixes, clarity and workflow completeness. Add a feature when it solves a concrete editing problem and fits the product's organization; keep scope controlled and avoid speculative expansion.
+
+Do not repeatedly ask whether the plugin should be intuitive, powerful, clean or polished. Those are established requirements. Ask about a genuinely unresolved consequential choice when the available project context cannot settle it.
+
+## Demonstration and documentation quality
+
+Documentation and listing assets should make the plugin inviting and immediately understandable, with brief device support near the beginning and compelling, accurate descriptions.
+
+The owner specifically requested and approved a gallery of five desktop and five mobile images showing substantial, varied, interesting circuits. Use real editor captures, full useful examples and intentional portrait compositions. Empty canvases, two-part filler, illegible shrink-to-fit views and fabricated capabilities do not meet that standard. Include reusable editable drawings where practical.
+
+Keep screenshots and listing claims aligned with what the product actually does. Preserve reproducible capture sources and identify emulation honestly. Current assets and instructions are in [screenshots/README.md](screenshots/README.md).
+
+## Keeping this context useful
+
+The owner permits routine cleanup of obsolete generated ZIPs, extracted build copies and older release assets. Keep release downloads easy to identify and avoid accumulating pre-release clutter. Verify replacement assets before removing superseded copies; preserve user circuits, recovery data, source history and published tag identities. Retain the current published version while its replacement is being prepared. This permission is not an instruction to publish a release on the owner's behalf.
+
+This file describes enduring priorities, not a task queue or an evergreen claim that tests pass. Use [ui-contract.md](ui-contract.md) for concrete UI behavior, [architecture.md](architecture.md) for technical boundaries, and the dated validation/evidence documents for verified results and remaining platform checks. Check the current code, worktree and user request on every session.
+
+Keep this brief and the root `AGENTS.md` in the repository so fresh sessions on this checkout can discover them immediately. Repository instructions provide durable project context; they do not guarantee automatic recall in a session that has no access to the project.

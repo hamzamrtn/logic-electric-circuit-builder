@@ -1,0 +1,62 @@
+[
+  {
+    "file": "desktop-power.png",
+    "width": 3200,
+    "height": 2100,
+    "sha256": "29a3db1b2ebfd7f643aa331dd726e19165a5b8b5d158b2e9e915d7ef3171783b"
+  },
+  {
+    "file": "desktop-analog.png",
+    "width": 3200,
+    "height": 2100,
+    "sha256": "21ccd4885942776ea464fcc4da8b7f7ef7f8f0165b4bd166b67ab8d84e8a9708"
+  },
+  {
+    "file": "desktop-logic.png",
+    "width": 3200,
+    "height": 2100,
+    "sha256": "203c5680beb7629d47247bc7ff1e064aa2032e1e20f1bb336f309c3d2f82a49f"
+  },
+  {
+    "file": "desktop-bus.png",
+    "width": 3200,
+    "height": 2100,
+    "sha256": "e8507b933a4ef1fd74b150823eaac368fcb703920462eb2c418c54231aeb6cc4"
+  },
+  {
+    "file": "desktop-timer.png",
+    "width": 3200,
+    "height": 2100,
+    "sha256": "3b0f91a98ee28d6fde384a3a793a7743ef7455dbb657542b98f8b369fddd27bf"
+  },
+  {
+    "file": "mobile-power.png",
+    "width": 1290,
+    "height": 2796,
+    "sha256": "72693bad2ee9d5871332f00c37d4e274249b2310268407abd3041264e07a011d"
+  },
+  {
+    "file": "mobile-analog.png",
+    "width": 1290,
+    "height": 2796,
+    "sha256": "930c0a0f0926076cf14eb312674c74109d67982d9751ea7ae973d2aee8a85ab1"
+  },
+  {
+    "file": "mobile-logic.png",
+    "width": 1290,
+    "height": 2796,
+    "sha256": "30eaad84560878f78f1516ea40c396f4d9ec68be7870c73dc7affeadf85e71a0"
+  },
+  {
+    "file": "mobile-bus.png",
+    "width": 1290,
+    "height": 2796,
+    "sha256": "deab29be949f44319e54d5cc440fd750b1c78450b4b24091f0cacd3e9c9344a5"
+  },
+  {
+    "file": "mobile-timer.png",
+    "width": 1290,
+    "height": 2796,
+    "sha256": "3f8ed4ba12f25c3a71b6bf28b4d0eea82aa046968e6bef4669dbcdbed6f909e6"
+  }
+]

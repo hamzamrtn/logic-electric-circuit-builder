@@ -39,7 +39,7 @@ export function diagnostics(doc: CircuitDocument): Diagnostic[] {
   for (const net of deriveNets(doc)) {
     const names = new Set(doc.annotations.filter(a => a.kind === 'label' && a.anchor && net.members.includes(`${anchorKey(a.anchor)}[0]`)).map(a => a.text.trim()));
     if (names.size > 1) out.push({ id: `names-${net.id}`, severity: 'warning', message: `Different labels share a net: ${[...names].sort().join(', ')}`, objectIds: net.wireIds });
-    const outputs = net.members.filter(m => doc.components.some(c => getDefinition(doc, c).pins.some(p => p.role === 'output' && m === `p:${c.id}:${p.id}[0]`)));
+    const outputs = net.members.filter(m => doc.components.some(c => getDefinition(doc, c).pins.some(p => p.role === 'output' && m === `${anchorKey({ kind: 'pin', componentId: c.id, pinId: p.id })}[0]`)));
     if (outputs.length > 1) out.push({ id: `drivers-${net.id}`, severity: 'warning', message: 'Multiple output drivers share a net', objectIds: net.wireIds });
   }
   for (const a of doc.annotations) if (a.kind === 'no-connect' && a.anchor && doc.wires.some(w => anchorKey(w.a) === anchorKey(a.anchor!) || anchorKey(w.b) === anchorKey(a.anchor!))) out.push({ id: `nc-${a.id}`, severity: 'warning', message: 'A no-connect pin has a wire', objectIds: [a.id] });

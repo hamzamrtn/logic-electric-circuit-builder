@@ -1,5 +1,5 @@
 import { type Anchor, type Annotation, type CircuitDocument, type Component, type Definition, type Point, anchorKey, clone, getDefinition, pinWidth, uid } from '../model/document';
-import { anchorPosition, distanceToSegment, snap, wirePoints } from '../geometry/geometry';
+import { anchorPosition, distanceToSegment, intersection, snap, wireContainsPoint, wirePoints } from '../geometry/geometry';
 import { reroute, routeThroughPoints } from '../geometry/router';
 import { annotationCenter } from '../geometry/annotations';
 
@@ -16,7 +16,7 @@ export function freeNode(doc: CircuitDocument, position: Point): Anchor {
   const n = { id: uid('n'), position: { x: Math.round(position.x), y: Math.round(position.y) }, explicit: false }; doc.nodes.push(n); return { kind: 'node', nodeId: n.id };
 }
 export function splitWire(doc: CircuitDocument, wireId: string, point: Point, existing?: Anchor): Anchor {
-  const w = doc.wires.find(w => w.id === wireId); if (!w) throw new Error('Wire no longer exists'); if (w.locked) throw new Error('Unlock this wire before joining it');
+  const w = doc.wires.find(w => w.id === wireId); if (!w) throw new Error('Wire no longer exists'); assertUnlocked(doc, wireId);
   const points = wirePoints(doc, w);
   let best = { distance: Infinity, point, segment: 0 };
   for (let i = 1; i < points.length; i++) { const hit = distanceToSegment(point, points[i - 1], points[i]); if (hit.distance < best.distance) best = { ...hit, segment: i - 1 }; }
@@ -26,18 +26,35 @@ export function splitWire(doc: CircuitDocument, wireId: string, point: Point, ex
   if (isAt(w.a) || isAt(w.b)) {
     const endpoint = isAt(w.a) ? w.a : w.b;
     if (!existing || anchorKey(endpoint) === anchorKey(existing)) return endpoint;
-    // Joining at an existing end changes all explicit references to that end.
-    for (const edge of doc.wires) for (const end of ['a', 'b'] as const) if (anchorKey(edge[end]) === anchorKey(endpoint)) edge[end] = clone(existing);
-    for (const a of doc.annotations) if (a.anchor && anchorKey(a.anchor) === anchorKey(endpoint)) a.anchor = clone(existing);
-    return existing;
+    return mergeAnchors(doc, endpoint, existing);
   }
   const node = existing ?? freeNode(doc, p);
   if (node.kind === 'node') doc.nodes.find(n => n.id === node.nodeId)!.explicit = true;
   const vertex = (v: Point) => ({ ...v, id: uid('bend'), locked: true });
   const oldB = clone(w.b), oldRoute = clone(w.route);
   w.b = clone(node); w.route.mode = 'manual'; w.route.vertices = points.slice(1, best.segment + 1).map(vertex);
-  doc.wires.push({ ...clone(w), id: uid('w'), a: clone(node), b: oldB, route: { ...oldRoute, mode: 'manual', vertices: points.slice(best.segment + 1, -1).map(vertex) } });
+  const newWire = { ...clone(w), id: uid('w'), a: clone(node), b: oldB, route: { ...oldRoute, mode: 'manual' as const, vertices: points.slice(best.segment + 1, -1).map(vertex) } };
+  doc.wires.push(newWire);
+  for (const group of doc.groups) if (group.members.includes(w.id)) group.members = [...new Set([...group.members, newWire.id, ...(node.kind === 'node' ? [node.nodeId] : [])])];
   return node;
+}
+function mergeAnchors(doc: CircuitDocument, first: Anchor, second: Anchor): Anchor {
+  if (anchorKey(first) === anchorKey(second)) return first;
+  const a = anchorPosition(doc, first), b = anchorPosition(doc, second);
+  if (a.x !== b.x || a.y !== b.y) throw new Error('These endpoints do not meet at the same point');
+  // Pins retain their intrinsic identities; merge a free node into the pin, never detach the pin.
+  if (first.kind === 'pin' && second.kind === 'pin') throw new Error('Overlapping pins need a visible wire between them');
+  const removed = first.kind === 'pin' ? second : first, retained = first.kind === 'pin' ? first : second;
+  const affectedWires = doc.wires.filter(edge => [edge.a, edge.b].some(anchor => anchorKey(anchor) === anchorKey(removed)));
+  const affectedAnnotations = doc.annotations.filter(a => a.anchor && anchorKey(a.anchor) === anchorKey(removed));
+  assertUnlocked(doc, ...(removed.kind === 'node' ? [removed.nodeId] : []), ...affectedWires.map(edge => edge.id), ...affectedAnnotations.map(a => a.id));
+  for (const edge of affectedWires) for (const end of ['a', 'b'] as const) if (anchorKey(edge[end]) === anchorKey(removed)) edge[end] = clone(retained);
+  for (const a of affectedAnnotations) a.anchor = clone(retained);
+  if (removed.kind === 'node') {
+    for (const group of doc.groups) if (group.members.includes(removed.nodeId)) group.members = [...new Set(group.members.flatMap(id => id !== removed.nodeId ? [id] : retained.kind === 'node' ? [retained.nodeId] : []))];
+    doc.nodes = doc.nodes.filter(node => node.id !== removed.nodeId);
+  }
+  return retained;
 }
 export function resolveTarget(doc: CircuitDocument, target: Target): Anchor {
   if (target.kind === 'free') return freeNode(doc, target.point);
@@ -45,7 +62,14 @@ export function resolveTarget(doc: CircuitDocument, target: Target): Anchor {
   return clone(target);
 }
 export function addWire(doc: CircuitDocument, from: Target, to: Target, bends: Point[] = [], options: { geometry?: 'orthogonal' | 'free'; horizontalFirst?: boolean; width?: number } = {}): string {
-  const a = resolveTarget(doc, from), b = resolveTarget(doc, to);
+  const previousCount = doc.wires.length, a = resolveTarget(doc, from);
+  if (from.kind === 'wire' && to.kind === 'wire' && from.wireId === to.wireId) {
+    const endpoint = to;
+    const piece = doc.wires.filter((wire, index) => wire.id === endpoint.wireId || index >= previousCount).find(wire => wireContainsPoint(doc, wire, endpoint.point, 1));
+    if (!piece) throw new Error('The target wire changed. Choose its endpoint again');
+    to = { ...endpoint, wireId: piece.id };
+  }
+  const b = resolveTarget(doc, to);
   if (anchorKey(a) === anchorKey(b)) throw new Error('Choose two different endpoints');
   const pa = anchorPosition(doc, a), pb = anchorPosition(doc, b);
   if (pa.x === pb.x && pa.y === pb.y && bends.every(p => p.x === pa.x && p.y === pa.y)) throw new Error('A wire needs a visible route');
@@ -68,13 +92,68 @@ export function finishDanglingWire(doc: CircuitDocument, from: Target, placedPoi
   return addWire(doc, from, { kind: 'free', point: endpoint }, placedPoints.slice(0, -1), options);
 }
 export function joinWires(doc: CircuitDocument, ids: string[], point: Point) {
-  if (ids.length < 2) throw new Error('Select at least two crossing wires');
-  const node = splitWire(doc, ids[0], point);
-  for (const id of ids.slice(1)) splitWire(doc, id, point, node);
+  ids = validateJoin(doc, ids, point);
+  let node = splitWire(doc, ids[0], point);
+  for (const id of ids.slice(1)) node = splitWire(doc, id, point, node);
+  return node;
+}
+function validateJoin(doc: CircuitDocument, input: string[], point: Point): string[] {
+  const ids = [...new Set(input)];
+  if (ids.length < 2) throw new Error('Select at least two different wires');
+  if (!Number.isInteger(point.x) || !Number.isInteger(point.y)) throw new Error('Use whole-number coordinates for a wire junction');
+  const wires = ids.map(id => { const wire = doc.wires.find(w => w.id === id); if (!wire) throw new Error('A selected wire no longer exists'); return wire; });
+  if (!wires.every(wire => wireContainsPoint(doc, wire, point))) throw new Error('Choose a point shared by every selected wire');
+  if (new Set(wires.map(wire => wire.width)).size !== 1) throw new Error('Incompatible bus widths; use a splitter');
+  assertUnlocked(doc, ...ids); return ids;
+}
+export function commonJoinPoint(doc: CircuitDocument, ids: string[], near?: Point, maxDistance = Infinity): Point | undefined {
+  const wires = [...new Set(ids)].map(id => doc.wires.find(wire => wire.id === id));
+  if (wires.length < 2 || wires.some(wire => !wire)) return undefined;
+  const paths = wires.map(wire => wirePoints(doc, wire!)), seen = new Set<string>(); let best: Point | undefined, distance = Infinity;
+  const consider = (point: Point) => {
+    if (!Number.isInteger(point.x) || !Number.isInteger(point.y)) return;
+    const key = `${point.x},${point.y}`; if (seen.has(key)) return; seen.add(key);
+    const next = near ? Math.hypot(point.x - near.x, point.y - near.y) : 0;
+    if (next <= maxDistance && next < distance && wires.every(wire => wireContainsPoint(doc, wire!, point))) { best = point; distance = next; }
+  };
+  if (near) consider(near);
+  for (const path of paths.slice(0, 2)) for (const point of path) consider(point);
+  if (near) for (let i = 1; i < paths[0].length; i++) consider(distanceToSegment(near, paths[0][i - 1], paths[0][i]).point);
+  if (distance === 0) return best;
+  let budget = 10000;
+  const relevant = (a: Point, b: Point) => !near || near.x >= Math.min(a.x, b.x) - maxDistance && near.x <= Math.max(a.x, b.x) + maxDistance && near.y >= Math.min(a.y, b.y) - maxDistance && near.y <= Math.max(a.y, b.y) + maxDistance;
+  for (let i = 1; i < paths[0].length; i++) {
+    const a = paths[0][i - 1], b = paths[0][i]; if (!relevant(a, b)) continue;
+    for (let j = 1; j < paths[1].length; j++) {
+      const c = paths[1][j - 1], d = paths[1][j]; if (!relevant(c, d)) continue;
+      if (--budget < 0) return best;
+      const point = intersection(a, b, c, d, true); if (point) consider(point);
+    }
+  }
+  return best;
+}
+export function joinAndConnect(doc: CircuitDocument, input: string[], point: Point, options: NonNullable<Parameters<typeof addWire>[4]> & { start?: Target; bends?: Point[]; reconnect?: { wireId: string; end: 'a' | 'b' } } = {}): { target: Anchor; wireId?: string } {
+  const ids = validateJoin(doc, input, point), previous = new Set(doc.wires.map(wire => wire.id));
+  let from = options.start ? resolveTarget(doc, options.start) : undefined;
+  const sourcePoint = from ? anchorPosition(doc, from) : undefined;
+  if (options.start?.kind === 'wire' && ids.includes(options.start.wireId)) ids.push(...doc.wires.filter(wire => !previous.has(wire.id)).map(wire => wire.id));
+  const pieces = ids.filter(id => { const wire = doc.wires.find(wire => wire.id === id); return wire && wireContainsPoint(doc, wire, point); });
+  let target = joinWires(doc, pieces, point);
+  if (options.reconnect) {
+    const wire = doc.wires.find(wire => wire.id === options.reconnect!.wireId); if (!wire) throw new Error('Wire no longer exists');
+    assertUnlocked(doc, wire.id); wire[options.reconnect.end] = clone(target);
+    if (wire.route.mode === 'auto') reroute(doc, wire);
+    return { target, wireId: wire.id };
+  }
+  if (!from) return { target };
+  if (from.kind === 'node') { const id = from.nodeId; if (!doc.nodes.some(node => node.id === id)) from = target; }
+  if (!options.bends?.length && sourcePoint?.x === point.x && sourcePoint.y === point.y) { target = mergeAnchors(doc, from, target); return { target }; }
+  return { target, wireId: addWire(doc, from, target, options.bends ?? [], options) };
 }
 export function disconnectNode(doc: CircuitDocument, nodeId: string, pairings: string[][]) {
   const node = doc.nodes.find(n => n.id === nodeId); if (!node) throw new Error('Select a junction');
   const incident = doc.wires.filter(w => [w.a, w.b].some(a => a.kind === 'node' && a.nodeId === nodeId));
+  assertUnlocked(doc, nodeId, ...incident.map(w => w.id));
   const expected = incident.map(w => w.id).sort().join(',');
   if (pairings.flat().sort().join(',') !== expected || pairings.some(g => !g.length)) throw new Error('Assign every junction arm exactly once');
   pairings.forEach((group, i) => {
@@ -82,22 +161,30 @@ export function disconnectNode(doc: CircuitDocument, nodeId: string, pairings: s
     for (const w of incident.filter(w => group.includes(w.id))) for (const key of ['a', 'b'] as const) if (w[key].kind === 'node' && w[key].nodeId === nodeId) w[key] = clone(anchor);
   });
 }
+export function lockedObjects(doc: CircuitDocument): Set<string> {
+  const locked = new Set([...doc.components, ...doc.wires, ...doc.annotations, ...doc.groups].filter(object => object.locked).map(object => object.id));
+  for (const group of doc.groups) if (group.locked) group.members.forEach(id => locked.add(id));
+  return locked;
+}
+export function assertUnlocked(doc: CircuitDocument, ...ids: string[]): void {
+  const locked = lockedObjects(doc);
+  if (ids.some(id => locked.has(id))) throw new Error('Unlock this object or its group before editing it');
+}
 export function selectionMembers(doc: CircuitDocument, input: Set<string>): Set<string> {
   const ids = new Set(input);
   for (const g of doc.groups) if (ids.has(g.id) && !g.locked) g.members.forEach(id => ids.add(id));
-  for (const c of doc.components) if (c.locked) ids.delete(c.id);
-  for (const w of doc.wires) if (w.locked) ids.delete(w.id);
-  for (const a of doc.annotations) if (a.locked) ids.delete(a.id);
-  for (const g of doc.groups) if (g.locked) g.members.forEach(id => ids.delete(id));
+  for (const id of lockedObjects(doc)) ids.delete(id);
   return ids;
 }
 function anchorSelected(a: Anchor, ids: Set<string>) { return ids.has(a.kind === 'pin' ? a.componentId : a.nodeId); }
 export function movableSelection(doc: CircuitDocument, input: Set<string>): Set<string> {
   const ids = selectionMembers(doc, input);
-  if (doc.components.filter(c => ids.has(c.id)).length < 2) return ids;
   const adjacent = new Map<string, typeof doc.wires>();
   for (const w of doc.wires) for (const a of [w.a, w.b]) if (a.kind === 'node') { const edges = adjacent.get(a.nodeId) ?? []; edges.push(w); adjacent.set(a.nodeId, edges); }
-  const visited = new Set<string>(), protectedIds = new Set(doc.groups.filter(g => g.locked).flatMap(g => g.members));
+  const protectedIds = lockedObjects(doc);
+  for (const [id, incident] of adjacent) if (!protectedIds.has(id) && incident.every(w => ids.has(w.id))) ids.add(id);
+  if (doc.components.filter(c => ids.has(c.id)).length < 2) return ids;
+  const visited = new Set<string>();
   for (const n of doc.nodes) {
     if (visited.has(n.id)) continue;
     const queue = [n.id], cluster = new Set<string>(), boundary = new Set<string>();
@@ -108,18 +195,16 @@ export function movableSelection(doc: CircuitDocument, input: Set<string>): Set<
 }
 export function moveSelection(doc: CircuitDocument, input: Set<string>, delta: Point) {
   if (delta.x === 0 && delta.y === 0) return;
-  const ids = movableSelection(doc, input);
-  // Junctions move with a selected fragment only when all incident edges were selected.
-  for (const n of doc.nodes) { const incident = doc.wires.filter(w => [w.a, w.b].some(a => a.kind === 'node' && a.nodeId === n.id)); if (incident.length && incident.every(w => ids.has(w.id))) ids.add(n.id); }
+  const ids = movableSelection(doc, input), locked = lockedObjects(doc);
   const move = (p: Point) => ({ x: p.x + delta.x, y: p.y + delta.y });
   for (const c of doc.components) if (ids.has(c.id)) c.position = move(c.position);
   for (const n of doc.nodes) if (ids.has(n.id)) n.position = move(n.position);
-  for (const w of doc.wires) if (!w.locked && ((anchorSelected(w.a, ids) && anchorSelected(w.b, ids)) || ids.has(w.id))) w.route.vertices = w.route.vertices.map(p => ({ ...p, ...move(p) }));
-  for (const a of doc.annotations) if (ids.has(a.id) || (a.anchor && anchorSelected(a.anchor, ids))) a.position = move(a.position);
-  for (const w of doc.wires) if (w.route.mode === 'auto' && !w.locked && anchorSelected(w.a, ids) !== anchorSelected(w.b, ids)) reroute(doc, w);
+  for (const w of doc.wires) if (!locked.has(w.id) && ((anchorSelected(w.a, ids) && anchorSelected(w.b, ids)) || ids.has(w.id))) w.route.vertices = w.route.vertices.map(p => ({ ...p, ...move(p) }));
+  for (const a of doc.annotations) if (!locked.has(a.id) && (ids.has(a.id) || (a.anchor && anchorSelected(a.anchor, ids)))) a.position = move(a.position);
+  for (const w of doc.wires) if (w.route.mode === 'auto' && !locked.has(w.id) && anchorSelected(w.a, ids) !== anchorSelected(w.b, ids)) reroute(doc, w);
 }
 export function transformSelection(doc: CircuitDocument, input: Set<string>, kind: 'rotate' | 'mirrorX' | 'mirrorY') {
-  const ids = movableSelection(doc, input); const cs = doc.components.filter(c => ids.has(c.id)), annotations = doc.annotations.filter(a => ids.has(a.id));
+  const ids = movableSelection(doc, input), locked = lockedObjects(doc); const cs = doc.components.filter(c => ids.has(c.id)), annotations = doc.annotations.filter(a => ids.has(a.id));
   if (!cs.length && !annotations.length) throw new Error('Select a component or annotation to transform');
   const centers = cs.length ? cs.map(c => c.position) : annotations.map(annotationCenter);
   const pivot = centers.length === 1 ? centers[0] : snap({ x: centers.reduce((s, p) => s + p.x, 0) / centers.length, y: centers.reduce((s, p) => s + p.y, 0) / centers.length });
@@ -134,13 +219,14 @@ export function transformSelection(doc: CircuitDocument, input: Set<string>, kin
     }
   }
   for (const n of doc.nodes) if (ids.has(n.id)) n.position = change(n.position);
-  for (const w of doc.wires) if (anchorSelected(w.a, ids) && anchorSelected(w.b, ids)) {
+  for (const w of doc.wires) if (!locked.has(w.id) && anchorSelected(w.a, ids) && anchorSelected(w.b, ids)) {
     w.route.vertices = w.route.vertices.map(p => ({ ...p, ...change(p) }));
     if (kind === 'rotate' && w.route.geometry === 'orthogonal') w.route.horizontalFirst = !w.route.horizontalFirst;
   }
-  for (const a of doc.annotations) if (ids.has(a.id) || a.anchor && anchorSelected(a.anchor, ids)) { const position = change(a.position); a.position = { x: Math.round(position.x), y: Math.round(position.y) }; if (ids.has(a.id) && kind === 'rotate') a.rotation = (a.rotation + 90) % 360; }
+  for (const a of doc.annotations) if (!locked.has(a.id) && (ids.has(a.id) || a.anchor && anchorSelected(a.anchor, ids))) { const position = change(a.position); a.position = { x: Math.round(position.x), y: Math.round(position.y) }; if (ids.has(a.id) && kind === 'rotate') a.rotation = (a.rotation + 90) % 360; }
 }
 export function detachComponent(doc: CircuitDocument, componentId: string, pinId?: string) {
+  assertUnlocked(doc, componentId);
   const replacements = new Map<string, Anchor>();
   function replace(a: Anchor): Anchor {
     if (a.kind !== 'pin' || a.componentId !== componentId || pinId && a.pinId !== pinId) return a;
@@ -150,24 +236,38 @@ export function detachComponent(doc: CircuitDocument, componentId: string, pinId
   for (const a of doc.annotations) if (a.anchor) a.anchor = replace(a.anchor);
 }
 export function deleteSelection(doc: CircuitDocument, input: Set<string>, attached = false) {
-  const ids = selectionMembers(doc, input);
+  // Deleting only a group container leaves its contents; explicitly selected members still delete.
+  const groups = new Set(doc.groups.map(g => g.id));
+  const ids = selectionMembers(doc, new Set([...input].filter(id => !groups.has(id))));
+  for (const g of doc.groups) if (input.has(g.id) && !g.locked) ids.add(g.id);
+  if (!ids.size) return;
+  const locked = lockedObjects(doc);
+  const nodeReferences = () => new Set([...doc.wires.flatMap(w => [w.a, w.b]), ...doc.annotations.flatMap(a => a.anchor ? [a.anchor] : [])].filter((a): a is Extract<Anchor, { kind: 'node' }> => a.kind === 'node').map(a => a.nodeId));
+  const referencedBefore = nodeReferences(), standalone = new Set(doc.nodes.filter(node => !referencedBefore.has(node.id)).map(node => node.id));
+  for (const node of doc.nodes) if (ids.has(node.id)) {
+    const wires = doc.wires.filter(w => [w.a, w.b].some(a => a.kind === 'node' && a.nodeId === node.id));
+    const annotations = doc.annotations.filter(a => a.anchor?.kind === 'node' && a.anchor.nodeId === node.id);
+    assertUnlocked(doc, ...wires.map(w => w.id), ...annotations.map(a => a.id));
+  }
   for (const c of doc.components.filter(c => ids.has(c.id))) {
-    if (attached) for (const w of doc.wires) if ([w.a, w.b].some(a => a.kind === 'pin' && a.componentId === c.id)) ids.add(w.id);
+    if (attached) for (const w of doc.wires) if (!locked.has(w.id) && [w.a, w.b].some(a => a.kind === 'pin' && a.componentId === c.id)) ids.add(w.id);
     detachComponent(doc, c.id);
   }
   // Deleting a junction is an explicit branch deletion, including incident wires.
   for (const w of doc.wires) if ([w.a, w.b].some(a => a.kind === 'node' && ids.has(a.nodeId))) ids.add(w.id);
   doc.components = doc.components.filter(c => !ids.has(c.id)); doc.wires = doc.wires.filter(w => !ids.has(w.id));
   doc.annotations = doc.annotations.filter(a => !ids.has(a.id) && !(a.anchor?.kind === 'node' && ids.has(a.anchor.nodeId)));
-  const referenced = new Set([...doc.wires.flatMap(w => [w.a, w.b]), ...doc.annotations.flatMap(a => a.anchor ? [a.anchor] : [])].filter((a): a is Extract<Anchor, { kind: 'node' }> => a.kind === 'node').map(a => a.nodeId));
-  doc.nodes = doc.nodes.filter(n => referenced.has(n.id) || n.explicit && !ids.has(n.id));
-  doc.groups = doc.groups.filter(g => !ids.has(g.id)).map(g => ({ ...g, members: g.members.filter(id => !ids.has(id)) }));
+  const referenced = nodeReferences();
+  doc.nodes = doc.nodes.filter(n => referenced.has(n.id) || !ids.has(n.id) && (n.explicit || locked.has(n.id) || standalone.has(n.id)));
+  const remaining = new Set([...doc.components, ...doc.nodes, ...doc.wires, ...doc.annotations].map(item => item.id));
+  doc.groups = doc.groups.filter(g => !ids.has(g.id)).map(g => ({ ...g, members: g.members.filter(id => remaining.has(id)) }));
 }
 export function annotate(doc: CircuitDocument, kind: Annotation['kind'], text: string, position: Point, anchor?: Anchor, global = false) {
   const a: Annotation = { id: uid('a'), kind, text: kind === 'label' ? text.trim() : text, position: snap(position), anchor, global, size: { x: 160, y: 96 }, locked: false, zIndex: 0, rotation: 0, scaleX: 1, scaleY: 1, fontSize: 14 }; doc.annotations.push(a); return a.id;
 }
 export function reconfigure(doc: CircuitDocument, componentId: string, definition: Definition) {
   const c = doc.components.find(c => c.id === componentId); if (!c) throw new Error('Missing component');
+  assertUnlocked(doc, componentId);
   const old = getDefinition(doc, c);
   for (const p of old.pins) if (!definition.pins.some(n => n.id === p.id && n.width === p.width)) detachComponent(doc, c.id, p.id);
   const def = clone(definition); def.id = uid('definition'); doc.definitions.push(def); c.definitionId = def.id;
@@ -175,6 +275,7 @@ export function reconfigure(doc: CircuitDocument, componentId: string, definitio
 export function insertComponent(doc: CircuitDocument, componentId: string, wireId: string) {
   const c = doc.components.find(c => c.id === componentId), w = doc.wires.find(w => w.id === wireId);
   if (!c || !w) throw new Error('Choose a component and wire');
+  assertUnlocked(doc, componentId, wireId);
   const pins = getDefinition(doc, c).pins;
   if (pins.length !== 2 || w.width !== 1 || pins.some(p => p.width !== 1)) throw new Error('Insertion requires a scalar two-pin part');
   const p1: Anchor = { kind: 'pin', componentId, pinId: pins[0].id }, p2: Anchor = { kind: 'pin', componentId, pinId: pins[1].id };
@@ -183,7 +284,9 @@ export function insertComponent(doc: CircuitDocument, componentId: string, wireI
   if (segment < 0) throw new Error('Both component pins must lie on the same wire segment');
   const former = clone(w); doc.wires = doc.wires.filter(edge => edge.id !== w.id);
   const aFirst = Math.hypot(a.x - pts[segment].x, a.y - pts[segment].y) <= Math.hypot(b.x - pts[segment].x, b.y - pts[segment].y);
-  addWire(doc, former.a, aFirst ? p1 : p2, pts.slice(1, segment + 1)); addWire(doc, aFirst ? p2 : p1, former.b, pts.slice(segment + 1, -1));
+  const options = { geometry: former.route.geometry, horizontalFirst: former.route.horizontalFirst, width: former.width };
+  const first = addWire(doc, former.a, aFirst ? p1 : p2, pts.slice(1, segment + 1), options), second = addWire(doc, aFirst ? p2 : p1, former.b, pts.slice(segment + 1, -1), options);
+  for (const group of doc.groups) if (group.members.includes(former.id)) group.members = [...new Set(group.members.flatMap(id => id === former.id ? [first, second, componentId] : [id]))];
 }
 export function fragment(doc: CircuitDocument, selection: Set<string>): CircuitDocument {
   const copy = clone(doc), ids = new Set(selection);
@@ -192,14 +295,17 @@ export function fragment(doc: CircuitDocument, selection: Set<string>): CircuitD
   copy.wires = copy.wires.filter(w => ids.has(w.id) || [w.a, w.b].some(a => a.kind === 'pin' && ids.has(a.componentId)));
   for (const n of copy.nodes) if (copy.wires.some(w => [w.a, w.b].some(a => a.kind === 'node' && a.nodeId === n.id))) ids.add(n.id);
   const externals = new Map<string, Anchor>();
-  for (const w of copy.wires) for (const end of ['a', 'b'] as const) {
-    const a = w[end]; if (a.kind === 'pin' && !ids.has(a.componentId)) {
-      const key = anchorKey(a); if (!externals.has(key)) externals.set(key, freeNode(copy, anchorPosition(doc, a))); w[end] = clone(externals.get(key)!);
+  function detachExternal(a: Anchor): Anchor {
+    if (a.kind === 'pin' && !ids.has(a.componentId)) {
+      const key = anchorKey(a); if (!externals.has(key)) externals.set(key, freeNode(copy, anchorPosition(doc, a))); return clone(externals.get(key)!);
     }
+    return a;
   }
+  for (const w of copy.wires) for (const end of ['a', 'b'] as const) w[end] = detachExternal(w[end]);
   copy.annotations = copy.annotations.filter(a => ids.has(a.id) || a.anchor && (a.anchor.kind === 'pin' ? ids.has(a.anchor.componentId) : ids.has(a.anchor.nodeId)));
+  for (const a of copy.annotations) if (a.anchor) a.anchor = detachExternal(a.anchor);
   const nodeIds = new Set(copy.wires.flatMap(w => [w.a, w.b]).concat(copy.annotations.flatMap(a => a.anchor ? [a.anchor] : [])).filter((a): a is Extract<Anchor, { kind: 'node' }> => a.kind === 'node').map(a => a.nodeId));
-  copy.nodes = copy.nodes.filter(n => nodeIds.has(n.id));
+  copy.nodes = copy.nodes.filter(n => nodeIds.has(n.id) || ids.has(n.id));
   copy.groups = copy.groups.filter(g => ids.has(g.id)).map(g => ({ ...g, members: g.members.filter(id => ids.has(id)) }));
   copy.definitions = copy.definitions.filter(d => copy.components.some(c => c.definitionId === d.id)); copy.id = uid('fragment'); copy.title = 'Circuit snippet'; return copy;
 }

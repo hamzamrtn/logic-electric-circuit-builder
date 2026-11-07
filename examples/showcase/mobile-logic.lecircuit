@@ -1,0 +1,1892 @@
+{
+  "format": "logic-electric-circuit",
+  "schemaVersion": 1,
+  "id": "showcase.mobile-logic.doc1",
+  "title": "Inside a ripple-carry adder",
+  "components": [
+    {
+      "id": "showcase.mobile-logic.c1",
+      "definitionId": "builtin.gate-xor-2.v1",
+      "position": {
+        "x": 144,
+        "y": 216
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U1",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.c2",
+      "definitionId": "builtin.gate-xor-2.v1",
+      "position": {
+        "x": 336,
+        "y": 216
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U2",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.c3",
+      "definitionId": "builtin.gate-and-2.v1",
+      "position": {
+        "x": 144,
+        "y": 360
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U3",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.c4",
+      "definitionId": "builtin.gate-and-2.v1",
+      "position": {
+        "x": 336,
+        "y": 360
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U4",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.c5",
+      "definitionId": "builtin.gate-or-2.v1",
+      "position": {
+        "x": 432,
+        "y": 432
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U5",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.c6",
+      "definitionId": "builtin.gate-xor-2.v1",
+      "position": {
+        "x": 144,
+        "y": 616
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U6",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.c7",
+      "definitionId": "builtin.gate-xor-2.v1",
+      "position": {
+        "x": 336,
+        "y": 616
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U7",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.c8",
+      "definitionId": "builtin.gate-and-2.v1",
+      "position": {
+        "x": 144,
+        "y": 760
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U8",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.c9",
+      "definitionId": "builtin.gate-and-2.v1",
+      "position": {
+        "x": 336,
+        "y": 760
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U9",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.c10",
+      "definitionId": "builtin.gate-or-2.v1",
+      "position": {
+        "x": 432,
+        "y": 832
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U10",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.c11",
+      "definitionId": "builtin.gate-xor-2.v1",
+      "position": {
+        "x": 112,
+        "y": 1016
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U11",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.c12",
+      "definitionId": "builtin.gate-and-2.v1",
+      "position": {
+        "x": 304,
+        "y": 1016
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U12",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.c13",
+      "definitionId": "builtin.gate-not-1.v1",
+      "position": {
+        "x": 112,
+        "y": 1160
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U13",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.c14",
+      "definitionId": "builtin.gate-or-2.v1",
+      "position": {
+        "x": 304,
+        "y": 1160
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U14",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.c15",
+      "definitionId": "builtin.block-output-probe.v1",
+      "position": {
+        "x": 448,
+        "y": 1016
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "DS1",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.c16",
+      "definitionId": "builtin.block-output-probe.v1",
+      "position": {
+        "x": 448,
+        "y": 1160
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "DS2",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    }
+  ],
+  "nodes": [
+    {
+      "id": "showcase.mobile-logic.n1",
+      "position": {
+        "x": 48,
+        "y": 208
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.mobile-logic.n2",
+      "position": {
+        "x": 32,
+        "y": 224
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.mobile-logic.n3",
+      "position": {
+        "x": 240,
+        "y": 224
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.mobile-logic.n4",
+      "position": {
+        "x": 224,
+        "y": 216
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.mobile-logic.n5",
+      "position": {
+        "x": 48,
+        "y": 608
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.mobile-logic.n6",
+      "position": {
+        "x": 32,
+        "y": 624
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.mobile-logic.n7",
+      "position": {
+        "x": 240,
+        "y": 624
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.mobile-logic.n8",
+      "position": {
+        "x": 224,
+        "y": 616
+      },
+      "explicit": false
+    }
+  ],
+  "wires": [
+    {
+      "id": "showcase.mobile-logic.w1",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-logic.n1"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c1",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.w2",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-logic.n2"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c1",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.w3",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c1",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-logic.n4"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.w4",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-logic.n4"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c2",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 256,
+            "y": 216,
+            "id": "showcase.mobile-logic.bend1",
+            "locked": true
+          },
+          {
+            "x": 256,
+            "y": 208,
+            "id": "showcase.mobile-logic.bend2",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.w5",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-logic.n3"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c2",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.w6",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-logic.n1"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c3",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 48,
+            "y": 352,
+            "id": "showcase.mobile-logic.bend3",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.w7",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-logic.n2"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c3",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 32,
+            "y": 368,
+            "id": "showcase.mobile-logic.bend4",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.w8",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-logic.n4"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c4",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 224,
+            "y": 296,
+            "id": "showcase.mobile-logic.bend5",
+            "locked": true
+          },
+          {
+            "x": 256,
+            "y": 296,
+            "id": "showcase.mobile-logic.bend6",
+            "locked": true
+          },
+          {
+            "x": 256,
+            "y": 352,
+            "id": "showcase.mobile-logic.bend7",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.w9",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-logic.n3"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c4",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 240,
+            "y": 368,
+            "id": "showcase.mobile-logic.bend8",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.w10",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c3",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c5",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 208,
+            "y": 360,
+            "id": "showcase.mobile-logic.bend9",
+            "locked": true
+          },
+          {
+            "x": 208,
+            "y": 424,
+            "id": "showcase.mobile-logic.bend10",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.w11",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c4",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c5",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 400,
+            "y": 360,
+            "id": "showcase.mobile-logic.bend11",
+            "locked": true
+          },
+          {
+            "x": 400,
+            "y": 440,
+            "id": "showcase.mobile-logic.bend12",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.w12",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-logic.n5"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c6",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.w13",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-logic.n6"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c6",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.w14",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c6",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-logic.n8"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.w15",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-logic.n8"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c7",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 256,
+            "y": 616,
+            "id": "showcase.mobile-logic.bend13",
+            "locked": true
+          },
+          {
+            "x": 256,
+            "y": 608,
+            "id": "showcase.mobile-logic.bend14",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.w16",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-logic.n7"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c7",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.w17",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-logic.n5"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c8",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 48,
+            "y": 752,
+            "id": "showcase.mobile-logic.bend15",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.w18",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-logic.n6"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c8",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 32,
+            "y": 768,
+            "id": "showcase.mobile-logic.bend16",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.w19",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-logic.n8"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c9",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 224,
+            "y": 696,
+            "id": "showcase.mobile-logic.bend17",
+            "locked": true
+          },
+          {
+            "x": 256,
+            "y": 696,
+            "id": "showcase.mobile-logic.bend18",
+            "locked": true
+          },
+          {
+            "x": 256,
+            "y": 752,
+            "id": "showcase.mobile-logic.bend19",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.w20",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-logic.n7"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c9",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 240,
+            "y": 768,
+            "id": "showcase.mobile-logic.bend20",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.w21",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c8",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c10",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 208,
+            "y": 760,
+            "id": "showcase.mobile-logic.bend21",
+            "locked": true
+          },
+          {
+            "x": 208,
+            "y": 824,
+            "id": "showcase.mobile-logic.bend22",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.w22",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c9",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c10",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 400,
+            "y": 760,
+            "id": "showcase.mobile-logic.bend23",
+            "locked": true
+          },
+          {
+            "x": 400,
+            "y": 840,
+            "id": "showcase.mobile-logic.bend24",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.w23",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c11",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c12",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 208,
+            "y": 1016,
+            "id": "showcase.mobile-logic.bend25",
+            "locked": true
+          },
+          {
+            "x": 208,
+            "y": 1008,
+            "id": "showcase.mobile-logic.bend26",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.w24",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c13",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c14",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 208,
+            "y": 1160,
+            "id": "showcase.mobile-logic.bend27",
+            "locked": true
+          },
+          {
+            "x": 208,
+            "y": 1152,
+            "id": "showcase.mobile-logic.bend28",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.w25",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c12",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c15",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-logic.w26",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c14",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c16",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    }
+  ],
+  "annotations": [
+    {
+      "id": "showcase.mobile-logic.a1",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "text": "Inside a ripple-carry adder",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 26
+    },
+    {
+      "id": "showcase.mobile-logic.a2",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 32
+      },
+      "text": "Gate-level arithmetic / explicit carry nets / output control",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 13
+    },
+    {
+      "id": "showcase.mobile-logic.a3",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 88
+      },
+      "text": "01  Adder / bit 0",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 19
+    },
+    {
+      "id": "showcase.mobile-logic.a4",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 112
+      },
+      "text": "SUM = A xor B xor C; carry uses explicit gates",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 12
+    },
+    {
+      "id": "showcase.mobile-logic.a5",
+      "kind": "label",
+      "position": {
+        "x": 24,
+        "y": 200
+      },
+      "text": "A0",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-logic.n1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-logic.a6",
+      "kind": "label",
+      "position": {
+        "x": 8,
+        "y": 248
+      },
+      "text": "B0",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-logic.n2"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-logic.a7",
+      "kind": "label",
+      "position": {
+        "x": 240,
+        "y": 256
+      },
+      "text": "C0",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-logic.n3"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-logic.a8",
+      "kind": "label",
+      "position": {
+        "x": 400,
+        "y": 208
+      },
+      "text": "S0",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c2",
+        "pinId": "out"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-logic.a9",
+      "kind": "label",
+      "position": {
+        "x": 488,
+        "y": 424
+      },
+      "text": "C1",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c5",
+        "pinId": "out"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-logic.a10",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 488
+      },
+      "text": "02  Adder / bit 1",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 19
+    },
+    {
+      "id": "showcase.mobile-logic.a11",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 512
+      },
+      "text": "SUM = A xor B xor C; carry uses explicit gates",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 12
+    },
+    {
+      "id": "showcase.mobile-logic.a12",
+      "kind": "label",
+      "position": {
+        "x": 24,
+        "y": 600
+      },
+      "text": "A1",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-logic.n5"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-logic.a13",
+      "kind": "label",
+      "position": {
+        "x": 8,
+        "y": 648
+      },
+      "text": "B1",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-logic.n6"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-logic.a14",
+      "kind": "label",
+      "position": {
+        "x": 240,
+        "y": 656
+      },
+      "text": "C1",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-logic.n7"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-logic.a15",
+      "kind": "label",
+      "position": {
+        "x": 400,
+        "y": 608
+      },
+      "text": "S1",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c7",
+        "pinId": "out"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-logic.a16",
+      "kind": "label",
+      "position": {
+        "x": 488,
+        "y": 824
+      },
+      "text": "C2",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c10",
+        "pinId": "out"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-logic.a17",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 888
+      },
+      "text": "03  Output control",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 19
+    },
+    {
+      "id": "showcase.mobile-logic.a18",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 912
+      },
+      "text": "Enable, overflow detection and status outputs",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 12
+    },
+    {
+      "id": "showcase.mobile-logic.a19",
+      "kind": "label",
+      "position": {
+        "x": 32,
+        "y": 1000
+      },
+      "text": "C1",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c11",
+        "pinId": "in-0"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-logic.a20",
+      "kind": "label",
+      "position": {
+        "x": 32,
+        "y": 1048
+      },
+      "text": "C2",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c11",
+        "pinId": "in-1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-logic.a21",
+      "kind": "label",
+      "position": {
+        "x": 232,
+        "y": 1056
+      },
+      "text": "ENABLE",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c12",
+        "pinId": "in-1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-logic.a22",
+      "kind": "label",
+      "position": {
+        "x": 16,
+        "y": 1152
+      },
+      "text": "RESET",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c13",
+        "pinId": "in-0"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-logic.a23",
+      "kind": "label",
+      "position": {
+        "x": 232,
+        "y": 1200
+      },
+      "text": "ENABLE",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-logic.c14",
+        "pinId": "in-1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    }
+  ],
+  "groups": [],
+  "definitions": [
+    {
+      "id": "builtin.gate-xor-2.v1",
+      "version": 1,
+      "name": "XOR",
+      "category": "Logic gates",
+      "aliases": [
+        "xor",
+        "gate"
+      ],
+      "prefix": "U",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "x": -48,
+          "y": -8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-1",
+          "name": "B",
+          "x": -48,
+          "y": 8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "out",
+          "name": "Y",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -28 -32 Q 4 0 -28 32 Q 12 32 28 0 Q 12 -32 -28 -32 Z"
+        },
+        {
+          "kind": "path",
+          "d": "M -34 -32 Q -2 0 -34 32"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 -8 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 8 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M 28 0 H 48"
+        }
+      ],
+      "bounds": {
+        "x": -48,
+        "y": -32,
+        "width": 96,
+        "height": 64
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.gate-and-2.v1",
+      "version": 1,
+      "name": "AND",
+      "category": "Logic gates",
+      "aliases": [
+        "and",
+        "gate"
+      ],
+      "prefix": "U",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "x": -48,
+          "y": -8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-1",
+          "name": "B",
+          "x": -48,
+          "y": 8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "out",
+          "name": "Y",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -24 -32 H 0 C 38 -32 38 32 0 32 H -24 Z"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 -8 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 8 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M 28 0 H 48"
+        }
+      ],
+      "bounds": {
+        "x": -48,
+        "y": -32,
+        "width": 96,
+        "height": 64
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.gate-or-2.v1",
+      "version": 1,
+      "name": "OR",
+      "category": "Logic gates",
+      "aliases": [
+        "or",
+        "gate"
+      ],
+      "prefix": "U",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "x": -48,
+          "y": -8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-1",
+          "name": "B",
+          "x": -48,
+          "y": 8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "out",
+          "name": "Y",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -28 -32 Q 4 0 -28 32 Q 12 32 28 0 Q 12 -32 -28 -32 Z"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 -8 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 8 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M 28 0 H 48"
+        }
+      ],
+      "bounds": {
+        "x": -48,
+        "y": -32,
+        "width": 96,
+        "height": 64
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.gate-not-1.v1",
+      "version": 1,
+      "name": "NOT",
+      "category": "Logic gates",
+      "aliases": [
+        "not",
+        "gate"
+      ],
+      "prefix": "U",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "out",
+          "name": "Y",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -24 -24 L 24 0 L -24 24 Z"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M 36 0 H 48"
+        },
+        {
+          "kind": "circle",
+          "x": 32,
+          "y": 0,
+          "radius": 4
+        }
+      ],
+      "bounds": {
+        "x": -48,
+        "y": -32,
+        "width": 96,
+        "height": 64
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.block-output-probe.v1",
+      "version": 1,
+      "name": "Output probe",
+      "category": "Logic I/O",
+      "aliases": [],
+      "prefix": "DS",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "IN",
+          "x": -64,
+          "y": 0,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "rect",
+          "x": -48,
+          "y": -56,
+          "width": 96,
+          "height": 88
+        },
+        {
+          "kind": "text",
+          "x": 0,
+          "y": -40,
+          "text": "Output probe",
+          "size": 11
+        },
+        {
+          "kind": "path",
+          "d": "M -64 0 H -48"
+        },
+        {
+          "kind": "text",
+          "x": -28,
+          "y": 4,
+          "text": "IN",
+          "size": 9
+        }
+      ],
+      "bounds": {
+        "x": -64,
+        "y": -56,
+        "width": 128,
+        "height": 88
+      },
+      "defaults": {}
+    }
+  ],
+  "metadata": {
+    "purpose": "Editable gallery drawing; not simulated or electrically qualified.",
+    "layout": "Portrait"
+  }
+}

@@ -53,26 +53,44 @@ export function snapToSegment(p: Point, a: Point, b: Point, snapping = true): { 
   }
   return { distance: nearest.distance, point };
 }
-export function intersection(a: Point, b: Point, c: Point, d: Point): Point | undefined {
+export function intersection(a: Point, b: Point, c: Point, d: Point, includeEnds = false): Point | undefined {
   const cross = (x: Point, y: Point) => x.x * y.y - x.y * y.x;
   const sub = (x: Point, y: Point) => ({ x: x.x - y.x, y: x.y - y.y });
   const r = sub(b, a), s = sub(d, c), denom = cross(r, s);
   if (!denom) return undefined;
   const t = cross(sub(c, a), s) / denom, u = cross(sub(c, a), r) / denom;
-  if (t <= 0 || t >= 1 || u <= 0 || u >= 1) return undefined;
-  const p = { x: a.x + t * r.x, y: a.y + t * r.y };
-  return Number.isInteger(p.x) && Number.isInteger(p.y) ? p : undefined;
+  if (includeEnds ? t < 0 || t > 1 || u < 0 || u > 1 : t <= 0 || t >= 1 || u <= 0 || u >= 1) return undefined;
+  const p = { x: Math.round(a.x + t * r.x) || 0, y: Math.round(a.y + t * r.y) || 0 };
+  // Remove floating-point residue only when the integer point lies exactly on both lines.
+  return cross(sub(p, a), r) === 0 && cross(sub(p, c), s) === 0 ? p : undefined;
+}
+export function wireContainsPoint(doc: CircuitDocument, wire: Wire, point: Point, tolerance = 0): boolean {
+  const points = wirePoints(doc, wire);
+  if (points.length === 1) return Math.hypot(point.x - points[0].x, point.y - points[0].y) <= tolerance;
+  return points.slice(1).some((b, index) => {
+    const a = points[index];
+    if (tolerance) return distanceToSegment(point, a, b).distance <= tolerance;
+    return (point.x - a.x) * (b.y - a.y) === (point.y - a.y) * (b.x - a.x) && point.x >= Math.min(a.x, b.x) && point.x <= Math.max(a.x, b.x) && point.y >= Math.min(a.y, b.y) && point.y <= Math.max(a.y, b.y);
+  });
+}
+export function componentBounds(component: Component, definition: Definition) {
+  const points: Point[] = [];
+  const b = definition.bounds;
+  for (const x of [b.x - 24, b.x + b.width + 24]) for (const y of [b.y - 24, b.y + b.height + 36]) points.push(transform({ x, y }, component));
+  for (const pin of definition.pins) { const p = transform(pin, component); points.push({ x: p.x - 4, y: p.y - 4 }, { x: p.x + 4, y: p.y + 4 }); }
+  const l = labelLayout(component, definition);
+  for (const [text, y] of [[component.reference, l.referenceY], [String(component.properties.value ?? ''), l.valueY], [String(component.properties.label ?? ''), l.labelY]] as const) {
+    if (!text) continue; const width = text.length * 10, left = l.anchor === 'start' ? l.x : l.x - width / 2;
+    points.push({ x: left, y: y - 16 }, { x: left + width, y: y + 4 });
+  }
+  const extents = points.reduce((b, p) => ({ left: Math.min(b.left, p.x), top: Math.min(b.top, p.y), right: Math.max(b.right, p.x), bottom: Math.max(b.bottom, p.y) }), { left: Infinity, top: Infinity, right: -Infinity, bottom: -Infinity });
+  return { x: extents.left, y: extents.top, width: extents.right - extents.left, height: extents.bottom - extents.top };
 }
 export function bounds(doc: CircuitDocument, ids?: Set<string>) {
   const points: Point[] = [];
   for (const c of doc.components) if (!ids || ids.has(c.id)) {
-    const b = getDefinition(doc, c).bounds;
-    for (const x of [b.x - 24, b.x + b.width + 24]) for (const y of [b.y - 24, b.y + b.height + 36]) points.push(transform({ x, y }, c));
-    const l = labelLayout(c, getDefinition(doc, c));
-    for (const [text, y] of [[c.reference, l.referenceY], [String(c.properties.value ?? ''), l.valueY], [String(c.properties.label ?? ''), l.labelY]] as const) {
-      if (!text) continue; const width = text.length * 10, left = l.anchor === 'start' ? l.x : l.x - width / 2;
-      points.push({ x: left, y: y - 16 }, { x: left + width, y: y + 4 });
-    }
+    const b = componentBounds(c, getDefinition(doc, c));
+    points.push({ x: b.x, y: b.y }, { x: b.x + b.width, y: b.y + b.height });
   }
   for (const w of doc.wires) if (!ids || ids.has(w.id)) points.push(...wirePoints(doc, w));
   for (const a of doc.annotations) if (!ids || ids.has(a.id)) points.push(...annotationCorners(a).flatMap(p => [{ x: p.x - 8, y: p.y - 8 }, { x: p.x + 8, y: p.y + 8 }]));
@@ -82,7 +100,8 @@ export function bounds(doc: CircuitDocument, ids?: Set<string>) {
 }
 export function labelLayout(c: Component, def: Definition) {
   const vertical = c.rotation === 90 || c.rotation === 270;
-  return { x: c.position.x + (vertical ? 40 : 0), referenceY: vertical ? c.position.y - 8 : c.position.y + def.bounds.y - 16, valueY: vertical ? c.position.y + 12 : c.position.y + def.bounds.y + def.bounds.height + 22, labelY: vertical ? c.position.y + 30 : c.position.y + def.bounds.y + def.bounds.height + 40, anchor: vertical ? 'start' as const : 'middle' as const };
+  const right = Math.max(...[def.bounds.y, def.bounds.y + def.bounds.height].map(y => transform({ x: 0, y }, { ...c, position: { x: 0, y: 0 } }).x));
+  return { x: c.position.x + (vertical ? Math.max(40, right + 8) : 0), referenceY: vertical ? c.position.y - 8 : c.position.y + def.bounds.y - 16, valueY: vertical ? c.position.y + 12 : c.position.y + def.bounds.y + def.bounds.height + 22, labelY: vertical ? c.position.y + 30 : c.position.y + def.bounds.y + def.bounds.height + 40, anchor: vertical ? 'start' as const : 'middle' as const };
 }
 export class SpatialIndex<T> {
   private buckets = new Map<string, T[]>();

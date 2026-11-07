@@ -1,5 +1,40 @@
 # Changelog
 
+## 0.1.6 — prepared release
+
+- Add brief placement, wire-completion, endpoint and grid-snap feedback, with fixed authoritative geometry and Reduce Motion support.
+- Add nearby alignment guides and quiet overlap cues without nudging or blocking placement; fade selection handles while deactivating them immediately.
+- Animate Fit/Reset briefly, let direct gestures interrupt camera motion, and keep fitted drawings above the floating zoom controls.
+- Reserve block title space above ports and keep rotated LED/photodiode labels clear of their arrows.
+- Refresh the README with five desktop and five portrait circuit screenshots, editable showcase drawings, and reusable listing descriptions.
+
+- Make compound wire joins/draft connections and reconnections atomic, validate common join points, and keep same-wire branch targets stable after splitting.
+- Remove stale connection choices safely and preserve keyboard focus when choices change or placement dialogs close.
+- Share and cancel preview acquisition safely across concurrent views, reject deleted/disposed loads, release preview resources promptly, and prevent older view snapshots from rolling back the shared document.
+- Detect exact integer crossings despite floating-point residue, while checking that the result lies on both original segments.
+- Preserve group ownership and routing settings through wire splits, endpoint merges and component insertion. Keep intrinsic pin identities when joining coincident wire ends.
+- Preserve protected dependencies during deletion, avoid unrelated node cleanup, and make group Cut remove its contents in one undoable operation while group-container Delete retains them.
+- Highlight and drag groups selected from the object list. Preserve Multi/Shift selection through overlapping-wire choices without opening the inspector unexpectedly.
+- Share accessible dialog focus handling between forms and connection choices: contain keyboard input, retain drafts when canceling a choice, and restore correction focus after errors.
+- Make thin wires selectable near their visible path at low zoom, including finger-sized touch targets. Keep coincident bus endpoints renderable and center views from measured dimensions, including exactly 1,000px-wide panes.
+- Ignore obsolete vault reads after a newer external read or local save. Verify shared sessions, delayed renames/deletions and final-view release against a public vault stub.
+- Disable locked inspector edits, recheck locks when commands/dialogs commit, and expose clear selection/group unlock actions. Apply coordinate-dialog positions relative to the latest document state.
+- Use direction-aware orthogonal routing with pin escape segments, body clearance, fewer-bend costs and compressed coordinates for long wires. Honor horizontal/vertical-first preferences and use the same search limit for previews and commits.
+- Pan during touch swipes in placement/Wire modes without accidentally placing parts or adding bends. Support middle-button panning over objects and select a newly finished wire for immediate inspection.
+- Explain fixed waypoints when automatic rerouting cannot replace a manual route, and keep fallback-routing feedback visible.
+- Restore a local circuit correctly after malformed external changes, keep restoration pending across write failures, and retain conflict controls when recovery storage fails.
+- Keep attached labels and grouped junctions portable in snippets; remove stale group members when wire endpoints are cleaned up. Deleting a group container alone preserves its contents.
+- Prevent wire drafts from crashing when their start connection is removed in another view. Apply Cut immediately with a slow clipboard and leave unhandled host shortcuts available.
+- Reject edits exceeding the readable 8 MiB file limit before changing the document.
+- Size new custom blocks around their pins and validate duplicate pin IDs before placement. Keep large, partially visible symbols rendered and include outlying pins in Fit/export bounds.
+- Preserve locked groups, annotations, wire waypoints and junctions during indirect moves/transforms; keep attached-label drag previews consistent with the committed result.
+- Keep distinct electrical endpoints separate when imported IDs contain colons, and match exported box annotation layers to the canvas.
+- Give Select, Box and Multi matching icons and labels, grouped together before Wire with compact touch controls.
+
+- Keep canvas swipes and pinch gestures inside the editor so they do not open Obsidian's sidebars or pull-down actions.
+- Preserve both fingers' positions during pinch zoom, including rapid changes between panning and zooming. Continue panning when either finger lifts.
+- Add phone and tablet touch regression coverage, including native Chromium multi-touch input and protection against accidental edits during navigation.
+
 ## 0.1.5 — community review fixes
 
 - Use CSS classes and a bounded width variable for previews and the standalone harness; remove `!important` overrides.

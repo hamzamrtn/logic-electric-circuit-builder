@@ -17,9 +17,10 @@ export function makeBlock(name: string, inputs: string[], outputs: string[], cat
   const pins: Pin[] = [];
   inputs.forEach((s, i) => pins.push(pin(`in-${i}`, -64, Math.round((i - (inputs.length - 1) / 2) * 16), 'left', 'input', width, s)));
   outputs.forEach((s, i) => pins.push(pin(`out-${i}`, 64, Math.round((i - (outputs.length - 1) / 2) * 16), 'right', 'output', width, s)));
-  const primitives: Primitive[] = [{ kind: 'rect', x: -48, y: -h / 2, width: 96, height: h }, label(name.length > 12 ? name.slice(0, 12) : name, 0, -h / 2 + 18, 11)];
+  const titleSize = Math.max(8, Math.min(11, Math.floor(84 / (name.length * .56))));
+  const primitives: Primitive[] = [{ kind: 'rect', x: -48, y: -h / 2 - 24, width: 96, height: h + 24 }, label(name, 0, -h / 2 - 8, titleSize)];
   for (const p of pins) primitives.push(path(`M ${p.x} ${p.y} H ${p.side === 'left' ? -48 : 48}`), label(p.name, p.side === 'left' ? -28 : 28, p.y + 4, 9));
-  return { ...definition(`block-${name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`, name, category, prefix, pins, primitives), bounds: { x: -64, y: -h / 2, width: 128, height: h } };
+  return { ...definition(`block-${name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`, name, category, prefix, pins, primitives), bounds: { x: -64, y: -h / 2 - 24, width: 128, height: h + 24 } };
 }
 export function makeGate(kind: string, count = 2): Definition {
   count = Math.max(kind === 'NOT' || kind === 'Buffer' ? 1 : 2, Math.min(8, count));
@@ -53,17 +54,21 @@ export function makeCustomBlock(name: string, lines: string): Definition {
   if (!entries.length || entries.length > 64) throw new Error('Use 1–64 pin lines: ID, name, side, role, width');
   const pins: Pin[] = []; const primitives: Primitive[] = [];
   const parsed = entries.map(line => { const [id, name, side = 'left', role = 'passive', width = '1'] = line.split(',').map(s => s.trim()); return { id, name, side, role, width: Number(width) }; });
+  if (new Set(parsed.map(p => p.id)).size !== parsed.length) throw new Error('Pin IDs must be unique');
+  const count = (side: string) => parsed.filter(p => p.side === side).length;
+  const halfWidth = Math.max(128, (Math.max(count('top'), count('bottom')) - 1) * 16 + 32) / 2;
+  const halfHeight = Math.max(128, (Math.max(count('left'), count('right')) - 1) * 16 + 32) / 2;
   for (const side of ['left', 'right', 'top', 'bottom'] as const) {
     const sidePins = parsed.filter(p => p.side === side);
-    sidePins.forEach((p, i) => { const t = Math.round((i - (sidePins.length - 1) / 2) * 16); const x = side === 'left' ? -80 : side === 'right' ? 80 : t; const y = side === 'top' ? -80 : side === 'bottom' ? 80 : t;
+    sidePins.forEach((p, i) => { const t = Math.round((i - (sidePins.length - 1) / 2) * 16); const x = side === 'left' ? -halfWidth - 16 : side === 'right' ? halfWidth + 16 : t; const y = side === 'top' ? -halfHeight - 16 : side === 'bottom' ? halfHeight + 16 : t;
       pins.push(pin(p.id, x, y, side, p.role as Pin['role'], p.width, p.name));
-      primitives.push(path(`M ${x} ${y} L ${side === 'left' ? -64 : side === 'right' ? 64 : x} ${side === 'top' ? -64 : side === 'bottom' ? 64 : y}`));
-      primitives.push(label(p.name, side === 'left' ? -42 : side === 'right' ? 42 : x, side === 'top' ? -48 : side === 'bottom' ? 52 : y + 4, 9));
+      primitives.push(path(`M ${x} ${y} L ${side === 'left' ? -halfWidth : side === 'right' ? halfWidth : x} ${side === 'top' ? -halfHeight : side === 'bottom' ? halfHeight : y}`));
+      primitives.push(label(p.name, side === 'left' ? -halfWidth + 22 : side === 'right' ? halfWidth - 22 : x, side === 'top' ? -halfHeight + 16 : side === 'bottom' ? halfHeight - 12 : y + 4, 9));
     });
   }
   if (pins.length !== parsed.length) throw new Error('Pin sides must be left, right, top or bottom');
-  primitives.unshift({ kind: 'rect', x: -64, y: -64, width: 128, height: 128 }, label(name, 0, 5, 12));
-  return { ...definition('custom', name, 'Custom', 'U', pins, primitives), id: uid('custom'), bounds: { x: -80, y: -80, width: 160, height: 160 } };
+  primitives.unshift({ kind: 'rect', x: -halfWidth, y: -halfHeight, width: halfWidth * 2, height: halfHeight * 2 }, label(name, 0, 5, 12));
+  return { ...definition('custom', name, 'Custom', 'U', pins, primitives), id: uid('custom'), bounds: { x: -halfWidth - 16, y: -halfHeight - 16, width: halfWidth * 2 + 32, height: halfHeight * 2 + 32 } };
 }
 
 const passive: Definition[] = [
@@ -90,6 +95,7 @@ const diodes = ['Diode', 'Zener diode', 'LED', 'Photodiode'].map((name, i) => {
   if (i === 1) d.primitives.push(path('M 8 -24 H 14 V -18 M 14 18 V 24 H 20'));
   if (i === 2) d.primitives.push(path('M 8 -28 L 24 -44 M 16 -44 H 24 V -36 M -4 -32 L 12 -48 M 4 -48 H 12 V -40'));
   if (i === 3) d.primitives.push(path('M 24 -44 L 8 -28 M 8 -36 V -28 H 16 M 12 -48 L -4 -32 M -4 -40 V -32 H 4'));
+  if (i >= 2) d.bounds = { x: -32, y: -48, width: 64, height: 80 };
   return d;
 });
 const transistors = ['NPN', 'PNP', 'NMOS', 'PMOS'].map((name, i) => {

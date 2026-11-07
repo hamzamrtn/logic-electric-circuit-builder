@@ -1,0 +1,1630 @@
+{
+  "format": "logic-electric-circuit",
+  "schemaVersion": 1,
+  "id": "showcase.mobile-power.doc1",
+  "title": "A quieter power supply",
+  "components": [
+    {
+      "id": "showcase.mobile-power.c1",
+      "definitionId": "builtin.dc-voltage.v1",
+      "position": {
+        "x": 32,
+        "y": 280
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "V1",
+      "properties": {
+        "value": "9 V"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-power.c2",
+      "definitionId": "builtin.fuse.v1",
+      "position": {
+        "x": 144,
+        "y": 200
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "F1",
+      "properties": {
+        "value": "250 mA"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-power.c3",
+      "definitionId": "builtin.diode-0.v1",
+      "position": {
+        "x": 288,
+        "y": 200
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "D1",
+      "properties": {
+        "value": "1N5819"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-power.c4",
+      "definitionId": "builtin.polar-capacitor.v1",
+      "position": {
+        "x": 384,
+        "y": 280
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "C1",
+      "properties": {
+        "value": "100 uF"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-power.c5",
+      "definitionId": "showcase.mobile-power.def1",
+      "position": {
+        "x": 224,
+        "y": 648
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U1",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-power.c6",
+      "definitionId": "builtin.capacitor.v1",
+      "position": {
+        "x": 48,
+        "y": 712
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "C2",
+      "properties": {
+        "value": "1 uF"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-power.c7",
+      "definitionId": "builtin.capacitor.v1",
+      "position": {
+        "x": 368,
+        "y": 712
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "C3",
+      "properties": {
+        "value": "10 uF"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-power.c8",
+      "definitionId": "builtin.test-point.v1",
+      "position": {
+        "x": 416,
+        "y": 648
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "TP1",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-power.c9",
+      "definitionId": "builtin.resistor.v1",
+      "position": {
+        "x": 64,
+        "y": 1032
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "R1",
+      "properties": {
+        "value": "1k"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-power.c10",
+      "definitionId": "builtin.diode-2.v1",
+      "position": {
+        "x": 64,
+        "y": 1160
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "D2",
+      "properties": {
+        "value": "Green"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-power.c11",
+      "definitionId": "builtin.resistor.v1",
+      "position": {
+        "x": 240,
+        "y": 1096
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "R2",
+      "properties": {
+        "value": "1k load"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-power.c12",
+      "definitionId": "builtin.load-2.v1",
+      "position": {
+        "x": 384,
+        "y": 1096
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "VM1",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    }
+  ],
+  "nodes": [
+    {
+      "id": "showcase.mobile-power.n1",
+      "position": {
+        "x": 384,
+        "y": 200
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.mobile-power.n2",
+      "position": {
+        "x": 384,
+        "y": 376
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.mobile-power.n3",
+      "position": {
+        "x": 48,
+        "y": 648
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.mobile-power.n4",
+      "position": {
+        "x": 368,
+        "y": 648
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.mobile-power.n5",
+      "position": {
+        "x": 224,
+        "y": 784
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.mobile-power.n6",
+      "position": {
+        "x": 64,
+        "y": 968
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.mobile-power.n7",
+      "position": {
+        "x": 240,
+        "y": 968
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.mobile-power.n8",
+      "position": {
+        "x": 384,
+        "y": 968
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.mobile-power.n9",
+      "position": {
+        "x": 240,
+        "y": 1224
+      },
+      "explicit": false
+    }
+  ],
+  "wires": [
+    {
+      "id": "showcase.mobile-power.w1",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-power.c1",
+        "pinId": "1"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-power.c2",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 32,
+            "y": 200,
+            "id": "showcase.mobile-power.bend1",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-power.w2",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-power.c2",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-power.c3",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-power.w3",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-power.c3",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-power.n1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-power.w4",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-power.n1"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-power.c4",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-power.w5",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-power.c4",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-power.n2"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-power.w6",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-power.c1",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-power.n2"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 32,
+            "y": 376,
+            "id": "showcase.mobile-power.bend2",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-power.w7",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-power.n3"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-power.c5",
+        "pinId": "in"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-power.w8",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-power.c5",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-power.n4"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-power.w9",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-power.n3"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-power.c6",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-power.w10",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-power.n4"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-power.c7",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-power.w11",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-power.c6",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-power.n5"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 48,
+            "y": 784,
+            "id": "showcase.mobile-power.bend3",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-power.w12",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-power.c7",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-power.n5"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 368,
+            "y": 784,
+            "id": "showcase.mobile-power.bend4",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-power.w13",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-power.c5",
+        "pinId": "gnd"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-power.n5"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-power.w14",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-power.n4"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-power.c8",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-power.w15",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-power.n6"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-power.n7"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-power.w16",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-power.n7"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-power.n8"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-power.w17",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-power.n6"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-power.c9",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-power.w18",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-power.c9",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-power.c10",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-power.w19",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-power.n7"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-power.c11",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-power.w20",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-power.n8"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-power.c12",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-power.w21",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-power.c10",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-power.n9"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 64,
+            "y": 1224,
+            "id": "showcase.mobile-power.bend5",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-power.w22",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-power.c11",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-power.n9"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-power.w23",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-power.c12",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-power.n9"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 384,
+            "y": 1224,
+            "id": "showcase.mobile-power.bend6",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    }
+  ],
+  "annotations": [
+    {
+      "id": "showcase.mobile-power.a1",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "text": "A quieter power supply",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 26
+    },
+    {
+      "id": "showcase.mobile-power.a2",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 32
+      },
+      "text": "Protected input / regulated rails / local decoupling",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 13
+    },
+    {
+      "id": "showcase.mobile-power.a3",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 88
+      },
+      "text": "01  Protected input",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 19
+    },
+    {
+      "id": "showcase.mobile-power.a4",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 112
+      },
+      "text": "Fuse, reverse-polarity diode and reservoir",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 12
+    },
+    {
+      "id": "showcase.mobile-power.a5",
+      "kind": "label",
+      "position": {
+        "x": 392,
+        "y": 192
+      },
+      "text": "VIN",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-power.n1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-power.a6",
+      "kind": "label",
+      "position": {
+        "x": 392,
+        "y": 368
+      },
+      "text": "GND",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-power.n2"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-power.a7",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 488
+      },
+      "text": "02  3V3 supply",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 19
+    },
+    {
+      "id": "showcase.mobile-power.a8",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 512
+      },
+      "text": "Custom regulator block with local decoupling",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 12
+    },
+    {
+      "id": "showcase.mobile-power.a9",
+      "kind": "label",
+      "position": {
+        "x": 48,
+        "y": 632
+      },
+      "text": "VIN",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-power.n3"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-power.a10",
+      "kind": "label",
+      "position": {
+        "x": 376,
+        "y": 640
+      },
+      "text": "3V3",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-power.n4"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-power.a11",
+      "kind": "label",
+      "position": {
+        "x": 232,
+        "y": 776
+      },
+      "text": "GND",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-power.n5"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-power.a12",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 888
+      },
+      "text": "03  Rail monitor",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 19
+    },
+    {
+      "id": "showcase.mobile-power.a13",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 912
+      },
+      "text": "Power indicator, output load and voltage probe",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 12
+    },
+    {
+      "id": "showcase.mobile-power.a14",
+      "kind": "label",
+      "position": {
+        "x": 64,
+        "y": 960
+      },
+      "text": "3V3",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-power.n6"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-power.a15",
+      "kind": "label",
+      "position": {
+        "x": 248,
+        "y": 1216
+      },
+      "text": "GND",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-power.n9"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    }
+  ],
+  "groups": [],
+  "definitions": [
+    {
+      "id": "builtin.dc-voltage.v1",
+      "version": 1,
+      "name": "DC voltage source",
+      "category": "Sources",
+      "aliases": [
+        "voltage",
+        "dc",
+        "source"
+      ],
+      "prefix": "V",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24 M 24 0 H 48"
+        },
+        {
+          "kind": "circle",
+          "x": 0,
+          "y": 0,
+          "radius": 24
+        },
+        {
+          "kind": "path",
+          "d": "M -15 -5 H -5 M -10 -10 V 0 M 5 5 H 15"
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {
+        "value": "5V"
+      }
+    },
+    {
+      "id": "builtin.fuse.v1",
+      "version": 1,
+      "name": "Fuse",
+      "category": "Passive",
+      "aliases": [],
+      "prefix": "F",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 -8 H 24 V 8 H -24 Z M -24 0 H 24"
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {
+        "value": "1A"
+      }
+    },
+    {
+      "id": "builtin.diode-0.v1",
+      "version": 1,
+      "name": "Diode",
+      "category": "Semiconductors",
+      "aliases": [
+        "diode"
+      ],
+      "prefix": "D",
+      "pins": [
+        {
+          "id": "1",
+          "name": "Anode",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "2",
+          "name": "Cathode",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 0 H -14 M -14 -18 L 14 0 L -14 18 Z M 14 -18 V 18 M 14 0 H 24"
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {
+        "value": ""
+      }
+    },
+    {
+      "id": "builtin.polar-capacitor.v1",
+      "version": 1,
+      "name": "Polarized capacitor",
+      "category": "Passive",
+      "aliases": [],
+      "prefix": "C",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 0 H -6 M -6 -20 V 20 M 12 -20 Q 0 0 12 20 M 8 0 H 24 M -20 -25 H -10 M -15 -30 V -20"
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {
+        "value": "10µF"
+      }
+    },
+    {
+      "id": "showcase.mobile-power.def1",
+      "version": 1,
+      "name": "LDO 3V3",
+      "category": "Custom",
+      "aliases": [],
+      "prefix": "U",
+      "pins": [
+        {
+          "id": "in",
+          "name": "IN",
+          "x": -80,
+          "y": 0,
+          "side": "left",
+          "role": "power",
+          "width": 1
+        },
+        {
+          "id": "out",
+          "name": "OUT",
+          "x": 80,
+          "y": 0,
+          "side": "right",
+          "role": "power",
+          "width": 1
+        },
+        {
+          "id": "gnd",
+          "name": "GND",
+          "x": 0,
+          "y": 80,
+          "side": "bottom",
+          "role": "power",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "rect",
+          "x": -64,
+          "y": -64,
+          "width": 128,
+          "height": 128
+        },
+        {
+          "kind": "text",
+          "x": 0,
+          "y": 5,
+          "text": "LDO 3V3",
+          "size": 12
+        },
+        {
+          "kind": "path",
+          "d": "M -80 0 L -64 0"
+        },
+        {
+          "kind": "text",
+          "x": -42,
+          "y": 4,
+          "text": "IN",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 80 0 L 64 0"
+        },
+        {
+          "kind": "text",
+          "x": 42,
+          "y": 4,
+          "text": "OUT",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 0 80 L 0 64"
+        },
+        {
+          "kind": "text",
+          "x": 0,
+          "y": 52,
+          "text": "GND",
+          "size": 9
+        }
+      ],
+      "bounds": {
+        "x": -80,
+        "y": -80,
+        "width": 160,
+        "height": 160
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.capacitor.v1",
+      "version": 1,
+      "name": "Capacitor",
+      "category": "Passive",
+      "aliases": [],
+      "prefix": "C",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 0 H -6 M -6 -20 V 20 M 6 -20 V 20 M 6 0 H 24"
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {
+        "value": "100nF"
+      }
+    },
+    {
+      "id": "builtin.test-point.v1",
+      "version": 1,
+      "name": "Test point",
+      "category": "Connectivity",
+      "aliases": [],
+      "prefix": "TP",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "x": 0,
+          "y": 32,
+          "side": "bottom",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M 0 32 V 6"
+        },
+        {
+          "kind": "circle",
+          "x": 0,
+          "y": 0,
+          "radius": 6
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.resistor.v1",
+      "version": 1,
+      "name": "Resistor",
+      "category": "Passive",
+      "aliases": [
+        "resistance",
+        "ohm"
+      ],
+      "prefix": "R",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 -10 H 24 V 10 H -24 Z"
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {
+        "value": "10k"
+      }
+    },
+    {
+      "id": "builtin.diode-2.v1",
+      "version": 1,
+      "name": "LED",
+      "category": "Semiconductors",
+      "aliases": [
+        "light emitting diode"
+      ],
+      "prefix": "D",
+      "pins": [
+        {
+          "id": "1",
+          "name": "Anode",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "2",
+          "name": "Cathode",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 0 H -14 M -14 -18 L 14 0 L -14 18 Z M 14 -18 V 18 M 14 0 H 24"
+        },
+        {
+          "kind": "path",
+          "d": "M 8 -28 L 24 -44 M 16 -44 H 24 V -36 M -4 -32 L 12 -48 M 4 -48 H 12 V -40"
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -48,
+        "width": 64,
+        "height": 80
+      },
+      "defaults": {
+        "value": ""
+      }
+    },
+    {
+      "id": "builtin.load-2.v1",
+      "version": 1,
+      "name": "Voltmeter",
+      "category": "Loads & instruments",
+      "aliases": [
+        "instrument",
+        "voltmeter"
+      ],
+      "prefix": "VM",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24 M 24 0 H 48"
+        },
+        {
+          "kind": "circle",
+          "x": 0,
+          "y": 0,
+          "radius": 24
+        },
+        {
+          "kind": "text",
+          "x": 0,
+          "y": 6,
+          "text": "V",
+          "size": 20
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {}
+    }
+  ],
+  "metadata": {
+    "purpose": "Editable gallery drawing; not simulated or electrically qualified.",
+    "layout": "Portrait"
+  }
+}

@@ -1,4 +1,4 @@
-import { type CircuitDocument, assertGraph, clone, documentSchema, parseDocument, serializeDocument } from '../model/document';
+import { type CircuitDocument, assertFileSize, assertGraph, clone, documentSchema, parseDocument, serializeDocument } from '../model/document';
 export interface Snapshot { document: CircuitDocument; revision: number; canUndo: boolean; canRedo: boolean; lastAction: string; }
 interface HistoryEntry { before: CircuitDocument; after: CircuitDocument; label: string; bytes: number; }
 export class DocumentSession {
@@ -18,6 +18,7 @@ export class DocumentSession {
     const before = this.snapshot.document, after = clone(before); operation(after);
     documentSchema.parse(after); assertGraph(after);
     const old = serializeDocument(before), next = serializeDocument(after);
+    assertFileSize(next);
     if (old === next) return;
     const last = this.undoStack.at(-1), now = Date.now();
     if (coalesceKey && this.lastCoalesce?.key === coalesceKey && now - this.lastCoalesce.time < 400 && last?.after === before) { last.after = after; last.bytes = serializeDocument(last.before).length + next.length; }

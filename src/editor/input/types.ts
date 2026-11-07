@@ -1,12 +1,13 @@
-import type { Anchor, Annotation, Definition, Point } from '../../core/model/document';
+import type { Anchor, Annotation, CircuitDocument, Definition, Point } from '../../core/model/document';
 import type { AnnotationHandle } from '../../core/geometry/annotations';
 import type { Target } from '../../core/commands/operations';
+import { wireContainsPoint } from '../../core/geometry/geometry';
 export type Tool = 'select' | 'wire' | 'place' | 'box' | 'move' | 'reconnect' | 'bend' | 'pan';
 export interface Camera { x: number; y: number; zoom: number; }
 export type Gesture =
   | { kind: 'idle' }
   | { kind: 'pan'; origin: Point; camera: Camera }
-  | { kind: 'move'; origin: Point; delta: Point; ids: Set<string> }
+  | { kind: 'move'; origin: Point; delta: Point; ids: Set<string>; focusId?: string }
   | { kind: 'box'; origin: Point; end: Point }
   | { kind: 'bend'; wireId: string; index: number; origin: Point; point: Point }
   | { kind: 'segment'; wireId: string; index: number; origin: Point; point: Point }
@@ -16,6 +17,13 @@ export interface WireDraft { start: Target; bends: Point[]; }
 export interface Candidate { label: string; target: Target; point: Point; objectId: string; }
 export interface Placement { definition: Definition; rotation: 0 | 90 | 180 | 270; }
 export interface Reconnect { wireId: string; end: 'a' | 'b'; }
+export function targetExists(doc: CircuitDocument, target: Target): boolean {
+  if (target.kind === 'free') return true;
+  if (target.kind === 'wire') { const wire = doc.wires.find(w => w.id === target.wireId); return !!wire && wireContainsPoint(doc, wire, target.point, 1); }
+  if (target.kind === 'node') return doc.nodes.some(n => n.id === target.nodeId);
+  const component = doc.components.find(c => c.id === target.componentId);
+  return !!component && !!doc.definitions.find(d => d.id === component.definitionId)?.pins.some(p => p.id === target.pinId);
+}
 export const screenToWorld = (screen: Point, camera: Camera): Point => ({ x: (screen.x - camera.x) / camera.zoom, y: (screen.y - camera.y) / camera.zoom });
 export function zoomAt(camera: Camera, screen: Point, factor: number): Camera {
   const world = screenToWorld(screen, camera), zoom = Math.max(0.125, Math.min(4, camera.zoom * factor));

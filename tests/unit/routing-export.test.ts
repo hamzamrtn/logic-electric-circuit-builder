@@ -40,3 +40,10 @@ it('moves internal branch nodes with a selected circuit fragment', () => {
   const before = d.nodes.map(n => ({ ...n.position })); moveSelection(d, new Set([a.id, b.id]), { x: 32, y: 48 });
   expect(d.nodes.map(n => n.position)).toEqual(before.map(p => ({ x: p.x + 32, y: p.y + 48 })));
 });
+it('exports box annotations behind wires and ordinary annotations in front, matching the canvas', () => {
+  const doc = emptyDocument(); addWire(doc, { kind: 'free', point: { x: 0, y: 0 } }, { kind: 'free', point: { x: 80, y: 0 } });
+  annotate(doc, 'box', 'Behind the wire', { x: 0, y: 0 }); annotate(doc, 'text', 'Above the wire', { x: 0, y: -48 });
+  const svg = exportSVG(doc), wire = svg.indexOf('<path d="M 0 0 L 80 0"');
+  expect(wire).toBeGreaterThan(0);
+  expect(svg.indexOf('Behind the wire')).toBeLessThan(wire); expect(svg.indexOf('Above the wire')).toBeGreaterThan(wire);
+});

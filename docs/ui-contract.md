@@ -2,6 +2,8 @@
 
 The user's priorities are simplicity, clear organization, discoverable controls and complete editing operations. The schematic is the primary surface. A blank circuit shows a plain grid, with no welcome panel, branding banner, promotional text or empty-state button.
 
+Brief feedback confirms placement, completed connections, pin acquisition and grid snapping. Selection handles fade but stop accepting input immediately on deselection. Fit and Reset animate for 160 ms; direct pointer/wheel gestures cancel motion. Fit reserves space for the actual zoom controls. Nearby exact-center guides and overlap cues never change placement coordinates or block a commit. Reduced Motion removes camera/transform animation and decorative transitions. The detailed timings, lifecycle rules and evidence are in [interaction-feedback.md](interaction-feedback.md).
+
 The top toolbar groups parts under Electrical, Logic and Connections. Opening a group shows its categories and small symbol previews. Search spans the library. The picker closes after choosing a part and consumes its own pointer interactions. The library never reserves a permanent left column. Select all and Deselect all live in the top toolbar. Properties remain closed until requested, and secondary arrangement operations are grouped under a disclosure.
 
 Colors come from Obsidian's background, text, border and interaction CSS variables. The editor has no independent light/dark preference and no forced green palette. The browser development harness supplies representative host variables; this emulation is not shipped. Exports remain self-contained with explicit neutral colors.
@@ -9,6 +11,12 @@ Colors come from Obsidian's background, text, border and interaction CSS variabl
 Desktop target: 1440x900, full-width canvas until Properties is requested. Phone target: 390x844, compact top toolbars with horizontal scrolling where needed; category previews use three columns and touch controls retain practical hit targets. Popup/inspector sizing uses the actual view container. Palette/property scrolling does not pan the drawing.
 
 Wire Finish ends at the final explicitly placed canvas point. It creates one atomic edit, consumes the control event and returns to Select. A pointer-up without a matching canvas pointer-down performs no drawing action. Selection rectangles have 8% fill opacity. Zoom buttons step through 25-point percentage stops; wheel/pinch remain continuous and anchored.
+
+Canvas touch navigation owns its gestures: horizontal and downward swipes must not activate Obsidian's drawers or pull-down actions. Pinch zoom uses both fingers' latest positions and follows their midpoint. Lifting either finger continues a pan with the remaining finger; navigation never places parts or commits an interrupted object drag. Toolbar and inspector scrolling retain their own touch behavior.
+
+Selection uses screen-sized proximity targets even when a wire's visible stroke becomes thin at low zoom. Ambiguous nearby objects use an explicit chooser. Locked inspector fields remain visible but disabled; the selection actions identify whether to unlock the selection or a protecting group. Commands recheck the current lock when committing, including dialogs opened before another view changes the lock.
+
+Selecting a group from the object list highlights and drags its members without turning the selection into separate objects. Delete on only the group container retains its contents; Cut transfers the group's editable contents as one undoable operation. Split wires and inserted parts retain their owning groups. Connection choosers preserve Multi/Shift selection, contain keyboard focus and close on Escape without canceling the wire draft. Failed form submissions retain focus for keyboard correction.
 
 Text and annotations show a bounding frame, four resize handles and a round rotation handle when selected. They can be moved by dragging. Text resizing preserves proportions by default; Shift permits free scaling. Numeric transform controls provide a non-drag alternative. Double-clicking text opens its editor. A completed gesture is one undo step and cancellation leaves the committed document unchanged.
 

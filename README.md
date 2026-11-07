@@ -1,52 +1,64 @@
 # Logic-Electric Circuit Builder
 
-An offline electrical and logic schematic editor for Obsidian, by **Hamza**. MIT licensed.
+**Draw circuits on desktop, tablet and phone — on any device running Obsidian 1.14.0 or later.**
 
-The workspace opens directly into a schematic grid. Add searchable parts, connect stable pins, draw manual wire bends, move and rotate connected parts, and export ordinary SVG/PNG. Crossed wires remain separate until explicitly joined. The 72 built-in symbols include electrical parts, gates, logic blocks and explicit bus splitters. Custom blocks have editable pin identities and layouts.
+Turn circuit ideas into clear, editable diagrams right beside your notes. Sketch an analog front end, explain a logic network, or document a complete circuit with searchable symbols, smart wire routing and custom blocks. Everything works offline and stays in your vault.
 
-**Local development build: 0.1.5.** Core and browser evidence is recorded in [docs/validation.md](docs/validation.md). Real Obsidian/device qualification remains required before a public release. The plugin declares mobile support intent; browser touch emulation is not a real-device pass. There is no circuit simulation.
+![Gate-level ripple-carry adder with output control and clock circuitry in the desktop editor](docs/screenshots/desktop-logic.png)
 
-## Install the local build
+**72 built-in symbols · Custom IC blocks · Explicit bus lanes · Live note previews · SVG & PNG export**
 
-Unzip `dist/logic-electric-circuit-builder-0.1.5.zip` into your development vault’s `<configDir>/plugins/` directory. Alternatively create `<configDir>/plugins/logic-electric-circuit-builder/` and copy these three files from `dist/logic-electric-circuit-builder/`:
+## From electrical circuits to digital logic
 
-- `main.js`
-- `manifest.json`
-- `styles.css`
+| Power supplies | Analog signal chains |
+| --- | --- |
+| [![Protected input, two regulated rails and a load monitor](docs/screenshots/desktop-power.png)](docs/screenshots/desktop-power.png) | [![Photodiode sensor, RC filters, amplifier and comparator](docs/screenshots/desktop-analog.png)](docs/screenshots/desktop-analog.png) |
+| **Custom blocks & 8-bit buses** | **Timers & transistor drivers** |
+| [![Custom controller, eight explicitly mapped bus lanes and output logic](docs/screenshots/desktop-bus.png)](docs/screenshots/desktop-bus.png) | [![555 timer with decoupling, a protected relay driver and indicators](docs/screenshots/desktop-timer.png)](docs/screenshots/desktop-timer.png) |
 
-Reload Obsidian and enable **Logic-Electric Circuit Builder** in Community plugins. `.obsidian` is the usual configuration directory; custom configuration directories work too. Use a separate test vault for initial qualification. Users do not need Node, npm, a server or an internet connection.
+## Take your circuits with you
 
-Run **Logic-Electric Circuit Builder: New circuit** from the command palette or use the circuit ribbon icon. Files use `.lecircuit`. The initial minimum host version is 1.14.0; widen that range only after testing.
+Pan with a swipe, pinch to zoom, and tap to place parts or connect pins. Select, Box and Multi stay together in a compact toolbar; properties open when you need them.
 
-## Use
+<p>
+  <a href="docs/screenshots/mobile-power.png"><img src="docs/screenshots/mobile-power.png" width="19%" alt="Phone: protected power supply and rail monitor"></a>
+  <a href="docs/screenshots/mobile-analog.png"><img src="docs/screenshots/mobile-analog.png" width="19%" alt="Phone: photodiode sensor, filter and amplifier"></a>
+  <a href="docs/screenshots/mobile-logic.png"><img src="docs/screenshots/mobile-logic.png" width="19%" alt="Phone: two-bit gate-level adder and output control"></a>
+  <a href="docs/screenshots/mobile-bus.png"><img src="docs/screenshots/mobile-bus.png" width="19%" alt="Phone: custom controller and eight bus lanes"></a>
+  <a href="docs/screenshots/mobile-timer.png"><img src="docs/screenshots/mobile-timer.png" width="19%" alt="Phone: timer, timing capacitors and transistor relay driver"></a>
+</p>
 
-Open **Electrical**, **Logic**, or **Connections** in the top toolbar. Choose a category and a symbol preview, then click/tap the canvas to place it. Search finds parts across all categories. Use **Rotate** before placement; the inspector offers repeat placement. Cancel discards a preview.
+Click any image for full resolution. [Browse all ten screenshots and editable example files](docs/screenshots/README.md). Captures show the actual editor in its preview harness, including portrait phone emulation.
 
-Tap a pin or choose **Wire**. Tap blank positions to add bends, then tap another pin, wire or junction to finish. **Finish** or **Enter** ends the wire at the last canvas point you placed and returns to Select. Enter keeps its native behavior in inputs, dialogs, buttons and menus. It never uses the screen position of the Finish button. **Undo corner** and **Cancel** are visible while wiring. Nearby competing targets open a chooser. Crossing wire interiors never join automatically. Use **Multi** and the object list to select crossing wires, then **Join selected crossing**.
+## Keep the drawing under your control
 
-Select objects to inspect values, pins and nets. Move by dragging, arrow-key nudges, numeric coordinates or a tap destination. Connected moves, right-angle rotations and mirrors preserve pin identities. Wire route editing provides draggable handles and a coordinate list for adding/removing bends. **Reconnect start/end** explicitly changes an endpoint. **Insert selected part into wire** requires both pins of a two-pin part to lie on one selected wire segment and removes the bypass connection.
+- **Build from useful parts.** Search electrical symbols, gates and logic blocks, or define an IC with your own pin names, directions and bus widths.
+- **Make connections explicit.** Route around components, add manual bends, branch through junctions, and name nets. Crossed wires stay separate until you join them.
+- **Edit without losing connections.** Move, rotate or mirror connected parts; select regions, group objects and reuse snippets. Undo/redo supports experimentation.
+- **See what happened.** Brief placement and connection feedback, nearby alignment guides and screen-sized pin targets help precise editing. Motion respects Reduce Motion preferences.
+- **Connect your notes.** Embed live circuit previews and export SVG or PNG for lessons, reports and sharing. Autosave status, conflict review and recovery copies help manage changes.
 
-Blank dragging pans; **Box** performs rectangle selection. Wheel zoom anchors to the pointer; Shift-wheel pans. The +/− buttons use predictable 25-point zoom stops; wheel and pinch remain smooth. Reset and Fit remain available. Shortcuts when the drawing owns focus: R rotate, W wire, V select, F fit, Escape cancel, Cmd/Ctrl-Z undo, Shift-Cmd/Ctrl-Z redo, Cmd/Ctrl-A select all, Cmd/Ctrl-C/X/V clipboard, Cmd/Ctrl-D duplicate, arrows nudge. Native text-field editing keeps its own shortcuts.
+Built for schematic drawing and documentation. Circuit simulation is outside its scope; structural checks identify drawing issues such as dangling ends and incompatible bus widths.
 
-**Select all** and **Deselect all** are in the top toolbar. **Inspect** opens properties only when requested; its **Objects** and **Nets** tabs provide list alternatives. Text/annotations show corner resize handles and a round rotation handle when selected. Drag the text/box to move it. Text keeps its proportions by default; hold Shift for free resizing. Numeric transform controls provide the same operations without dragging. Double-click text to edit it. **Connect named pins** connects without precise pointer placement. **Checks** highlights dangling ends, conflicting labels, bus widths, potential multiple drivers and drawing overlaps. Checks are structural rather than an electrical analysis.
+## Get started
 
-## Notes, export and recovery
+1. Open the [Obsidian plugin listing](https://community.obsidian.md/plugins/logic-electric-circuit-builder), choose **Add to Obsidian**, and enable the plugin.
+2. Run **Logic-Electric Circuit Builder: New circuit** from the command palette, or use the circuit ribbon icon.
+3. Choose a symbol from **Electrical**, **Logic** or **Connections**, then click or tap to place it. Tap a pin to start a wire and a second pin to finish it.
+4. Use **File** to export or save reusable snippets. From a note, run **Insert circuit preview** to embed an editable circuit's live view.
 
-From a Markdown note, run **Insert circuit preview**. It inserts a `lecircuit` block with an explicit vault-relative path and width. For example: 
-```lecircuit
-/Circuits/MyCircuit.lecircuit
-width: 400px
-```
+Circuit files use `.lecircuit`. No account, Node installation or server is needed to use the plugin.
 
-Use pixels or a percentage for width. Bare filenames are accepted only when unique; `/Folder/File.lecircuit` is explicit, and `./` or `../` is note-relative. **Find circuit** repairs the selected broken block. The Open button uses the current filename.
+[Editing, shortcuts, previews and recovery guide](docs/user-guide.md) · [Download editable showcase drawings](examples/showcase/README.md)
 
-Export SVG/PNG for viewing with the plugin disabled or using Obsidian Publish. The File menu also exports own-format JSON and selected snippets. PNG exports are capped at 16 megapixels/8192px per edge; use 1× or SVG for large drawings.
+<details>
+<summary>Install a local development build</summary>
 
-Autosave reports completed writes. Conflicts offer review, keep-local and use-external choices; save failure offers retry and a separate copy. Invalid/future-format files preserve raw bytes and do not autosave. Recovery files are in `Circuit recovery/`. OS force-kill can still lose edits after the last completed write.
+Build with `npm run package`, then unzip `dist/logic-electric-circuit-builder-0.1.6.zip` into your vault's `<configDir>/plugins/` directory. Alternatively create `<configDir>/plugins/logic-electric-circuit-builder/` and copy `main.js`, `manifest.json` and `styles.css` from `dist/logic-electric-circuit-builder/`. Reload Obsidian and enable the plugin in Community plugins. `.obsidian` is the usual configuration directory; custom configuration directories work too.
 
-The Open/Find circuit picker and legacy previews that specify only a filename enumerate vault file paths to find `.lecircuit` files and detect duplicate names. Explicit full-path or note-relative previews use direct file lookup. The editor reads circuit files, reads a source note when repairing its preview, and writes circuits, recovery copies and requested exports inside the vault. It does not send file paths or contents over the network.
+Use a separate test vault when qualifying a development build. The screenshots show this working tree; unpublished improvements are listed in [CHANGELOG.md](CHANGELOG.md).
 
-Obsidian Sync needs **Sync all other types** to sync `.lecircuit`; plugin installation, enablement and settings sync are separate. If a preview path becomes stale after renaming, use Find circuit to update that block. New previews do not add a separate wiki-link heading.
+</details>
 
 ## Build and verify
 
@@ -67,3 +79,5 @@ npm run package
 `npm run dev` opens the Vite harness when local servers are available. `dev/preview.html` is a server-free harness after `preview:build`; it exports files on explicit request and keeps the drawing in memory. Core/property tests run in Vitest. Lint checks import boundaries and injection hazards; strict TypeScript also checks unused code. CI includes Chromium and WebKit browser tests. Public release/submission is a separate, owner-controlled step.
 
 See [format](docs/format.md), [architecture](docs/architecture.md), [validation and qualification](docs/validation.md), and [release instructions](docs/release.md).
+
+Created by **Hamza**. [MIT licensed](LICENSE).

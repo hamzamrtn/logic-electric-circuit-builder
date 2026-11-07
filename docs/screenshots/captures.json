@@ -1,0 +1,92 @@
+[
+  {
+    "file": "desktop-power.png",
+    "fixture": "examples/showcase/desktop-power.lecircuit",
+    "theme": "light",
+    "viewport": "1600 × 1050",
+    "pixels": "3200 × 2100",
+    "parts": 16,
+    "wires": 31
+  },
+  {
+    "file": "desktop-analog.png",
+    "fixture": "examples/showcase/desktop-analog.lecircuit",
+    "theme": "dark",
+    "viewport": "1600 × 1050",
+    "pixels": "3200 × 2100",
+    "parts": 19,
+    "wires": 30
+  },
+  {
+    "file": "desktop-logic.png",
+    "fixture": "examples/showcase/desktop-logic.lecircuit",
+    "theme": "light",
+    "viewport": "1600 × 1050",
+    "pixels": "3200 × 2100",
+    "parts": 23,
+    "wires": 31
+  },
+  {
+    "file": "desktop-bus.png",
+    "fixture": "examples/showcase/desktop-bus.lecircuit",
+    "theme": "dark",
+    "viewport": "1600 × 1050",
+    "pixels": "3200 × 2100",
+    "parts": 26,
+    "wires": 22
+  },
+  {
+    "file": "desktop-timer.png",
+    "fixture": "examples/showcase/desktop-timer.lecircuit",
+    "theme": "light",
+    "viewport": "1600 × 1050",
+    "pixels": "3200 × 2100",
+    "parts": 19,
+    "wires": 18
+  },
+  {
+    "file": "mobile-power.png",
+    "fixture": "examples/showcase/mobile-power.lecircuit",
+    "theme": "light",
+    "viewport": "430 × 932",
+    "pixels": "1290 × 2796",
+    "parts": 12,
+    "wires": 23
+  },
+  {
+    "file": "mobile-analog.png",
+    "fixture": "examples/showcase/mobile-analog.lecircuit",
+    "theme": "dark",
+    "viewport": "430 × 932",
+    "pixels": "1290 × 2796",
+    "parts": 14,
+    "wires": 24
+  },
+  {
+    "file": "mobile-logic.png",
+    "fixture": "examples/showcase/mobile-logic.lecircuit",
+    "theme": "light",
+    "viewport": "430 × 932",
+    "pixels": "1290 × 2796",
+    "parts": 16,
+    "wires": 26
+  },
+  {
+    "file": "mobile-bus.png",
+    "fixture": "examples/showcase/mobile-bus.lecircuit",
+    "theme": "dark",
+    "viewport": "430 × 932",
+    "pixels": "1290 × 2796",
+    "parts": 13,
+    "wires": 9
+  },
+  {
+    "file": "mobile-timer.png",
+    "fixture": "examples/showcase/mobile-timer.lecircuit",
+    "theme": "light",
+    "viewport": "430 × 932",
+    "pixels": "1290 × 2796",
+    "parts": 13,
+    "wires": 15
+  }
+]

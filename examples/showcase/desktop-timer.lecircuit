@@ -1,0 +1,2132 @@
+{
+  "format": "logic-electric-circuit",
+  "schemaVersion": 1,
+  "id": "showcase.desktop-timer.doc1",
+  "title": "Pulse, protect, drive",
+  "components": [
+    {
+      "id": "showcase.desktop-timer.c1",
+      "definitionId": "showcase.desktop-timer.def1",
+      "position": {
+        "x": 224,
+        "y": 280
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U1",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.c2",
+      "definitionId": "builtin.resistor.v1",
+      "position": {
+        "x": 32,
+        "y": 216
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "R1",
+      "properties": {
+        "value": "10k"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.c3",
+      "definitionId": "builtin.resistor.v1",
+      "position": {
+        "x": 32,
+        "y": 360
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "R2",
+      "properties": {
+        "value": "100k"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.c4",
+      "definitionId": "builtin.capacitor.v1",
+      "position": {
+        "x": 400,
+        "y": 360
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "C1",
+      "properties": {
+        "value": "10 nF"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.c5",
+      "definitionId": "builtin.polar-capacitor.v1",
+      "position": {
+        "x": 640,
+        "y": 296
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "C2",
+      "properties": {
+        "value": "1 uF"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.c6",
+      "definitionId": "builtin.capacitor.v1",
+      "position": {
+        "x": 800,
+        "y": 296
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "C3",
+      "properties": {
+        "value": "100 nF"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.c7",
+      "definitionId": "builtin.polar-capacitor.v1",
+      "position": {
+        "x": 960,
+        "y": 296
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "C4",
+      "properties": {
+        "value": "10 uF"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.c8",
+      "definitionId": "builtin.test-point.v1",
+      "position": {
+        "x": 992,
+        "y": 184
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "TP1",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.c9",
+      "definitionId": "builtin.npn.v1",
+      "position": {
+        "x": 224,
+        "y": 744
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "Q1",
+      "properties": {
+        "value": "2N2222"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.c10",
+      "definitionId": "builtin.resistor.v1",
+      "position": {
+        "x": 64,
+        "y": 744
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "R3",
+      "properties": {
+        "value": "2.2k"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.c11",
+      "definitionId": "builtin.relay-coil.v1",
+      "position": {
+        "x": 256,
+        "y": 616
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "K1",
+      "properties": {
+        "value": "5 V"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.c12",
+      "definitionId": "builtin.diode-0.v1",
+      "position": {
+        "x": 400,
+        "y": 616
+      },
+      "rotation": 270,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "D1",
+      "properties": {
+        "value": "1N4148"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.c13",
+      "definitionId": "builtin.resistor.v1",
+      "position": {
+        "x": 144,
+        "y": 832
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "R4",
+      "properties": {
+        "value": "100k"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.c14",
+      "definitionId": "builtin.resistor.v1",
+      "position": {
+        "x": 624,
+        "y": 632
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "R5",
+      "properties": {
+        "value": "1k"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.c15",
+      "definitionId": "builtin.diode-2.v1",
+      "position": {
+        "x": 624,
+        "y": 776
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "D2",
+      "properties": {
+        "value": "Green"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.c16",
+      "definitionId": "builtin.resistor.v1",
+      "position": {
+        "x": 784,
+        "y": 632
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "R6",
+      "properties": {
+        "value": "1k"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.c17",
+      "definitionId": "builtin.diode-2.v1",
+      "position": {
+        "x": 784,
+        "y": 776
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "D3",
+      "properties": {
+        "value": "Amber"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.c18",
+      "definitionId": "builtin.resistor.v1",
+      "position": {
+        "x": 944,
+        "y": 632
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "R7",
+      "properties": {
+        "value": "1k"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.c19",
+      "definitionId": "builtin.diode-2.v1",
+      "position": {
+        "x": 944,
+        "y": 776
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "D4",
+      "properties": {
+        "value": "Blue"
+      },
+      "locked": false
+    }
+  ],
+  "nodes": [
+    {
+      "id": "showcase.desktop-timer.n1",
+      "position": {
+        "x": 32,
+        "y": 288
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.desktop-timer.n2",
+      "position": {
+        "x": 800,
+        "y": 400
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.desktop-timer.n3",
+      "position": {
+        "x": 256,
+        "y": 552
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.desktop-timer.n4",
+      "position": {
+        "x": 256,
+        "y": 680
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.desktop-timer.n5",
+      "position": {
+        "x": 144,
+        "y": 744
+      },
+      "explicit": false
+    }
+  ],
+  "wires": [
+    {
+      "id": "showcase.desktop-timer.w1",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c2",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-timer.n1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.w2",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-timer.n1"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c3",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.w3",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-timer.n1"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c1",
+        "pinId": "dis"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 112,
+            "y": 288,
+            "id": "showcase.desktop-timer.bend1",
+            "locked": true
+          },
+          {
+            "x": 112,
+            "y": 296,
+            "id": "showcase.desktop-timer.bend2",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.w4",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c1",
+        "pinId": "ctrl"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c4",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 400,
+            "y": 296,
+            "id": "showcase.desktop-timer.bend3",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.w5",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c5",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-timer.n2"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 640,
+            "y": 400,
+            "id": "showcase.desktop-timer.bend4",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.w6",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c6",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-timer.n2"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.w7",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c7",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-timer.n2"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 960,
+            "y": 400,
+            "id": "showcase.desktop-timer.bend5",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.w8",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c10",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-timer.n5"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.w9",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-timer.n5"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c9",
+        "pinId": "B"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.w10",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-timer.n5"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c13",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.w11",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-timer.n3"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c11",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.w12",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-timer.n3"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c12",
+        "pinId": "2"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 400,
+            "y": 552,
+            "id": "showcase.desktop-timer.bend6",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.w13",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c11",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-timer.n4"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.w14",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c12",
+        "pinId": "1"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-timer.n4"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 400,
+            "y": 680,
+            "id": "showcase.desktop-timer.bend7",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.w15",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-timer.n4"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c9",
+        "pinId": "C"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.w16",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c14",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c15",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.w17",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c16",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c17",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.desktop-timer.w18",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c18",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c19",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    }
+  ],
+  "annotations": [
+    {
+      "id": "showcase.desktop-timer.a1",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "text": "Pulse, protect, drive",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 30
+    },
+    {
+      "id": "showcase.desktop-timer.a2",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 32
+      },
+      "text": "555 timing / local bypass / transistor output stage",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 13
+    },
+    {
+      "id": "showcase.desktop-timer.a3",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 88
+      },
+      "text": "01  Astable timing core",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 19
+    },
+    {
+      "id": "showcase.desktop-timer.a4",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 112
+      },
+      "text": "An editable 555 block with named timing nets",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 12
+    },
+    {
+      "id": "showcase.desktop-timer.a5",
+      "kind": "label",
+      "position": {
+        "x": 40,
+        "y": 160
+      },
+      "text": "5V",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c2",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-timer.a6",
+      "kind": "label",
+      "position": {
+        "x": 264,
+        "y": 192
+      },
+      "text": "5V",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c1",
+        "pinId": "vcc"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-timer.a7",
+      "kind": "label",
+      "position": {
+        "x": 312,
+        "y": 272
+      },
+      "text": "5V",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c1",
+        "pinId": "reset"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-timer.a8",
+      "kind": "label",
+      "position": {
+        "x": 40,
+        "y": 400
+      },
+      "text": "TIMING",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c3",
+        "pinId": "2"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-timer.a9",
+      "kind": "label",
+      "position": {
+        "x": 72,
+        "y": 256
+      },
+      "text": "TIMING",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c1",
+        "pinId": "trig"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-timer.a10",
+      "kind": "label",
+      "position": {
+        "x": 72,
+        "y": 304
+      },
+      "text": "TIMING",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c1",
+        "pinId": "thres"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-timer.a11",
+      "kind": "label",
+      "position": {
+        "x": 408,
+        "y": 400
+      },
+      "text": "GND",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c4",
+        "pinId": "2"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-timer.a12",
+      "kind": "label",
+      "position": {
+        "x": 232,
+        "y": 376
+      },
+      "text": "GND",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c1",
+        "pinId": "gnd"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-timer.a13",
+      "kind": "label",
+      "position": {
+        "x": 320,
+        "y": 256
+      },
+      "text": "PULSE",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c1",
+        "pinId": "out"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-timer.a14",
+      "kind": "text",
+      "position": {
+        "x": 576,
+        "y": 88
+      },
+      "text": "02  Timing & decoupling",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 19
+    },
+    {
+      "id": "showcase.desktop-timer.a15",
+      "kind": "text",
+      "position": {
+        "x": 576,
+        "y": 112
+      },
+      "text": "Timing capacitor, supply bypass and pulse probe",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 12
+    },
+    {
+      "id": "showcase.desktop-timer.a16",
+      "kind": "label",
+      "position": {
+        "x": 648,
+        "y": 240
+      },
+      "text": "TIMING",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c5",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-timer.a17",
+      "kind": "label",
+      "position": {
+        "x": 808,
+        "y": 240
+      },
+      "text": "5V",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c6",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-timer.a18",
+      "kind": "label",
+      "position": {
+        "x": 968,
+        "y": 240
+      },
+      "text": "5V",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c7",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-timer.a19",
+      "kind": "label",
+      "position": {
+        "x": 808,
+        "y": 392
+      },
+      "text": "GND",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-timer.n2"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-timer.a20",
+      "kind": "label",
+      "position": {
+        "x": 896,
+        "y": 176
+      },
+      "text": "PULSE",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c8",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-timer.a21",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 488
+      },
+      "text": "03  Transistor driver",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 19
+    },
+    {
+      "id": "showcase.desktop-timer.a22",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 512
+      },
+      "text": "Base resistor, pull-down and protected relay coil",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 12
+    },
+    {
+      "id": "showcase.desktop-timer.a23",
+      "kind": "label",
+      "position": {
+        "x": 0,
+        "y": 736
+      },
+      "text": "PULSE",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c10",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-timer.a24",
+      "kind": "label",
+      "position": {
+        "x": 264,
+        "y": 544
+      },
+      "text": "5V",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.desktop-timer.n3"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-timer.a25",
+      "kind": "label",
+      "position": {
+        "x": 264,
+        "y": 808
+      },
+      "text": "GND",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c9",
+        "pinId": "E"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-timer.a26",
+      "kind": "label",
+      "position": {
+        "x": 152,
+        "y": 896
+      },
+      "text": "GND",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c13",
+        "pinId": "2"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-timer.a27",
+      "kind": "text",
+      "position": {
+        "x": 576,
+        "y": 488
+      },
+      "text": "04  Indicator outputs",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 19
+    },
+    {
+      "id": "showcase.desktop-timer.a28",
+      "kind": "text",
+      "position": {
+        "x": 576,
+        "y": 512
+      },
+      "text": "Pulse and supply indicators with series resistance",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 12
+    },
+    {
+      "id": "showcase.desktop-timer.a29",
+      "kind": "label",
+      "position": {
+        "x": 632,
+        "y": 576
+      },
+      "text": "PULSE",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c14",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-timer.a30",
+      "kind": "label",
+      "position": {
+        "x": 632,
+        "y": 840
+      },
+      "text": "GND",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c15",
+        "pinId": "2"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-timer.a31",
+      "kind": "label",
+      "position": {
+        "x": 792,
+        "y": 576
+      },
+      "text": "5V",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c16",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-timer.a32",
+      "kind": "label",
+      "position": {
+        "x": 792,
+        "y": 840
+      },
+      "text": "GND",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c17",
+        "pinId": "2"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-timer.a33",
+      "kind": "label",
+      "position": {
+        "x": 952,
+        "y": 576
+      },
+      "text": "3V3",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c18",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.desktop-timer.a34",
+      "kind": "label",
+      "position": {
+        "x": 952,
+        "y": 840
+      },
+      "text": "GND",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.desktop-timer.c19",
+        "pinId": "2"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    }
+  ],
+  "groups": [],
+  "definitions": [
+    {
+      "id": "showcase.desktop-timer.def1",
+      "version": 1,
+      "name": "NE555",
+      "category": "Custom",
+      "aliases": [],
+      "prefix": "U",
+      "pins": [
+        {
+          "id": "trig",
+          "name": "TRIG",
+          "x": -80,
+          "y": -16,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "thres",
+          "name": "THR",
+          "x": -80,
+          "y": 0,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "dis",
+          "name": "DIS",
+          "x": -80,
+          "y": 16,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "out",
+          "name": "OUT",
+          "x": 80,
+          "y": -16,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        },
+        {
+          "id": "reset",
+          "name": "RST",
+          "x": 80,
+          "y": 0,
+          "side": "right",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "ctrl",
+          "name": "CV",
+          "x": 80,
+          "y": 16,
+          "side": "right",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "vcc",
+          "name": "VCC",
+          "x": 0,
+          "y": -80,
+          "side": "top",
+          "role": "power",
+          "width": 1
+        },
+        {
+          "id": "gnd",
+          "name": "GND",
+          "x": 0,
+          "y": 80,
+          "side": "bottom",
+          "role": "power",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "rect",
+          "x": -64,
+          "y": -64,
+          "width": 128,
+          "height": 128
+        },
+        {
+          "kind": "text",
+          "x": 0,
+          "y": 5,
+          "text": "NE555",
+          "size": 12
+        },
+        {
+          "kind": "path",
+          "d": "M -80 -16 L -64 -16"
+        },
+        {
+          "kind": "text",
+          "x": -42,
+          "y": -12,
+          "text": "TRIG",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M -80 0 L -64 0"
+        },
+        {
+          "kind": "text",
+          "x": -42,
+          "y": 4,
+          "text": "THR",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M -80 16 L -64 16"
+        },
+        {
+          "kind": "text",
+          "x": -42,
+          "y": 20,
+          "text": "DIS",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 80 -16 L 64 -16"
+        },
+        {
+          "kind": "text",
+          "x": 42,
+          "y": -12,
+          "text": "OUT",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 80 0 L 64 0"
+        },
+        {
+          "kind": "text",
+          "x": 42,
+          "y": 4,
+          "text": "RST",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 80 16 L 64 16"
+        },
+        {
+          "kind": "text",
+          "x": 42,
+          "y": 20,
+          "text": "CV",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 0 -80 L 0 -64"
+        },
+        {
+          "kind": "text",
+          "x": 0,
+          "y": -48,
+          "text": "VCC",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 0 80 L 0 64"
+        },
+        {
+          "kind": "text",
+          "x": 0,
+          "y": 52,
+          "text": "GND",
+          "size": 9
+        }
+      ],
+      "bounds": {
+        "x": -80,
+        "y": -80,
+        "width": 160,
+        "height": 160
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.resistor.v1",
+      "version": 1,
+      "name": "Resistor",
+      "category": "Passive",
+      "aliases": [
+        "resistance",
+        "ohm"
+      ],
+      "prefix": "R",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 -10 H 24 V 10 H -24 Z"
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {
+        "value": "10k"
+      }
+    },
+    {
+      "id": "builtin.capacitor.v1",
+      "version": 1,
+      "name": "Capacitor",
+      "category": "Passive",
+      "aliases": [],
+      "prefix": "C",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 0 H -6 M -6 -20 V 20 M 6 -20 V 20 M 6 0 H 24"
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {
+        "value": "100nF"
+      }
+    },
+    {
+      "id": "builtin.polar-capacitor.v1",
+      "version": 1,
+      "name": "Polarized capacitor",
+      "category": "Passive",
+      "aliases": [],
+      "prefix": "C",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 0 H -6 M -6 -20 V 20 M 12 -20 Q 0 0 12 20 M 8 0 H 24 M -20 -25 H -10 M -15 -30 V -20"
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {
+        "value": "10µF"
+      }
+    },
+    {
+      "id": "builtin.test-point.v1",
+      "version": 1,
+      "name": "Test point",
+      "category": "Connectivity",
+      "aliases": [],
+      "prefix": "TP",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "x": 0,
+          "y": 32,
+          "side": "bottom",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M 0 32 V 6"
+        },
+        {
+          "kind": "circle",
+          "x": 0,
+          "y": 0,
+          "radius": 6
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.npn.v1",
+      "version": 1,
+      "name": "NPN",
+      "category": "Semiconductors",
+      "aliases": [
+        "npn",
+        "bjt"
+      ],
+      "prefix": "Q",
+      "pins": [
+        {
+          "id": "B",
+          "name": "B",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "C",
+          "name": "C",
+          "x": 32,
+          "y": -48,
+          "side": "top",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "E",
+          "name": "E",
+          "x": 32,
+          "y": 48,
+          "side": "bottom",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -12 M -12 -24 V 24 M -12 -12 L 32 -32 V -48 M -12 12 L 32 32 V 48"
+        },
+        {
+          "kind": "path",
+          "d": "M 12 29 L 27 29 L 20 17"
+        }
+      ],
+      "bounds": {
+        "x": -48,
+        "y": -48,
+        "width": 96,
+        "height": 96
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.relay-coil.v1",
+      "version": 1,
+      "name": "Relay coil",
+      "category": "Switches",
+      "aliases": [],
+      "prefix": "K",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 -16 H 24 V 16 H -24 Z M -12 -16 V 16 M 0 -16 V 16 M 12 -16 V 16"
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {
+        "value": "5V"
+      }
+    },
+    {
+      "id": "builtin.diode-0.v1",
+      "version": 1,
+      "name": "Diode",
+      "category": "Semiconductors",
+      "aliases": [
+        "diode"
+      ],
+      "prefix": "D",
+      "pins": [
+        {
+          "id": "1",
+          "name": "Anode",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "2",
+          "name": "Cathode",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 0 H -14 M -14 -18 L 14 0 L -14 18 Z M 14 -18 V 18 M 14 0 H 24"
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {
+        "value": ""
+      }
+    },
+    {
+      "id": "builtin.diode-2.v1",
+      "version": 1,
+      "name": "LED",
+      "category": "Semiconductors",
+      "aliases": [
+        "light emitting diode"
+      ],
+      "prefix": "D",
+      "pins": [
+        {
+          "id": "1",
+          "name": "Anode",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "2",
+          "name": "Cathode",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 0 H -14 M -14 -18 L 14 0 L -14 18 Z M 14 -18 V 18 M 14 0 H 24"
+        },
+        {
+          "kind": "path",
+          "d": "M 8 -28 L 24 -44 M 16 -44 H 24 V -36 M -4 -32 L 12 -48 M 4 -48 H 12 V -40"
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -48,
+        "width": 64,
+        "height": 80
+      },
+      "defaults": {
+        "value": ""
+      }
+    }
+  ],
+  "metadata": {
+    "purpose": "Editable gallery drawing; not simulated or electrically qualified.",
+    "layout": "Desktop"
+  }
+}

@@ -70,7 +70,7 @@ export function emptyDocument(title = 'Untitled circuit'): CircuitDocument {
   return { format: FORMAT, schemaVersion: 1, id: uid('doc'), title, components: [], nodes: [], wires: [], annotations: [], groups: [], definitions: [], metadata: {} };
 }
 export function clone<T>(value: T): T { return JSON.parse(JSON.stringify(value)) as T; }
-export function anchorKey(a: Anchor): string { return a.kind === 'pin' ? `p:${a.componentId}:${a.pinId}` : `n:${a.nodeId}`; }
+export function anchorKey(a: Anchor): string { return a.kind === 'pin' ? `p:${encodeURIComponent(a.componentId)}:${encodeURIComponent(a.pinId)}` : `n:${encodeURIComponent(a.nodeId)}`; }
 export function getDefinition(doc: CircuitDocument, component: Component): Definition {
   const d = doc.definitions.find(x => x.id === component.definitionId);
   if (!d) throw new Error(`Missing symbol definition for ${component.reference}`);
@@ -122,8 +122,11 @@ export function assertGraph(doc: CircuitDocument): void {
   const members = new Set([...doc.components, ...doc.nodes, ...doc.wires, ...doc.annotations].map(x => x.id));
   for (const g of doc.groups) if (g.members.some(m => !members.has(m))) throw new Error('Group contains a missing object');
 }
+export function assertFileSize(raw: string): void {
+  if (raw.length > MAX_FILE_BYTES || new TextEncoder().encode(raw).length > MAX_FILE_BYTES) throw new Error('Circuit exceeds the 8 MiB file limit. Reduce its contents before saving or importing.');
+}
 export function parseDocument(raw: string): CircuitDocument {
-  if (raw.length > MAX_FILE_BYTES || new TextEncoder().encode(raw).length > MAX_FILE_BYTES) throw new Error('Circuit exceeds the 8 MiB import limit');
+  assertFileSize(raw);
   // Limit nesting before JSON.parse, independently of the schema validator.
   let depth = 0, inString = false, escaped = false;
   for (const ch of raw) {

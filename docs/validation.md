@@ -1,5 +1,11 @@
 # Validation and remaining qualification
 
+Latest verification, 2026-11-07: 143 core/adapter tests and 175 desktop/Android browser checks pass, with 14 mouse-only skips on touch projects. Strict TypeScript, official Obsidian lint, production artifact checks, clean-install stub smoke and packaging pass. [Current hashes and command record](evidence/final-quality-checks.json), [interaction feedback](interaction-feedback.md), and [README/listing gallery](screenshots/README.md) describe this working tree. Real-device/Safari qualification remains separate.
+
+The general reliability/UI review is recorded in [quality-review.md](quality-review.md), including repaired regressions and remaining host/device work.
+
+The 2026-11-06 Android phone/tablet gesture fix and its current automated results are recorded in [touch-navigation/validation.md](evidence/touch-navigation/validation.md). The historical results below remain a record of earlier builds.
+
 Recorded 2026-11-01. Local development version 0.1.2, author Hamza, MIT. This record distinguishes source implementation, automated checks, browser review and actual host/device evidence. It is not a public-release approval.
 
 The current canvas/interaction update is documented in [ui-0.1.1/validation.md](evidence/ui-0.1.1/validation.md). Earlier screenshots and launch logs are retained as baseline evidence. The owner supplied an actual Obsidian screenshot of 0.1.0; updated 0.1.1 host qualification is pending reload.
