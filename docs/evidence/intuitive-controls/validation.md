@@ -20,7 +20,8 @@ Unreleased working-tree changes, reviewed 2026-11-07. These changes follow the o
 - `npm run lint`: runtime boundaries and official Obsidian ESLint rules pass.
 - `npm run check:install`: public-host stub smoke passes, including shortcut persistence/failure/concurrent-write checks.
 - `npm run preview:build`: passes.
-- Full Chromium desktop/Android tablet/Android phone suite: 213 passed, 15 intentional mouse/touch-specific skips; 228 combinations.
+- Full Chromium desktop/Android tablet/Android phone suite: 213 passed, 15 intentional mouse/touch-specific skips; 228 combinations. The final focus-restoration refinement additionally passes 41 focused checks with one touch-only skip across the three projects.
+- Implementation commit `ceff322` passed [GitHub Verify](https://github.com/hamzamrtn/logic-electric-circuit-builder/actions/runs/42363926881): 147 core tests and 275 browser checks, with 29 platform-specific skips across Chromium and WebKit. Final focus-restoration changes receive their own subsequent CI run.
 - WebKit download was attempted locally; the pinned download mirrors timed out. Additional WebKit verification runs in [GitHub Verify](https://github.com/hamzamrtn/logic-electric-circuit-builder/actions/workflows/ci.yml). Local Chromium results do not imply a WebKit or real-device pass.
 - `git diff --check`: passes. Existing source and published releases are preserved.
 
@@ -33,4 +34,6 @@ Actual editor captures from the standalone harness, using the editable analog sh
 - [Objects](desktop-objects-dark.png), [nets](desktop-nets-dark.png), [checks](desktop-checks-dark.png).
 - Empty state: [dark](desktop-empty-dark.png) / [light](desktop-empty-light.png).
 
-The captures verify grouping, spacing, field readability and hierarchy; the automated DOM assertions verify the tooltip-triggering attributes and preserved accessible names. Actual Obsidian hover integration and real-device behavior remain host qualification rather than a claim inferred from a browser mock.
+Closing the inspector or shortcut dialog returns focus to the drawing. Pointer activation of tool/zoom controls also returns drawing focus, while direct keyboard focus on buttons retains native control behavior. The final focus tests exercise this workflow.
+
+The installed Obsidian 1.14.4 tooltip reader was inspected to confirm its aria-label hover-text mechanism. The captures verify grouping, spacing, field readability and hierarchy; the automated DOM assertions verify the tooltip-triggering attributes and preserved accessible names. Actual Obsidian hover integration and real-device behavior remain host qualification rather than a claim inferred from a browser mock.

@@ -63,11 +63,13 @@ test('toolbar and picker retain accessible names without redundant host or nativ
 
 test('custom tool keys apply only to the focused drawing and can be reset', async ({ page }) => {
   await shortcuts(page);
-  await page.getByRole('textbox', { name: 'Wire', exact: true }).fill('L');
-  await page.getByRole('textbox', { name: 'Select', exact: true }).fill('S');
+  await page.getByRole('textbox', { name: 'Wire', exact: true }).click(); await page.keyboard.press('l');
+  await expect(page.getByRole('textbox', { name: 'Wire', exact: true })).toHaveValue('L');
+  await page.getByRole('textbox', { name: 'Select', exact: true }).click(); await page.keyboard.press('s');
+  await expect(page.getByRole('textbox', { name: 'Select', exact: true })).toHaveValue('S');
   await page.getByRole('button', { name: 'Save shortcuts', exact: true }).click();
   await expect(page.getByRole('dialog')).toHaveCount(0);
-  await page.getByTestId('editor').focus(); await page.keyboard.press('w');
+  await expect(page.getByTestId('editor')).toBeFocused(); await page.keyboard.press('w');
   await expect(page.getByRole('button', { name: 'Wire', exact: true })).toHaveAttribute('aria-pressed', 'false');
   await page.keyboard.press('l'); await expect(page.getByRole('button', { name: 'Wire', exact: true })).toHaveAttribute('aria-pressed', 'true');
   await page.keyboard.press('s'); await expect(page.getByRole('button', { name: 'Select', exact: true })).toHaveAttribute('aria-pressed', 'true');
@@ -165,4 +167,21 @@ test('panning between taps clears a pending double-tap without editing the circu
     await expect(page.locator('.lec-inspector')).not.toBeVisible();
     expect(await page.evaluate(() => window.__lec.session.getSnapshot())).toEqual(before);
   } finally { await touch.close(); }
+});
+
+
+test('closing properties and clicking tool or zoom controls returns focus for canvas keys', async ({ page }) => {
+  await parts(page); await page.locator('.lec-part-hit').first().dblclick();
+  await page.getByRole('button', { name: 'Close inspector' }).click();
+  await expect(page.getByTestId('editor')).toBeFocused();
+  await page.getByRole('button', { name: 'Inspect', exact: true }).click();
+  await page.getByRole('button', { name: 'Inspect', exact: true }).click();
+  await expect(page.getByTestId('editor')).toBeFocused(); await page.keyboard.press('w');
+  await expect(page.getByRole('button', { name: 'Wire', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  await page.getByRole('button', { name: 'Select', exact: true }).click();
+  await expect(page.getByTestId('editor')).toBeFocused(); await page.keyboard.press('b');
+  await expect(page.getByRole('button', { name: 'Box select', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  await page.getByRole('button', { name: 'Zoom in', exact: true }).click();
+  await expect(page.getByTestId('editor')).toBeFocused(); await page.keyboard.press('v');
+  await expect(page.getByRole('button', { name: 'Select', exact: true })).toHaveAttribute('aria-pressed', 'true');
 });

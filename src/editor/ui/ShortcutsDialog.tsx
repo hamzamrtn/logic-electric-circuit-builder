@@ -13,7 +13,7 @@ export function ShortcutsDialog({ bindings, save, close }: { bindings: ToolShort
   }
   return <DialogFrame title="Keyboard shortcuts" description="Use one letter or number per action. Leave a key blank to disable it. These keys work only while the drawing has focus; typing in notes, fields and dialogs is unaffected." close={close} busy={busy}>
     <form onSubmit={submit} className="lec-shortcuts-form">
-      {(Object.keys(shortcutActions) as ShortcutAction[]).map(action => <label className="lec-shortcut-row" key={action}>{shortcutActions[action]}<input value={values[action].toUpperCase()} maxLength={1} spellCheck={false} autoComplete="off" disabled={busy} onChange={event => setValues(previous => ({ ...previous, [action]: event.target.value.toLowerCase() }))} /></label>)}
+      {(Object.keys(shortcutActions) as ShortcutAction[]).map(action => <label className="lec-shortcut-row" key={action}>{shortcutActions[action]}<input value={values[action].toUpperCase()} maxLength={1} onFocus={event => event.currentTarget.select()} onClick={event => event.currentTarget.select()} spellCheck={false} autoComplete="off" disabled={busy} onChange={event => setValues(previous => ({ ...previous, [action]: event.target.value.toLowerCase() }))} /></label>)}
       {error && <p role="alert" className="lec-error">{error}</p>}
       <footer><button type="button" disabled={busy} onClick={() => { setValues({ ...DEFAULT_SHORTCUTS }); setError(''); }}>Reset defaults</button><button type="button" disabled={busy} onClick={close}>Cancel</button><button className="lec-primary" type="submit" disabled={busy}>{busy ? 'Saving…' : 'Save shortcuts'}</button></footer>
     </form>
