@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.1.7 — responsive tools and smoother editing
 
 - Add a responsive workbench: a stable bottom drawing dock in compact panes and one tidy top toolbar in wide panes, including split desktop workspaces.
 - Keep Undo/Redo visible and paired; combine parts, Text and Custom blocks in Add; move secondary actions into More.
