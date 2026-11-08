@@ -11,8 +11,11 @@ export function FileMenu({ anchor, boundary, onClose, children, footer, label = 
     const doc = boundary.ownerDocument, win = doc.defaultView; if (!win) return;
     const place = () => {
       const button = anchor.getBoundingClientRect(), bounds = boundary.getBoundingClientRect(), width = ref.current?.offsetWidth ?? 280;
-      const top = Math.max(0, button.bottom - bounds.top + 4);
-      setPosition({ left: Math.max(6, Math.min(button.left - bounds.left, bounds.width - width - 6)), top, maxHeight: Math.max(0, bounds.height - top - 36) });
+      const below = Math.max(0, bounds.bottom - button.bottom - 12), above = Math.max(0, button.top - bounds.top - 8);
+      const openAbove = below < Math.min(240, above), maxHeight = Math.min(400, openAbove ? above : below);
+      const menuHeight = Math.min(maxHeight, ref.current?.scrollHeight ?? maxHeight);
+      const top = Math.max(0, openAbove ? button.top - bounds.top - menuHeight - 4 : button.bottom - bounds.top + 4);
+      setPosition({ left: Math.max(6, Math.min(button.left - bounds.left, bounds.width - width - 6)), top, maxHeight });
     };
     const outside = (event: PointerEvent) => {
       const target = event.target as Node | null;

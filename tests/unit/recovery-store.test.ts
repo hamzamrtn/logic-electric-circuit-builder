@@ -53,7 +53,9 @@ it('creates nested folders and one explanatory README while reusing the three se
   expect(f.files.size).toBe(4); expect(f.files.get(`Backups/Circuits/${name()}`)?.content).toBe('snapshot 3');
   const readme = f.files.get('Backups/Circuits/00_README.md')!.content;
   expect(readme).toContain('Logic-Electric Circuit Builder'); expect(readme).toContain('Settings → Community plugins'); expect(readme).toContain('Backups/Circuits');
-  expect(readme).toContain("## Change this folder's location only in plugin settings"); expect(readme).toContain('## Do not remove');
+  expect(readme).toContain("## Change this folder's location only in plugin settings"); expect(readme).toContain('## What this folder is — DO NOT REMOVE');
+  expect(readme.indexOf('## What this folder is')).toBeLessThan(readme.indexOf("## Change this folder's location"));
+  expect(readme).toContain('→ ⋮ → Settings → Recovery folder'); expect(readme).toContain('**Apply**'); expect(readme).not.toContain('<!--');
   expect(f.persist).toHaveBeenCalledWith('Backups/Circuits');
 });
 
@@ -165,4 +167,22 @@ it('keeps a durable backup and its README when optional exclusion integration fa
   await store.write(name(), 'durable');
   expect(f.files.get(`Circuit recovery/${name()}`)?.content).toBe('durable');
   expect(f.files.get('Circuit recovery/00_README.md')?.content).toContain('Exclude recovery backups'); expect(warn).toHaveBeenCalledOnce();
+});
+
+it('upgrades a legacy README on load without retaining its visible internal marker', async () => {
+  const f = fixture(); f.folders.add('Circuit recovery');
+  f.add('Circuit recovery/00_README.md', '<!-- logic-electric-circuit-builder:recovery -->\nThis folder comes from **Logic-Electric Circuit Builder**.\n\n## Do not remove\nOld instructions.');
+  f.add(`Circuit recovery/${name()}`, 'preserved snapshot');
+  await f.store.initialize(); await f.store.initialize();
+  const content = f.files.get('Circuit recovery/00_README.md')!.content;
+  expect(content.startsWith('This folder comes from **Logic-Electric Circuit Builder**.')).toBe(true);
+  expect(content).not.toContain('<!--'); expect(content).toContain('→ ⋮ → Settings → Recovery folder');
+  expect(f.files.get(`Circuit recovery/${name()}`)?.content).toBe('preserved snapshot');
+});
+
+it('does not claim a handwritten README merely because it mentions the plugin', async () => {
+  const f = fixture(); f.folders.add('Circuit recovery');
+  const content = 'This folder comes from **Logic-Electric Circuit Builder**.\nMy own notes.';
+  f.add('Circuit recovery/00_README.md', content);
+  await expect(f.store.initialize()).rejects.toThrow('your own README'); expect(f.files.get('Circuit recovery/00_README.md')?.content).toBe(content);
 });

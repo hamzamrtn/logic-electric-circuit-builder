@@ -21,13 +21,17 @@ class Plugin {
   addSettingTab(tab) { settingsTab = tab; }
 }
 class HostClass { refreshDomState() {} }
-const host = { Plugin, FuzzySuggestModal: HostClass, MarkdownView: HostClass, Notice: HostClass, TFile: HostClass, TFolder: HostClass, TextFileView: HostClass, MarkdownRenderChild: HostClass, PluginSettingTab: HostClass, Setting: HostClass, normalizePath: value => value };
+const host = { Plugin, FuzzySuggestModal: HostClass, MarkdownView: HostClass, Notice: HostClass, TFile: HostClass, TFolder: HostClass, TextFileView: HostClass, MarkdownRenderChild: HostClass, PluginSettingTab: HostClass, AbstractInputSuggest: HostClass, Setting: HostClass, normalizePath: value => value };
 const module = { exports: {} };
 runInNewContext(await readFile(`${folder}/main.js`, 'utf8'), { module, exports: module.exports, require: name => { assert.equal(name, 'obsidian'); return host; }, console, setTimeout, clearTimeout, TextEncoder, TextDecoder, URL, Blob, performance }, { filename: 'main.js', timeout: 10000 });
 const instance = new module.exports.default(); instance.manifest = JSON.parse(await readFile(`${folder}/manifest.json`, 'utf8')); await instance.onload();
 assert(registrations.extensions.includes('lecircuit')); assert(registrations.fences.includes('lecircuit')); assert(registrations.commands.includes('new-circuit')); assert(registrations.commands.includes('export-png'));
 const definitions = settingsTab.getSettingDefinitions();
-assert.deepEqual(Array.from(definitions.filter(d => d.control).map(d => d.control.key)), ['grid', 'snap', 'exportFolder', 'recoveryFolder', 'excludeRecovery']);
+assert.deepEqual(Array.from(definitions.filter(d => d.control).map(d => d.control.key)), ['grid', 'snap', 'exportFolder', 'excludeRecovery']);
+assert.equal(typeof definitions.find(d => d.name === 'Recovery folder').render, 'function');
+assert(!definitions.some(d => d.name === 'Move backups'));
+assert(definitions.find(d => d.name === 'Keyboard shortcuts').desc.includes('three dots'));
+assert(definitions.some(d => d.name === 'How to sync'));
 await settingsTab.setControlValue('grid', false); assert.equal(savedSettings.grid, false);
 await settingsTab.setControlValue('exportFolder', ' Exports '); assert.equal(savedSettings.exportFolder, 'Exports');
 await settingsTab.setControlValue('recoveryFolder', ' Backups/Circuits '); assert.equal(savedSettings.recoveryFolder, 'Circuit recovery');
@@ -35,6 +39,9 @@ await settingsTab.applyRecoveryFolder(); assert.equal(savedSettings.recoveryFold
 assert.deepEqual(excludedFilters, ['Templates/', 'Backups/Circuits/']); assert.equal(savedSettings.managedRecoveryExclusion, 'Backups/Circuits/');
 await settingsTab.setControlValue('excludeRecovery', false); assert.deepEqual(excludedFilters, ['Templates/']);
 await settingsTab.setControlValue('excludeRecovery', true); assert.deepEqual(excludedFilters, ['Templates/', 'Backups/Circuits/']);
+let dockNotifications = 0; const unsubscribeDock = instance.dockingPreferences.subscribe(() => dockNotifications++);
+await instance.dockingPreferences.save('left'); assert.equal(savedSettings.toolbarDock, 'left'); assert.equal(dockNotifications, 1);
+await assert.rejects(instance.dockingPreferences.save('floating'), /Choose/);
 const defaultKeys = { ...instance.shortcutPreferences.getSnapshot() }; let shortcutNotifications = 0;
 const unsubscribeShortcuts = instance.shortcutPreferences.subscribe(() => shortcutNotifications++);
 await instance.shortcutPreferences.save({ ...defaultKeys, wire: 'l' });
@@ -45,6 +52,7 @@ await assert.rejects(instance.shortcutPreferences.save(defaultKeys), /Settings w
 await settingsTab.setControlValue('recoveryFolder', 'Other backups');
 await assert.rejects(settingsTab.applyRecoveryFolder(), /Settings write failed/);
 assert.equal(instance.settings.recoveryFolder, 'Backups/Circuits');
+await assert.rejects(instance.dockingPreferences.save('right'), /Settings write failed/); assert.equal(instance.dockingPreferences.getSnapshot(), 'left'); assert.equal(dockNotifications, 1);
 assert.equal(instance.shortcutPreferences.getSnapshot().wire, 'l'); assert.equal(shortcutNotifications, 1);
 instance.saveData = saveData; await instance.shortcutPreferences.save(defaultKeys); assert.equal(savedSettings.shortcuts.wire, 'w');
 instance.saveData = async value => { if (value.shortcuts.wire === 'l') throw new Error('Concurrent shortcut save failed'); await saveData.call(instance, value); };
@@ -53,9 +61,9 @@ const laterGridWrite = settingsTab.setControlValue('grid', true);
 await assert.rejects(failedShortcutWrite, /Concurrent shortcut save failed/); await laterGridWrite;
 assert.equal(savedSettings.shortcuts.wire, 'w'); assert.equal(savedSettings.grid, true);
 instance.saveData = saveData;
-unsubscribeShortcuts();
+unsubscribeShortcuts(); unsubscribeDock();
 const commandCount = registrations.commands.length, viewCount = registrations.views.length;
 const reopened = new module.exports.default(); reopened.loadData = async () => structuredClone(savedSettings);
-await reopened.onload(); assert.equal(reopened.settings.recoveryFolder, 'Backups/Circuits'); reopened.onunload();
+await reopened.onload(); assert.equal(reopened.settings.recoveryFolder, 'Backups/Circuits'); assert.equal(reopened.dockingPreferences.getSnapshot(), 'left'); reopened.onunload();
 instance.onunload();
 console.log(`Three-asset clean package smoke passed with a public-host stub: ${commandCount} commands, ${viewCount} view. This is not an actual Obsidian qualification.`);

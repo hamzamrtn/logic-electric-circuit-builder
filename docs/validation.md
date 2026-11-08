@@ -1,5 +1,9 @@
 # Validation and remaining qualification
 
+The current unreleased dockable-toolbar update is recorded in [toolbar-docking/validation.md](evidence/toolbar-docking/validation.md): 188 core/adapter/property tests and the full available desktop/Android matrix (268 passed, 17 intentional skips) pass, along with lint, build/artifact and install-stub checks. Four fixed edges replace the whole-view inset draft, with shared saved positions and adaptive canvas/picker/zoom/Fit. Screenshots use a simulated host navbar; actual-device and WebKit qualification remain separate.
+
+The unreleased phone-navbar and settings follow-up is recorded in [mobile-nav-and-settings/validation.md](evidence/mobile-nav-and-settings/validation.md): 185 core/adapter/property tests, 38 responsive browser checks and one intentional desktop skip, lint, build/artifact checks and install smoke pass locally. A simulated floating host navbar no longer covers the dock or picker. Settings/README refinements and visual captures are included; actual-device confirmation of the reported overlap remains pending.
+
 The 2026-11-08 recovery-folder settings update is recorded in [recovery-folder/validation.md](evidence/recovery-folder/validation.md): 183 core/adapter/property tests, lint, production build/artifact checks and settings/exclusion persistence in the install stub pass locally. This adds safe folder migration, optional owned exclusions and brief recovery instructions; actual host/device folder and Sync qualification remains separate.
 
 The current responsive workbench update is recorded in [responsive-toolbar/validation.md](evidence/responsive-toolbar/validation.md): 147 core tests and 251 desktop/Android browser checks pass, with 16 input/layout-specific skips. Wide, compact, split-pane, short-screen and keyboard-height behavior have dedicated coverage. Visual captures and the refreshed listing gallery show the current UI; GitHub Verify records the separate WebKit result.

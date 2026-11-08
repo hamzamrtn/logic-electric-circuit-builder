@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.9 — dockable tools and clearer settings
+
+- Add a dockable drawing toolbar with a top-left move handle, edge-snap dragging, a keyboard/tap position menu and saved top/right/bottom/left preferences. Adapt the canvas, parts picker, zoom controls and Fit together, with floating phone-navigation clearance around the controls. Default to the top; preserve explicit saved positions.
+- Place a native Apply button beside the recovery-folder field, with folder suggestions, inline validation and retryable errors.
+- Remove the visible internal marker from recovery READMEs and upgrade older generated notes safely. Explain the backups first, followed by the corrected ⋮ → Settings path.
+- Clarify how to reach keyboard shortcuts and replace the Offline circuits settings text with one-sentence sync guidance.
+
 ## 0.1.8 — recovery folders and cleaner backups
 
 - Optionally exclude recovery folders from Search/Graph and deprioritize them in Quick Switcher. Track only plugin-owned exclusions across folder changes, preserve user rules and fall back safely when the optional host integration is unavailable.

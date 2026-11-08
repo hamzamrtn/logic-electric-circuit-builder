@@ -18,7 +18,7 @@ A clean, intuitive workspace with the tools to build complete electrical and log
 
 ## Take your circuits with you
 
-The same circuit tools on a screen that suits you. Swipe to pan, pinch to zoom, and tap to place parts or connect pins. A reachable bottom dock keeps the main tools together on smaller screens, with Undo/Redo always above and properties a tap away.
+The same circuit tools on a screen that suits you. Swipe to pan, pinch to zoom, and tap to place parts or connect pins. A dockable toolbar keeps the main tools together on smaller screens, defaulting to the top, with Undo/Redo always above and properties a tap away.
 
 <p>
   <a href="docs/screenshots/mobile-power.png"><img src="docs/screenshots/mobile-power.png" width="19%" alt="Phone: protected power supply and rail monitor"></a>

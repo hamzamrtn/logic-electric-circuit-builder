@@ -3,60 +3,60 @@
     "file": "desktop-power.png",
     "width": 3200,
     "height": 2100,
-    "sha256": "835c310a498e15748a301eb71a8d0f05fce194407898b3076bd9ddd72962679d"
+    "sha256": "ae01b8b28e4f57fc36653997de788f768f05fb2d19d925b31fba8138250ee0c9"
   },
   {
     "file": "desktop-analog.png",
     "width": 3200,
     "height": 2100,
-    "sha256": "c1ebe429767763364e974a97690043067e66f0adcff98fcc80ae429e890e6f41"
+    "sha256": "c924db1d315f74c38ddd48a9a98f86dca748f1abe192ef923ac17a5fa78f4c61"
   },
   {
     "file": "desktop-logic.png",
     "width": 3200,
     "height": 2100,
-    "sha256": "3f73352f7bd3b459990a3feed3b6add6c3d4f61e05d84b31747ae5a580a34480"
+    "sha256": "6d697a9ff327ff704d078d7b75dcaae2cc16df75935531ca23f01a3ca9e1e333"
   },
   {
     "file": "desktop-bus.png",
     "width": 3200,
     "height": 2100,
-    "sha256": "f6347222cc7a4883057b292100b02db8d28c28022b69de40bede108af053c559"
+    "sha256": "dc26e4454cff26429ae732de96e57a7f6e073c0852851c628b4cbbefcee34278"
   },
   {
     "file": "desktop-timer.png",
     "width": 3200,
     "height": 2100,
-    "sha256": "8ee7fbe91c952e4cc4d959a5af0c25ff6e098457803a201c0f84469c2022cf18"
+    "sha256": "e9cf4b5439540821ef0dd1316e25e204411edb7c9972e339fab192ba3698635a"
   },
   {
     "file": "mobile-power.png",
     "width": 1290,
     "height": 2796,
-    "sha256": "cb1bb2941e749971ca05ec9309c27f0bea9f83fde75967d549321f51b7389ad8"
+    "sha256": "601dce3171fb65131e60b00f34193ca1d78bdeb47ab4d7a001f15218a77f0b42"
   },
   {
     "file": "mobile-analog.png",
     "width": 1290,
     "height": 2796,
-    "sha256": "5f05f084e39349a158225638b72ae4d64121377216a8f090601cc474e2b093a5"
+    "sha256": "0928b3bd2ed4fb4625732659bf8efc560f8ac08e5bdce0049a41dcc43026811d"
   },
   {
     "file": "mobile-logic.png",
     "width": 1290,
     "height": 2796,
-    "sha256": "e50fe2f1f5c02ebfab15aad941109b8c2be9def2d062413881680a660e9c947e"
+    "sha256": "c48953adadfc06f47ee6e5b9da5740a50216c889ca8c99ae19b8e0c6e96696d9"
   },
   {
     "file": "mobile-bus.png",
     "width": 1290,
     "height": 2796,
-    "sha256": "45d8dfdd76b8dff254d8e0ef37645017dfb626c84796a250db8ae8b97688d3f3"
+    "sha256": "cb5d17f7b7ba6324aac99a38a0fe148bee5ee4d48cda6bcedbbe06580debef24"
   },
   {
     "file": "mobile-timer.png",
     "width": 1290,
     "height": 2796,
-    "sha256": "dd73abdd6f0d8d3cd1760718b8b75fbe0f250d6166b8217f334e5d89d2dac4c7"
+    "sha256": "be679369f15361a2d927452df2f1e24658af8ded429a6a1a9de8a71f46228552"
   }
 ]

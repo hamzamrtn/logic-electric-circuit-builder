@@ -2,7 +2,10 @@ import { type App, type TFile, normalizePath } from 'obsidian';
 
 export const DEFAULT_RECOVERY_FOLDER = 'Circuit recovery';
 const README = '00_README.md';
-const MARKER = '<!-- logic-electric-circuit-builder:recovery -->';
+const LEGACY_MARKER = '<!-- logic-electric-circuit-builder:recovery -->';
+const README_INTRO = 'This folder comes from **Logic-Electric Circuit Builder**.';
+const PURPOSE_HEADING = '## What this folder is — DO NOT REMOVE';
+const LOCATION_HEADING = "## Change this folder's location only in plugin settings";
 const BACKUP = /^recovery-[a-z0-9]+-[a-z0-9]+-[a-z0-9]*-[012](?: \d+)*\.json$/;
 
 export function recoveryFolder(value: string): string {
@@ -48,10 +51,11 @@ export class RecoveryStore {
   }
   private async readme(folder: string) {
     const path = `${folder}/${README}`, existing = this.app.vault.getFileByPath(path);
-    const content = `${MARKER}\nThis folder comes from **Logic-Electric Circuit Builder**.\n\n## Change this folder's location only in plugin settings\n\nOpen **Settings → Community plugins → Logic-Electric Circuit Builder → Recovery folder**, choose a location, then select **Move backups**. The optional **Exclude recovery backups** setting manages the plugin’s own entry under **Files and links → Excluded files**, keeping backups out of Search and Graph and deprioritized in Quick Switcher.\n\n## Do not remove\n\nKeep these backups until your circuit contains your latest edits; they can recover work after failed saves or file conflicts. To recover, copy a snapshot to a new \`.lecircuit\` file and open it in Obsidian.\n\nCurrent folder: ${JSON.stringify(folder)}\n`;
+    const content = `${README_INTRO}\n\n${PURPOSE_HEADING}\n\nThe plugin saves automatic copies of recent circuit edits here, so you can recover work after a failed save or a file conflict. Keep them until you have checked that your circuit contains the latest edits. To recover, copy a snapshot to a new \`.lecircuit\` file and open it in Obsidian.\n\n${LOCATION_HEADING}\n\nOpen **Settings → Community plugins → Logic-Electric Circuit Builder → ⋮ → Settings → Recovery folder**, choose a location, then select **Apply**. Optional **Exclude recovery backups** keeps this folder out of Search/Graph and deprioritized in Quick Switcher while preserving existing exclusions.\n\nCurrent folder: ${JSON.stringify(folder)}\n`;
     if (existing) {
       const previous = await this.app.vault.read(existing);
-      if (!previous.startsWith(MARKER)) throw new Error(`${path} already contains your own README. Choose another recovery folder or rename that file.`);
+      const owned = previous.startsWith(LEGACY_MARKER) || (previous.startsWith(README_INTRO) && previous.includes(PURPOSE_HEADING) && previous.includes(LOCATION_HEADING));
+      if (!owned) throw new Error(`${path} already contains your own README. Choose another recovery folder or rename that file.`);
       if (previous !== content) await this.app.vault.modify(existing, content);
     } else {
       if (this.app.vault.getAbstractFileByPath(path)) throw new Error(`${path} is a folder. Choose another recovery folder.`);

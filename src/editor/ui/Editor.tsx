@@ -12,6 +12,8 @@ import { anchorDescription, terminalDescription, componentTransform, findCrossin
 import { type Camera, type Candidate, type Gesture, type Placement, type Reconnect, type Tool, type WireDraft, screenToWorld, stepZoomAt, targetExists, zoomAt } from '../input/types';
 import { Dialog, DialogFrame, type DialogSpec } from './Dialog';
 import { Icon, ToolButton } from './Controls';
+import { DockHandle } from './DockHandle';
+import { MemoryDockPreferences, type DockPreferences } from '../input/docking';
 import { PartsToolbar } from './PartsToolbar';
 import { FileMenu } from './FileMenu';
 import { AnnotationHandles } from '../render/Annotations';
@@ -32,6 +34,7 @@ export interface EditorHost {
   defaultGrid?: boolean;
   defaultSnap?: boolean;
   shortcuts?: ShortcutPreferences;
+  docking?: DockPreferences;
 }
 const savedSnapshot = { status: 'saved', message: 'In memory · export to keep a file', durableRevision: 0 } as const;
 const subscribeNothing = () => () => {};
@@ -39,6 +42,9 @@ const subscribeNothing = () => () => {};
 export function Editor({ session, host, save }: { session: DocumentSession; host: EditorHost; save?: SaveCoordinator }) {
   const [localShortcuts] = useState(() => new MemoryShortcuts()), [shortcutsOpen, setShortcutsOpen] = useState(false);
   const preferences = host.shortcuts ?? localShortcuts;
+  const [localDocking] = useState(() => new MemoryDockPreferences());
+  const docking = host.docking ?? localDocking;
+  const dockPosition = useSyncExternalStore(docking.subscribe, docking.getSnapshot);
   const shortcuts = useSyncExternalStore(preferences.subscribe, preferences.getSnapshot);
   const snapshot = useSyncExternalStore(session.subscribe, session.getSnapshot), doc = snapshot.document;
   const saveState = useSyncExternalStore(save?.subscribe ?? subscribeNothing, save?.getSnapshot ?? (() => savedSnapshot));
@@ -49,6 +55,7 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
   const gridId = `lec-grid-${useId().replace(/[^a-zA-Z0-9_-]/g, '')}`;
   const toolsLabel = useId(), editingLabel = useId(), canvasLabel = useId(), inspectorLabel = useId(), zoomLabel = useId(), documentLabel = useId();
   const [size, setSize] = useState({ width: 0, height: 0 }), [compact, setCompact] = useState(false), [dockHeight, setDockHeight] = useState(60);
+  const docked = compact || dockPosition !== 'auto', dockSide = dockPosition === 'auto' ? 'top' : dockPosition;
   const { camera, current: cameraRef, setCamera, animate: animateCamera, destination: cameraDestination, stop: stopCamera, isAnimating: cameraAnimating } = useCamera(root);
   const { feedback, placed: confirmPlacement, connected: confirmConnection, snapped: confirmSnap, clear: clearFeedback } = useInteractionFeedback(root);
   const [pointing, setPointing] = useState(false), pointerKind = useRef('mouse');
@@ -87,7 +94,12 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
     let target: Camera;
     if (!current.components.length && !current.wires.length && !current.annotations.length) target = { x: width / 2, y: height / 2, zoom: 1 };
     else {
-      const b = bounds(current, ids), top = 50, bottom = Math.max(50, (viewport.current?.querySelector('.lec-zoom-controls')?.getBoundingClientRect().height ?? 28) + 24);
+      const b = bounds(current, ids), zoomBox = viewport.current?.querySelector('.lec-zoom-controls')?.getBoundingClientRect();
+      const zoomAtTop = !!zoomBox && zoomBox.top < (viewport.current?.getBoundingClientRect().top ?? 0) + height / 2;
+      const element = viewport.current, ownerBottom = root.current?.getBoundingClientRect().bottom ?? 0;
+      const inset = element ? Number.parseFloat(element.ownerDocument.defaultView?.getComputedStyle(element).scrollPaddingBottom ?? '') || 0 : 0;
+      const occluded = Math.max(0, inset - (ownerBottom - (element?.getBoundingClientRect().bottom ?? 0)));
+      const clearance = Math.max(50, (zoomBox?.height ?? 28) + 24), top = zoomAtTop ? clearance : 50, bottom = Math.max(zoomAtTop ? 50 : clearance, occluded + 16);
       const zoom = Math.max(0.125, Math.min(1.5, (width - (width < 700 ? 48 : 100)) / b.width, Math.max(1, height - top - bottom) / b.height));
       target = { zoom, x: width / 2 - (b.x + b.width / 2) * zoom, y: (top + height - bottom) / 2 - (b.y + b.height / 2) * zoom };
     }
@@ -101,7 +113,7 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
         const r = entry.contentRect;
         if (entry.target === element && r.width && r.height) setSize({ width: r.width, height: r.height });
         if (entry.target === workspace.current && r.width) setCompact(r.width <= 900);
-        if (entry.target === dock.current) setDockHeight(entry.target.getBoundingClientRect().height);
+        if (entry.target === dock.current) { const bounds = entry.target.getBoundingClientRect(); setDockHeight(bounds.height); }
       }
     });
     observer.observe(element); if (workspace.current) observer.observe(workspace.current); if (dock.current) observer.observe(dock.current);
@@ -481,7 +493,7 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
     setDialog({ title: editExisting ? 'Edit block pins' : 'Create custom block', description: 'One pin per line: stable ID, label, side, role, bit width. Sides: left/right/top/bottom. Roles: passive/input/output/power/bidirectional/tristate. Removed or width-changed pins leave dangling wire ends.', fields: [{ name: 'name', label: 'Block name', value: def?.name ?? 'Custom IC', required: true }, { name: 'pins', label: 'Pins', type: 'textarea', value: def?.pins.map(p => `${p.id}, ${p.name}, ${p.side}, ${p.role}, ${p.width}`).join('\n') ?? 'in-0, IN, left, input, 1\nout-0, OUT, right, output, 1', required: true }], submit: editExisting ? 'Update pins' : 'Place block', onSubmit: v => { const block = makeCustomBlock(v.name, v.pins); definitionSchema.parse(block); if (editExisting && selectedComponent) session.edit('Reconfigure pins', d => reconfigure(d, selectedComponent.id, block)); else startPart(block); } });
   }
 
-  return <div className="lec-editor" style={{ '--lec-dock-space': `${compact ? dockHeight + 16 : 0}px` } as CSSProperties} ref={root} tabIndex={0} onKeyDown={onKeyDown} onPointerDownCapture={event => { if (!svg.current?.contains(event.target as Node)) lastTap.current = undefined; }} onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) lastTap.current = undefined; }} data-testid="editor" data-camera-animating={cameraAnimating || undefined}>
+  return <div className="lec-editor" style={{ '--lec-dock-space': docked && dockSide === 'bottom' ? `calc(${dockHeight + 16}px + var(--lec-navbar-inset, 0px))` : docked && dockSide === 'top' ? `${dockHeight + 16}px` : '0px' } as CSSProperties} ref={root} tabIndex={0} onKeyDown={onKeyDown} onPointerDownCapture={event => { if (!svg.current?.contains(event.target as Node)) lastTap.current = undefined; }} onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) lastTap.current = undefined; }} data-testid="editor" data-camera-animating={cameraAnimating || undefined}>
 
     {menu && <FileMenu anchor={fileTrigger.current} boundary={root.current} onClose={closeMenu} footer={<button role="menuitem" className="lec-danger" onClick={() => { setMenu(false); setDialog({ title: 'Clear circuit?', description: 'Remove all parts, wires and annotations. Undo restores the circuit.', fields: [], danger: true, submit: 'Clear circuit', onSubmit: () => { cancel(); session.edit('Clear circuit', d => Object.assign(d, emptyDocument(doc.title))); } }); }}>Clear circuit…</button>}>
       <button role="menuitem" onClick={() => { setMenu(false); if (host.newDocument) void host.newDocument().catch(notify); else setDialog({ title: 'New circuit', description: 'Clear this workspace. Export your current circuit first if you want a separate file. Undo remains available.', fields: [], submit: 'New circuit', onSubmit: () => { cancel(); session.edit('New circuit', d => Object.assign(d, emptyDocument())); } }); }}>New circuit</button>
@@ -510,21 +522,22 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
     </FileMenu>}
     {['error', 'conflict', 'deleted'].includes(saveState.status) && <div className="lec-save-alert" role="alert"><span>{saveState.message}</span>{saveState.status === 'error' && <button onClick={() => void save?.retry()}>Retry</button>}{saveState.status === 'conflict' && <><button onClick={() => setDialog({ title: 'Review both versions', fields: [{ name: 'local', label: 'Local version', type: 'textarea', value: serializeDocument(doc) }, { name: 'external', label: 'External version', type: 'textarea', value: saveState.external ?? '' }], submit: 'Close', onSubmit: () => {} })}>Review</button><button onClick={() => void save?.resolve('local').catch(notify)}>Keep local</button><button onClick={() => void save?.resolve('external').catch(notify)}>Use external</button></>}<button onClick={() => void doExport('json')}>Save a copy</button></div>}
     <div className="lec-layout">
-      <main className={`lec-workspace${compact ? ' is-compact' : ''}`} ref={workspace}>
+      <main className={`lec-workspace${docked ? ' is-compact' : ''}${docked ? ` is-dock-${dockSide}` : ''}`} data-dock={docked ? dockSide : 'inline'} ref={workspace}>
         <div className="lec-topbar" role="toolbar" aria-labelledby={toolsLabel} data-ignore-swipe="true" onTouchStart={event => event.stopPropagation()} onTouchMove={event => event.stopPropagation()} onTouchEnd={event => event.stopPropagation()}>
           <span id={toolsLabel} hidden>Circuit tools</span>
           <div className="lec-file-cluster"><button className="lec-file-trigger" ref={fileTrigger} onClick={() => { setMoreOpen(false); setPaletteOpen(false); setMenu(!menu); }} aria-expanded={menu} aria-labelledby={documentLabel}><span id={documentLabel} hidden>Document menu</span>File <span aria-hidden="true">⌄</span></button>
             <div className="lec-history" onClick={event => { if (event.detail > 0) root.current?.focus({ preventScroll: true }); }}><ToolButton label="Undo" icon="undo" disabled={draft ? !draft.bends.length : !snapshot.canUndo} onClick={() => draft ? undoCorner() : session.undo()} /><ToolButton label="Redo" icon="redo" disabled={draft ? !cornerRedo.current.length : !snapshot.canRedo} onClick={() => draft ? redoCorner() : session.redo()} /></div>
           </div>
           <div ref={dock} className={`lec-drawing-toolbar${contextRotate ? ' has-context' : ''}`} data-ignore-swipe="true">
+            <DockHandle area={workspace.current} position={dockPosition} save={docking.save} onError={notify} />
             <div className="lec-tools" role="group" aria-labelledby={editingLabel} onClick={event => { if (event.detail > 0) root.current?.focus({ preventScroll: true }); }}><span id={editingLabel} hidden>Editing tools</span><div className="lec-tool-group">
               <ToolButton label="Select" shortcut={shortcuts.select} icon="select" active={tool === 'select'} onClick={() => selectDrawingTool(cancel)} />
               <ToolButton label="Box select" shortcut={shortcuts.box} icon="box-select" active={tool === 'box'} onClick={() => selectDrawingTool(() => { cancel(); setTool('box'); })}><span>Box</span></ToolButton>
               <ToolButton label="Multi" shortcut={shortcuts.multi} icon="multi" active={multi} onClick={() => selectDrawingTool(() => { cancel(); setMulti(!multi); })} />
             </div></div>
             <div className="lec-wire-tool"><ToolButton label="Wire" shortcut={shortcuts.wire} icon="wire" active={tool === 'wire' || tool === 'reconnect'} onClick={() => selectDrawingTool(startWire)} /></div>
-            <PartsToolbar container={workspace.current} compact={compact} dockHeight={dockHeight} open={paletteOpen} onOpenChange={openParts} onPart={startPart} onCustomBlock={() => customBlockDialog()} onText={() => annotationDialog('text')} />
-            <div className="lec-rotate-context" onClick={event => { if (event.detail > 0) root.current?.focus({ preventScroll: true }); }}><span className="lec-context-name">{placement ? placement.definition.name : selection.size > 1 ? `${selection.size} selected` : selectedComponent?.reference || 'Selected object'}</span><ToolButton label="Rotate" shortcut={shortcuts.rotate} icon="rotate" disabled={!canRotate} onClick={() => doTransform('rotate')} />{compact && placement && <button onClick={cancel}>Cancel</button>}</div>
+            <PartsToolbar container={workspace.current} compact={docked} dockSide={dockSide} dockHeight={dockHeight} open={paletteOpen} onOpenChange={openParts} onPart={startPart} onCustomBlock={() => customBlockDialog()} onText={() => annotationDialog('text')} />
+            <div className="lec-rotate-context" onClick={event => { if (event.detail > 0) root.current?.focus({ preventScroll: true }); }}><span className="lec-context-name">{placement ? placement.definition.name : selection.size > 1 ? `${selection.size} selected` : selectedComponent?.reference || 'Selected object'}</span><ToolButton label="Rotate" shortcut={shortcuts.rotate} icon="rotate" disabled={!canRotate} onClick={() => doTransform('rotate')} />{docked && placement && <button onClick={cancel}>Cancel</button>}</div>
           </div>
           <div className="lec-utility-cluster"><ToolButton label="Inspect" shortcut={shortcuts.inspect} icon="inspect" active={inspectorOpen} onClick={() => { setMoreOpen(false); setMenu(false); if (inspectorOpen) closeInspector(); else setInspectorOpen(true); }} /><button ref={moreTrigger} className={`lec-more-trigger${moreOpen ? ' is-active' : ''}`} aria-label="More actions" aria-expanded={moreOpen} aria-haspopup="menu" onClick={() => { setMenu(false); setPaletteOpen(false); setMoreOpen(!moreOpen); }}><Icon name="more" />{checks.length > 0 && <small aria-hidden="true" className="lec-issues-badge">{checks.length}</small>}</button></div>
         </div>

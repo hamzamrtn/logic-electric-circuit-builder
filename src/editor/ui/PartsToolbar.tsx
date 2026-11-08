@@ -4,6 +4,7 @@ import type { Definition } from '../../core/model/document';
 import { library } from '../../components/definitions/library';
 import { SymbolDrawing } from '../render/Scene';
 import { Icon } from './Controls';
+import type { DockSide } from '../input/docking';
 
 const groups = {
   Electrical: ['Passive', 'Sources', 'Switches', 'Semiconductors', 'Analog', 'Loads & instruments'],
@@ -14,14 +15,14 @@ type Group = keyof typeof groups;
 interface Props {
   open: boolean; onOpenChange: (open: boolean) => void; onPart: (part: Definition) => void;
   onCustomBlock: () => void; onText: () => void;
-  container: HTMLElement | null; compact: boolean; dockHeight: number;
+  container: HTMLElement | null; compact: boolean; dockHeight: number; dockSide: DockSide;
 }
 function Preview({ definition: d }: { definition: Definition }) {
   const xs = [d.bounds.x, d.bounds.x + d.bounds.width, ...d.pins.map(p => p.x)], ys = [d.bounds.y, d.bounds.y + d.bounds.height, ...d.pins.map(p => p.y)];
   const x = Math.min(...xs) - 8, y = Math.min(...ys) - 8;
   return <svg viewBox={`${x} ${y} ${Math.max(...xs) - x + 8} ${Math.max(...ys) - y + 8}`} aria-hidden="true"><g fill="none" stroke="currentColor" strokeWidth="2"><SymbolDrawing definition={d} /></g></svg>;
 }
-export function PartsToolbar({ open, onOpenChange, onPart, onCustomBlock, onText, container, compact, dockHeight }: Props) {
+export function PartsToolbar({ open, onOpenChange, onPart, onCustomBlock, onText, container, compact, dockHeight, dockSide }: Props) {
   const groupLabel = useId(), popupLabel = useId(), searchLabel = useId(), categoriesLabel = useId(), familiesLabel = useId(), partsId = useId(), addLabel = useId();
   const [group, setGroup] = useState<Group>('Electrical'), [category, setCategory] = useState<string>('Passive'), [search, setSearch] = useState('');
   const [position, setPosition] = useState<CSSProperties>({ left: 8, top: 56, maxHeight: 400 });
@@ -32,22 +33,24 @@ export function PartsToolbar({ open, onOpenChange, onPart, onCustomBlock, onText
     const win = owner.ownerDocument.defaultView; if (!win) return;
     const place = () => {
       const area = container.getBoundingClientRect(), bounds = owner.getBoundingClientRect(), button = trigger.current?.getBoundingClientRect();
-      const width = Math.max(0, Math.min(640, area.width - 16));
+      const drawing = container.querySelector('.lec-viewport')?.getBoundingClientRect() ?? area;
+      const width = Math.max(0, Math.min(640, (compact ? drawing.width : area.width) - 16));
       if (compact) {
-        const dock = container.querySelector('.lec-drawing-toolbar')?.getBoundingClientRect();
-        const bottom = bounds.bottom - (dock?.top ?? area.bottom - dockHeight - 26) + 8;
-        const utilities = container.querySelector('.lec-topbar')?.getBoundingClientRect();
-        const available = (utilities ? bounds.bottom - utilities.bottom : area.height - 56) - bottom - 16;
-        const short = available < 340, height = Math.max(0, Math.min(560, short ? area.height - 16 : available));
-        setPosition({ left: area.left - bounds.left + (area.width - width) / 2, width, bottom: short ? bounds.bottom - area.bottom + 8 : bottom, height, maxHeight: height });
+        const backdrop = owner.querySelector('.lec-part-dismiss')?.getBoundingClientRect() ?? bounds;
+        const usable = { left: Math.max(drawing.left, backdrop.left), right: Math.min(drawing.right, backdrop.right), top: Math.max(drawing.top, backdrop.top), bottom: Math.min(drawing.bottom, backdrop.bottom) };
+        const short = usable.bottom - usable.top < 356 || usable.right - usable.left < 300;
+        const box = short ? backdrop : { ...usable, width: usable.right - usable.left, height: usable.bottom - usable.top };
+        const panelWidth = Math.max(0, Math.min(640, box.width - 16));
+        const height = Math.max(0, Math.min(560, box.height - 16));
+        setPosition({ left: box.left - bounds.left + Math.max(8, (box.width - panelWidth) / 2), width: panelWidth, bottom: bounds.bottom - box.bottom + 8, height, maxHeight: height });
       } else {
         const top = (button?.bottom ?? area.top + 48) - bounds.top + 8;
         setPosition({ left: area.left - bounds.left + Math.max(8, Math.min((button?.left ?? area.left + 8) - area.left, area.width - width - 8)), top, width, maxHeight: Math.max(0, Math.min(560, bounds.height - top - 12)) });
       }
     };
-    place(); const observer = new win.ResizeObserver(place); observer.observe(container);
+    place(); const observer = new win.ResizeObserver(place); observer.observe(container); const drawing = container.querySelector('.lec-viewport'); if (drawing) observer.observe(drawing);
     return () => observer.disconnect();
-  }, [open, container, owner, compact, dockHeight]);
+  }, [open, container, owner, compact, dockHeight, dockSide]);
   useEffect(() => {
     if (!open) { wasOpen.current = false; return; }
     if (!container || wasOpen.current) return;

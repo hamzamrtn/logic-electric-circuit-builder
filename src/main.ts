@@ -11,6 +11,7 @@ import { examples } from './components/definitions/examples';
 import { loadShortcuts, validateShortcuts, type ShortcutPreferences } from './editor/input/shortcuts';
 import { DEFAULT_RECOVERY_FOLDER, RecoveryStore, recoveryFolder } from './obsidian/RecoveryStore';
 import { RecoveryExclusions } from './obsidian/RecoveryExclusions';
+import { loadDockPosition, type DockPreferences } from './editor/input/docking';
 class CircuitPicker extends FuzzySuggestModal<TFile> {
   constructor(app: App, private choose: (file: TFile) => void) { super(app); this.setPlaceholder('Open a circuit…'); }
   getItems() { return this.app.vault.getFiles().filter(f => f.extension === 'lecircuit'); }
@@ -25,6 +26,12 @@ export default class CircuitPlugin extends Plugin {
   settings: CircuitSettings = DEFAULT_SETTINGS;
   private settingsWrites: Promise<void> = Promise.resolve();
   private shortcutListeners = new Set<() => void>();
+  private dockingListeners = new Set<() => void>();
+  readonly dockingPreferences: DockPreferences = {
+    getSnapshot: () => this.settings.toolbarDock,
+    subscribe: listener => { this.dockingListeners.add(listener); return () => { this.dockingListeners.delete(listener); }; },
+    save: async side => { if (loadDockPosition(side) !== side) throw new Error('Choose top, right, bottom, left or reset.'); await this.saveSettings({ toolbarDock: side }); },
+  };
   readonly shortcutPreferences: ShortcutPreferences = {
     getSnapshot: () => this.settings.shortcuts,
     subscribe: listener => { this.shortcutListeners.add(listener); return () => { this.shortcutListeners.delete(listener); }; },
@@ -36,6 +43,7 @@ export default class CircuitPlugin extends Plugin {
     const data = await this.loadData() as Partial<CircuitSettings> | null;
     this.settings = { ...DEFAULT_SETTINGS, ...(data && typeof data === 'object' ? { grid: typeof data.grid === 'boolean' ? data.grid : true, snap: typeof data.snap === 'boolean' ? data.snap : true, exportFolder: typeof data.exportFolder === 'string' ? data.exportFolder : '', shortcuts: loadShortcuts(data.shortcuts) } : {}) };
     try { this.settings.recoveryFolder = recoveryFolder(typeof data?.recoveryFolder === 'string' ? data.recoveryFolder : DEFAULT_RECOVERY_FOLDER); } catch { this.settings.recoveryFolder = DEFAULT_RECOVERY_FOLDER; }
+    this.settings.toolbarDock = loadDockPosition(data?.toolbarDock);
     this.settings.excludeRecovery = typeof data?.excludeRecovery === 'boolean' ? data.excludeRecovery : true;
     this.settings.managedRecoveryExclusion = typeof data?.managedRecoveryExclusion === 'string' && data.managedRecoveryExclusion.length > 1 && data.managedRecoveryExclusion.endsWith('/') ? data.managedRecoveryExclusion : null;
     this.settings.dismissedRecoveryExclusion = typeof data?.dismissedRecoveryExclusion === 'string' ? data.dismissedRecoveryExclusion : null;
@@ -62,11 +70,12 @@ export default class CircuitPlugin extends Plugin {
     this.addSettingTab(new CircuitSettingsTab(this.app, this));
   }
   onunload() { void this.sessions.dispose(); }
-  async saveSettings(updates: Partial<Pick<CircuitSettings, 'shortcuts' | 'recoveryFolder' | 'excludeRecovery' | 'managedRecoveryExclusion' | 'dismissedRecoveryExclusion'>> = {}) {
+  async saveSettings(updates: Partial<Pick<CircuitSettings, 'shortcuts' | 'recoveryFolder' | 'excludeRecovery' | 'managedRecoveryExclusion' | 'dismissedRecoveryExclusion' | 'toolbarDock'>> = {}) {
     const write = this.settingsWrites.catch(() => {}).then(async () => {
       await this.saveData({ ...this.settings, ...updates, shortcuts: { ...(updates.shortcuts ?? this.settings.shortcuts) } });
       Object.assign(this.settings, updates);
       if (updates.shortcuts) this.shortcutListeners.forEach(listener => listener());
+      if (updates.toolbarDock !== undefined) this.dockingListeners.forEach(listener => listener());
     });
     this.settingsWrites = write; await write;
   }
@@ -87,7 +96,7 @@ export default class CircuitPlugin extends Plugin {
   async saveRawCopy(_file: TFile | null, raw: string) { const name = `${uid('recovery')}-0.json`; await this.recovery.write(name, raw); new Notice(`Recovery copy saved in ${this.settings.recoveryFolder}`); }
   editorHost(file: TFile): EditorHost {
     return {
-      defaultGrid: this.settings.grid, defaultSnap: this.settings.snap, shortcuts: this.shortcutPreferences, examples,
+      defaultGrid: this.settings.grid, defaultSnap: this.settings.snap, shortcuts: this.shortcutPreferences, docking: this.dockingPreferences, examples,
       newDocument: () => this.newCircuit(file.parent?.path ?? ''), openDocument: () => this.openCircuitPicker(),
       duplicate: async document => { const copy = { ...document, title: `${document.title} copy` }; const next = await createCircuit(this.app, copy, file.parent?.path ?? ''); await this.app.workspace.getLeaf('tab').openFile(next); },
       export: async (kind, document, owner, scale = 2) => {

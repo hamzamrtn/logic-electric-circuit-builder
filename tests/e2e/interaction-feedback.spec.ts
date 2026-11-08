@@ -15,8 +15,10 @@ async function camera(page: Page) {
     return { x: Number(match[1]), y: Number(match[2]), zoom: Number(match[3]) };
   });
 }
-test('Fit keeps a tall drawing above the floating zoom controls', async ({ page }) => {
+test('Fit keeps a tall drawing above bottom-docked zoom controls', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.getByRole('button', { name: 'Move drawing toolbar' }).click();
+  await page.getByRole('menuitemradio', { name: 'Dock bottom' }).click();
   await page.evaluate(() => {
     const doc = structuredClone(window.__lec.examples.find(example => example.name === 'Complete symbol catalogue')!.document);
     doc.components = doc.components.filter(c => doc.definitions.find(d => d.id === c.definitionId)?.name === 'Resistor');

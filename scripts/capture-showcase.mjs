@@ -27,7 +27,9 @@ try {
         const canvas = document.querySelector('.lec-canvas').getBoundingClientRect();
         return [...document.querySelectorAll('.lec-part, .lec-annotation')].some(element => {
           const r = element.getBoundingClientRect();
-          return r.left < canvas.left || r.right > canvas.right || r.top < canvas.top || r.bottom > zoom.top;
+          const clipped = r.left < canvas.left || r.right > canvas.right || r.top < canvas.top || r.bottom > canvas.bottom;
+          const behindZoom = r.left < zoom.right && r.right > zoom.left && r.top < zoom.bottom && r.bottom > zoom.top;
+          return clipped || behindZoom;
         });
       });
       if (obscured) throw new Error(`${key}: drawing clipped or behind zoom controls`);
