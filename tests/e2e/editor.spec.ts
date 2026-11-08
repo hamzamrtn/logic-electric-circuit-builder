@@ -56,7 +56,7 @@ test('File opens below its trigger, keeps Clear visible and closes on an outside
 test('wire-draft undo removes corners without undoing document history', async ({ page }) => {
   await add(page, 'Resistor Passive', 180, 260); const original = await page.evaluate(() => JSON.stringify(window.__lec.session.getSnapshot().document));
   const canvas = page.getByRole('application'); await page.getByRole('button', { name: 'Wire', exact: true }).click();
-  await canvas.click({ position: { x: 80, y: 100 } }); await canvas.click({ position: { x: 280, y: 100 } }); await canvas.click({ position: { x: 320, y: 180 } });
+  await canvas.click({ position: { x: 80, y: 180 } }); await canvas.click({ position: { x: 280, y: 180 } }); await canvas.click({ position: { x: 320, y: 240 } });
   await page.keyboard.press('Control+z'); await expect(page.locator('.lec-gesture-bar')).toContainText('1 point placed');
   await page.keyboard.press('Control+z'); await expect(page.locator('.lec-gesture-bar')).toContainText('0 points placed');
   await page.keyboard.press('Control+z'); expect(await page.evaluate(() => JSON.stringify(window.__lec.session.getSnapshot().document))).toBe(original);

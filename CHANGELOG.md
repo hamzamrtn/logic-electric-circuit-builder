@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.10 — compact docks and clearer movement
+
+- Keep floating docks compact over a full-size canvas, with no reserved blank sidebar or full-width mobile-style dock on desktop. Top restores the original inline desktop row by dragging or selection.
+- Use a dotted Move grip, show all four coloured destinations on activation/drag and highlight the current candidate. Keep click, touch and keyboard movement equivalent.
+- Prevent the lingering move tooltip, cancel Move safely and preserve normal interactions elsewhere in Obsidian. Keep wire actions, picker, zoom and Fit clear of docked controls.
+
 ## 0.1.9 — dockable tools and clearer settings
 
 - Add a dockable drawing toolbar with a top-left move handle, edge-snap dragging, a keyboard/tap position menu and saved top/right/bottom/left preferences. Adapt the canvas, parts picker, zoom controls and Fit together, with floating phone-navigation clearance around the controls. Default to the top; preserve explicit saved positions.

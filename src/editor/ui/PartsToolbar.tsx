@@ -37,7 +37,14 @@ export function PartsToolbar({ open, onOpenChange, onPart, onCustomBlock, onText
       const width = Math.max(0, Math.min(640, (compact ? drawing.width : area.width) - 16));
       if (compact) {
         const backdrop = owner.querySelector('.lec-part-dismiss')?.getBoundingClientRect() ?? bounds;
+        const toolbar = container.querySelector('.lec-drawing-toolbar')?.getBoundingClientRect();
         const usable = { left: Math.max(drawing.left, backdrop.left), right: Math.min(drawing.right, backdrop.right), top: Math.max(drawing.top, backdrop.top), bottom: Math.min(drawing.bottom, backdrop.bottom) };
+        if (toolbar) {
+          if (dockSide === 'top') usable.top = Math.max(usable.top, toolbar.bottom + 8);
+          if (dockSide === 'bottom') usable.bottom = Math.min(usable.bottom, toolbar.top - 8);
+          if (dockSide === 'left') usable.left = Math.max(usable.left, toolbar.right + 8);
+          if (dockSide === 'right') usable.right = Math.min(usable.right, toolbar.left - 8);
+        }
         const short = usable.bottom - usable.top < 356 || usable.right - usable.left < 300;
         const box = short ? backdrop : { ...usable, width: usable.right - usable.left, height: usable.bottom - usable.top };
         const panelWidth = Math.max(0, Math.min(640, box.width - 16));

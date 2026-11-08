@@ -54,8 +54,8 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
   const closeMore = useCallback(() => setMoreOpen(false), []);
   const gridId = `lec-grid-${useId().replace(/[^a-zA-Z0-9_-]/g, '')}`;
   const toolsLabel = useId(), editingLabel = useId(), canvasLabel = useId(), inspectorLabel = useId(), zoomLabel = useId(), documentLabel = useId();
-  const [size, setSize] = useState({ width: 0, height: 0 }), [compact, setCompact] = useState(false), [dockHeight, setDockHeight] = useState(60);
-  const docked = compact || dockPosition !== 'auto', dockSide = dockPosition === 'auto' ? 'top' : dockPosition;
+  const [size, setSize] = useState({ width: 0, height: 0 }), [compact, setCompact] = useState(false), [dockHeight, setDockHeight] = useState(60), [dockWidth, setDockWidth] = useState(80);
+  const docked = compact || dockPosition !== 'auto' && dockPosition !== 'top', dockSide = dockPosition === 'auto' ? 'top' : dockPosition;
   const { camera, current: cameraRef, setCamera, animate: animateCamera, destination: cameraDestination, stop: stopCamera, isAnimating: cameraAnimating } = useCamera(root);
   const { feedback, placed: confirmPlacement, connected: confirmConnection, snapped: confirmSnap, clear: clearFeedback } = useInteractionFeedback(root);
   const [pointing, setPointing] = useState(false), pointerKind = useRef('mouse');
@@ -94,17 +94,27 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
     let target: Camera;
     if (!current.components.length && !current.wires.length && !current.annotations.length) target = { x: width / 2, y: height / 2, zoom: 1 };
     else {
-      const b = bounds(current, ids), zoomBox = viewport.current?.querySelector('.lec-zoom-controls')?.getBoundingClientRect();
-      const zoomAtTop = !!zoomBox && zoomBox.top < (viewport.current?.getBoundingClientRect().top ?? 0) + height / 2;
-      const element = viewport.current, ownerBottom = root.current?.getBoundingClientRect().bottom ?? 0;
+      const b = bounds(current, ids), element = viewport.current;
+      const zoomBox = element?.querySelector('.lec-zoom-controls')?.getBoundingClientRect(), toolbar = dock.current?.getBoundingClientRect();
+      const ownerBottom = root.current?.getBoundingClientRect().bottom ?? 0;
       const inset = element ? Number.parseFloat(element.ownerDocument.defaultView?.getComputedStyle(element).scrollPaddingBottom ?? '') || 0 : 0;
-      const occluded = Math.max(0, inset - (ownerBottom - (element?.getBoundingClientRect().bottom ?? 0)));
-      const clearance = Math.max(50, (zoomBox?.height ?? 28) + 24), top = zoomAtTop ? clearance : 50, bottom = Math.max(zoomAtTop ? 50 : clearance, occluded + 16);
-      const zoom = Math.max(0.125, Math.min(1.5, (width - (width < 700 ? 48 : 100)) / b.width, Math.max(1, height - top - bottom) / b.height));
-      target = { zoom, x: width / 2 - (b.x + b.width / 2) * zoom, y: (top + height - bottom) / 2 - (b.y + b.height / 2) * zoom };
+      const occluded = Math.max(0, inset - (ownerBottom - (measured?.bottom ?? 0)));
+      let left = width < 700 ? 24 : 50, right = left, top = 50, bottom = Math.max(50, occluded + 16);
+      if (zoomBox && measured) {
+        if (zoomBox.top < measured.top + height / 2) top = Math.max(top, zoomBox.bottom - measured.top + 16);
+        else bottom = Math.max(bottom, measured.bottom - zoomBox.top + 16);
+      }
+      if (docked && toolbar && measured) {
+        if (dockSide === 'left') left = Math.max(left, toolbar.right - measured.left + 16);
+        if (dockSide === 'right') right = Math.max(right, measured.right - toolbar.left + 16);
+        if (dockSide === 'top') top = Math.max(top, toolbar.bottom - measured.top + 16);
+        if (dockSide === 'bottom') bottom = Math.max(bottom, measured.bottom - toolbar.top + 16);
+      }
+      const zoom = Math.max(0.125, Math.min(1.5, Math.max(1, width - left - right) / b.width, Math.max(1, height - top - bottom) / b.height));
+      target = { zoom, x: (left + width - right) / 2 - (b.x + b.width / 2) * zoom, y: (top + height - bottom) / 2 - (b.y + b.height / 2) * zoom };
     }
     if (animated) animateCamera(target); else setCamera(target);
-  }, [session, size, animateCamera, setCamera]);
+  }, [session, size, animateCamera, setCamera, docked, dockSide]);
   useLayoutEffect(() => {
     const element = viewport.current; if (!element) return; const win = element.ownerDocument.defaultView; if (!win) return;
     if (workspace.current) setCompact(workspace.current.getBoundingClientRect().width <= 900);
@@ -113,7 +123,7 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
         const r = entry.contentRect;
         if (entry.target === element && r.width && r.height) setSize({ width: r.width, height: r.height });
         if (entry.target === workspace.current && r.width) setCompact(r.width <= 900);
-        if (entry.target === dock.current) { const bounds = entry.target.getBoundingClientRect(); setDockHeight(bounds.height); }
+        if (entry.target === dock.current) { const bounds = entry.target.getBoundingClientRect(); setDockHeight(bounds.height); if (['left', 'right'].includes(workspace.current?.dataset.dock ?? '')) setDockWidth(bounds.width); }
       }
     });
     observer.observe(element); if (workspace.current) observer.observe(workspace.current); if (dock.current) observer.observe(dock.current);
@@ -493,7 +503,7 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
     setDialog({ title: editExisting ? 'Edit block pins' : 'Create custom block', description: 'One pin per line: stable ID, label, side, role, bit width. Sides: left/right/top/bottom. Roles: passive/input/output/power/bidirectional/tristate. Removed or width-changed pins leave dangling wire ends.', fields: [{ name: 'name', label: 'Block name', value: def?.name ?? 'Custom IC', required: true }, { name: 'pins', label: 'Pins', type: 'textarea', value: def?.pins.map(p => `${p.id}, ${p.name}, ${p.side}, ${p.role}, ${p.width}`).join('\n') ?? 'in-0, IN, left, input, 1\nout-0, OUT, right, output, 1', required: true }], submit: editExisting ? 'Update pins' : 'Place block', onSubmit: v => { const block = makeCustomBlock(v.name, v.pins); definitionSchema.parse(block); if (editExisting && selectedComponent) session.edit('Reconfigure pins', d => reconfigure(d, selectedComponent.id, block)); else startPart(block); } });
   }
 
-  return <div className="lec-editor" style={{ '--lec-dock-space': docked && dockSide === 'bottom' ? `calc(${dockHeight + 16}px + var(--lec-navbar-inset, 0px))` : docked && dockSide === 'top' ? `${dockHeight + 16}px` : '0px' } as CSSProperties} ref={root} tabIndex={0} onKeyDown={onKeyDown} onPointerDownCapture={event => { if (!svg.current?.contains(event.target as Node)) lastTap.current = undefined; }} onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) lastTap.current = undefined; }} data-testid="editor" data-camera-animating={cameraAnimating || undefined}>
+  return <div className="lec-editor" style={{ '--lec-dock-space': docked && dockSide === 'bottom' ? `calc(${dockHeight + 16}px + var(--lec-navbar-inset, 0px))` : docked && dockSide === 'top' ? `${dockHeight + 16}px` : '0px', '--lec-side-dock-width': `${dockWidth}px` } as CSSProperties} ref={root} tabIndex={0} onKeyDown={onKeyDown} onPointerDownCapture={event => { if (!svg.current?.contains(event.target as Node)) lastTap.current = undefined; }} onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) lastTap.current = undefined; }} data-testid="editor" data-camera-animating={cameraAnimating || undefined}>
 
     {menu && <FileMenu anchor={fileTrigger.current} boundary={root.current} onClose={closeMenu} footer={<button role="menuitem" className="lec-danger" onClick={() => { setMenu(false); setDialog({ title: 'Clear circuit?', description: 'Remove all parts, wires and annotations. Undo restores the circuit.', fields: [], danger: true, submit: 'Clear circuit', onSubmit: () => { cancel(); session.edit('Clear circuit', d => Object.assign(d, emptyDocument(doc.title))); } }); }}>Clear circuit…</button>}>
       <button role="menuitem" onClick={() => { setMenu(false); if (host.newDocument) void host.newDocument().catch(notify); else setDialog({ title: 'New circuit', description: 'Clear this workspace. Export your current circuit first if you want a separate file. Undo remains available.', fields: [], submit: 'New circuit', onSubmit: () => { cancel(); session.edit('New circuit', d => Object.assign(d, emptyDocument())); } }); }}>New circuit</button>

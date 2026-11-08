@@ -2,7 +2,7 @@
 
 ## Editing
 
-Wide panes keep one top toolbar. Compact panes put Select → Box → Multi, Wire and Add in a top dock by default, with File, Undo/Redo, Inspect and More above. This also adapts to narrow desktop splits. The move icon at the drawing toolbar’s top-left corner lets you dock it at the top, right, bottom or left: drag it toward an edge, or tap it and choose a position. The toolbar, canvas, parts picker and zoom controls adapt together. Your choice is remembered; use Reset toolbar position in the same menu to restore the top default (inline on wide panes).
+Wide panes keep one top toolbar. Compact panes put Select → Box → Multi, Wire and Add in a top dock by default, with File, Undo/Redo, Inspect and More above. This also adapts to narrow desktop splits. Use the dotted **Move** grip on the drawing toolbar to change its position. Drag it toward an edge, or click/tap it to reveal all four destinations and choose one. The hovered destination highlights. Keyboard users can activate Move, tab through the choices and press Escape to cancel. Choosing **Top** also restores the original desktop row. The compact floating palette, parts picker and zoom controls adapt together, and your choice is remembered. The canvas remains available behind the dock.
 
 Open **Add**, choose **Electrical**, **Logic**, or **Connections**, then a category and symbol preview. Click/tap the canvas to place it. Text and Custom block are in the same picker. Search finds parts across all categories. Use **Rotate** before placement; it appears above the compact tool dock during placement, and stays in the wide toolbar. For compact selections, use More → Rotate selected or Position & orientation in Properties. The inspector offers repeat placement. Cancel discards a preview.
 

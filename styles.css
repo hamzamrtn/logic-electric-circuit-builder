@@ -415,45 +415,68 @@ body.is-phone:is(.is-floating-nav, .auto-full-screen):not(.is-hidden-nav) .lec-e
   .lec-recovery-setting .setting-item-control { flex: 1 1 100%; width: 100%; }
 }
 
-/* Drawing toolbar docking: the handle owns drag gestures, while controls stay ordinary buttons. */
-.lec-editor button.lec-dock-handle { position: relative; width: 44px; height: 44px; min-height: 44px; flex: 0 0 44px; padding: 0; cursor: grab; touch-action: none; border: 0; border-radius: 0; background: transparent; }
-.lec-editor button.lec-dock-handle::before { content: ''; position: absolute; top: 0; left: 0; width: 32px; height: 32px; box-sizing: border-box; border: 1px solid var(--lec-line); border-radius: var(--lec-surface-radius) 0 8px 0; background: var(--lec-panel); pointer-events: none; }
-.lec-editor .lec-drawing-toolbar > button.lec-dock-handle > svg { position: absolute; top: 8px; left: 8px; width: 16px; height: 16px; pointer-events: none; }
-.lec-editor button.lec-dock-handle[aria-expanded="true"]::before { background: var(--lec-accent-wash); }
-@media (hover: hover) { .lec-editor button.lec-dock-handle:hover { background: transparent; } .lec-editor button.lec-dock-handle:hover::before { background: var(--lec-accent-wash); } }
-.lec-editor button.lec-dock-handle:active { cursor: grabbing; }
-.lec-editor .is-compact .lec-drawing-toolbar { padding-left: 52px; }
-.lec-editor .is-compact .lec-drawing-toolbar > .lec-dock-handle { position: absolute; left: -1px; top: -1px; min-height: 44px; padding: 0; border-radius: 0; background: transparent; }
-.lec-editor .is-dock-bottom .lec-drawing-toolbar { bottom: calc(34px + var(--lec-navbar-inset)); }
-.lec-editor .is-dock-top .lec-drawing-toolbar { top: 64px; bottom: auto; }
+/* Floating tool palettes keep a content-sized surface over the full canvas. */
+.lec-editor .lec-viewport { margin-left: 0; margin-right: 0; scroll-padding-bottom: var(--lec-navbar-inset); }
 .lec-editor .lec-topbar { order: 0; }
 .lec-editor .lec-viewport { order: 1; }
-.lec-editor .lec-dock-spacer { order: 2; }
 .lec-editor .lec-statusbar { order: 3; }
-.lec-editor .is-dock-top .lec-dock-spacer { order: 1; }
-.lec-editor .is-dock-top .lec-viewport { order: 2; }
-.lec-editor :is(.is-dock-left, .is-dock-right) .lec-drawing-toolbar { display: flex; flex-direction: column; top: 64px; bottom: auto; left: 8px; right: auto; width: var(--lec-side-dock-width); max-height: calc(100% - 106px - var(--lec-navbar-inset)); min-height: 0; padding: 6px; gap: 4px; overflow-y: auto; overflow-x: hidden; scrollbar-width: thin; }
+.lec-editor .is-compact .lec-dock-spacer { display: none; }
+.lec-editor .is-compact .lec-drawing-toolbar { left: 50%; right: auto; transform: translateX(-50%); width: min(420px, calc(100% - 16px)); padding: 6px; grid-template-columns: 44px minmax(132px, 3fr) minmax(44px, 1fr) minmax(48px, 1fr); grid-template-areas: 'handle selection wire add'; gap: 4px; background: var(--lec-panel); background: color-mix(in srgb, var(--lec-panel) 94%, transparent); }
+.lec-editor .is-compact .lec-drawing-toolbar.has-context { grid-template-areas: 'handle rotate rotate rotate' 'handle selection wire add'; }
+.lec-editor button.lec-dock-handle { display: inline-flex; align-items: center; justify-content: center; gap: 4px; min-width: 44px; width: auto; height: 36px; min-height: 36px; flex: 0 0 auto; padding: 4px; border: 0; border-radius: 6px; background: transparent; color: var(--lec-muted); cursor: grab; touch-action: none; }
+.lec-editor button.lec-dock-handle:active { cursor: grabbing; }
+.lec-editor button.lec-dock-handle > span { display: inline; font-size: 11px; font-weight: 500; }
+.lec-editor .lec-drawing-toolbar > button.lec-dock-handle > svg { position: static; width: 16px; height: 16px; flex-shrink: 0; transform: none; }
+.lec-editor .is-compact .lec-drawing-toolbar > .lec-dock-handle { grid-area: handle; align-self: start; flex-direction: column; width: 44px; height: 44px; min-height: 44px; padding: 4px 0; gap: 2px; }
+.lec-editor .is-compact .lec-dock-handle > span { font-size: 10px; }
+.lec-editor button.lec-dock-handle[aria-expanded="true"] { background: var(--lec-accent-wash); color: var(--lec-ink); }
+@media (hover: hover) { .lec-editor button.lec-dock-handle:hover { background: var(--lec-accent-wash); color: var(--lec-ink); } }
+.lec-editor .is-dock-bottom .lec-drawing-toolbar { bottom: calc(34px + var(--lec-navbar-inset)); }
+.lec-editor .is-dock-top .lec-drawing-toolbar { top: 64px; bottom: auto; }
+.lec-editor :is(.is-dock-left, .is-dock-right) .lec-drawing-toolbar { display: flex; flex-direction: column; transform: none; top: 64px; bottom: auto; left: 8px; right: auto; width: 80px; max-height: calc(100% - 106px - var(--lec-navbar-inset)); min-height: 0; padding: 6px; gap: 4px; overflow-y: auto; overflow-x: hidden; scrollbar-width: thin; }
 .lec-editor .is-dock-right .lec-drawing-toolbar { left: auto; right: 8px; }
-.lec-editor :is(.is-dock-left, .is-dock-right) .lec-drawing-toolbar > .lec-dock-handle { position: sticky; top: -7px; left: -7px; margin: -8px 0 0 -8px; align-self: flex-start; flex-shrink: 0; }
+.lec-editor :is(.is-dock-left, .is-dock-right) .lec-drawing-toolbar > .lec-dock-handle { position: sticky; top: 0; width: 100%; flex-direction: row; height: 36px; min-height: 36px; background: var(--lec-panel); z-index: 1; }
 .lec-editor :is(.is-dock-left, .is-dock-right) .lec-drawing-toolbar .lec-tool-group { display: flex; flex-direction: column; }
 .lec-editor :is(.is-dock-left, .is-dock-right) .lec-tool-group > button { width: 100%; }
 .lec-editor :is(.is-dock-left, .is-dock-right) :is(.lec-wire-tool, .lec-parts-toolbar) { width: 100%; flex-shrink: 0; }
 .lec-editor :is(.is-dock-left, .is-dock-right) .lec-rotate-context { flex-direction: column; width: 100%; align-items: stretch; flex-shrink: 0; }
-.lec-editor .is-dock-left .lec-viewport { margin-left: calc(var(--lec-side-dock-width) + 16px); }
-.lec-editor .is-dock-right .lec-viewport { margin-right: calc(var(--lec-side-dock-width) + 16px); }
-.lec-editor :is(.is-dock-top, .is-dock-left) .lec-zoom-controls { top: 8px; bottom: auto; }
+.lec-editor .is-dock-bottom .lec-zoom-controls { bottom: var(--lec-dock-space); }
+.lec-editor .is-dock-top .lec-zoom-controls { top: var(--lec-dock-space); bottom: auto; }
+.lec-editor .lec-gesture-bar { bottom: calc(8px + var(--lec-navbar-inset)); }
+.lec-editor .is-dock-bottom .lec-gesture-bar { bottom: calc(var(--lec-dock-space) + 58px); max-width: calc(100% - 16px); }
+.lec-editor .is-dock-left .lec-zoom-controls { top: 8px; bottom: auto; }
 .lec-editor .is-dock-right .lec-zoom-controls { top: 8px; bottom: auto; right: auto; left: 8px; }
 .lec-editor .lec-part-dismiss { bottom: var(--lec-navbar-inset); }
-.lec-editor .lec-viewport { scroll-padding-bottom: var(--lec-navbar-inset); }
+.lec-editor .lec-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.lec-editor .lec-dock-targets { position: absolute; inset: 0; z-index: 40; pointer-events: none; }
+.lec-editor button.lec-dock-target { position: absolute; pointer-events: auto; min-width: 88px; min-height: 36px; padding: 7px 10px; border: 1px dashed var(--lec-accent); border-radius: 9px; background: var(--lec-panel); background: color-mix(in srgb, var(--lec-accent) 12%, var(--lec-panel)); color: var(--lec-ink); font-size: 12px; justify-content: center; box-shadow: 0 2px 6px #0002; }
+.lec-editor .lec-dock-target:is(.is-top, .is-bottom) { left: 50%; transform: translateX(-50%); }
+.lec-editor .lec-dock-target.is-top { top: 64px; }
+.lec-editor .lec-dock-target.is-bottom { bottom: calc(34px + var(--lec-navbar-inset)); }
+.lec-editor .lec-dock-target:is(.is-left, .is-right) { top: calc((100% - var(--lec-navbar-inset)) / 2); transform: translateY(-50%); }
+.lec-editor .lec-dock-target.is-left { left: 8px; }
+.lec-editor .lec-dock-target.is-right { right: 8px; }
+.lec-editor button.lec-dock-target.is-candidate { border-style: solid; border-width: 2px; background: var(--lec-accent); color: var(--lec-on-accent); }
+@container (min-width: 901px) {
+  .lec-editor .is-compact .lec-drawing-toolbar { width: max-content; max-width: calc(100% - 16px); grid-template-columns: max-content max-content max-content max-content; gap: 6px; }
+  .lec-editor .is-compact .lec-drawing-toolbar button { flex-direction: row; min-height: 36px; padding: 6px 7px; font-size: 12px; white-space: nowrap; }
+  .lec-editor .is-compact .lec-drawing-toolbar .lec-parts-toolbar > button { min-height: 36px; padding: 6px 7px; }
+  .lec-editor .is-compact .lec-drawing-toolbar button > svg { width: 18px; height: 18px; }
+  .lec-editor .is-compact .lec-drawing-toolbar > .lec-dock-handle { flex-direction: row; width: auto; height: 36px; min-height: 36px; padding: 4px; }
+  .lec-editor .lec-drawing-toolbar > button.lec-dock-handle > svg { width: 16px; height: 16px; }
+  .lec-editor :is(.is-dock-left, .is-dock-right) .lec-drawing-toolbar { width: 112px; }
+  .lec-editor :is(.is-dock-left, .is-dock-right) .lec-tool-group > button { justify-content: flex-start; }
+  .lec-editor .lec-dock-target.is-top { top: 6px; }
+}
 @container (max-width: 1000px) {
   .lec-editor:has(.is-dock-top) .lec-inspector.is-open { top: calc(56px + var(--lec-dock-space)); bottom: calc(34px + var(--lec-navbar-inset)); }
   .lec-editor:has(.is-dock-left) .lec-inspector.is-open { left: calc(var(--lec-side-dock-width) + 16px); right: 8px; width: auto; bottom: calc(34px + var(--lec-navbar-inset)); }
   .lec-editor:has(.is-dock-right) .lec-inspector.is-open { left: 8px; right: calc(var(--lec-side-dock-width) + 16px); width: auto; bottom: calc(34px + var(--lec-navbar-inset)); }
 }
-.lec-editor .lec-dock-target { position: absolute; z-index: 60; pointer-events: none; border: 2px solid var(--lec-accent); background: var(--lec-accent-wash); color: var(--lec-ink); border-radius: 12px; display: grid; place-items: center; font-weight: 600; }
-.lec-editor .lec-dock-target:is(.is-top, .is-bottom) { left: 8px; right: 8px; height: 68px; }
-.lec-editor .lec-dock-target.is-top { top: 64px; }
-.lec-editor .lec-dock-target.is-bottom { bottom: calc(34px + var(--lec-navbar-inset)); }
-.lec-editor .lec-dock-target:is(.is-left, .is-right) { top: 64px; bottom: calc(34px + var(--lec-navbar-inset)); width: var(--lec-side-dock-width); }
-.lec-editor .lec-dock-target.is-left { left: 8px; }
-.lec-editor .lec-dock-target.is-right { right: 8px; }
+@media (pointer: coarse) { .lec-editor button.lec-dock-handle, .lec-editor .is-compact .lec-drawing-toolbar > .lec-dock-handle, .lec-editor button.lec-dock-target { min-height: 44px; } }
+
+@media (max-height: 420px) { .lec-editor .lec-dock-target.is-top { top: 6px; } }
+@container (max-width: 700px) { .lec-editor .lec-workspace:not(.is-dock-bottom) .lec-gesture-bar { bottom: calc(58px + var(--lec-navbar-inset)); } }
+@media (pointer: coarse) { .lec-editor .is-compact .lec-drawing-toolbar .lec-parts-toolbar > button { min-height: 44px; } }
+
+@media (pointer: coarse) { .lec-editor .is-compact .lec-drawing-toolbar button { min-height: 44px; } }

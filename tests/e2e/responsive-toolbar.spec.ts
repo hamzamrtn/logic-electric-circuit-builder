@@ -6,10 +6,10 @@ test.beforeEach(async ({ page }) => { await page.emulateMedia({ reducedMotion: '
 async function settle(page: Page) { await page.evaluate(() => new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve())))); }
 async function compact(page: Page, width = 390, height = 844) { await page.setViewportSize({ width, height }); await expect(page.locator('.lec-workspace')).toHaveClass(/is-compact/); await settle(page); }
 
-test('phone drawing tools and picker clear floating host navigation and reclaim space when it hides', async ({ page }) => {
+test('phone drawing tools and picker clear floating host navigation without reserving a blank canvas strip', async ({ page }) => {
   await compact(page);
   await page.getByRole('button', { name: 'Move drawing toolbar' }).click();
-  await page.getByRole('menuitemradio', { name: 'Dock bottom' }).click();
+  await page.getByRole('button', { name: 'Dock bottom' }).click();
   const before = await page.evaluate(() => window.__lec.session.getSnapshot());
   await page.evaluate(() => {
     const host = document.createElement('div'); host.className = 'workspace-leaf-content'; host.style.height = '100%';
@@ -30,19 +30,24 @@ test('phone drawing tools and picker clear floating host navigation and reclaim 
   await openParts(page); const panel = (await page.getByRole('dialog', { name: 'Parts library' }).boundingBox())!;
   expect(panel.y + panel.height).toBeLessThanOrEqual(nav.y);
   await page.getByRole('button', { name: 'Close parts library' }).click();
+  const visibleDockTop = (await page.locator('.lec-drawing-toolbar').boundingBox())!.y;
   const visibleHeight = (await page.getByRole('application').boundingBox())!.height;
   await page.evaluate(() => { document.body.style.removeProperty('--view-bottom-spacing'); document.body.style.setProperty('--navbar-height', '52px'); document.body.style.setProperty('--navbar-bottom-offset', '34px'); });
   await settle(page); expect((await page.getByRole('application').boundingBox())!.height).toBeCloseTo(visibleHeight, 0);
   await page.evaluate(() => document.body.style.setProperty('--view-bottom-spacing', '-200px'));
-  await settle(page); expect((await page.getByRole('application').boundingBox())!.height).toBeGreaterThan(visibleHeight + 80);
+  await settle(page); expect((await page.getByRole('application').boundingBox())!.height).toBeCloseTo(visibleHeight, 0);
+  expect((await page.locator('.lec-drawing-toolbar').boundingBox())!.y).toBeGreaterThan(visibleDockTop + 80);
   await page.evaluate(() => document.body.style.setProperty('--view-bottom-spacing', '86px'));
   await page.evaluate(() => { document.body.classList.add('is-hidden-nav'); document.getElementById('host-floating-nav')!.style.display = 'none'; });
-  await settle(page); expect((await page.getByRole('application').boundingBox())!.height).toBeGreaterThan(visibleHeight + 80);
+  await settle(page); expect((await page.getByRole('application').boundingBox())!.height).toBeCloseTo(visibleHeight, 0);
+  expect((await page.locator('.lec-drawing-toolbar').boundingBox())!.y).toBeGreaterThan(visibleDockTop + 80);
   // Tablets and ordinary docked navigation already reserve their own space.
   await page.evaluate(() => { document.body.classList.remove('is-hidden-nav', 'is-phone'); document.body.classList.add('is-tablet'); });
-  await settle(page); expect((await page.getByRole('application').boundingBox())!.height).toBeGreaterThan(visibleHeight + 80);
+  await settle(page); expect((await page.getByRole('application').boundingBox())!.height).toBeCloseTo(visibleHeight, 0);
+  expect((await page.locator('.lec-drawing-toolbar').boundingBox())!.y).toBeGreaterThan(visibleDockTop + 80);
   await page.evaluate(() => { document.body.classList.remove('is-tablet', 'is-floating-nav'); document.body.classList.add('is-phone'); });
-  await settle(page); expect((await page.getByRole('application').boundingBox())!.height).toBeGreaterThan(visibleHeight + 80);
+  await settle(page); expect((await page.getByRole('application').boundingBox())!.height).toBeCloseTo(visibleHeight, 0);
+  expect((await page.locator('.lec-drawing-toolbar').boundingBox())!.y).toBeGreaterThan(visibleDockTop + 80);
   expect(await page.evaluate(() => window.__lec.session.getSnapshot())).toEqual(before);
 });
 
@@ -51,7 +56,7 @@ test('compact controls fit without horizontal scrolling and retain practical tou
     await compact(page, width);
     const viewport = (await page.getByRole('application').boundingBox())!, dock = (await page.locator('.lec-drawing-toolbar').boundingBox())!;
     await expect(page.locator('.lec-workspace')).toHaveAttribute('data-dock', 'top');
-    expect(dock.y + dock.height).toBeLessThanOrEqual(viewport.y);
+    expect(dock.y).toBeGreaterThanOrEqual(viewport.y); expect(dock.y + dock.height).toBeLessThanOrEqual(viewport.y + viewport.height);
     for (const name of ['Select', 'Box select', 'Multi', 'Wire', 'Add parts', 'Undo', 'Redo', 'Inspect', 'More actions']) {
       const box = (await page.getByRole('button', { name, exact: true }).boundingBox())!;
       expect(box.x).toBeGreaterThanOrEqual(0); expect(box.x + box.width).toBeLessThanOrEqual(width + 1);
@@ -69,7 +74,7 @@ test('wide panes keep one top toolbar and narrow split panes adapt without editi
   await page.getByTestId('editor').evaluate(el => { el.style.width = '600px'; });
   await expect(page.locator('.lec-workspace')).toHaveClass(/is-compact/); await settle(page);
   tool = (await page.getByRole('button', { name: 'Select', exact: true }).boundingBox())!; canvas = (await page.getByRole('application').boundingBox())!;
-  expect(tool.y + tool.height).toBeLessThanOrEqual(canvas.y);
+  expect(tool.y).toBeGreaterThanOrEqual(canvas.y);
   expect(await page.evaluate(() => window.__lec.session.getSnapshot())).toEqual(before);
   await page.getByTestId('editor').evaluate(el => { el.style.width = '100%'; });
   await expect(page.locator('.lec-workspace')).not.toHaveClass(/is-compact/);
