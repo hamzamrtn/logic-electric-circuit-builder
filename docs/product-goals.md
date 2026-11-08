@@ -52,6 +52,10 @@ Wire routing should be specialized for circuit drafting: clear pin exits, sensib
 
 Protect user data through valid, portable files, atomic commands, dependable undo/redo, accurate save status, conflict handling and accessible recovery. Concurrent views, imports, previews and external file changes must not silently corrupt or overwrite a circuit.
 
+Recovery storage belongs in the plugin's Obsidian settings. Let users choose its vault folder and move existing plugin backups safely when applying the change, including when a folder was moved manually before or after changing the preference. Preserve unrelated files and destination collisions. Each backup folder should have a brief `00_README.md` identifying Logic-Electric Circuit Builder, explaining why the backups are useful and where to change the location; refresh those instructions when the path changes.
+
+Offer optional exclusion of recovery folders from everyday Search/Graph results, with accurate Quick Switcher wording (deprioritized, not fully hidden). Manage only an exclusion the plugin added itself, follow folder changes and preserve pre-existing user entries. Missing host integration must not compromise recovery. Keep the recovery README brief, with the headings “Change this folder's location only in plugin settings” and “Do not remove”.
+
 The owner asks for professional work without mistakes and wants no bugs slipping through. Treat that as a high quality bar: reproduce reported problems, inspect related failure modes, fix root causes and verify the relevant complete workflows. Passing tests alone is not proof of flawless behavior. Be candid about real qualification gaps; never promise a universal zero-bug guarantee.
 
 ## Proactive improvement

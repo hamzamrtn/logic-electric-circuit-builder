@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.8 — recovery folders and cleaner backups
+
+- Optionally exclude recovery folders from Search/Graph and deprioritize them in Quick Switcher. Track only plugin-owned exclusions across folder changes, preserve user rules and fall back safely when the optional host integration is unavailable.
+- Add a configurable Recovery folder in Obsidian plugin settings, with an explicit Move backups action, nested folders and automatic tracking of folder/ancestor renames.
+- Move existing plugin backups without overwriting destination files or moving unrelated content; serialize moves with backup writes and roll back failed migrations.
+- Add `00_README.md` to recovery folders with the plugin name, brief recovery instructions and the settings path. Refresh it after folder changes and preserve unrelated READMEs.
+
 ## 0.1.7 — responsive tools and smoother editing
 
 - Add a responsive workbench: a stable bottom drawing dock in compact panes and one tidy top toolbar in wide panes, including split desktop workspaces.

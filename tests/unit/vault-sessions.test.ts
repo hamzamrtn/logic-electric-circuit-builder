@@ -11,6 +11,7 @@ function fixture() {
   const files = new Map<string, { file: TFile; content: string }>([[file.path, { file, content: initial }]]), folders = new Set<string>();
   const vault = {
     getFileByPath: (path: string) => files.get(path)?.file ?? null,
+    getFolderByPath: (path: string) => folders.has(path) ? { path } : null,
     getAbstractFileByPath: (path: string) => files.get(path)?.file ?? (folders.has(path) ? { path } : null),
     read: vi.fn(async (target: TFile) => { const stored = files.get(target.path); if (stored?.file !== target) throw new Error('File deleted'); return stored.content; }),
     process: vi.fn(async (target: TFile, transform: (raw: string) => string) => { const stored = files.get(target.path); if (stored?.file !== target) throw new Error('File deleted'); stored.content = transform(stored.content); return stored.content; }),

@@ -1,5 +1,7 @@
 # Validation and remaining qualification
 
+The 2026-11-08 recovery-folder settings update is recorded in [recovery-folder/validation.md](evidence/recovery-folder/validation.md): 183 core/adapter/property tests, lint, production build/artifact checks and settings/exclusion persistence in the install stub pass locally. This adds safe folder migration, optional owned exclusions and brief recovery instructions; actual host/device folder and Sync qualification remains separate.
+
 The current responsive workbench update is recorded in [responsive-toolbar/validation.md](evidence/responsive-toolbar/validation.md): 147 core tests and 251 desktop/Android browser checks pass, with 16 input/layout-specific skips. Wide, compact, split-pane, short-screen and keyboard-height behavior have dedicated coverage. Visual captures and the refreshed listing gallery show the current UI; GitHub Verify records the separate WebKit result.
 
 Current unreleased control/inspector changes: 147 core tests and 213 desktop/Android browser checks pass, with 15 mouse/touch-specific skips. Lint, production build, artifact checks and install-stub persistence checks pass. See the [intuitive controls review](evidence/intuitive-controls/validation.md) for the owner's reported issues, implementation evidence, visual review and host/device limits. GitHub Verify provides the separate WebKit result.

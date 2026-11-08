@@ -2,13 +2,14 @@ import { type App, type TFile, normalizePath } from 'obsidian';
 import { type CircuitDocument, parseDocument, serializeDocument, uid } from '../core/model/document';
 import { DocumentSession } from '../core/session/DocumentSession';
 import { SaveCoordinator, type Persistence } from '../core/session/SaveCoordinator';
+import { RecoveryStore } from './RecoveryStore';
 export interface Entry { session: DocumentSession; save: SaveCoordinator; file: TFile; references: number; }
 export class VaultSessions {
   private entries = new Map<TFile, Entry>();
   private readVersions = new Map<TFile, number>();
   private opening = new Map<TFile, { read: Promise<string>; version: number; waiters: number }>();
   private disposed = false;
-  constructor(private app: App) {}
+  constructor(private app: App, private recovery = new RecoveryStore(app)) {}
   acquire(file: TFile, raw: string): Entry {
     if (this.disposed) throw new Error('Circuit sessions are closed');
     if (this.app.vault.getFileByPath(file.path) !== file) throw new Error('Circuit file is missing or changed');
@@ -28,11 +29,7 @@ export class VaultSessions {
         return written ? { written: true } : { written: false, external };
       },
       recover: async (content, _reason) => {
-        const folder = 'Circuit recovery';
-        if (!this.app.vault.getAbstractFileByPath(folder)) { try { await this.app.vault.createFolder(folder); } catch { if (!this.app.vault.getAbstractFileByPath(folder)) throw new Error('Unable to create recovery folder'); } }
-        const path = normalizePath(`${folder}/${recoveryId}-${slot++ % 3}.json`);
-        const existing = this.app.vault.getFileByPath(path);
-        if (existing) await this.app.vault.modify(existing, content); else await this.app.vault.create(path, content);
+        await this.recovery.write(`${recoveryId}-${slot++ % 3}.json`, content);
       },
     };
     const save = new SaveCoordinator(session, persistence, raw), entry = { session, save, file, references: 1 };

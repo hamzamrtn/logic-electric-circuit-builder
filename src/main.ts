@@ -1,14 +1,16 @@
-import { FuzzySuggestModal, MarkdownView, Notice, Plugin, TFile, normalizePath, type App } from 'obsidian';
+import { FuzzySuggestModal, MarkdownView, Notice, Plugin, TFile, TFolder, normalizePath, type App } from 'obsidian';
 import { CircuitFileView, VIEW_TYPE } from './obsidian/CircuitFileView';
 import { VaultSessions, createCircuit, createUnique } from './obsidian/VaultPersistence';
 import { processPreview } from './obsidian/PreviewProcessor';
 import { CircuitSettingsTab, DEFAULT_SETTINGS, type CircuitSettings } from './obsidian/settings';
-import { emptyDocument, serializeDocument } from './core/model/document';
+import { emptyDocument, serializeDocument, uid } from './core/model/document';
 import { exportPNG, exportSVG } from './io/export';
 import { type EditorHost } from './editor/ui/Editor';
 import { previewBlock, resolvePreviewFile } from './io/preview-reference';
 import { examples } from './components/definitions/examples';
-import { loadShortcuts, validateShortcuts, type ShortcutPreferences, type ToolShortcuts } from './editor/input/shortcuts';
+import { loadShortcuts, validateShortcuts, type ShortcutPreferences } from './editor/input/shortcuts';
+import { DEFAULT_RECOVERY_FOLDER, RecoveryStore, recoveryFolder } from './obsidian/RecoveryStore';
+import { RecoveryExclusions } from './obsidian/RecoveryExclusions';
 class CircuitPicker extends FuzzySuggestModal<TFile> {
   constructor(app: App, private choose: (file: TFile) => void) { super(app); this.setPlaceholder('Open a circuit…'); }
   getItems() { return this.app.vault.getFiles().filter(f => f.extension === 'lecircuit'); }
@@ -17,6 +19,9 @@ class CircuitPicker extends FuzzySuggestModal<TFile> {
 }
 export default class CircuitPlugin extends Plugin {
   sessions!: VaultSessions;
+  recovery!: RecoveryStore;
+  private recoveryExclusions!: RecoveryExclusions;
+  private exclusionWarning = false;
   settings: CircuitSettings = DEFAULT_SETTINGS;
   private settingsWrites: Promise<void> = Promise.resolve();
   private shortcutListeners = new Set<() => void>();
@@ -24,13 +29,22 @@ export default class CircuitPlugin extends Plugin {
     getSnapshot: () => this.settings.shortcuts,
     subscribe: listener => { this.shortcutListeners.add(listener); return () => { this.shortcutListeners.delete(listener); }; },
     save: async bindings => {
-      await this.saveSettings(validateShortcuts(bindings));
+      await this.saveSettings({ shortcuts: validateShortcuts(bindings) });
     },
   };
   async onload() {
     const data = await this.loadData() as Partial<CircuitSettings> | null;
     this.settings = { ...DEFAULT_SETTINGS, ...(data && typeof data === 'object' ? { grid: typeof data.grid === 'boolean' ? data.grid : true, snap: typeof data.snap === 'boolean' ? data.snap : true, exportFolder: typeof data.exportFolder === 'string' ? data.exportFolder : '', shortcuts: loadShortcuts(data.shortcuts) } : {}) };
-    this.sessions = new VaultSessions(this.app);
+    try { this.settings.recoveryFolder = recoveryFolder(typeof data?.recoveryFolder === 'string' ? data.recoveryFolder : DEFAULT_RECOVERY_FOLDER); } catch { this.settings.recoveryFolder = DEFAULT_RECOVERY_FOLDER; }
+    this.settings.excludeRecovery = typeof data?.excludeRecovery === 'boolean' ? data.excludeRecovery : true;
+    this.settings.managedRecoveryExclusion = typeof data?.managedRecoveryExclusion === 'string' && data.managedRecoveryExclusion.length > 1 && data.managedRecoveryExclusion.endsWith('/') ? data.managedRecoveryExclusion : null;
+    this.settings.dismissedRecoveryExclusion = typeof data?.dismissedRecoveryExclusion === 'string' ? data.dismissedRecoveryExclusion : null;
+    this.recoveryExclusions = new RecoveryExclusions(this.app.vault, () => ({ folder: this.settings.recoveryFolder, enabled: this.settings.excludeRecovery, exists: !!this.app.vault.getFolderByPath(this.settings.recoveryFolder), managed: this.settings.managedRecoveryExclusion, dismissed: this.settings.dismissedRecoveryExclusion }), state => this.saveSettings({ managedRecoveryExclusion: state.managed, dismissedRecoveryExclusion: state.dismissed }));
+    this.recovery = new RecoveryStore(this.app, this.settings.recoveryFolder, async folder => { await this.saveSettings({ recoveryFolder: folder }); await this.syncRecoveryExclusions(true); }, message => { new Notice(message); }, () => this.syncRecoveryExclusions());
+    this.sessions = new VaultSessions(this.app, this.recovery);
+    this.registerEvent(this.app.vault.on('rename', (file, oldPath) => { if (file instanceof TFolder) void this.recovery.folderRenamed(file.path, oldPath).catch(e => new Notice(`Recovery folder update failed: ${String(e)}`)); }));
+    await this.recovery.initialize().catch(e => new Notice(`Recovery instructions unavailable: ${String(e)}`));
+    await this.syncRecoveryExclusions();
     this.registerView(VIEW_TYPE, leaf => new CircuitFileView(leaf, this));
     try { this.registerExtensions(['lecircuit'], VIEW_TYPE); } catch (error) { new Notice('Another plugin has registered .lecircuit. Disable the conflicting registration before enabling this editor.'); throw error; }
     this.registerMarkdownCodeBlockProcessor('lecircuit', (s, el, ctx) => processPreview(this, s, el, ctx));
@@ -48,13 +62,19 @@ export default class CircuitPlugin extends Plugin {
     this.addSettingTab(new CircuitSettingsTab(this.app, this));
   }
   onunload() { void this.sessions.dispose(); }
-  async saveSettings(shortcuts?: ToolShortcuts) {
+  async saveSettings(updates: Partial<Pick<CircuitSettings, 'shortcuts' | 'recoveryFolder' | 'excludeRecovery' | 'managedRecoveryExclusion' | 'dismissedRecoveryExclusion'>> = {}) {
     const write = this.settingsWrites.catch(() => {}).then(async () => {
-      await this.saveData({ ...this.settings, shortcuts: { ...(shortcuts ?? this.settings.shortcuts) } });
-      if (shortcuts) { this.settings.shortcuts = shortcuts; this.shortcutListeners.forEach(listener => listener()); }
+      await this.saveData({ ...this.settings, ...updates, shortcuts: { ...(updates.shortcuts ?? this.settings.shortcuts) } });
+      Object.assign(this.settings, updates);
+      if (updates.shortcuts) this.shortcutListeners.forEach(listener => listener());
     });
     this.settingsWrites = write; await write;
   }
+  private async syncRecoveryExclusions(force = false) {
+    try { await this.recoveryExclusions.sync(force); this.exclusionWarning = false; }
+    catch (error) { if (!this.exclusionWarning) new Notice(`Recovery backups remain available. ${String(error)}`); this.exclusionWarning = true; }
+  }
+  async setRecoveryExcluded(enabled: boolean) { await this.saveSettings({ excludeRecovery: enabled }); await this.syncRecoveryExclusions(enabled); }
   resolvePreview(reference: string, notePath: string) {
     return resolvePreviewFile({
       byPath: path => this.app.vault.getFileByPath(path) ?? undefined,
@@ -64,7 +84,7 @@ export default class CircuitPlugin extends Plugin {
   private activeCircuit() { const view = this.app.workspace.getActiveViewOfType(CircuitFileView); return view ?? null; }
   async newCircuit(folder = '') { try { const file = await createCircuit(this.app, emptyDocument(), folder); await this.app.workspace.getLeaf('tab').openFile(file); } catch (e) { new Notice(`Unable to create circuit: ${String(e)}`); } }
   openCircuitPicker(choose?: (file: TFile) => void) { new CircuitPicker(this.app, choose ?? (file => { void this.app.workspace.getLeaf('tab').openFile(file); })).open(); }
-  async saveRawCopy(file: TFile | null, raw: string) { const copy = await createUnique(this.app, file?.parent?.path ?? '', `${file?.basename ?? 'Circuit'} recovery`, 'txt', raw); new Notice(`Recovery copy saved: ${copy.path}`); }
+  async saveRawCopy(_file: TFile | null, raw: string) { const name = `${uid('recovery')}-0.json`; await this.recovery.write(name, raw); new Notice(`Recovery copy saved in ${this.settings.recoveryFolder}`); }
   editorHost(file: TFile): EditorHost {
     return {
       defaultGrid: this.settings.grid, defaultSnap: this.settings.snap, shortcuts: this.shortcutPreferences, examples,
