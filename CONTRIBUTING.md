@@ -26,7 +26,7 @@ npm run package
 
 ## Install a local development build
 
-Build with `npm run package`, then unzip `dist/logic-electric-circuit-builder-0.1.10.zip` into your development vault's `<configDir>/plugins/` directory. Alternatively create `<configDir>/plugins/logic-electric-circuit-builder/` and copy these three files from `dist/logic-electric-circuit-builder/`:
+Build with `npm run package`, then unzip `dist/logic-electric-circuit-builder-0.1.11.zip` into your development vault's `<configDir>/plugins/` directory. Alternatively create `<configDir>/plugins/logic-electric-circuit-builder/` and copy these three files from `dist/logic-electric-circuit-builder/`:
 
 - `main.js`
 - `manifest.json`

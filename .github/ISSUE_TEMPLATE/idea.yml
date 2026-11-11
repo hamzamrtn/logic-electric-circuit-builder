@@ -1,0 +1,15 @@
+name: Suggest an idea
+description: Share a feature or improvement for Logic-Electric Circuit Builder.
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like to create or improve?
+      description: Explain your idea and how it would help your circuit-building workflow. Write as much as you need.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Examples or extra context
+      description: Optional screenshots, example circuits or related workflows.

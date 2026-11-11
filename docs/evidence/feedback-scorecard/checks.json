@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-11",
+  "version": "0.1.11",
+  "status": "implemented and verified locally; uncommitted, unpushed and unpublished",
+  "commands": {
+    "npm run check": "passed: strict TypeScript, 190 tests in 31 files, build and artifact audit",
+    "npm run lint": "passed: source boundaries and official Obsidian ESLint",
+    "npm run check:install": "passed: public-host stub; 7 commands, 1 view",
+    "npm run package": "passed: ZIP CRC and three assets byte-for-byte verified",
+    "npm run preview:build": "passed",
+    "npx playwright test --project=chromium --project=android-tablet --project=android-phone --workers=3": "289 passed; 17 intentional skips; 306 combinations",
+    "npx playwright install webkit": "failed: all configured download mirrors timed out",
+    "LEC_HOST_CSS=/tmp/lec-feedback-host.css node scripts/capture-feedback.mjs": "passed: desktop and phone with native Obsidian 1.14.4 CSS and simulated phone navigation",
+    "YAML parsing": "passed: both issue forms and release workflow",
+    "git diff --check": "passed"
+  },
+  "findings": {
+    "hasSelectors": 0,
+    "duplicateBackgroundDeclarations": 0,
+    "clipPathDeclarations": 0,
+    "runtimeAtobBtoaCalls": 0,
+    "futureReleaseAttachments": [
+      "main.js",
+      "manifest.json",
+      "styles.css"
+    ],
+    "vaultEnumeration": "retained for existing functionality"
+  },
+  "artifacts": [
+    {
+      "path": "main.js",
+      "bytes": 371133,
+      "sha256": "64873adfe304bb29bde48474709b1062484703e1024a33f1322909f7d6603cde"
+    },
+    {
+      "path": "manifest.json",
+      "bytes": 395,
+      "sha256": "7c83fcf86124c10aaf158b724f53a75ecab91bb67c25396ea6c7564d1d63f7ab"
+    },
+    {
+      "path": "styles.css",
+      "bytes": 50448,
+      "sha256": "8e6ea461fe20b5c289e8871b37611d6dd2587470dbb08e44e9dc9bd749bd0d39"
+    },
+    {
+      "path": "dist/logic-electric-circuit-builder-0.1.11.zip",
+      "bytes": 127398,
+      "sha256": "c161e8b69977cc23b1d756043fb9377fd41391b6809d398eb193a686f54e0c98"
+    }
+  ],
+  "limitations": [
+    "No public email address was supplied; feedback offers GitHub idea and bug-report routes.",
+    "GitHub issue template availability requires pushing source to the default branch. No feedback was submitted.",
+    "WebKit unavailable locally after failed browser download; real Obsidian devices and screen readers remain separate checks.",
+    "No release publication or directory rescan; existing published assets untouched."
+  ]
+}

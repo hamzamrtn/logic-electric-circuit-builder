@@ -6,7 +6,7 @@ export function DialogFrame({ title, description, close, busy = false, children 
   useEffect(() => {
     const element = ref.current, previous = element?.ownerDocument.activeElement as HTMLElement | null;
     const editor = element?.closest<HTMLElement>('.lec-editor');
-    element?.querySelector<HTMLElement>('input:not(:disabled),textarea:not(:disabled),select:not(:disabled),button:not(:disabled)')?.focus();
+    element?.querySelector<HTMLElement>('input:not(:disabled),textarea:not(:disabled),select:not(:disabled),button:not(:disabled),a[href]')?.focus();
     return () => {
       const active = element?.ownerDocument.activeElement;
       if (active && active !== element?.ownerDocument.body && !element?.contains(active)) return;
@@ -18,13 +18,13 @@ export function DialogFrame({ title, description, close, busy = false, children 
     const element = ref.current; if (!element) return;
     const active = element.ownerDocument.activeElement;
     if (busy) { if (active === element.ownerDocument.body) element.focus(); }
-    else if (active === element || active === element.ownerDocument.body || completed && active?.tagName === 'BUTTON' && element.contains(active)) element.querySelector<HTMLElement>('input:not(:disabled),textarea:not(:disabled),select:not(:disabled),button:not(:disabled)')?.focus();
+    else if (active === element || active === element.ownerDocument.body || completed && active?.tagName === 'BUTTON' && element.contains(active)) element.querySelector<HTMLElement>('input:not(:disabled),textarea:not(:disabled),select:not(:disabled),button:not(:disabled),a[href]')?.focus();
   }, [busy, children]);
   return <div className="lec-backdrop" onPointerDown={e => { if (e.target === e.currentTarget && !busy) close(); }}><div className="lec-dialog" role="dialog" aria-modal="true" aria-labelledby={titleId} aria-describedby={description ? `${titleId}-description` : undefined} tabIndex={-1} ref={ref} onKeyDown={e => {
     e.stopPropagation();
     if (e.key === 'Escape') { e.preventDefault(); if (!busy) close(); }
     if (e.key === 'Tab') {
-      const elements = [...e.currentTarget.querySelectorAll<HTMLElement>('button:not(:disabled),input:not(:disabled),textarea:not(:disabled),select:not(:disabled),[tabindex="0"]')].filter(element => element.getClientRects().length > 0);
+      const elements = [...e.currentTarget.querySelectorAll<HTMLElement>('button:not(:disabled),input:not(:disabled),textarea:not(:disabled),select:not(:disabled),a[href],[tabindex="0"]')].filter(element => element.getClientRects().length > 0);
       const first = elements[0], last = elements.at(-1), active = e.currentTarget.ownerDocument.activeElement;
       if (!first) { e.preventDefault(); e.currentTarget.focus(); }
       else if (e.shiftKey && active === first || !e.shiftKey && active === last || !elements.includes(active as HTMLElement)) { e.preventDefault(); (e.shiftKey ? last : first)?.focus(); }

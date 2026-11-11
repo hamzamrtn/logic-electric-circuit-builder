@@ -1,68 +1,72 @@
-import { z } from 'zod';
+import * as z from 'zod/mini';
+import en from 'zod/v4/locales/en.js';
 
+// Mini keeps unused format validators/codecs (including base64) out of the bundle.
+z.config(en());
 export const FORMAT = 'logic-electric-circuit';
 export const SCHEMA_VERSION = 1;
 export const MAX_FILE_BYTES = 8 * 1024 * 1024;
-const id = z.string().min(1).max(160).regex(/^[\w.:-]+$/);
-const text = z.string().max(4000);
-const unit = z.number().int().min(-1_000_000).max(1_000_000);
-export const pointSchema = z.object({ x: unit, y: unit }).strict();
+const id = z.string().check(z.minLength(1), z.maxLength(160), z.regex(/^[\w.:-]+$/));
+const text = z.string().check(z.maxLength(4000));
+const unit = z.int().check(z.minimum(-1_000_000), z.maximum(1_000_000));
+const dimension = unit.check(z.nonnegative());
+export const pointSchema = z.strictObject({ x: unit, y: unit });
 export type Point = z.infer<typeof pointSchema>;
 export const anchorSchema = z.discriminatedUnion('kind', [
-  z.object({ kind: z.literal('pin'), componentId: id, pinId: id }).strict(),
-  z.object({ kind: z.literal('node'), nodeId: id }).strict(),
+  z.strictObject({ kind: z.literal('pin'), componentId: id, pinId: id }),
+  z.strictObject({ kind: z.literal('node'), nodeId: id }),
 ]);
 export type Anchor = z.infer<typeof anchorSchema>;
-const width = z.number().int().min(1).max(256);
-const pinSchema = z.object({ id, name: text, x: unit, y: unit,
+const width = z.int().check(z.minimum(1), z.maximum(256));
+const pinSchema = z.strictObject({ id, name: text, x: unit, y: unit,
   side: z.enum(['left', 'right', 'top', 'bottom']),
   role: z.enum(['passive', 'input', 'output', 'power', 'bidirectional', 'tristate']), width,
-}).strict();
+});
 const primitiveSchema = z.discriminatedUnion('kind', [
-  z.object({ kind: z.literal('path'), d: z.string().max(12000).regex(/^[MmLlHhVvCcSsQqTtAaZz\d\s.,+\-eE]+$/), fill: z.boolean().optional() }).strict(),
-  z.object({ kind: z.literal('rect'), x: unit, y: unit, width: unit.nonnegative(), height: unit.nonnegative() }).strict(),
-  z.object({ kind: z.literal('circle'), x: unit, y: unit, radius: z.number().int().min(0).max(1000) }).strict(),
-  z.object({ kind: z.literal('text'), x: unit, y: unit, text, size: z.number().int().min(6).max(64) }).strict(),
+  z.strictObject({ kind: z.literal('path'), d: z.string().check(z.maxLength(12000), z.regex(/^[MmLlHhVvCcSsQqTtAaZz\d\s.,+\-eE]+$/)), fill: z.optional(z.boolean()) }),
+  z.strictObject({ kind: z.literal('rect'), x: unit, y: unit, width: dimension, height: dimension }),
+  z.strictObject({ kind: z.literal('circle'), x: unit, y: unit, radius: z.int().check(z.minimum(0), z.maximum(1000)) }),
+  z.strictObject({ kind: z.literal('text'), x: unit, y: unit, text, size: z.int().check(z.minimum(6), z.maximum(64)) }),
 ]);
 export type Primitive = z.infer<typeof primitiveSchema>;
-export const definitionSchema = z.object({
-  id, version: z.number().int().min(1), name: text, category: text, aliases: z.array(text).max(32), prefix: text,
-  pins: z.array(pinSchema).max(256), primitives: z.array(primitiveSchema).max(256),
-  bounds: z.object({ x: unit, y: unit, width: unit.nonnegative(), height: unit.nonnegative() }).strict(),
+export const definitionSchema = z.strictObject({
+  id, version: z.int().check(z.minimum(1)), name: text, category: text, aliases: z.array(text).check(z.maxLength(32)), prefix: text,
+  pins: z.array(pinSchema).check(z.maxLength(256)), primitives: z.array(primitiveSchema).check(z.maxLength(256)),
+  bounds: z.strictObject({ x: unit, y: unit, width: dimension, height: dimension }),
   defaults: z.record(z.string(), z.union([text, z.number(), z.boolean()])),
-  laneLinks: z.array(z.object({ a: id, aLane: z.number().int().min(0).max(255), b: id, bLane: z.number().int().min(0).max(255) }).strict()).max(512).optional(),
-}).strict();
+  laneLinks: z.optional(z.array(z.strictObject({ a: id, aLane: z.int().check(z.minimum(0), z.maximum(255)), b: id, bLane: z.int().check(z.minimum(0), z.maximum(255)) })).check(z.maxLength(512))),
+});
 export type Definition = z.infer<typeof definitionSchema>;
-const propertiesSchema = z.record(z.string().max(100), z.union([text, z.number(), z.boolean()]));
-export const componentSchema = z.object({
+const propertiesSchema = z.record(z.string().check(z.maxLength(100)), z.union([text, z.number(), z.boolean()]));
+export const componentSchema = z.strictObject({
   id, definitionId: id, position: pointSchema, rotation: z.union([z.literal(0), z.literal(90), z.literal(180), z.literal(270)]),
   mirrorX: z.boolean(), mirrorY: z.boolean(), reference: text, properties: propertiesSchema, locked: z.boolean(),
-}).strict();
+});
 export type Component = z.infer<typeof componentSchema>;
-const vertexSchema = pointSchema.extend({ id, locked: z.boolean() }).strict();
-export const wireSchema = z.object({
+const vertexSchema = z.extend(pointSchema, { id, locked: z.boolean() });
+export const wireSchema = z.strictObject({
   id, a: anchorSchema, b: anchorSchema, width,
-  route: z.object({ mode: z.enum(['auto', 'manual']), geometry: z.enum(['orthogonal', 'free']), horizontalFirst: z.boolean(), vertices: z.array(vertexSchema).max(2000) }).strict(),
+  route: z.strictObject({ mode: z.enum(['auto', 'manual']), geometry: z.enum(['orthogonal', 'free']), horizontalFirst: z.boolean(), vertices: z.array(vertexSchema).check(z.maxLength(2000)) }),
   locked: z.boolean(),
-}).strict();
+});
 export type Wire = z.infer<typeof wireSchema>;
-const annotationSchema = z.object({
+const annotationSchema = z.strictObject({
   id, kind: z.enum(['text', 'label', 'no-connect', 'box', 'arrow', 'polarity', 'current']),
-  position: pointSchema, text, anchor: anchorSchema.optional(), global: z.boolean(),
-  size: pointSchema, locked: z.boolean(), zIndex: z.number().int().min(-10000).max(10000),
-  rotation: z.number().min(-360000).max(360000).default(0),
-  scaleX: z.number().min(0.1).max(100).default(1),
-  scaleY: z.number().min(0.1).max(100).default(1),
-  fontSize: z.number().int().min(6).max(256).default(14),
-}).strict();
+  position: pointSchema, text, anchor: z.optional(anchorSchema), global: z.boolean(),
+  size: pointSchema, locked: z.boolean(), zIndex: z.int().check(z.minimum(-10000), z.maximum(10000)),
+  rotation: z._default(z.number().check(z.minimum(-360000), z.maximum(360000)), 0),
+  scaleX: z._default(z.number().check(z.minimum(0.1), z.maximum(100)), 1),
+  scaleY: z._default(z.number().check(z.minimum(0.1), z.maximum(100)), 1),
+  fontSize: z._default(z.int().check(z.minimum(6), z.maximum(256)), 14),
+});
 export type Annotation = z.infer<typeof annotationSchema>;
-export const documentSchema = z.object({
+export const documentSchema = z.strictObject({
   format: z.literal(FORMAT), schemaVersion: z.literal(SCHEMA_VERSION), id, title: text,
-  components: z.array(componentSchema).max(10000), nodes: z.array(z.object({ id, position: pointSchema, explicit: z.boolean() }).strict()).max(30000),
-  wires: z.array(wireSchema).max(30000), annotations: z.array(annotationSchema).max(10000),
-  groups: z.array(z.object({ id, name: text, members: z.array(id).max(10000), locked: z.boolean() }).strict()).max(3000),
-  definitions: z.array(definitionSchema).max(2000), metadata: z.record(z.string().max(100), text),
-}).strict();
+  components: z.array(componentSchema).check(z.maxLength(10000)), nodes: z.array(z.strictObject({ id, position: pointSchema, explicit: z.boolean() })).check(z.maxLength(30000)),
+  wires: z.array(wireSchema).check(z.maxLength(30000)), annotations: z.array(annotationSchema).check(z.maxLength(10000)),
+  groups: z.array(z.strictObject({ id, name: text, members: z.array(id).check(z.maxLength(10000)), locked: z.boolean() })).check(z.maxLength(3000)),
+  definitions: z.array(definitionSchema).check(z.maxLength(2000)), metadata: z.record(z.string().check(z.maxLength(100)), text),
+});
 export type CircuitDocument = z.infer<typeof documentSchema>;
 let serial = 0;
 export function uid(prefix = 'id'): string { return `${prefix}-${Date.now().toString(36)}-${(++serial).toString(36)}-${Math.random().toString(36).slice(2, 9)}`; }

@@ -1,0 +1,21 @@
+name: Report a problem
+description: Tell us about something that is not working as expected.
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: How can I reproduce it?
+      description: Include the steps and any screenshots or example circuit that help explain the problem.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Versions and device
+      description: Plugin version, Obsidian version and your device or operating system, if known.

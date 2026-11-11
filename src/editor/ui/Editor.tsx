@@ -23,6 +23,7 @@ import { useCamera } from './useCamera';
 import { useInteractionFeedback, useSelectionPresence } from './useInteractionFeedback';
 import { MemoryShortcuts, type ShortcutPreferences } from '../input/shortcuts';
 import { ShortcutsDialog } from './ShortcutsDialog';
+import { FeedbackDialog } from './FeedbackDialog';
 
 export interface EditorHost {
   export: (kind: 'svg' | 'png' | 'json' | 'snippet', document: CircuitDocument, owner: Document, scale?: number) => Promise<void>;
@@ -41,6 +42,7 @@ const subscribeNothing = () => () => {};
 
 export function Editor({ session, host, save }: { session: DocumentSession; host: EditorHost; save?: SaveCoordinator }) {
   const [localShortcuts] = useState(() => new MemoryShortcuts()), [shortcutsOpen, setShortcutsOpen] = useState(false);
+  const [feedbackOpen, setFeedbackOpen] = useState(false);
   const preferences = host.shortcuts ?? localShortcuts;
   const [localDocking] = useState(() => new MemoryDockPreferences());
   const docking = host.docking ?? localDocking;
@@ -410,7 +412,7 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
     } });
   }
   function onKeyDown(e: ReactKeyboardEvent<HTMLDivElement>) {
-    if (e.defaultPrevented || e.nativeEvent.isComposing || dialog || shortcutsOpen || paletteOpen || menu || moreOpen || candidates.length || e.target !== root.current && e.target !== svg.current) return;
+    if (e.defaultPrevented || e.nativeEvent.isComposing || dialog || shortcutsOpen || feedbackOpen || paletteOpen || menu || moreOpen || candidates.length || e.target !== root.current && e.target !== svg.current) return;
     const command = e.ctrlKey || e.metaKey;
     if (e.key === 'Enter' && draft && !command && !e.altKey && !e.shiftKey && !e.repeat && !e.nativeEvent.isComposing && !paletteOpen && !menu && !candidates.length && !(e.target as Element).closest('button,[role=button]')) {
       e.preventDefault(); e.stopPropagation(); if (draft.bends.length) finishWire(); return;
@@ -503,7 +505,7 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
     setDialog({ title: editExisting ? 'Edit block pins' : 'Create custom block', description: 'One pin per line: stable ID, label, side, role, bit width. Sides: left/right/top/bottom. Roles: passive/input/output/power/bidirectional/tristate. Removed or width-changed pins leave dangling wire ends.', fields: [{ name: 'name', label: 'Block name', value: def?.name ?? 'Custom IC', required: true }, { name: 'pins', label: 'Pins', type: 'textarea', value: def?.pins.map(p => `${p.id}, ${p.name}, ${p.side}, ${p.role}, ${p.width}`).join('\n') ?? 'in-0, IN, left, input, 1\nout-0, OUT, right, output, 1', required: true }], submit: editExisting ? 'Update pins' : 'Place block', onSubmit: v => { const block = makeCustomBlock(v.name, v.pins); definitionSchema.parse(block); if (editExisting && selectedComponent) session.edit('Reconfigure pins', d => reconfigure(d, selectedComponent.id, block)); else startPart(block); } });
   }
 
-  return <div className="lec-editor" style={{ '--lec-dock-space': docked && dockSide === 'bottom' ? `calc(${dockHeight + 16}px + var(--lec-navbar-inset, 0px))` : docked && dockSide === 'top' ? `${dockHeight + 16}px` : '0px', '--lec-side-dock-width': `${dockWidth}px` } as CSSProperties} ref={root} tabIndex={0} onKeyDown={onKeyDown} onPointerDownCapture={event => { if (!svg.current?.contains(event.target as Node)) lastTap.current = undefined; }} onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) lastTap.current = undefined; }} data-testid="editor" data-camera-animating={cameraAnimating || undefined}>
+  return <div className="lec-editor" data-toolbar-dock={docked ? dockSide : 'inline'} style={{ '--lec-dock-space': docked && dockSide === 'bottom' ? `calc(${dockHeight + 16}px + var(--lec-navbar-inset, 0px))` : docked && dockSide === 'top' ? `${dockHeight + 16}px` : '0px', '--lec-side-dock-width': `${dockWidth}px` } as CSSProperties} ref={root} tabIndex={0} onKeyDown={onKeyDown} onPointerDownCapture={event => { if (!svg.current?.contains(event.target as Node)) lastTap.current = undefined; }} onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) lastTap.current = undefined; }} data-testid="editor" data-camera-animating={cameraAnimating || undefined}>
 
     {menu && <FileMenu anchor={fileTrigger.current} boundary={root.current} onClose={closeMenu} footer={<button role="menuitem" className="lec-danger" onClick={() => { setMenu(false); setDialog({ title: 'Clear circuit?', description: 'Remove all parts, wires and annotations. Undo restores the circuit.', fields: [], danger: true, submit: 'Clear circuit', onSubmit: () => { cancel(); session.edit('Clear circuit', d => Object.assign(d, emptyDocument(doc.title))); } }); }}>Clear circuit…</button>}>
       <button role="menuitem" onClick={() => { setMenu(false); if (host.newDocument) void host.newDocument().catch(notify); else setDialog({ title: 'New circuit', description: 'Clear this workspace. Export your current circuit first if you want a separate file. Undo remains available.', fields: [], submit: 'New circuit', onSubmit: () => { cancel(); session.edit('New circuit', d => Object.assign(d, emptyDocument())); } }); }}>New circuit</button>
@@ -529,6 +531,8 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
       <button role="menuitemcheckbox" aria-checked={snapping} onClick={() => moreAction(() => setSnapping(!snapping))}><span className="lec-menu-check" aria-hidden="true">{snapping ? '✓' : ''}</span>Snap to grid</button>
       <button role="menuitem" onClick={() => moreAction(showChecks)}>Checks{checks.length > 0 && <small aria-hidden="true" className="lec-menu-count">{checks.length}</small>}</button>
       <button role="menuitem" onClick={() => moreAction(() => setShortcutsOpen(true))}>Keyboard shortcuts…</button>
+      <div className="lec-menu-caption">Help improve the editor</div>
+      <button role="menuitem" onClick={() => moreAction(() => setFeedbackOpen(true))}><Icon name="feedback" />Send feedback</button>
     </FileMenu>}
     {['error', 'conflict', 'deleted'].includes(saveState.status) && <div className="lec-save-alert" role="alert"><span>{saveState.message}</span>{saveState.status === 'error' && <button onClick={() => void save?.retry()}>Retry</button>}{saveState.status === 'conflict' && <><button onClick={() => setDialog({ title: 'Review both versions', fields: [{ name: 'local', label: 'Local version', type: 'textarea', value: serializeDocument(doc) }, { name: 'external', label: 'External version', type: 'textarea', value: saveState.external ?? '' }], submit: 'Close', onSubmit: () => {} })}>Review</button><button onClick={() => void save?.resolve('local').catch(notify)}>Keep local</button><button onClick={() => void save?.resolve('external').catch(notify)}>Use external</button></>}<button onClick={() => void doExport('json')}>Save a copy</button></div>}
     <div className="lec-layout">
@@ -611,6 +615,7 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
       </div></aside>
     </div>
     {shortcutsOpen && <ShortcutsDialog bindings={shortcuts} save={preferences.save} close={closeShortcuts} />}
+    {feedbackOpen && <FeedbackDialog close={() => { setFeedbackOpen(false); root.current?.focus({ preventScroll: true }); }} />}
     {notice && <div className="lec-notice" role="status"><span>{notice}</span><button onClick={() => setNotice('')} aria-label="Dismiss message">×</button></div>}
     {availableCandidates.length > 0 && <DialogFrame title={candidateAction === 'wire' ? 'Choose connection target' : 'Choose object'} description="These objects are close together. Choose explicitly." close={() => setCandidates([])}>{availableCandidates.map(candidate => <button className="lec-object-row" key={candidate.target.kind === 'pin' ? anchorKey(candidate.target) : candidate.objectId} onClick={() => choose(candidate)}>{candidate.label}</button>)}{candidateJoin && <button onClick={joinCandidates}>Join both wires explicitly</button>}<button onClick={() => setCandidates([])}>Cancel</button></DialogFrame>}
     {dialog && <Dialog key={dialog.title} spec={dialog} close={() => setDialog(null)} />}

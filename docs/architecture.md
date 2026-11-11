@@ -1,6 +1,6 @@
 # Architecture
 
-One npm package produces a browser-safe CommonJS plugin bundle. The public Obsidian module is provided by the host; React, React DOM, Zod, original symbols and examples are bundled. Production output has no chunks, workers, native modules, runtime network calls or other required assets. Node 24 is a contributor build requirement only.
+One npm package produces a browser-safe CommonJS plugin bundle. The public Obsidian module is provided by the host; React, React DOM, Zod Mini with English errors, original symbols and examples are bundled. Production output has no chunks, workers, native modules, runtime network calls or other required assets. Node 24 is a contributor build requirement only.
 
 `src/core` owns the validated document, graph, integer geometry, bounded router, atomic edits, history and shared sessions. It has no React/Obsidian imports. `src/editor` translates pointer/keyboard intent into operations and renders SVG. `src/obsidian` adapts vault persistence, TextFileView and Markdown previews. `src/io` generates portable SVG/PNG. The development harness uses exactly the same core and editor, with explicit file downloads instead of vault storage.
 
@@ -21,3 +21,5 @@ The optional future SimulationAdapter consumes revision-tagged documents/nets an
 Overlap diagnostics use bounded spatial buckets and normalized collinear interval sweeps. Reports cap at 200 entries; extreme symbol bounds produce an explicit bounded-check diagnostic rather than expanding millions of cells.
 
 The 0.1.1 workspace reads host theme variables directly, uses a categorized top-toolbar picker, and leaves the canvas full width until Properties is requested. The picker, gesture controls and canvas own distinct pointer sequences. Finish uses a committed canvas point, never the control's screen coordinates. Annotation transformations have preview-only gestures and atomic commit/undo; text scales proportionally by default.
+
+Feedback uses ordinary external links to repository issue templates, activated explicitly by the user. Opening the dialog makes no network request and attaches no circuit/vault content. Zod Mini replaces the classic schema API so unused format validators and base64 codecs can be removed by the bundler; strict objects, numeric/string/array limits, annotation defaults, graph validation and schema version remain unchanged.

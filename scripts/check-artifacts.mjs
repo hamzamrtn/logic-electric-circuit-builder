@@ -13,4 +13,11 @@ const source = await readFile('main.js', 'utf8');
 assert(!/\.createElement\(\s*["']script["']\s*\)/.test(source), 'Bundled runtime must not include a script-element loader');
 assert(!/require\(["'](?:node:|electron|fs["']|child_process)/.test(source), 'Runtime Node/Electron import');
 assert(!/https?:\/\/[^\s"']+\.(?:js|wasm|woff2?)["']/.test(source), 'Remote runtime asset');
+assert(!/\b(?:atob|btoa)\s*\(/.test(source), 'Unused base64 codecs must not return to the release bundle');
+const css = await readFile('styles.css', 'utf8');
+assert(!/:has\s*\(/.test(css), 'Use explicit layout state instead of :has selectors');
+assert(!/\bclip-path\s*:/.test(css), 'Keep accessible hidden labels compatible without clip-path');
+for (const [, selector, declarations] of css.matchAll(/([^{}]+)\{([^{}]*)\}/g)) {
+  assert([...declarations.matchAll(/(?:^|;)\s*background\s*:/g)].length <= 1, `${selector.trim()}: duplicate background; put feature fallbacks in separate @supports rules`);
+}
 console.log(`Verified three install assets; ${Math.round(output.bytes / 1024)} KiB main.js; only obsidian external.`);

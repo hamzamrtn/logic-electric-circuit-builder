@@ -33,3 +33,7 @@ The Open/Find circuit picker and legacy previews that specify only a filename en
 **Exclude recovery backups** is enabled by default where the host supports it. It adds the recovery folder to **Settings → Files and links → Excluded files**, hiding its contents from Search/Graph and deprioritizing them in Quick Switcher. The folder stays accessible in the file explorer. This applies to all files in that folder, so use a dedicated backup folder. Changing the recovery location replaces only the rule added by this plugin; pre-existing exclusions stay yours. Turning the option off removes only the plugin's own rule. If you remove that rule manually, it stays removed until you explicitly re-enable the option or choose a different folder. If automatic exclusion is unavailable, you can add the folder through Obsidian's Excluded files settings; recovery still works.
 
 Obsidian Sync needs **Sync all other types** to sync `.lecircuit`; plugin installation, enablement and settings sync are separate. If a preview path becomes stale after renaming, use Find circuit to update that block. New previews do not add a separate wiki-link heading.
+
+## Feedback
+
+Open **More → Send feedback** (the lightning icon) to suggest an idea or report a problem. The dialog explains personal review and possible turnaround, then opens the matching GitHub form in a separate page. Write as much detail as you need; a GitHub account is required to submit. Your circuit and unfinished wires stay in place when you close the dialog.

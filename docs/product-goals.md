@@ -8,7 +8,7 @@ Build a **comprehensive, very intuitive, organized and powerful circuit editor i
 
 Support meaningful electrical and digital logic schematics in the same coherent workspace. A user should be able to start easily, develop a substantial circuit, reorganize connected parts, document it in notes, and export a readable result. Capability and approachability must grow together.
 
-The current product is an offline schematic editor for drawing and documentation. Symbols and structural checks do not imply electrical simulation. The owner's openness to useful features is not a request to introduce a simulator or redesign the product around one.
+The current product is an offline schematic editor for drawing and documentation. Symbols and structural checks do not imply electrical simulation. On 2026-11-11 the owner explicitly authorized beginning the digital-simulation update after the pending release. Follow the roadmap’s bounded initial milestone; do not claim simulation is available before its implementation and qualification are complete.
 
 ## Intuitive and organized
 
@@ -36,6 +36,10 @@ The owner approved subtle, brief placement and wire feedback, pin-target confirm
 
 Alignment aids should help users make deliberate choices. Avoid unexpected coordinate nudges. Warnings should be useful and quiet, with a clear recovery path rather than persistent visual noise.
 
+## Personal feedback
+
+Offer **More → Send feedback** with a lightning icon, welcoming ideas, bug reports and detailed explanations. The dialog should communicate that the maintainer reviews feedback personally and useful, straightforward improvements can often reach an update within a day or two, while larger ideas take longer. Keep that an expectation rather than a guaranteed deadline. Provide separate idea and problem-report routes on GitHub; add email only when the owner supplies a public contact address.
+
 ## Touch and mobile are core workflows
 
 Desktop, tablet and phone should share essential editing capabilities, with layouts appropriate to each screen and practical touch targets. Do not depend on hover, a hardware keyboard, desktop APIs or precision mouse input for essential operations.
@@ -59,6 +63,8 @@ Offer optional exclusion of recovery folders from everyday Search/Graph results,
 The owner asks for professional work without mistakes and wants no bugs slipping through. Treat that as a high quality bar: reproduce reported problems, inspect related failure modes, fix root causes and verify the relevant complete workflows. Passing tests alone is not proof of flawless behavior. Be candid about real qualification gaps; never promise a universal zero-bug guarantee.
 
 ## Proactive improvement
+
+The [capability roadmap](roadmap.md) records proposed major work, including digital simulation, hierarchical subcircuits, personal libraries, analog analysis and engineering-owned verification. Use it when scoping future capabilities; its milestones are proposals, not claims of implemented features or authorization to publish.
 
 The owner also expects efficient execution and continuous learning. Briefly review the approach during work, correct avoidable rework and scope expansion promptly, sequence verification sensibly, and give realistic progress updates. Preserve the product's quality bar while improving how the work is done. The concrete workflow and lessons are in [AGENTS.md](../AGENTS.md).
 

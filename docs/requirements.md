@@ -17,6 +17,7 @@ Implementation is separate from qualification. The handover’s 42 acceptance sc
 | Notes/sharing | Public code-fence previews, normal links, SVG/PNG/JSON export, missing-path repair state | SVG/XML and real PNG encoding checked; Reading/Live Preview/rename/Publish fallback pending actual host |
 | Persistence | One queue per TFile, baseline comparison, completed revision status, retry, conflicts, recovery, delete guard | Delayed writes/conflicts/errors/malformed external content tested; rename/sync/force-kill need real hosts |
 | Mobile and accessibility | Container layouts, 44px phone toolbar, visible non-drag alternatives, focus, dark/reduced-motion CSS | Browser 390x844 and 1440x900 evidence; real iPhone/iPad/Android and assistive technology pending |
+| Feedback | More → Send feedback, lightning icon, personal response guidance, separate GitHub templates | [Feedback and scorecard validation](evidence/feedback-scorecard/validation.md); keyboard focus, drafts and small-pane browser checks; external submission remains user initiated |
 | Packaging | Single browser bundle and three assets, license notices, lockfile, CI, ZIP | Artifact/module smoke scripts; actual Obsidian load/unload and clean installation pending |
 
 Known implementation constraints are explicit in architecture.md: recovery sets are bounded per session but older sessions’ sets are retained; pop-out remount resets viewport/tool previews; preview path repair after reopening is manual; structural checks do not simulate a circuit. No unpublished comparative usability claim is made.

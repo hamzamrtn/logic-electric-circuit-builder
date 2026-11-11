@@ -126,7 +126,8 @@ test('More exposes selection, grid, snapping and checks with keyboard navigation
   await expect(page.getByRole('menuitemcheckbox', { name: 'Snap to grid' })).toHaveAttribute('aria-checked', 'true');
   await page.getByRole('menuitemcheckbox', { name: 'Snap to grid' }).click();
   await page.getByRole('button', { name: 'More actions' }).click(); await expect(page.getByRole('menuitemcheckbox', { name: 'Snap to grid' })).toHaveAttribute('aria-checked', 'false');
-  await page.keyboard.press('End'); await expect(page.getByRole('menuitem', { name: 'Keyboard shortcuts…' })).toBeFocused();
+  await page.keyboard.press('End'); await expect(page.getByRole('menuitem', { name: 'Send feedback', exact: true })).toBeFocused();
+  await page.keyboard.press('ArrowUp'); await expect(page.getByRole('menuitem', { name: 'Keyboard shortcuts…' })).toBeFocused();
   await page.keyboard.press('Home'); await expect(page.getByRole('menuitem', { name: 'Select all', exact: true })).toBeFocused();
   await page.getByRole('menuitem', { name: 'Checks', exact: true }).click(); await expect(page.getByRole('tab', { name: 'Checks', exact: true })).toHaveAttribute('aria-selected', 'true');
   await page.getByRole('button', { name: 'Wire', exact: true }).click(); await expect(page.locator('.lec-inspector')).not.toBeVisible();

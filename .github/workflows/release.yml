@@ -56,5 +56,4 @@ jobs:
             dist/logic-electric-circuit-builder/main.js \
             dist/logic-electric-circuit-builder/manifest.json \
             dist/logic-electric-circuit-builder/styles.css \
-            "dist/logic-electric-circuit-builder-${RELEASE_TAG}.zip" \
             --clobber

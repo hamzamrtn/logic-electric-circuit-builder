@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.11 — feedback and release review cleanup
+
+- Add a lightning-icon Send feedback action in More, with personal response guidance and separate GitHub idea and bug-report templates. Preserve drawing state, wire drafts and keyboard focus.
+- Replace three `:has()` layout selectors with explicit dock state, separate CSS background fallbacks and use compatible screen-reader hiding without `clip-path`.
+- Exclude unused base64 validators/codecs through Zod Mini while preserving strict document validation, limits, defaults and English errors. Add release artifact checks against these findings returning.
+- Attach only main.js, manifest.json and styles.css to future GitHub releases. Keep the optional ZIP in downloadable Actions artifacts and local packages.
+- Add the capability roadmap for digital simulation, reuse, analog analysis and engineering-owned verification.
+
 ## 0.1.10 — compact docks and clearer movement
 
 - Keep floating docks compact over a full-size canvas, with no reserved blank sidebar or full-width mobile-style dock on desktop. Top restores the original inline desktop row by dragging or selection.

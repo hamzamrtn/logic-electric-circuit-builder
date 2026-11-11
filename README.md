@@ -49,6 +49,8 @@ Open a new circuit with the ribbon icon or **Logic-Electric Circuit Builder: New
 
 From a note, run **Insert circuit preview** to bring the drawing into your notes. Explore the [editable example circuits](examples/showcase/README.md) for ideas, or follow the [editing and shortcuts guide](docs/user-guide.md).
 
+Have an idea or found a problem? Open **More → Send feedback** in the circuit editor to help shape the next update.
+
 Built for schematic drawing and documentation. Simulation is outside its scope.
 
 Created by **Hamza**. [MIT licensed](LICENSE). [Contributing and technical documentation](CONTRIBUTING.md).
