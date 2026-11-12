@@ -258,3 +258,30 @@ export const showcase = [false, true].flatMap(mobile => [
   busSheet(mobile),
   compose('timer', mobile, 'Pulse, protect, drive', '555 timing / local bypass / transistor output stage', [timer, timingCap, driver, status]),
 ]);
+
+// A compact full-adder layout leaves room for four connected bit stages in a note.
+const noteAdder = (bit: number): Stage => s => {
+  s.section(`0${bit + 1}`, `Full adder / bit ${bit}`, 'XOR sum path / AND-OR carry network');
+  const x1 = s.part('XOR', 144, 72), x2 = s.part('XOR', 336, 72);
+  const a1 = s.part('AND', 144, 184), a2 = s.part('AND', 336, 184), o = s.part('OR', 432, 248);
+  const a = s.node(48, 64), b = s.node(32, 80), carry = s.node(240, 80), p = s.node(224, 72);
+  s.net(`A${bit}`, a, -24, -12); s.net(`B${bit}`, b, -24, 24); s.net(`C${bit}`, carry, 0, 32);
+  s.wire(a, s.pin(x1, 'in-0')); s.wire(b, s.pin(x1, 'in-1')); s.wire(s.pin(x1, 'out'), p);
+  s.wire(p, s.pin(x2, 'in-0'), [[256, 72], [256, 64]]); s.wire(carry, s.pin(x2, 'in-1'));
+  s.wire(a, s.pin(a1, 'in-0'), [[48, 176]]); s.wire(b, s.pin(a1, 'in-1'), [[32, 192]]);
+  s.wire(p, s.pin(a2, 'in-0'), [[224, 144], [256, 144], [256, 176]]);
+  s.wire(carry, s.pin(a2, 'in-1'), [[240, 192]]);
+  s.wire(s.pin(a1, 'out'), s.pin(o, 'in-0'), [[208, 184], [208, 240]]);
+  s.wire(s.pin(a2, 'out'), s.pin(o, 'in-1'), [[400, 184], [400, 256]]);
+  s.net(`S${bit}`, s.pin(x2, 'out'), 16, -8); s.net(`C${bit + 1}`, s.pin(o, 'out'), 8, -8);
+};
+
+// Complete study systems, with readable stage groupings at note width.
+export const noteShowcase = [
+  { key: 'Ripple-carry adder', title: 'Four-bit ripple-carry adder', stages: [noteAdder(0), noteAdder(1), noteAdder(2), noteAdder(3)], rowHeight: 328 },
+  { key: 'Filter and amplifier', title: 'Photodiode signal conditioning and threshold detection', stages: [sensor, lowPass, amplifier, threshold], rowHeight: 360 },
+].map(({ key, title, stages, rowHeight }) => {
+  const sheet = new Sheet(title);
+  stages.forEach((stage, i) => { sheet.at((i % 2) * 576, Math.floor(i / 2) * rowHeight); stage(sheet); });
+  return { key, document: finish(sheet.doc, `note-${key.toLowerCase().replaceAll(' ', '-')}`).document };
+});

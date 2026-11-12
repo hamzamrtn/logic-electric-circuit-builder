@@ -4,11 +4,25 @@
 
 A clean, intuitive workspace with the tools to build complete electrical and logic schematics. Search 72 symbols, create your own ICs, and reshape connected circuits with precise wire routing. Keep your diagrams beside the notes that explain them, with everything offline and in your vault.
 
-![Gate-level ripple-carry adder with output control and clock circuitry in the desktop editor](docs/screenshots/desktop-logic.png)
-
 **72 built-in symbols · Custom IC blocks · Explicit bus lanes · Live note previews · SVG & PNG export**
 
+## Your circuits, inside your notes
+
+Explain the topic around the drawing. Embed a live circuit preview in a study note, lab notebook or project write-up, and open the original whenever you want to edit it.
+
+**Logic · light theme.** A four-bit ripple-carry adder, its gate-level connections, worked arithmetic and an explanation of delay and overflow.
+
+[![Example logic study note in Obsidian's light theme, with an embedded twenty-gate ripple-carry adder, a worked 0110 + 0011 example and explanations of carry, delay and signed overflow](docs/screenshots/note-logic-light.png)](docs/screenshots/note-logic-light.png)
+
+**Electrical · dark theme.** A complete photodiode signal chain with filtering, amplification and threshold detection, plus component calculations and lab questions.
+
+[![Example electrical lab note in Obsidian's dark theme, with an embedded photodiode front end, two-stage RC filter, non-inverting amplifier, comparator and explanatory text](docs/screenshots/note-electrical-dark.png)](docs/screenshots/note-electrical-dark.png)
+
+[Try these example notes and editable circuits](examples/notes/README.md).
+
 ## From electrical circuits to digital logic
+
+![Gate-level ripple-carry adder with output control and clock circuitry in the desktop editor](docs/screenshots/desktop-logic.png)
 
 | Power supplies | Analog signal chains |
 | --- | --- |
@@ -28,7 +42,7 @@ The same circuit tools on a screen that suits you. Swipe to pan, pinch to zoom, 
   <a href="docs/screenshots/mobile-timer.png"><img src="docs/screenshots/mobile-timer.png" width="19%" alt="Phone: timer, timing capacitors and transistor relay driver"></a>
 </p>
 
-Click any image for full resolution, or [explore all ten screenshots and editable examples](docs/screenshots/README.md).
+Click any image for full resolution, or [explore all twelve screenshots and editable examples](docs/screenshots/README.md).
 
 ## Powerful tools, clean workspace
 

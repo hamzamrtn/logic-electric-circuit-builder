@@ -1,5 +1,17 @@
 [
   {
+    "file": "note-logic-light.png",
+    "width": 2640,
+    "height": 2640,
+    "sha256": "ec721b1bc38d8115c6a9de621c61c48c2c1ff90a2fd2ecf66447cfb38e10b3b2"
+  },
+  {
+    "file": "note-electrical-dark.png",
+    "width": 2640,
+    "height": 2640,
+    "sha256": "265de51c4f2e1e0557b520fc98446d189d76d6abe5e3c1f2d8e9f0e5517cafd5"
+  },
+  {
     "file": "desktop-power.png",
     "width": 3200,
     "height": 2100,

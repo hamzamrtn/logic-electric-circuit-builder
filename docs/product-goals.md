@@ -90,6 +90,8 @@ The owner specifically requested and approved a gallery of five desktop and five
 
 Keep screenshots and listing claims aligned with what the product actually does. Preserve reproducible capture sources and identify emulation honestly. Current assets and instructions are in [screenshots/README.md](screenshots/README.md).
 
+Show note embedding near the beginning of the README with two actual Obsidian captures: a light logic study note and a dark electrical study note. Use credible student-style explanations and substantial circuits with multiple related stages that demonstrate useful capability while remaining readable at listing size. Keep the note content in a centered column, use restrained bold text, avoid an amber warning callout and demonstrate smaller previews with the existing width option.
+
 ## Keeping this context useful
 
 The owner permits routine cleanup of obsolete generated ZIPs, extracted build copies and older release assets. Keep release downloads easy to identify and avoid accumulating pre-release clutter. Verify replacement assets before removing superseded copies; preserve user circuits, recovery data, source history and published tag identities. Retain the current published version while its replacement is being prepared. This permission is not an instruction to publish a release on the owner's behalf.

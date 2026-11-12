@@ -1,0 +1,32 @@
+[
+  {
+    "file": "note-logic-light.png",
+    "fixture": "examples/notes/Ripple-carry adder.lecircuit",
+    "sourceNote": "examples/notes/Logic - Ripple-carry addition.md",
+    "style": "examples/notes/study-notes.css",
+    "previewWidth": "90%",
+    "theme": "light",
+    "viewport": "1320 × 1320",
+    "pixels": "2640 × 2640",
+    "parts": 20,
+    "wires": 44,
+    "host": "Obsidian 1.14.4",
+    "method": "Installed desktop app, headless Electron, native Reading view and default theme with the included study-note CSS snippet",
+    "pluginVersion": "0.1.11"
+  },
+  {
+    "file": "note-electrical-dark.png",
+    "fixture": "examples/notes/Filter and amplifier.lecircuit",
+    "sourceNote": "examples/notes/Electrical - Filtering a sensor signal.md",
+    "style": "examples/notes/study-notes.css",
+    "previewWidth": "90%",
+    "theme": "dark",
+    "viewport": "1320 × 1320",
+    "pixels": "2640 × 2640",
+    "parts": 19,
+    "wires": 30,
+    "host": "Obsidian 1.14.4",
+    "method": "Installed desktop app, headless Electron, native Reading view and default theme with the included study-note CSS snippet",
+    "pluginVersion": "0.1.11"
+  }
+]

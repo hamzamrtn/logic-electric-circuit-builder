@@ -1,0 +1,21 @@
+/* Optional Obsidian snippet for these example notes only. */
+.circuit-study-note .markdown-preview-sizer {
+  max-width: 920px;
+  margin-inline: auto;
+}
+.circuit-study-note .inline-title {
+  text-align: center;
+  font-size: 1.65em;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+.circuit-study-note h2 { font-size: 1.25em; font-weight: 500; }
+.circuit-study-note h3 { font-size: 1.05em; font-weight: 500; }
+.circuit-study-note p { line-height: 1.65; }
+.circuit-study-note p:has(> em:only-child) {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85em;
+  margin-bottom: 24px;
+}
+.circuit-study-note .lec-preview { margin-inline: auto; }

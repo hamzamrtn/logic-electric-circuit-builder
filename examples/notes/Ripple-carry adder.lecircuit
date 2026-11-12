@@ -1,0 +1,2520 @@
+{
+  "format": "logic-electric-circuit",
+  "schemaVersion": 1,
+  "id": "showcase.note-ripple-carry-adder.doc1",
+  "title": "Four-bit ripple-carry adder",
+  "components": [
+    {
+      "id": "showcase.note-ripple-carry-adder.c1",
+      "definitionId": "builtin.gate-xor-2.v1",
+      "position": {
+        "x": 144,
+        "y": 104
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U1",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.c2",
+      "definitionId": "builtin.gate-xor-2.v1",
+      "position": {
+        "x": 336,
+        "y": 104
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U2",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.c3",
+      "definitionId": "builtin.gate-and-2.v1",
+      "position": {
+        "x": 144,
+        "y": 216
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U3",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.c4",
+      "definitionId": "builtin.gate-and-2.v1",
+      "position": {
+        "x": 336,
+        "y": 216
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U4",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.c5",
+      "definitionId": "builtin.gate-or-2.v1",
+      "position": {
+        "x": 432,
+        "y": 280
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U5",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.c6",
+      "definitionId": "builtin.gate-xor-2.v1",
+      "position": {
+        "x": 720,
+        "y": 104
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U6",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.c7",
+      "definitionId": "builtin.gate-xor-2.v1",
+      "position": {
+        "x": 912,
+        "y": 104
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U7",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.c8",
+      "definitionId": "builtin.gate-and-2.v1",
+      "position": {
+        "x": 720,
+        "y": 216
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U8",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.c9",
+      "definitionId": "builtin.gate-and-2.v1",
+      "position": {
+        "x": 912,
+        "y": 216
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U9",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.c10",
+      "definitionId": "builtin.gate-or-2.v1",
+      "position": {
+        "x": 1008,
+        "y": 280
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U10",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.c11",
+      "definitionId": "builtin.gate-xor-2.v1",
+      "position": {
+        "x": 144,
+        "y": 432
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U11",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.c12",
+      "definitionId": "builtin.gate-xor-2.v1",
+      "position": {
+        "x": 336,
+        "y": 432
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U12",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.c13",
+      "definitionId": "builtin.gate-and-2.v1",
+      "position": {
+        "x": 144,
+        "y": 544
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U13",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.c14",
+      "definitionId": "builtin.gate-and-2.v1",
+      "position": {
+        "x": 336,
+        "y": 544
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U14",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.c15",
+      "definitionId": "builtin.gate-or-2.v1",
+      "position": {
+        "x": 432,
+        "y": 608
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U15",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.c16",
+      "definitionId": "builtin.gate-xor-2.v1",
+      "position": {
+        "x": 720,
+        "y": 432
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U16",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.c17",
+      "definitionId": "builtin.gate-xor-2.v1",
+      "position": {
+        "x": 912,
+        "y": 432
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U17",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.c18",
+      "definitionId": "builtin.gate-and-2.v1",
+      "position": {
+        "x": 720,
+        "y": 544
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U18",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.c19",
+      "definitionId": "builtin.gate-and-2.v1",
+      "position": {
+        "x": 912,
+        "y": 544
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U19",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.c20",
+      "definitionId": "builtin.gate-or-2.v1",
+      "position": {
+        "x": 1008,
+        "y": 608
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U20",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    }
+  ],
+  "nodes": [
+    {
+      "id": "showcase.note-ripple-carry-adder.n1",
+      "position": {
+        "x": 48,
+        "y": 96
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.n2",
+      "position": {
+        "x": 32,
+        "y": 112
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.n3",
+      "position": {
+        "x": 240,
+        "y": 112
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.n4",
+      "position": {
+        "x": 224,
+        "y": 104
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.n5",
+      "position": {
+        "x": 624,
+        "y": 96
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.n6",
+      "position": {
+        "x": 608,
+        "y": 112
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.n7",
+      "position": {
+        "x": 816,
+        "y": 112
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.n8",
+      "position": {
+        "x": 800,
+        "y": 104
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.n9",
+      "position": {
+        "x": 48,
+        "y": 424
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.n10",
+      "position": {
+        "x": 32,
+        "y": 440
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.n11",
+      "position": {
+        "x": 240,
+        "y": 440
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.n12",
+      "position": {
+        "x": 224,
+        "y": 432
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.n13",
+      "position": {
+        "x": 624,
+        "y": 424
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.n14",
+      "position": {
+        "x": 608,
+        "y": 440
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.n15",
+      "position": {
+        "x": 816,
+        "y": 440
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.n16",
+      "position": {
+        "x": 800,
+        "y": 432
+      },
+      "explicit": false
+    }
+  ],
+  "wires": [
+    {
+      "id": "showcase.note-ripple-carry-adder.w1",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n1"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c1",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w2",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n2"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c1",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w3",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c1",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n4"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w4",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n4"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c2",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 256,
+            "y": 104,
+            "id": "showcase.note-ripple-carry-adder.bend1",
+            "locked": true
+          },
+          {
+            "x": 256,
+            "y": 96,
+            "id": "showcase.note-ripple-carry-adder.bend2",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w5",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n3"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c2",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w6",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n1"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c3",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 48,
+            "y": 208,
+            "id": "showcase.note-ripple-carry-adder.bend3",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w7",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n2"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c3",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 32,
+            "y": 224,
+            "id": "showcase.note-ripple-carry-adder.bend4",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w8",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n4"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c4",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 224,
+            "y": 176,
+            "id": "showcase.note-ripple-carry-adder.bend5",
+            "locked": true
+          },
+          {
+            "x": 256,
+            "y": 176,
+            "id": "showcase.note-ripple-carry-adder.bend6",
+            "locked": true
+          },
+          {
+            "x": 256,
+            "y": 208,
+            "id": "showcase.note-ripple-carry-adder.bend7",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w9",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n3"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c4",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 240,
+            "y": 224,
+            "id": "showcase.note-ripple-carry-adder.bend8",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w10",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c3",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c5",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 208,
+            "y": 216,
+            "id": "showcase.note-ripple-carry-adder.bend9",
+            "locked": true
+          },
+          {
+            "x": 208,
+            "y": 272,
+            "id": "showcase.note-ripple-carry-adder.bend10",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w11",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c4",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c5",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 400,
+            "y": 216,
+            "id": "showcase.note-ripple-carry-adder.bend11",
+            "locked": true
+          },
+          {
+            "x": 400,
+            "y": 288,
+            "id": "showcase.note-ripple-carry-adder.bend12",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w12",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n5"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c6",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w13",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n6"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c6",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w14",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c6",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n8"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w15",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n8"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c7",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 832,
+            "y": 104,
+            "id": "showcase.note-ripple-carry-adder.bend13",
+            "locked": true
+          },
+          {
+            "x": 832,
+            "y": 96,
+            "id": "showcase.note-ripple-carry-adder.bend14",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w16",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n7"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c7",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w17",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n5"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c8",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 624,
+            "y": 208,
+            "id": "showcase.note-ripple-carry-adder.bend15",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w18",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n6"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c8",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 608,
+            "y": 224,
+            "id": "showcase.note-ripple-carry-adder.bend16",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w19",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n8"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c9",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 800,
+            "y": 176,
+            "id": "showcase.note-ripple-carry-adder.bend17",
+            "locked": true
+          },
+          {
+            "x": 832,
+            "y": 176,
+            "id": "showcase.note-ripple-carry-adder.bend18",
+            "locked": true
+          },
+          {
+            "x": 832,
+            "y": 208,
+            "id": "showcase.note-ripple-carry-adder.bend19",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w20",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n7"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c9",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 816,
+            "y": 224,
+            "id": "showcase.note-ripple-carry-adder.bend20",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w21",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c8",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c10",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 784,
+            "y": 216,
+            "id": "showcase.note-ripple-carry-adder.bend21",
+            "locked": true
+          },
+          {
+            "x": 784,
+            "y": 272,
+            "id": "showcase.note-ripple-carry-adder.bend22",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w22",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c9",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c10",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 976,
+            "y": 216,
+            "id": "showcase.note-ripple-carry-adder.bend23",
+            "locked": true
+          },
+          {
+            "x": 976,
+            "y": 288,
+            "id": "showcase.note-ripple-carry-adder.bend24",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w23",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n9"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c11",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w24",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n10"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c11",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w25",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c11",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n12"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w26",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n12"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c12",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 256,
+            "y": 432,
+            "id": "showcase.note-ripple-carry-adder.bend25",
+            "locked": true
+          },
+          {
+            "x": 256,
+            "y": 424,
+            "id": "showcase.note-ripple-carry-adder.bend26",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w27",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n11"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c12",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w28",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n9"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c13",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 48,
+            "y": 536,
+            "id": "showcase.note-ripple-carry-adder.bend27",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w29",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n10"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c13",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 32,
+            "y": 552,
+            "id": "showcase.note-ripple-carry-adder.bend28",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w30",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n12"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c14",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 224,
+            "y": 504,
+            "id": "showcase.note-ripple-carry-adder.bend29",
+            "locked": true
+          },
+          {
+            "x": 256,
+            "y": 504,
+            "id": "showcase.note-ripple-carry-adder.bend30",
+            "locked": true
+          },
+          {
+            "x": 256,
+            "y": 536,
+            "id": "showcase.note-ripple-carry-adder.bend31",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w31",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n11"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c14",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 240,
+            "y": 552,
+            "id": "showcase.note-ripple-carry-adder.bend32",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w32",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c13",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c15",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 208,
+            "y": 544,
+            "id": "showcase.note-ripple-carry-adder.bend33",
+            "locked": true
+          },
+          {
+            "x": 208,
+            "y": 600,
+            "id": "showcase.note-ripple-carry-adder.bend34",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w33",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c14",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c15",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 400,
+            "y": 544,
+            "id": "showcase.note-ripple-carry-adder.bend35",
+            "locked": true
+          },
+          {
+            "x": 400,
+            "y": 616,
+            "id": "showcase.note-ripple-carry-adder.bend36",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w34",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n13"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c16",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w35",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n14"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c16",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w36",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c16",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n16"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w37",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n16"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c17",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 832,
+            "y": 432,
+            "id": "showcase.note-ripple-carry-adder.bend37",
+            "locked": true
+          },
+          {
+            "x": 832,
+            "y": 424,
+            "id": "showcase.note-ripple-carry-adder.bend38",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w38",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n15"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c17",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w39",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n13"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c18",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 624,
+            "y": 536,
+            "id": "showcase.note-ripple-carry-adder.bend39",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w40",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n14"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c18",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 608,
+            "y": 552,
+            "id": "showcase.note-ripple-carry-adder.bend40",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w41",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n16"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c19",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 800,
+            "y": 504,
+            "id": "showcase.note-ripple-carry-adder.bend41",
+            "locked": true
+          },
+          {
+            "x": 832,
+            "y": 504,
+            "id": "showcase.note-ripple-carry-adder.bend42",
+            "locked": true
+          },
+          {
+            "x": 832,
+            "y": 536,
+            "id": "showcase.note-ripple-carry-adder.bend43",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w42",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n15"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c19",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 816,
+            "y": 552,
+            "id": "showcase.note-ripple-carry-adder.bend44",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w43",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c18",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c20",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 784,
+            "y": 544,
+            "id": "showcase.note-ripple-carry-adder.bend45",
+            "locked": true
+          },
+          {
+            "x": 784,
+            "y": 600,
+            "id": "showcase.note-ripple-carry-adder.bend46",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.w44",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c19",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c20",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 976,
+            "y": 544,
+            "id": "showcase.note-ripple-carry-adder.bend47",
+            "locked": true
+          },
+          {
+            "x": 976,
+            "y": 616,
+            "id": "showcase.note-ripple-carry-adder.bend48",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    }
+  ],
+  "annotations": [
+    {
+      "id": "showcase.note-ripple-carry-adder.a1",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "text": "01  Full adder / bit 0",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 19
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.a2",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 24
+      },
+      "text": "XOR sum path / AND-OR carry network",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 12
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.a3",
+      "kind": "label",
+      "position": {
+        "x": 24,
+        "y": 88
+      },
+      "text": "A0",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.a4",
+      "kind": "label",
+      "position": {
+        "x": 8,
+        "y": 136
+      },
+      "text": "B0",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n2"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.a5",
+      "kind": "label",
+      "position": {
+        "x": 240,
+        "y": 144
+      },
+      "text": "C0",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n3"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.a6",
+      "kind": "label",
+      "position": {
+        "x": 400,
+        "y": 96
+      },
+      "text": "S0",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c2",
+        "pinId": "out"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.a7",
+      "kind": "label",
+      "position": {
+        "x": 488,
+        "y": 272
+      },
+      "text": "C1",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c5",
+        "pinId": "out"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.a8",
+      "kind": "text",
+      "position": {
+        "x": 576,
+        "y": 0
+      },
+      "text": "02  Full adder / bit 1",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 19
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.a9",
+      "kind": "text",
+      "position": {
+        "x": 576,
+        "y": 24
+      },
+      "text": "XOR sum path / AND-OR carry network",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 12
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.a10",
+      "kind": "label",
+      "position": {
+        "x": 600,
+        "y": 88
+      },
+      "text": "A1",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n5"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.a11",
+      "kind": "label",
+      "position": {
+        "x": 584,
+        "y": 136
+      },
+      "text": "B1",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n6"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.a12",
+      "kind": "label",
+      "position": {
+        "x": 816,
+        "y": 144
+      },
+      "text": "C1",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n7"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.a13",
+      "kind": "label",
+      "position": {
+        "x": 976,
+        "y": 96
+      },
+      "text": "S1",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c7",
+        "pinId": "out"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.a14",
+      "kind": "label",
+      "position": {
+        "x": 1064,
+        "y": 272
+      },
+      "text": "C2",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c10",
+        "pinId": "out"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.a15",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 328
+      },
+      "text": "03  Full adder / bit 2",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 19
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.a16",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": 352
+      },
+      "text": "XOR sum path / AND-OR carry network",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 12
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.a17",
+      "kind": "label",
+      "position": {
+        "x": 24,
+        "y": 416
+      },
+      "text": "A2",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n9"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.a18",
+      "kind": "label",
+      "position": {
+        "x": 8,
+        "y": 464
+      },
+      "text": "B2",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n10"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.a19",
+      "kind": "label",
+      "position": {
+        "x": 240,
+        "y": 472
+      },
+      "text": "C2",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n11"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.a20",
+      "kind": "label",
+      "position": {
+        "x": 400,
+        "y": 424
+      },
+      "text": "S2",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c12",
+        "pinId": "out"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.a21",
+      "kind": "label",
+      "position": {
+        "x": 488,
+        "y": 600
+      },
+      "text": "C3",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c15",
+        "pinId": "out"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.a22",
+      "kind": "text",
+      "position": {
+        "x": 576,
+        "y": 328
+      },
+      "text": "04  Full adder / bit 3",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 19
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.a23",
+      "kind": "text",
+      "position": {
+        "x": 576,
+        "y": 352
+      },
+      "text": "XOR sum path / AND-OR carry network",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 12
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.a24",
+      "kind": "label",
+      "position": {
+        "x": 600,
+        "y": 416
+      },
+      "text": "A3",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n13"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.a25",
+      "kind": "label",
+      "position": {
+        "x": 584,
+        "y": 464
+      },
+      "text": "B3",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n14"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.a26",
+      "kind": "label",
+      "position": {
+        "x": 816,
+        "y": 472
+      },
+      "text": "C3",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.note-ripple-carry-adder.n15"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.a27",
+      "kind": "label",
+      "position": {
+        "x": 976,
+        "y": 424
+      },
+      "text": "S3",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c17",
+        "pinId": "out"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.note-ripple-carry-adder.a28",
+      "kind": "label",
+      "position": {
+        "x": 1064,
+        "y": 600
+      },
+      "text": "C4",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.note-ripple-carry-adder.c20",
+        "pinId": "out"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    }
+  ],
+  "groups": [],
+  "definitions": [
+    {
+      "id": "builtin.gate-xor-2.v1",
+      "version": 1,
+      "name": "XOR",
+      "category": "Logic gates",
+      "aliases": [
+        "xor",
+        "gate"
+      ],
+      "prefix": "U",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "x": -48,
+          "y": -8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-1",
+          "name": "B",
+          "x": -48,
+          "y": 8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "out",
+          "name": "Y",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -28 -32 Q 4 0 -28 32 Q 12 32 28 0 Q 12 -32 -28 -32 Z"
+        },
+        {
+          "kind": "path",
+          "d": "M -34 -32 Q -2 0 -34 32"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 -8 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 8 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M 28 0 H 48"
+        }
+      ],
+      "bounds": {
+        "x": -48,
+        "y": -32,
+        "width": 96,
+        "height": 64
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.gate-and-2.v1",
+      "version": 1,
+      "name": "AND",
+      "category": "Logic gates",
+      "aliases": [
+        "and",
+        "gate"
+      ],
+      "prefix": "U",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "x": -48,
+          "y": -8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-1",
+          "name": "B",
+          "x": -48,
+          "y": 8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "out",
+          "name": "Y",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -24 -32 H 0 C 38 -32 38 32 0 32 H -24 Z"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 -8 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 8 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M 28 0 H 48"
+        }
+      ],
+      "bounds": {
+        "x": -48,
+        "y": -32,
+        "width": 96,
+        "height": 64
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.gate-or-2.v1",
+      "version": 1,
+      "name": "OR",
+      "category": "Logic gates",
+      "aliases": [
+        "or",
+        "gate"
+      ],
+      "prefix": "U",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "x": -48,
+          "y": -8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-1",
+          "name": "B",
+          "x": -48,
+          "y": 8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "out",
+          "name": "Y",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -28 -32 Q 4 0 -28 32 Q 12 32 28 0 Q 12 -32 -28 -32 Z"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 -8 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 8 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M 28 0 H 48"
+        }
+      ],
+      "bounds": {
+        "x": -48,
+        "y": -32,
+        "width": 96,
+        "height": 64
+      },
+      "defaults": {}
+    }
+  ],
+  "metadata": {
+    "purpose": "Editable gallery drawing; not simulated or electrically qualified.",
+    "layout": "Desktop"
+  }
+}
