@@ -3,7 +3,7 @@
   "name": "Logic-Electric Circuit Builder",
   "version": "1.0.0",
   "minAppVersion": "1.14.0",
-  "description": "Design and simulate electrical and logic circuits with 72 symbols, smart wiring, a live scope and truth tables. Keep editable diagrams in your notes or export SVG/PNG. Offline on desktop and mobile.",
+  "description": "Build complex circuits and run live simulations on all devices. Smart wire routing, 72 symbols and custom blocks. Embed circuits in your notes, or export as SVG/PNG.",
   "author": "Hamza",
   "isDesktopOnly": false
 }
