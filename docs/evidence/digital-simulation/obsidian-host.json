@@ -1,0 +1,43 @@
+{
+  "output": "/tmp/lec-simulation-host-3brXOg/results.json",
+  "sourceBase": "35c781fdf96a8ac4c6a239e5ab83b1f698aefc90",
+  "sourceHashes": {
+    "src/core/topology/digital.ts": "f54e3007b2f0e84ee5f2f82ebd87adbfd74907fb5aeb84296e5a925d23db6d54",
+    "src/core/session/DigitalRuntime.ts": "b6c3038856575d47d720f6e25a681b603df7bf9b9453aeae283f0d8141229a2e",
+    "src/core/session/DigitalSessions.ts": "3d87858ea17d38c7923541ff0e86c08e9cf86980ed15cb6055cbc5d629d1f131",
+    "src/components/definitions/digital.ts": "ef504fa89e78e213d39d3c7890a2b03019bb557326301b26328989bc26ab2089",
+    "src/editor/simulation/schedule.ts": "f3df65b31af9fc8d4319e6250ec9f556b48ed398c8e7a3a843035206193f1ebb",
+    "src/editor/ui/SimulationPanel.tsx": "20e4fa3a6787632b43c99d2d15e93b8ccbee70c356499f4fdc99dfd56cb2f746",
+    "src/editor/ui/Editor.tsx": "33894e36f78450b4e0063ceca656113ba7bb577314e0f2956dda44644a1942fe",
+    "src/obsidian/CircuitFileView.tsx": "aa92b39df03df02dda3b936d7156376316acdca95e7067f4ec9de5eca46f8003",
+    "src/main.ts": "2227570408b66aa91eed9fd020d686ff00085c429990806a762d7ac9ee7a8d14",
+    "dev/main.tsx": "3c976c41df09f342860472710dd37e49dee51b76d73654b7671d6ab25cdc6d16",
+    "dev/digital-memory.ts": "ffd5cb346b3aabf21618608c4544e1764587fbcada0cf2b7f9d24634d821a8ce",
+    "tests/fixtures/digital.ts": "ac1273aa8ecf8b5ee1dd33fe4ca6ab7cada026af71bb295b2f4069735243b489",
+    "tests/unit/digital.test.ts": "af709024b29ff485acdd6b73dfe8be0209a7479f54802e21198f89905055d177",
+    "tests/unit/digital-sessions.test.ts": "01fca8c5fdf6ca40dd1fe679535b7c31b922e76f3f230f07b3ced2afe150e045",
+    "tests/unit/simulation-schedule.test.ts": "c5b5a2ef2792424695d8ab33e5c545fc9dd6ad1e1cc73217a5e63894ebda7c7d",
+    "tests/e2e/simulation.spec.ts": "d894fdd4e11405fa1b4049bbef2a851d49b520a0c8a47aec9c4e5166fc8ba086",
+    "scripts/check-simulation-host.mjs": "57ccef314b88c08ca29a9df53fbf5bc22dc86b20443f3fb6237cd252b37e0ff7",
+    "scripts/check-simulation-memory.mjs": "df6aeab090d3a09c5544f53a3d2d3b7f445fae221081024b374b8fda2fe6d75c",
+    "scripts/lib/obsidian-test.mjs": "3ea8a7fc7b1240d9daf4bb2d41b11e8b2614250629b7a5a0a4e50d335de8f784",
+    "scripts/lib/simulation-source.mjs": "12452285a421600299c2660a69af347270381f68707527587f2d113663caadd3"
+  },
+  "assetHashes": {
+    "main.js": "21b983f3f4d30749e1a77a7e3f9c6fca4fc9b8cb2d1ddec7ed4c96a6a5890359",
+    "manifest.json": "7c83fcf86124c10aaf158b724f53a75ecab91bb67c25396ea6c7564d1d63f7ab",
+    "styles.css": "27248a350700c02939793489d9eecde32e6f60cd9e76aa99441f91cc6e4525cc"
+  },
+  "date": "2026-11-13T11:02:45.743Z",
+  "hostVersion": "1.14.4",
+  "sharedInputsAndResults": true,
+  "noSimulationWrites": true,
+  "hiddenViewPauseResume": true,
+  "popoutMigrationPreservesInputs": true,
+  "closeOneKeepsOtherRunning": true,
+  "lastConsumerReleased": true,
+  "previewDoesNotStartEngine": true,
+  "disableEnableReset": true,
+  "pageErrors": [],
+  "nativeCss": "/tmp/lec-simulation-host-3brXOg/native-host.css"
+}

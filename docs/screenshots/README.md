@@ -1,46 +1,46 @@
 # Screenshot gallery
 
-Twelve unretouched PNG captures, with editable source drawings: two notes captured inside the installed desktop Obsidian app and ten editor views from the standalone preview harness. The README leads with the note examples so readers can see how circuits fit into their notebooks.
+Twelve unretouched PNG captures of version 1.0.0, all taken in actual Obsidian: ten listing images (five desktop, five phone) alternating light and dark, plus two square note captures for the README. Each shows a complete circuit being built or simulated. [listing-captures.json](listing-captures.json) records host, theme, scene and dimensions; [image-hashes.json](image-hashes.json) records digests.
 
-## Embedded circuits in notes
+## Listing images
 
-These are authored example student notes, captured in native **Reading view in Obsidian 1.14.4**, running headless Electron with the 0.1.11 plugin in an isolated temporary vault. They use the real Markdown code-block processor, live circuit previews and default host themes with the included [study-note CSS snippet](../../examples/notes/study-notes.css). The snippet centers a 920px note column and softens headings; preview sizing uses the plugin's existing `width: 90%` option. They are desktop app captures, not mobile qualification or submissions from actual students.
+Upload in this order. Desktop images come from the installed **Obsidian 1.14.4** desktop app (headless Electron, isolated temporary vault) at 1600 × 1000, 2× scale. Phone images are screen captures of **Obsidian 1.15.1 on a physical Pixel 7 Pro** (Android 17) in the dedicated `LEC Simulation Test` vault, with Android System UI demo mode for a clean status bar.
 
-| Note | Screenshot · 2640 × 2640 | Editable sources |
-| --- | --- | --- |
-| Four-bit ripple-carry addition · light | [Logic study note](note-logic-light.png) | [Note](../../examples/notes/Logic%20-%20Ripple-carry%20addition.md) / [20 gates, 44 wires](../../examples/notes/Ripple-carry%20adder.lecircuit) |
-| Photodiode sensing, filtering, gain and threshold detection · dark | [Electrical lab note](note-electrical-dark.png) | [Note](../../examples/notes/Electrical%20-%20Filtering%20a%20sensor%20signal.md) / [19 parts, 30 wires](../../examples/notes/Filter%20and%20amplifier.lecircuit) |
-
-Viewport: 1320 × 1320 at 2× resolution. Each note contains one linked circuit preview with four related stages. The white note explains carry propagation, a worked four-bit sum, delay and signed overflow; the dark note explains the sensor chain, RC/gain estimates and threshold behavior. [note-captures.json](note-captures.json) records the host, plugin version, sources, styling and dimensions.
-
-## Editor gallery
-
-Editor captures use the standalone preview harness and its default light/dark host themes. Phone captures use Chromium touch emulation; they are not photographs or proof of real-device qualification.
-
-| Circuit | Desktop · 3200 × 2100 | Phone · 1290 × 2796 | Source drawings |
+| # | Scene | Desktop · 3200 × 2000 | Phone · 1080 × 2340 |
 | --- | --- | --- | --- |
-| Protected power supply | [Light](desktop-power.png) | [Light](mobile-power.png) | [Desktop](../../examples/showcase/desktop-power.lecircuit) / [Portrait](../../examples/showcase/mobile-power.lecircuit) |
-| Analog sensor chain | [Dark](desktop-analog.png) | [Dark](mobile-analog.png) | [Desktop](../../examples/showcase/desktop-analog.lecircuit) / [Portrait](../../examples/showcase/mobile-analog.lecircuit) |
-| Ripple-carry logic | [Light](desktop-logic.png) | [Light](mobile-logic.png) | [Desktop](../../examples/showcase/desktop-logic.lecircuit) / [Portrait](../../examples/showcase/mobile-logic.lecircuit) |
-| 8-bit control bus | [Dark](desktop-bus.png) | [Dark](mobile-bus.png) | [Desktop](../../examples/showcase/desktop-bus.lecircuit) / [Portrait](../../examples/showcase/mobile-bus.lecircuit) |
-| Timer and relay driver | [Light](desktop-timer.png) | [Light](mobile-timer.png) | [Desktop](../../examples/showcase/desktop-timer.lecircuit) / [Portrait](../../examples/showcase/mobile-timer.lecircuit) |
+| 1 | Lab note with an embedded live circuit | [Light: digital design note](desktop-1-note.png) | [Dark: analog electronics note](phone-1-note.png) |
+| 2 | Building gate-level logic | [Dark: decoder with gate inspector](desktop-2-logic-build.png) | [Light: 2 × 2-bit multiplier](phone-2-logic-build.png) |
+| 3 | Simulating logic | [Light: switches, segments, truth table](desktop-3-logic-simulation.png) | [Dark: 3 × 2 = 6, lit probes, truth table](phone-3-logic-simulation.png) |
+| 4 | Building an electrical circuit | [Dark: sensor chain with parts library](desktop-4-electrical-build.png) | [Light: compact sensor chain](phone-4-electrical-build.png) |
+| 5 | Simulating an electrical circuit | [Light: scope, cursors, measurements, Q1 readout](desktop-5-electrical-simulation.png) | [Dark: voltage tags, five traces, cursors](phone-5-electrical-simulation.png) |
 
-Desktop viewport: 1600 × 1050 at 2× resolution. Phone viewport: 430 × 932 at 3×. Portrait drawings are composed separately for a narrow screen. Captures retain toolbar, grid, zoom and status controls. Each shows a connected, multi-stage circuit rather than an empty canvas or symbol catalogue. Circuits illustrate drafting features and have not been simulated or electrically qualified.
+Phone build and simulation shots use two circuits composed for the phone canvas, so each fits completely above the analysis dock at a readable size.
+
+## README note captures
+
+[Logic · light](note-logic-light.png) and [electrical · dark](note-electrical-dark.png): the two lab notes in native Reading view at 1320 × 1320, 2× scale, with the optional [study-note CSS snippet](../../examples/notes/study-notes.css) and the plugin's `width: 90%` preview option.
+
+## Circuits
+
+| Circuit | Source | Contents and verification |
+| --- | --- | --- |
+| BCD to seven-segment decoder | [Drawing](../../examples/notes/BCD%20to%20seven-segment%20decoder.lecircuit) · [note](../../examples/notes/Digital%20design%20-%20BCD%20decoder.md) | 4 Logic inputs, 3 NOT, 9 AND and 7 OR gates drawn as a PLA, a seven-segment display and seven segment probes (31 parts, 98 wires). The generator checks all ten BCD digits against the expected segments. |
+| Sensor signal chain | [Drawing](../../examples/notes/Sensor%20signal%20chain.lecircuit) · [note](../../examples/notes/Analog%20electronics%20-%20Sensor%20signal%20chain.md) | 200 mV 1 kHz source, ×11 non-inverting stage, 3.4 kHz active low-pass, 1.09 V comparator and NPN LED driver on ±12 V (28 parts, 36 wires). The generator runs the operating point and transient; the note's results table quotes them. |
+| 2 × 2-bit multiplier (phone) | [Drawing](../../examples/showcase/2-bit%20multiplier.lecircuit) | 4 Logic inputs, four AND partial products, two half adders and four output probes (16 parts). The generator checks all 16 products. |
+| Sensor chain, compact (phone) | [Drawing](../../examples/showcase/Sensor%20chain%20%28compact%29.lecircuit) | The same chain in two rows with a passive 1.6 kHz RC low-pass (21 parts, 25 wires); the generator runs its operating point and transient. |
+
+These are demonstration circuits verified with the built-in simulator, not hardware-qualified designs.
 
 ## Reproduce
 
-With the pinned dependencies and Playwright Chromium installed:
+With the pinned dependencies, Playwright Chromium and installed desktop Obsidian (set `LEC_OBSIDIAN_BIN` if it is not `/opt/Obsidian/obsidian`):
 
 ```sh
-node scripts/generate-showcase.mjs
-npm run preview:build
-node scripts/capture-showcase.mjs
-node scripts/generate-note-showcase.mjs
+node scripts/generate-listing.mjs        # regenerate and verify all four circuits
 npm run build
-node scripts/capture-note-showcase.mjs
-node scripts/package-showcase.mjs
+node scripts/capture-listing.mjs desktop # five desktop images and two note captures
+LEC_ANDROID_SERIAL=… LEC_ADB=/path/to/adb node scripts/capture-listing.mjs android
+node scripts/package-showcase.mjs        # dist/plugin-listing-screenshots.zip
 ```
 
-The note capture also requires installed desktop Obsidian; set `LEC_OBSIDIAN_BIN` if its executable is not `/opt/Obsidian/obsidian`. It creates and removes its own temporary profile/vault without opening personal notes. To refresh only the note images, run the note generator and note capture commands, followed by packaging; build the plugin first if its local assets are missing or outdated. The existing ten editor screenshots need no regeneration for a note-only change.
-
-The generators validate every circuit and assign deterministic IDs. Editor capture fails on page errors or drawings hidden behind zoom controls; note capture checks all parts render, the entire note fits and the centered column/90% preview sizes match. [captures.json](captures.json) records the editor images. The package command produces `dist/plugin-listing-screenshots.zip`, containing all twelve PNGs, listing descriptions, metadata, twelve editable drawings, the two source notes and their optional CSS snippet. [Listing copy](../listing-description.md) is ready to paste into the directory. Schematics are illustrative study material, not simulated or electrically qualified hardware designs.
+The desktop run creates and removes its own temporary profile and vault. The Android run requires Obsidian open on the `LEC Simulation Test` vault with the candidate build installed; it verifies the installed assets by hash, writes the notes and drawings only into that vault, and restores the System UI demo-mode setting afterwards. The package contains the twelve PNGs, the listing copy, metadata, both drawings and notes, and the optional CSS snippet.

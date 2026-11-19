@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-13T11:04:07.231Z",
+  "reports": [
+    {
+      "device": "desktop",
+      "width": 1440,
+      "height": 900,
+      "theme": "light",
+      "nativeHostCss": true,
+      "hostNavigation": "none",
+      "pageErrors": []
+    },
+    {
+      "device": "phone",
+      "width": 390,
+      "height": 844,
+      "theme": "dark",
+      "nativeHostCss": true,
+      "hostNavigation": "simulated",
+      "pageErrors": []
+    }
+  ],
+  "note": "Browser emulation with native Obsidian CSS; phone image is not an actual mobile-host capture."
+}

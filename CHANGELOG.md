@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.0 — simulation studio
+
+- Add a **Build | Simulate** studio: Simulate replaces the drawing tools with a run strip (status, Run/Pause, Reset, Probe, Window, Values) and docks a resizable analysis panel below the schematic. Drags pan and taps act, so parts never move by accident; undo/redo, the inspector and menus stay available, and committed edits re-evaluate automatically.
+- Add electrical analysis with an in-house modified-nodal-analysis engine: DC operating point and power-on transient for resistors, capacitors, inductors, DC/AC/current/controlled sources, diodes, LEDs, Zeners, BJTs, MOSFETs, op-amps, comparators, switches, lamps, motors, meters, ground and supply rails. Values accept engineering notation such as `4k7`, `100nF` and `5V 1kHz`.
+- Add analysis tools: voltage-tinted wires with net voltage tags, hover readouts (voltage, current, power, transistor and op-amp details, RMS and peak for AC), an oscilloscope-style Scope with probes, two cursors and per-trace min/max/peak-to-peak/average/RMS/frequency, an operating-point table and Messages with Inspect.
+- Add four-state (0/1/X/Z) logic simulation for Logic inputs, Output probes, seven-segment displays, Buffer, NOT and 2–8-input AND/NAND/OR/NOR/XOR/XNOR: tappable canvas switches, lit probes and segments, Signals and an exhaustive truth table for up to 6 inputs with click-to-apply rows.
+- Report unsupported parts, mixed logic/electrical circuits, feedback loops, driver conflicts and invalid values with clear diagnostics. Simulation never changes the circuit file, save state or undo history; reading previews never start an engine.
+- Share logic runs between views of one file, pause hidden views (including native Android backgrounding) and release runtimes on close. Harden save, conflict and deletion handling against late or reentrant completions.
+- Add a Full adder (simulation) example, two new lab notes with simulated circuits, and refreshed README and listing screenshots captured in actual Obsidian on desktop and a physical Android phone.
+
 ## 0.1.11 — feedback and release review cleanup
 
 - Add a lightning-icon Send feedback action in More, with personal response guidance and separate GitHub idea and bug-report templates. Preserve drawing state, wire drafts and keyboard focus.

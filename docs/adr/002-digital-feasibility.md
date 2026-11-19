@@ -1,0 +1,42 @@
+# Digital simulation feasibility: bounded TypeScript prototype
+
+Date: 2026-11-13. Status: adopted for the local unreleased initial digital implementation. [Current workflow/ownership/resource evidence](../evidence/digital-simulation/validation.md) supersedes the [earlier D0 baseline](../evidence/digital-d0/validation.md). Actual mobile and release qualification remain open.
+
+## Decision and scope
+
+Use an original, host-independent TypeScript evaluator for the first combinational experiment. Preserve the single browser-safe production bundle, offline operation and existing file schema. No runtime dependency, worker, WebAssembly asset or persisted simulation field is introduced. The initial D0 experiment used an injected development probe without production imports. The local D1 implementation now bundles the evaluator and exposes More → Digital simulation, verified against the built plugin in an isolated actual Obsidian desktop profile. The package still contains only the existing three install assets.
+
+The explicit capability registry contains canonical version-1 Logic input, Output probe, seven-segment display, Buffer, NOT and 2–8-input AND/NAND/OR/NOR/XOR/XNOR definitions (2026-11-19 expansion; XOR/XNOR are odd/even parity). Changing a built-in gate's input count reuses its canonical definition ID when no different definition already holds it. Compare the complete embedded definition with the registered definition using stable serialization. A matching display name, reference, prefix or definition ID alone never selects behavior. Changed/custom/unsupported definitions stop the entire run. Unused definitions and drawing annotations do not require executable models. Components' display properties are not executable parameters.
+
+Model IDs carry their behavioral version. Run requests contain session/revision/run identities, an immutable validated document snapshot and temporary input values. Results carry those identities, the engine version, component/model mappings, per-lane net values, probe values and structured diagnostics. No compilation or result object is stored in circuit metadata.
+
+## Evaluation and lifecycle
+
+Derive connectivity from the existing explicit graph/net implementation. Wires, junctions and case-sensitive named nets retain their current meaning; coordinates, rotation and unjoined crossings never create connections. Reject incompatible named widths. Supported models have scalar pins; this experiment does not introduce bus devices or tri-state models.
+
+Values are `0`, `1`, `X` and `Z`. An unspecified Logic input starts at `X`; an undriven net is `Z`. Ignore `Z` drivers during resolution. Both known driven levels produce `X` and a conflict diagnostic; any other `X` driver produces `X`. Equal driven levels agree. Gates consume `Z` as unknown. AND's controlling 0 and OR's controlling 1 remain definite; XOR/NOT propagate unknowns. A valid result can contain unknown/conflicting values: inspect values and diagnostics, not just its completion status.
+
+Build a deterministic dependency order and evaluate an acyclic circuit once. Reject all combinational feedback conservatively, including loops that might settle with a particular input. Stateful devices and event timing remain D2 work. Feedback and resource failures return no partial measurements.
+
+Bound the request before synchronous graph validation/net derivation: 256 components, 1,024 wires, 1,024 nodes, 512 annotations, 64 definitions, 4,096 aggregate pin/wire lanes; also cap group membership and definition pin/lane-link counts. Bound dependency/evaluation work at 100,000 units. Yield through a host-supplied **event-loop task** every 128 units, and before graph compilation. A resolved promise alone is not a production scheduler. Check AbortSignal before/after yields and before returning results. Unit tests inject a scheduler; the browser/host probe supplies its owning window's timer.
+
+DigitalSessions owns one DigitalRuntime per DocumentSession, acquired only by open simulation-panel consumers. Stop, superseding runs, every document revision change and disposal abort and invalidate pending work. Check identities again on delivery, even when an executor ignores abort. While a run is active, a committed edit aborts the obsolete run and immediately re-evaluates the latest revision (or waits paused when no consumer is visible); invalid results keep the run active so a correcting edit recovers automatically, while stop and engine failure end it. Logic inputs default to 0 at the session layer; the engine contract still treats an unspecified input as X. Runtime input changes do not edit the document or history. The pool shares temporary inputs/results across consumers, aborts/restarts on a surviving visible window, pauses when all consumers hide, and disposes after the last release. The host abortable timer resolves when cancelled even if its window is closing. Panel pagehide/unload cleanup releases owners independently of React unmount. CircuitFileView retains a temporary hidden consumer across a pop-out remount, and releases that handoff after the replacement panel acquires its consumer. Reading previews do not acquire a runtime. Plugin unload disposes the pool; save/conflict/deletion failures stop execution. Actual-device suspension/force-kill behavior remains separately unqualified.
+
+## Alternatives considered
+
+This is a source-based comparison, not a compatibility test of installed third-party engines. No candidate dependency was installed or copied.
+
+| Candidate | Primary-source evidence | Decision for D0 |
+| --- | --- | --- |
+| DigitalJS | [README](https://github.com/tilk/digitaljs), [package](https://raw.githubusercontent.com/tilk/digitaljs/master/package.json), [synchronous engine](https://raw.githubusercontent.com/tilk/digitaljs/master/src/engines/synch.mjs): browser simulator, explicit ports, BSD-2-Clause; dependencies include JointJS, jQuery, ELK and worker support. Synchronous tick processing does not establish bounded abort behavior. | Closest candidate; adapting its representation, scheduling and dependency surface exceeds the small evaluator experiment. Separate Z semantics were not established by this review. |
+| CircuitVerse | [repository](https://github.com/CircuitVerse/CircuitVerse), [engine](https://raw.githubusercontent.com/CircuitVerse/CircuitVerse/master/simulator/src/engine.js): MIT; engine imports rendering/UI state and uses a large event-processing limit. | Extraction and cancellation adaptation required; no demonstrated four-state match. |
+| Willow DLS | [project documentation](https://willow-dls.github.io/core/): headless TypeScript engine documented as Node-only. | Does not fit the browser-safe runtime directly. |
+| Digital | [project README/license](https://github.com/hneemann/Digital): Java application, GPL-3.0. | Workflow/reference application only; not incorporated into this MIT plugin. |
+
+A worker could isolate heavier computation, but introduces loading/CSP, transport, cancellation, lifecycle and asset-distribution questions. This experiment deliberately tests cooperative execution without changing those package boundaries. Actual Android/iOS feasibility has not been demonstrated. Reconsider transport if device measurements or future workloads cannot meet the response/cancellation budgets.
+
+## Consequences and next gates
+
+The small supported subset is auditable with literal four-state tables, independent arithmetic/Boolean circuit oracles and generated graph tests. Unsupported symbols fail closed rather than silently disappearing from a run. Exact definition matching intentionally rejects legacy/modified symbols until a reviewed capability entry exists.
+
+Compilation is repeated for each input update/run in this initial implementation. Size/work caps bound graph growth and output retention; there are no traces. The measured 128-gate latency and cancellation results are workload/environment-specific, not a maximum-size or memory guarantee. The current UI, ownership, desktop retained/sampled-transient memory and browser/desktop-host workflows are verified in the current evidence. Behavioral model selection and inputs remain ephemeral; no schema migration is needed, and display properties do not become executable defaults. Persisted behavioral settings require a future schema/versioning decision. Actual Android/iOS execution and normal release review remain required before mobile/release claims. Desktop memory samples are not process-memory or absolute peak bounds.

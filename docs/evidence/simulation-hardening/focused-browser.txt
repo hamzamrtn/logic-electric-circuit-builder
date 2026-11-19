@@ -1,0 +1,32 @@
+
+Running 21 tests using 3 workers
+
+(node:71585) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:71579) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:71578) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   3 [chromium] › tests/e2e/simulation.spec.ts:35:1 › run, live toggles, stop, reset, edits and reopen preserve circuit content/history (1.1s)
+  ✓   1 [android-tablet] › tests/e2e/simulation.spec.ts:35:1 › run, live toggles, stop, reset, edits and reopen preserve circuit content/history (1.1s)
+  ✓   2 [android-phone] › tests/e2e/simulation.spec.ts:35:1 › run, live toggles, stop, reset, edits and reopen preserve circuit content/history (1.2s)
+  ✓   5 [android-tablet] › tests/e2e/simulation.spec.ts:53:1 › unsupported devices and feedback fail clearly and recover after correction (606ms)
+  ✓   4 [chromium] › tests/e2e/simulation.spec.ts:53:1 › unsupported devices and feedback fail clearly and recover after correction (627ms)
+  ✓   6 [android-phone] › tests/e2e/simulation.spec.ts:53:1 › unsupported devices and feedback fail clearly and recover after correction (652ms)
+  ✓   7 [android-tablet] › tests/e2e/simulation.spec.ts:62:1 › opening, keyboard navigation and closing preserve an unfinished wire draft (401ms)
+  ✓   8 [chromium] › tests/e2e/simulation.spec.ts:62:1 › opening, keyboard navigation and closing preserve an unfinished wire draft (399ms)
+  ✓   9 [android-phone] › tests/e2e/simulation.spec.ts:62:1 › opening, keyboard navigation and closing preserve an unfinished wire draft (469ms)
+  ✓  11 [chromium] › tests/e2e/simulation.spec.ts:71:1 › build a supported circuit through the picker and named-pin dialog, then simulate it (1.4s)
+  ✓  10 [android-tablet] › tests/e2e/simulation.spec.ts:71:1 › build a supported circuit through the picker and named-pin dialog, then simulate it (1.4s)
+  ✓  12 [android-phone] › tests/e2e/simulation.spec.ts:71:1 › build a supported circuit through the picker and named-pin dialog, then simulate it (1.4s)
+  ✓  13 [chromium] › tests/e2e/simulation.spec.ts:87:1 › simulation controls clear every dock and remain usable through narrow/short and desktop transitions (2.8s)
+  ✓  14 [android-tablet] › tests/e2e/simulation.spec.ts:87:1 › simulation controls clear every dock and remain usable through narrow/short and desktop transitions (2.8s)
+  ✓  15 [android-phone] › tests/e2e/simulation.spec.ts:87:1 › simulation controls clear every dock and remain usable through narrow/short and desktop transitions (2.9s)
+  ✓  16 [chromium] › tests/e2e/simulation.spec.ts:101:1 › native Android pause/resume suspends a document-visible WebView without changing the circuit (412ms)
+  ✓  17 [android-tablet] › tests/e2e/simulation.spec.ts:101:1 › native Android pause/resume suspends a document-visible WebView without changing the circuit (431ms)
+  ✓  18 [android-phone] › tests/e2e/simulation.spec.ts:101:1 › native Android pause/resume suspends a document-visible WebView without changing the circuit (467ms)
+  ✓  20 [android-tablet] › tests/e2e/simulation.spec.ts:114:1 › visible controls accept input and Run before the first intersection notification (393ms)
+  ✓  19 [chromium] › tests/e2e/simulation.spec.ts:114:1 › visible controls accept input and Run before the first intersection notification (427ms)
+  ✓  21 [android-phone] › tests/e2e/simulation.spec.ts:114:1 › visible controls accept input and Run before the first intersection notification (393ms)
+
+  21 passed (7.9s)

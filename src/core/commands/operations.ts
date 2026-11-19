@@ -1,4 +1,4 @@
-import { type Anchor, type Annotation, type CircuitDocument, type Component, type Definition, type Point, anchorKey, clone, getDefinition, pinWidth, uid } from '../model/document';
+import { type Anchor, type Annotation, type CircuitDocument, type Component, type Definition, type Point, anchorKey, clone, getDefinition, pinWidth, serializeDocument, uid } from '../model/document';
 import { anchorPosition, distanceToSegment, intersection, snap, wireContainsPoint, wirePoints } from '../geometry/geometry';
 import { reroute, routeThroughPoints } from '../geometry/router';
 import { annotationCenter } from '../geometry/annotations';
@@ -270,6 +270,13 @@ export function reconfigure(doc: CircuitDocument, componentId: string, definitio
   assertUnlocked(doc, componentId);
   const old = getDefinition(doc, c);
   for (const p of old.pins) if (!definition.pins.some(n => n.id === p.id && n.width === p.width)) detachComponent(doc, c.id, p.id);
+  // Canonical built-ins keep their identity so behavior allowlists (simulation) still recognize them.
+  if (definition.id.startsWith('builtin.')) {
+    const existing = doc.definitions.find(d => d.id === definition.id);
+    if (!existing) { doc.definitions.push(clone(definition)); c.definitionId = definition.id; return; }
+    const signature = (d: Definition) => serializeDocument({ format: 'logic-electric-circuit', schemaVersion: 1, id: 'definition', title: '', components: [], nodes: [], wires: [], annotations: [], groups: [], metadata: {}, definitions: [d] });
+    if (signature(existing) === signature(definition)) { c.definitionId = definition.id; return; }
+  }
   const def = clone(definition); def.id = uid('definition'); doc.definitions.push(def); c.definitionId = def.id;
 }
 export function insertComponent(doc: CircuitDocument, componentId: string, wireId: string) {

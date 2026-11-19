@@ -1,3 +1,9 @@
+import { AnalysisDock, Readout, SimulationStrip, useSimulation } from './Simulation';
+import { formatQuantity } from '../../core/analog/units';
+import { SWITCH_MODELS } from '../../core/analog/models';
+import type { DigitalSessions } from '../../core/session/DigitalSessions';
+import type { DigitalResult, LogicValue } from '../../core/topology/digital';
+import type { ElectricalSignals, SceneSignals } from '../render/Signals';
 import { useCallback, useEffect, useId, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore, type CSSProperties, type PointerEvent as ReactPointerEvent, type KeyboardEvent as ReactKeyboardEvent } from 'react';
 import { type Anchor, type CircuitDocument, type Component, type Definition, type Point, anchorKey, clone, emptyDocument, getDefinition, pinWidth, parseDocument, serializeDocument, uid, definitionSchema } from '../../core/model/document';
 import { addWire, align, annotate, assertUnlocked, deleteSelection, detachComponent, disconnectNode, finishDanglingWire, fragment, commonJoinPoint, insertComponent, joinAndConnect, joinWires, lockedObjects, moveSelection, movableSelection, paste, place, reconfigure, resolveTarget, selectionMembers, splitWire, transformSelection, type Target } from '../../core/commands/operations';
@@ -36,13 +42,19 @@ export interface EditorHost {
   defaultSnap?: boolean;
   shortcuts?: ShortcutPreferences;
   docking?: DockPreferences;
+  simulation?: DigitalSessions;
+  simulationInitiallyOpen?: boolean;
+  onSimulationReady?: () => void;
 }
 const savedSnapshot = { status: 'saved', message: 'In memory · export to keep a file', durableRevision: 0 } as const;
 const subscribeNothing = () => () => {};
 
 export function Editor({ session, host, save }: { session: DocumentSession; host: EditorHost; save?: SaveCoordinator }) {
   const [localShortcuts] = useState(() => new MemoryShortcuts()), [shortcutsOpen, setShortcutsOpen] = useState(false);
-  const [feedbackOpen, setFeedbackOpen] = useState(false);
+  const [feedbackOpen, setFeedbackOpen] = useState(false), [simulate, setSimulate] = useState(!!host.simulationInitiallyOpen && !!host.simulation), [dockHeights, setDockHeights] = useState({ electrical: 300, digital: 170 }), [rootElement, setRootElement] = useState<HTMLDivElement | null>(null);
+  const [hover, setHover] = useState<{ id: string; x: number; y: number; pinned?: boolean }>();
+  const pendingTap = useRef<{ id?: string; sim?: string; pointerId: number; screen: Point }>();
+  const lastSimulation = useRef<DigitalResult>();
   const preferences = host.shortcuts ?? localShortcuts;
   const [localDocking] = useState(() => new MemoryDockPreferences());
   const docking = host.docking ?? localDocking;
@@ -89,6 +101,16 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
   const notify = (error: unknown) => setNotice(error instanceof Error ? error.message : String(error));
   const edit = (name: string, fn: (d: CircuitDocument) => void, coalesceKey?: string) => { try { session.edit(name, fn, coalesceKey); setNotice(''); return true; } catch (e) { notify(e); return false; } };
   const cancel = useCallback(() => { lastTap.current = undefined; stopCamera(); clearFeedback(); setPointing(false); if (moveFrame.current !== undefined) { svg.current?.ownerDocument.defaultView?.cancelAnimationFrame(moveFrame.current); moveFrame.current = undefined; } latestMove.current = null; cornerRedo.current = []; setDraft(null); setPlacement(null); setReconnect(null); setTool('select'); gestureRef.current = { kind: 'idle' }; setGesture({ kind: 'idle' }); pointers.current.clear(); setCandidates([]); }, [stopCamera, clearFeedback]);
+  useLayoutEffect(() => { setRootElement(root.current); }, []);
+  const dockResized = useRef(false);
+  const setMode = (on: boolean) => {
+    setMoreOpen(false); setMenu(false); setPaletteOpen(false); setHover(undefined);
+    // Until the user resizes it, the dock takes about 40 % of the pane (enough for a readable plot) so the schematic stays primary.
+    const height = workspace.current?.getBoundingClientRect().height ?? 0;
+    if (on && height && !dockResized.current) setDockHeights({ electrical: Math.round(Math.max(250, Math.min(340, height * 0.4))), digital: Math.round(Math.max(130, Math.min(200, height * 0.24))) });
+    setSimulate(on); root.current?.focus({ preventScroll: true });
+  };
+  const inspectIds = (ids: string[]) => { setSelection(new Set(ids)); setInspectorOpen(true); setInspector('properties'); };
   const fit = useCallback((ids?: Set<string>, animated = true) => {
     const measured = viewport.current?.getBoundingClientRect(), width = measured?.width ?? size.width, height = measured?.height ?? size.height;
     if (!width || !height) return;
@@ -102,21 +124,27 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
       const inset = element ? Number.parseFloat(element.ownerDocument.defaultView?.getComputedStyle(element).scrollPaddingBottom ?? '') || 0 : 0;
       const occluded = Math.max(0, inset - (ownerBottom - (measured?.bottom ?? 0)));
       let left = width < 700 ? 24 : 50, right = left, top = 50, bottom = Math.max(50, occluded + 16);
-      if (zoomBox && measured) {
-        if (zoomBox.top < measured.top + height / 2) top = Math.max(top, zoomBox.bottom - measured.top + 16);
-        else bottom = Math.max(bottom, measured.bottom - zoomBox.top + 16);
-      }
+      // Build keeps the drawing clear of the zoom card; Simulate (with the analysis dock) clears it only on overlap.
+      const clearZoom = () => { if (zoomBox && measured) { if (zoomBox.top < measured.top + height / 2) top = Math.max(top, zoomBox.bottom - measured.top + 16); else bottom = Math.max(bottom, measured.bottom - zoomBox.top + 16); } };
       if (docked && toolbar && measured) {
         if (dockSide === 'left') left = Math.max(left, toolbar.right - measured.left + 16);
         if (dockSide === 'right') right = Math.max(right, measured.right - toolbar.left + 16);
         if (dockSide === 'top') top = Math.max(top, toolbar.bottom - measured.top + 16);
         if (dockSide === 'bottom') bottom = Math.max(bottom, measured.bottom - toolbar.top + 16);
       }
-      const zoom = Math.max(0.125, Math.min(1.5, Math.max(1, width - left - right) / b.width, Math.max(1, height - top - bottom) / b.height));
+      const solve = () => { const z = Math.max(0.125, Math.min(1.5, Math.max(1, width - left - right) / b.width, Math.max(1, height - top - bottom) / b.height)); return { z, x: (left + width - right) / 2 - (b.x + b.width / 2) * z, y: (top + height - bottom) / 2 - (b.y + b.height / 2) * z }; };
+      if (!simulate) clearZoom();
+      let fitted = solve();
+      if (simulate && zoomBox && measured) {
+        const box = { left: zoomBox.left - measured.left - 8, right: zoomBox.right - measured.left + 8, top: zoomBox.top - measured.top - 8, bottom: zoomBox.bottom - measured.top + 8 };
+        const drawing = { left: fitted.x + b.x * fitted.z, right: fitted.x + (b.x + b.width) * fitted.z, top: fitted.y + b.y * fitted.z, bottom: fitted.y + (b.y + b.height) * fitted.z };
+        if (drawing.left < box.right && drawing.right > box.left && drawing.top < box.bottom && drawing.bottom > box.top) { clearZoom(); fitted = solve(); }
+      }
+      const zoom = fitted.z;
       target = { zoom, x: (left + width - right) / 2 - (b.x + b.width / 2) * zoom, y: (top + height - bottom) / 2 - (b.y + b.height / 2) * zoom };
     }
     if (animated) animateCamera(target); else setCamera(target);
-  }, [session, size, animateCamera, setCamera, docked, dockSide]);
+  }, [session, size, animateCamera, setCamera, docked, dockSide, simulate]);
   useLayoutEffect(() => {
     const element = viewport.current; if (!element) return; const win = element.ownerDocument.defaultView; if (!win) return;
     if (workspace.current) setCompact(workspace.current.getBoundingClientRect().width <= 900);
@@ -160,6 +188,60 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
   useEffect(() => { if (/^(Undo |Redo |Reloaded|Import circuit|New circuit|Clear circuit|Open example)/.test(snapshot.lastAction)) clearFeedback(); if (/^(Undo |Redo |Reloaded)/.test(snapshot.lastAction)) stopCamera(); }, [snapshot.revision, snapshot.lastAction, clearFeedback, stopCamera]);
   const crossings = useMemo(() => findCrossings(doc), [doc]);
   const nets = useMemo(() => deriveNets(doc), [doc]);
+  const sim = useSimulation({ session, sessions: host.simulation, save, active: simulate, root: rootElement, onReady: host.onSimulationReady });
+  const electricalSignals = useMemo<ElectricalSignals | undefined>(() => {
+    if (!simulate || sim.engine !== 'electrical') return undefined;
+    const point = sim.point?.status === 'valid' ? sim.point : undefined;
+    const switches = new Map<string, boolean>();
+    for (const c of doc.components) { const model = sim.analogModels.get(c.definitionId); if (model && SWITCH_MODELS.includes(model)) switches.set(c.id, sim.switchState(c.id)); }
+    const traceSlots = new Map<string, number>(sim.probes.map(p => [p.target, p.slot]));
+    if (!point) return { wireColor: new Map(), tags: [], switches, probes: traceSlots, live: sim.live };
+    let max = 0; for (const v of point.netVoltages.values()) max = Math.max(max, Math.abs(v));
+    const wireColor = new Map<string, string>(), tags: ElectricalSignals['tags'] = [];
+    for (const net of nets) {
+      const v = point.netVoltages.get(net.id); if (v === undefined || !net.wireIds.length) continue;
+      const share = max > 1e-9 ? Math.min(1, Math.abs(v) / max) : 0;
+      const color = Math.abs(v) < 1e-9 ? '' : `color-mix(in oklab, var(${v > 0 ? '--lec-volt-pos' : '--lec-volt-neg'}) ${Math.round(30 + 70 * share)}%, var(--lec-ink))`;
+      for (const id of net.wireIds) if (color) wireColor.set(id, color);
+      // One tag per net, at the midpoint of its longest segment.
+      let best: { x: number; y: number; length: number; vertical: boolean } | undefined;
+      for (const id of net.wireIds) { const w = doc.wires.find(x => x.id === id); if (!w) continue; const pts = wirePoints(doc, w); for (let i = 1; i < pts.length; i++) { const length = Math.hypot(pts[i].x - pts[i - 1].x, pts[i].y - pts[i - 1].y); if (!best || length > best.length) best = { x: (pts[i].x + pts[i - 1].x) / 2, y: (pts[i].y + pts[i - 1].y) / 2, length, vertical: Math.abs(pts[i].x - pts[i - 1].x) < Math.abs(pts[i].y - pts[i - 1].y) }; } }
+      if (best && (Math.abs(v) >= 1e-9 || traceSlots.has(net.id))) tags.push({ netId: net.id, x: best.x, y: best.y, vertical: best.vertical, text: formatQuantity(v, 'V'), slot: traceSlots.get(net.id) });
+    }
+    return { wireColor, tags: sim.labels ? tags : tags.filter(t => t.slot), switches, probes: traceSlots, live: sim.live };
+  }, [simulate, sim.engine, sim.point, sim.analogModels, sim.switchState, sim.probes, sim.labels, sim.live, nets, doc]);
+  const simulationState = sim.digitalState, simulationBlocked = sim.blocked, simulationConsumer = sim.consumer;
+  const signals = useMemo<SceneSignals | undefined>(() => {
+    if (!simulate) return undefined;
+    const empty = { wires: new Map<string, LogicValue>(), nodes: new Map<string, LogicValue>(), pins: new Map<string, Map<string, LogicValue>>(), inputs: new Map<string, LogicValue>(), probes: new Map<string, LogicValue>(), displays: new Map<string, LogicValue[]>() };
+    if (sim.engine === 'electrical') return { ...empty, electrical: electricalSignals };
+    const inputs = new Map(simulationState.inputs.map(input => [input.componentId, input.value]));
+    const fresh = !simulationBlocked && simulationState.status === 'valid' && simulationState.result?.revision === snapshot.revision ? simulationState.result : undefined;
+    if (fresh) lastSimulation.current = fresh;
+    else if (simulationBlocked || !simulationState.active || simulationState.status !== 'running') lastSimulation.current = undefined;
+    // While a live update recomputes (usually within a frame), keep the previous reading instead of flashing blank wires.
+    const result = fresh ?? lastSimulation.current;
+    const wires = new Map<string, LogicValue>(), nodes = new Map<string, LogicValue>(), pins = new Map<string, Map<string, LogicValue>>();
+    if (result) {
+      const terminals = new Map<string, LogicValue>();
+      for (const net of result.nets) for (const member of net.members) terminals.set(member, net.value);
+      for (const net of nets) { const value = terminals.get(net.members[0]); if (value !== undefined) for (const id of net.wireIds) wires.set(id, value); }
+      for (const node of doc.nodes) { const value = terminals.get(`${anchorKey({ kind: 'node', nodeId: node.id })}[0]`); if (value !== undefined) nodes.set(node.id, value); }
+      const components = new Map(doc.components.map(component => [component.id, component]));
+      for (const { componentId } of result.models) {
+        const component = components.get(componentId); if (!component) continue;
+        const values = new Map<string, LogicValue>();
+        for (const pin of getDefinition(doc, component).pins) { const value = terminals.get(`${anchorKey({ kind: 'pin', componentId, pinId: pin.id })}[0]`); if (value !== undefined) values.set(pin.id, value); }
+        pins.set(componentId, values);
+      }
+    }
+    return { wires, nodes, pins, inputs, probes: new Map(result?.probes.map(probe => [probe.componentId, probe.value])), displays: new Map(result?.displays.map(display => [display.componentId, display.segments])) };
+  }, [simulate, sim.engine, simulationState, simulationBlocked, snapshot.revision, nets, doc, electricalSignals]);
+  const toggleSimulationInput = (id: string) => {
+    const current = simulationState.inputs.find(input => input.componentId === id)?.value;
+    simulationConsumer?.setInput(id, current === 1 ? 0 : 1);
+  };
+
   const checks = useMemo(() => [...diagnostics(doc), ...overlapWarnings(doc).map((d, i) => ({ ...d, id: `overlap-${i}`, severity: 'warning' as const }))], [doc]);
   const pinIndex = useMemo(() => { const index = new SpatialIndex<Candidate>(); for (const c of doc.components) for (const p of getDefinition(doc, c).pins) { const point = transform(p, c); index.insert(point, { label: `${c.reference} · ${p.name}${p.width > 1 ? ` · ${p.width} bits` : ''}`, target: { kind: 'pin', componentId: c.id, pinId: p.id }, point, objectId: c.id }); } for (const n of doc.nodes) index.insert(n.position, { label: anchorDescription(doc, { kind: 'node', nodeId: n.id }), target: { kind: 'node', nodeId: n.id }, point: n.position, objectId: n.id }); return index; }, [doc]);
   function hitCandidates(world: Point, pointerType = 'mouse'): Candidate[] {
@@ -236,7 +318,7 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
   function selectObject(id: string, additive = false) { setSelection(previous => { const next = additive || multi ? new Set(previous) : new Set<string>(); if (next.has(id)) next.delete(id); else next.add(id); return next; }); setInspector('properties'); }
   function pointFromEvent(e: { clientX: number; clientY: number }) { const r = svg.current!.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; }
   function startPinch() {
-    lastTap.current = undefined;
+    lastTap.current = undefined; pendingTap.current = undefined;
     const [a, b] = [...pointers.current.values()], current = cameraRef.current;
     const mid = { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 };
     setActiveGesture({ kind: 'pinch', startDistance: Math.max(1, Math.hypot(a.x - b.x, a.y - b.y)), world: screenToWorld(mid, current), camera: current });
@@ -252,6 +334,11 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
     if (pointers.current.size > 1) return;
     if (e.button === 1) { e.preventDefault(); suppressClick.current = true; setActiveGesture({ kind: 'pan', origin: screen, camera: current }); return; }
     const element = e.target as Element;
+    // Simulating: drags pan, taps act on release (switches, probes, readouts). Parts never move by accident.
+    if (simulate && e.button === 0) {
+      pendingTap.current = { id: element.closest('[data-object]')?.getAttribute('data-object') ?? undefined, sim: element.closest('[data-sim-input]')?.getAttribute('data-sim-input') ?? undefined, pointerId: e.pointerId, screen };
+      setActiveGesture({ kind: 'pan', origin: screen, camera: current }); return;
+    }
     const handle = element.closest('[data-annotation-handle]');
     if (handle) { const a = doc.annotations.find(a => a.id === handle.getAttribute('data-annotation')); if (a && !lockedIds.has(a.id)) { setActiveGesture({ kind: 'annotation', id: a.id, handle: handle.getAttribute('data-annotation-handle') as AnnotationHandle, origin: world, before: clone(a), preview: clone(a) }); return; } }
     const bendIndex = element.getAttribute('data-bend'), segmentIndex = element.getAttribute('data-segment'), wireId = element.getAttribute('data-wire');
@@ -267,6 +354,11 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
     setActiveGesture({ kind: 'idle' });
   }
   function onPointerMove(e: ReactPointerEvent<SVGSVGElement>) {
+    if (simulate && sim.engine === 'electrical' && e.pointerType === 'mouse' && !pointers.current.size) {
+      const hit = svg.current?.ownerDocument.elementFromPoint(e.clientX, e.clientY)?.closest('[data-object]')?.getAttribute('data-object');
+      const point = pointFromEvent(e);
+      setHover(hit ? { id: hit, x: point.x + 14, y: point.y + 14 } : undefined);
+    }
     const screen = pointFromEvent(e), world = screenToWorld(screen, cameraRef.current); setPointer(world); pointerKind.current = e.pointerType; const inside = screen.x >= 0 && screen.x <= size.width && screen.y >= 0 && screen.y <= size.height; setPointing(inside);
     if (inside && tool === 'place' && snapping && gestureRef.current.kind !== 'pan' && gestureRef.current.kind !== 'pinch') confirmSnap(snap(world, true));
     if (pointers.current.has(e.pointerId)) pointers.current.set(e.pointerId, screen);
@@ -306,6 +398,13 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
       else setActiveGesture({ kind: 'idle' });
       return;
     }
+    const tap = pendingTap.current;
+    if (tap) {
+      pendingTap.current = undefined; setActiveGesture({ kind: 'idle' }); lastTap.current = undefined;
+      const screen = pointFromEvent(e);
+      if (tap.pointerId === e.pointerId && !pointers.current.size && Math.hypot(screen.x - tap.screen.x, screen.y - tap.screen.y) <= 12) simulationTap(tap, screen, e.pointerType);
+      return;
+    }
     if (suppressClick.current) {
       lastTap.current = undefined;
       if (g.kind === 'annotation') edit(g.handle === 'rotate' ? 'Rotate annotation' : 'Resize annotation', d => { assertUnlocked(d, g.id); Object.assign(d.annotations.find(a => a.id === g.id)!, g.preview); });
@@ -342,7 +441,23 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
     }
     else if (!multi) setSelection(new Set());
   }
-  function finishPointers() { lastTap.current = undefined; if (moveFrame.current !== undefined) { svg.current?.ownerDocument.defaultView?.cancelAnimationFrame(moveFrame.current); moveFrame.current = undefined; } latestMove.current = null; pointers.current.clear(); setActiveGesture({ kind: 'idle' }); suppressClick.current = false; }
+  function simulationTap(tap: { id?: string; sim?: string }, screen: Point, pointerType: string) {
+    if (tap.sim && sim.engine === 'digital') { if (simulationConsumer && !simulationBlocked) toggleSimulationInput(tap.sim); return; }
+    if (sim.engine !== 'electrical') { setSelection(new Set(tap.id ? [tap.id] : [])); return; }
+    const id = tap.id;
+    if (!id) { setHover(undefined); setSelection(new Set()); return; }
+    const net = nets.find(n => n.wireIds.includes(id) || n.members.includes(`${anchorKey({ kind: 'node', nodeId: id })}[0]`));
+    if (sim.probing) {
+      const added = net ? sim.toggleProbe('net', net.id) : doc.components.some(c => c.id === id) ? sim.toggleProbe('part', id) : true;
+      if (!added && sim.probes.length >= 8 && !sim.probes.some(p => p.target === (net?.id ?? id))) setNotice('The scope shows up to 8 traces. Remove one to add another.');
+      return;
+    }
+    if (sim.toggleSwitch(id)) return;
+    setSelection(new Set([id]));
+    // Touch has no hover: a tap pins the reading instead.
+    if (pointerType !== 'mouse') setHover(h => h?.id === id && h.pinned ? undefined : { id, x: screen.x + 12, y: screen.y + 12, pinned: true });
+  }
+  function finishPointers() { lastTap.current = undefined; pendingTap.current = undefined; if (moveFrame.current !== undefined) { svg.current?.ownerDocument.defaultView?.cancelAnimationFrame(moveFrame.current); moveFrame.current = undefined; } latestMove.current = null; pointers.current.clear(); setActiveGesture({ kind: 'idle' }); suppressClick.current = false; }
   function closeInspector() { setInspectorOpen(false); root.current?.focus({ preventScroll: true }); }
   function closeShortcuts() { setShortcutsOpen(false); root.current?.focus({ preventScroll: true }); }
   function objectAt(clientX: number, clientY: number) {
@@ -417,9 +532,11 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
     if (e.key === 'Enter' && draft && !command && !e.altKey && !e.shiftKey && !e.repeat && !e.nativeEvent.isComposing && !paletteOpen && !menu && !candidates.length && !(e.target as Element).closest('button,[role=button]')) {
       e.preventDefault(); e.stopPropagation(); if (draft.bends.length) finishWire(); return;
     }
-    if (e.key === 'Escape') { e.preventDefault(); cancel(); return; }
+    if (e.key === 'Escape') { e.preventDefault(); if (simulate && sim.probing) sim.setProbing(false); cancel(); return; }
     if (command && e.key.toLowerCase() === 'z') { e.preventDefault(); if (draft) { e.shiftKey ? redoCorner() : undoCorner(); } else { e.shiftKey ? session.redo() : session.undo(); } return; }
     if (command && e.key.toLowerCase() === 'y') { e.preventDefault(); draft ? redoCorner() : session.redo(); return; }
+    // Simulate mode reads the circuit; editing keys belong to Build.
+    if (simulate && !(command && ['a', 'c'].includes(e.key.toLowerCase()))) return;
     if (command && e.key.toLowerCase() === 'a') { e.preventDefault(); setSelection(new Set([...doc.components, ...doc.wires, ...doc.nodes, ...doc.annotations, ...doc.groups].map(x => x.id))); return; }
     if (command && ['c', 'x'].includes(e.key.toLowerCase())) { e.preventDefault(); void copy(e.key.toLowerCase() === 'x'); return; }
     if (command && e.key.toLowerCase() === 'v') { e.preventDefault(); showPaste(); return; }
@@ -505,7 +622,7 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
     setDialog({ title: editExisting ? 'Edit block pins' : 'Create custom block', description: 'One pin per line: stable ID, label, side, role, bit width. Sides: left/right/top/bottom. Roles: passive/input/output/power/bidirectional/tristate. Removed or width-changed pins leave dangling wire ends.', fields: [{ name: 'name', label: 'Block name', value: def?.name ?? 'Custom IC', required: true }, { name: 'pins', label: 'Pins', type: 'textarea', value: def?.pins.map(p => `${p.id}, ${p.name}, ${p.side}, ${p.role}, ${p.width}`).join('\n') ?? 'in-0, IN, left, input, 1\nout-0, OUT, right, output, 1', required: true }], submit: editExisting ? 'Update pins' : 'Place block', onSubmit: v => { const block = makeCustomBlock(v.name, v.pins); definitionSchema.parse(block); if (editExisting && selectedComponent) session.edit('Reconfigure pins', d => reconfigure(d, selectedComponent.id, block)); else startPart(block); } });
   }
 
-  return <div className="lec-editor" data-toolbar-dock={docked ? dockSide : 'inline'} style={{ '--lec-dock-space': docked && dockSide === 'bottom' ? `calc(${dockHeight + 16}px + var(--lec-navbar-inset, 0px))` : docked && dockSide === 'top' ? `${dockHeight + 16}px` : '0px', '--lec-side-dock-width': `${dockWidth}px` } as CSSProperties} ref={root} tabIndex={0} onKeyDown={onKeyDown} onPointerDownCapture={event => { if (!svg.current?.contains(event.target as Node)) lastTap.current = undefined; }} onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) lastTap.current = undefined; }} data-testid="editor" data-camera-animating={cameraAnimating || undefined}>
+  return <div className="lec-editor" data-toolbar-dock={docked ? dockSide : 'inline'} style={{ '--lec-simulation-height': '0px', '--lec-analysis-height': simulate && sim.dockOpen ? `${dockHeights[sim.engine]}px` : '0px', '--lec-dock-space': docked && dockSide === 'bottom' ? `calc(${dockHeight + 16}px + var(--lec-navbar-inset, 0px))` : docked && dockSide === 'top' ? `${dockHeight + 16}px` : '0px', '--lec-side-dock-width': `${dockWidth}px` } as CSSProperties} ref={root} tabIndex={0} onKeyDown={onKeyDown} onPointerDownCapture={event => { if (!svg.current?.contains(event.target as Node)) lastTap.current = undefined; }} onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) lastTap.current = undefined; }} data-testid="editor" data-camera-animating={cameraAnimating || undefined}>
 
     {menu && <FileMenu anchor={fileTrigger.current} boundary={root.current} onClose={closeMenu} footer={<button role="menuitem" className="lec-danger" onClick={() => { setMenu(false); setDialog({ title: 'Clear circuit?', description: 'Remove all parts, wires and annotations. Undo restores the circuit.', fields: [], danger: true, submit: 'Clear circuit', onSubmit: () => { cancel(); session.edit('Clear circuit', d => Object.assign(d, emptyDocument(doc.title))); } }); }}>Clear circuit…</button>}>
       <button role="menuitem" onClick={() => { setMenu(false); if (host.newDocument) void host.newDocument().catch(notify); else setDialog({ title: 'New circuit', description: 'Clear this workspace. Export your current circuit first if you want a separate file. Undo remains available.', fields: [], submit: 'New circuit', onSubmit: () => { cancel(); session.edit('New circuit', d => Object.assign(d, emptyDocument())); } }); }}>New circuit</button>
@@ -529,6 +646,7 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
       <div className="lec-menu-caption">Drawing</div>
       <button role="menuitemcheckbox" aria-checked={grid} onClick={() => moreAction(() => setGrid(!grid))}><span className="lec-menu-check" aria-hidden="true">{grid ? '✓' : ''}</span>Show grid</button>
       <button role="menuitemcheckbox" aria-checked={snapping} onClick={() => moreAction(() => setSnapping(!snapping))}><span className="lec-menu-check" aria-hidden="true">{snapping ? '✓' : ''}</span>Snap to grid</button>
+      {host.simulation && <button role="menuitem" onClick={() => moreAction(() => setMode(!simulate))}><Icon name={simulate ? 'build' : 'simulate'} />{simulate ? 'Return to Build' : 'Simulate circuit'}</button>}
       <button role="menuitem" onClick={() => moreAction(showChecks)}>Checks{checks.length > 0 && <small aria-hidden="true" className="lec-menu-count">{checks.length}</small>}</button>
       <button role="menuitem" onClick={() => moreAction(() => setShortcutsOpen(true))}>Keyboard shortcuts…</button>
       <div className="lec-menu-caption">Help improve the editor</div>
@@ -541,8 +659,13 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
           <span id={toolsLabel} hidden>Circuit tools</span>
           <div className="lec-file-cluster"><button className="lec-file-trigger" ref={fileTrigger} onClick={() => { setMoreOpen(false); setPaletteOpen(false); setMenu(!menu); }} aria-expanded={menu} aria-labelledby={documentLabel}><span id={documentLabel} hidden>Document menu</span>File <span aria-hidden="true">⌄</span></button>
             <div className="lec-history" onClick={event => { if (event.detail > 0) root.current?.focus({ preventScroll: true }); }}><ToolButton label="Undo" icon="undo" disabled={draft ? !draft.bends.length : !snapshot.canUndo} onClick={() => draft ? undoCorner() : session.undo()} /><ToolButton label="Redo" icon="redo" disabled={draft ? !cornerRedo.current.length : !snapshot.canRedo} onClick={() => draft ? redoCorner() : session.redo()} /></div>
+            {host.simulation && !compact && <div className="lec-mode-switch" role="group" aria-label="Workspace">
+              <button type="button" aria-pressed={!simulate} onClick={() => setMode(false)}><Icon name="build" />Build</button>
+              <button type="button" aria-pressed={simulate} className={simulate && (sim.engine === 'electrical' ? sim.live : simulationState.active) ? 'is-live' : undefined} onClick={() => setMode(true)}><Icon name="simulate" />Simulate</button>
+            </div>}
           </div>
-          <div ref={dock} className={`lec-drawing-toolbar${contextRotate ? ' has-context' : ''}`} data-ignore-swipe="true">
+          {simulate && !compact && <SimulationStrip sim={sim} onExit={() => setMode(false)} />}
+          <div ref={dock} className={`lec-drawing-toolbar${contextRotate ? ' has-context' : ''}${simulate ? ' is-sim-hidden' : ''}`} data-ignore-swipe="true">
             <DockHandle area={workspace.current} position={dockPosition} save={docking.save} onError={notify} />
             <div className="lec-tools" role="group" aria-labelledby={editingLabel} onClick={event => { if (event.detail > 0) root.current?.focus({ preventScroll: true }); }}><span id={editingLabel} hidden>Editing tools</span><div className="lec-tool-group">
               <ToolButton label="Select" shortcut={shortcuts.select} icon="select" active={tool === 'select'} onClick={() => selectDrawingTool(cancel)} />
@@ -553,9 +676,10 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
             <PartsToolbar container={workspace.current} compact={docked} dockSide={dockSide} dockHeight={dockHeight} open={paletteOpen} onOpenChange={openParts} onPart={startPart} onCustomBlock={() => customBlockDialog()} onText={() => annotationDialog('text')} />
             <div className="lec-rotate-context" onClick={event => { if (event.detail > 0) root.current?.focus({ preventScroll: true }); }}><span className="lec-context-name">{placement ? placement.definition.name : selection.size > 1 ? `${selection.size} selected` : selectedComponent?.reference || 'Selected object'}</span><ToolButton label="Rotate" shortcut={shortcuts.rotate} icon="rotate" disabled={!canRotate} onClick={() => doTransform('rotate')} />{docked && placement && <button onClick={cancel}>Cancel</button>}</div>
           </div>
-          <div className="lec-utility-cluster"><ToolButton label="Inspect" shortcut={shortcuts.inspect} icon="inspect" active={inspectorOpen} onClick={() => { setMoreOpen(false); setMenu(false); if (inspectorOpen) closeInspector(); else setInspectorOpen(true); }} /><button ref={moreTrigger} className={`lec-more-trigger${moreOpen ? ' is-active' : ''}`} aria-label="More actions" aria-expanded={moreOpen} aria-haspopup="menu" onClick={() => { setMenu(false); setPaletteOpen(false); setMoreOpen(!moreOpen); }}><Icon name="more" />{checks.length > 0 && <small aria-hidden="true" className="lec-issues-badge">{checks.length}</small>}</button></div>
+          <div className="lec-utility-cluster">{host.simulation && compact && <button type="button" className={`lec-simulate-trigger${simulate ? ' is-active' : ''}${(sim.engine === 'electrical' ? sim.live : simulationState.active) && simulate ? ' is-live' : ''}`} aria-pressed={simulate} aria-label="Simulate" onClick={() => setMode(!simulate)}><Icon name="simulate" /></button>}<ToolButton label="Inspect" shortcut={shortcuts.inspect} icon="inspect" active={inspectorOpen} onClick={() => { setMoreOpen(false); setMenu(false); if (inspectorOpen) closeInspector(); else setInspectorOpen(true); }} /><button ref={moreTrigger} className={`lec-more-trigger${moreOpen ? ' is-active' : ''}`} aria-label="More actions" aria-expanded={moreOpen} aria-haspopup="menu" onClick={() => { setMenu(false); setPaletteOpen(false); setMoreOpen(!moreOpen); }}><Icon name="more" />{checks.length > 0 && <small aria-hidden="true" className="lec-issues-badge">{checks.length}</small>}</button></div>
         </div>
-        <span id={canvasLabel} hidden>Circuit drawing. Use the object list and Connect pins for keyboard access.</span><div className="lec-viewport" ref={viewport} data-ignore-swipe="true" style={{ touchAction: 'none' }}><svg ref={svg} className="lec-canvas" role="application" aria-labelledby={canvasLabel} width="100%" height="100%" onPointerDown={e => { if (!pointers.current.size) suppressClick.current = false; onPointerDown(e); }} onPointerMove={queuePointerMove} onPointerLeave={() => { if (!pointers.current.size) setPointing(false); }} onPointerUp={onPointerUp} onPointerCancel={e => { e.stopPropagation(); finishPointers(); }} onLostPointerCapture={e => { e.stopPropagation(); if (pointers.current.has(e.pointerId)) finishPointers(); }} onDoubleClick={e => {
+        {simulate && compact && <SimulationStrip sim={sim} onExit={() => setMode(false)} />}
+        <span id={canvasLabel} hidden>Circuit drawing. Use the object list and Connect pins for keyboard access.</span><div className={`lec-viewport${simulate && sim.probing ? ' is-probing' : ''}${simulate ? ' is-simulating' : ''}`} ref={viewport} data-ignore-swipe="true" style={{ touchAction: 'none' }} onPointerLeave={() => setHover(h => h?.pinned ? h : undefined)}><svg ref={svg} className="lec-canvas" role="application" aria-labelledby={canvasLabel} width="100%" height="100%" onPointerDown={e => { if (!pointers.current.size) suppressClick.current = false; onPointerDown(e); }} onPointerMove={queuePointerMove} onPointerLeave={() => { if (!pointers.current.size) setPointing(false); }} onPointerUp={onPointerUp} onPointerCancel={e => { e.stopPropagation(); finishPointers(); }} onLostPointerCapture={e => { e.stopPropagation(); if (pointers.current.has(e.pointerId)) finishPointers(); }} onDoubleClick={e => {
           e.preventDefault(); e.stopPropagation();
           if (pointerKind.current === 'touch' || tool !== 'select' || draft || reconnect || suppressClick.current || pointers.current.size) return;
           const id = objectAt(e.clientX, e.clientY); if (id) inspectObject(id, true);
@@ -566,7 +690,7 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
         }}>
           <defs><pattern id={gridId} x={-GRID / 2} y={-GRID / 2} patternUnits="userSpaceOnUse" width={GRID} height={GRID}><circle cx={GRID / 2} cy={GRID / 2} r="0.6" fill="var(--lec-grid)" /></pattern></defs>
           <rect width="100%" height="100%" fill="var(--lec-paper)" />
-          <g transform={`translate(${camera.x} ${camera.y}) scale(${camera.zoom})`}>{grid && <rect x={-camera.x / camera.zoom} y={-camera.y / camera.zoom} width={size.width / camera.zoom} height={size.height / camera.zoom} fill={`url(#${gridId})`} pointerEvents="none" />}<g className="lec-alignment-cues" pointerEvents="none" aria-hidden="true">{guidance.guides.map(guide => <line key={guide.axis} data-axis={guide.axis} {...{ x1: guide.x1, y1: guide.y1, x2: guide.x2, y2: guide.y2 }} className="lec-alignment-guide" vectorEffect="non-scaling-stroke" />)}</g><Scene document={previewDoc} selection={displaySelection} crossings={crossings} camera={camera} width={size.width} height={size.height} highlighted={highlighted} settling={feedback.parts} wireFeedback={feedback.wires} />
+          <g transform={`translate(${camera.x} ${camera.y}) scale(${camera.zoom})`}>{grid && <rect x={-camera.x / camera.zoom} y={-camera.y / camera.zoom} width={size.width / camera.zoom} height={size.height / camera.zoom} fill={`url(#${gridId})`} pointerEvents="none" />}<g className="lec-alignment-cues" pointerEvents="none" aria-hidden="true">{guidance.guides.map(guide => <line key={guide.axis} data-axis={guide.axis} {...{ x1: guide.x1, y1: guide.y1, x2: guide.x2, y2: guide.y2 }} className="lec-alignment-guide" vectorEffect="non-scaling-stroke" />)}</g><Scene document={previewDoc} selection={displaySelection} crossings={crossings} camera={camera} width={size.width} height={size.height} highlighted={highlighted} settling={feedback.parts} wireFeedback={feedback.wires} signals={signals} />
             {tool === 'place' && placement && pointing && <g className={`lec-placement-preview${guidance.overlaps.length ? ' is-overlapping' : ''}`} opacity="0.5" transform={componentTransform({ position: snap(pointer, snapping), rotation: placement.rotation, mirrorX: false, mirrorY: false } as Component)} stroke="var(--lec-accent)" strokeWidth="2" fill="none" pointerEvents="none"><SymbolDrawing definition={placement.definition} /></g>}
             {draft && <path d={pathData(previewPoints)} fill="none" stroke="var(--lec-accent)" strokeWidth="2.5" strokeDasharray="6 4" pointerEvents="none" />}
             {activeTarget && <circle key={activeTarget.target.kind === 'pin' || activeTarget.target.kind === 'node' ? anchorKey(activeTarget.target) : activeTarget.objectId} cx={activeTarget.point.x} cy={activeTarget.point.y} r={9 / camera.zoom} className={`lec-target${targetMismatch || targetLocked ? ' is-unavailable' : ''}`} vectorEffect="non-scaling-stroke" pointerEvents="none" />}
@@ -580,9 +704,11 @@ export function Editor({ session, host, save }: { session: DocumentSession; host
           </g>
         </svg>
 
+        {simulate && sim.engine === 'electrical' && hover && <Readout sim={sim} objectId={hover.id} x={hover.x} y={hover.y} bounds={size} />}
         <div className="lec-zoom-controls" role="group" aria-labelledby={zoomLabel} onClick={event => { if (event.detail > 0) root.current?.focus({ preventScroll: true }); }}><span id={zoomLabel} hidden>Zoom controls</span><button aria-label="Zoom out" onClick={() => setCamera(stepZoomAt(cameraDestination(), { x: size.width / 2, y: size.height / 2 }, -1))}>−</button><button aria-label="Reset zoom" onClick={() => { const target = cameraDestination(); animateCamera(zoomAt(target, { x: size.width / 2, y: size.height / 2 }, 1 / target.zoom)); }}>{Math.round(camera.zoom * 100)}%</button><button aria-label="Zoom in" onClick={() => setCamera(stepZoomAt(cameraDestination(), { x: size.width / 2, y: size.height / 2 }, 1))}>+</button><ToolButton label="Fit circuit" shortcut={shortcuts.fit} icon="fit" onClick={() => fit()} /></div>
         {(draft || placement && !compact || tool === 'move' || reconnect) && <div className="lec-gesture-bar" onPointerDown={consumeControlPointer} onPointerUp={consumeControlPointer} onClick={e => e.stopPropagation()}><span>{placement ? `Place ${placement.definition.name}${guidance.overlaps.length ? ' · overlaps a part' : ''}` : reconnect ? 'Choose a new endpoint' : draft ? `${draft.bends.length} point${draft.bends.length === 1 ? '' : 's'} placed · ${activeTarget?.label ?? 'tap to place a point'}${targetMismatch ? ' · incompatible width' : targetLocked ? ' · locked route' : ''}` : 'Tap a destination'}</span>{draft && <><button onClick={undoCorner} disabled={!draft.bends.length}>Undo corner</button><button className="lec-primary" disabled={!draft.bends.length} title="Finish at the last placed point (Enter)" aria-keyshortcuts="Enter" onClick={finishWire}>Finish</button></>}<button onClick={cancel}>Cancel</button></div>}
         </div>
+        {simulate && sim.dockOpen && <AnalysisDock sim={sim} height={dockHeights[sim.engine]} setHeight={h => { dockResized.current = true; setDockHeights(d => ({ ...d, [sim.engine]: Math.max(120, Math.min(h, (workspace.current?.getBoundingClientRect().height ?? 800) - 180)) })); }} inspect={inspectIds} />}
         <div className="lec-dock-spacer" aria-hidden="true" />
         <footer className="lec-statusbar"><span>{tool === 'place' ? 'PLACE' : tool === 'wire' ? 'WIRE' : tool.toUpperCase()}<span className="lec-status-divider">/</span>{selection.size ? `${selection.size} selected` : `${doc.components.length} parts · ${doc.wires.length} wires`}</span><div className="lec-status-actions">{checks.length > 0 && <span className="lec-status-issues">{checks.length} {checks.length === 1 ? 'issue' : 'issues'}</span>}<span className={`lec-save lec-save-${saveState.status}`} role="status" title={saveState.message}>{save ? saveState.message : 'In memory'}</span></div></footer>
       </main>

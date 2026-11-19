@@ -37,3 +37,7 @@ Reload Obsidian and enable the plugin in Community plugins. `.obsidian` is the u
 ## Technical references
 
 See [format](docs/format.md), [architecture](docs/architecture.md), [validation and qualification](docs/validation.md), and [release instructions](docs/release.md). Read [AGENTS.md](AGENTS.md) and the [standing product goals](docs/product-goals.md) before proposing or implementing changes. Screenshot capture provenance and reproduction instructions are in the [gallery index](docs/screenshots/README.md).
+
+## Simulation
+
+The Build | Simulate workflow and supported models are in [docs/simulation.md](docs/simulation.md); engine decisions are in [ADR 002](docs/adr/002-digital-feasibility.md) and [ADR 003](docs/adr/003-electrical-analysis.md). Current validation and reproduction commands, including isolated actual-host, failure and physical Android checks, are in [the simulation evidence](docs/evidence/simulation-live-ui/validation.md). `node scripts/generate-listing.mjs` regenerates the showcase circuits and verifies them with both engines. Run/probe inputs are ephemeral; do not add behavioral settings to generic document metadata.

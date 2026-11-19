@@ -1,0 +1,1749 @@
+{
+  "format": "logic-electric-circuit",
+  "schemaVersion": 1,
+  "id": "showcase.mobile-electrical.doc1",
+  "title": "Sensor chain (compact)",
+  "components": [
+    {
+      "id": "showcase.mobile-electrical.c1",
+      "definitionId": "builtin.ac-voltage.v1",
+      "position": {
+        "x": 0,
+        "y": 128
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "V1",
+      "properties": {
+        "value": "200mV 1kHz"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.c2",
+      "definitionId": "builtin.ground.v1",
+      "position": {
+        "x": 0,
+        "y": 240
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "GND1",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.c3",
+      "definitionId": "builtin.analog-0.v1",
+      "position": {
+        "x": 224,
+        "y": 64
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U1",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.c4",
+      "definitionId": "builtin.resistor.v1",
+      "position": {
+        "x": 128,
+        "y": 144
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "RG",
+      "properties": {
+        "value": "10k"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.c5",
+      "definitionId": "builtin.ground.v1",
+      "position": {
+        "x": 128,
+        "y": 256
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "GND2",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.c6",
+      "definitionId": "builtin.resistor.v1",
+      "position": {
+        "x": 224,
+        "y": -48
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "RF",
+      "properties": {
+        "value": "100k"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.c7",
+      "definitionId": "builtin.resistor.v1",
+      "position": {
+        "x": 400,
+        "y": 64
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "R2",
+      "properties": {
+        "value": "10k"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.c8",
+      "definitionId": "builtin.capacitor.v1",
+      "position": {
+        "x": 496,
+        "y": 144
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "C1",
+      "properties": {
+        "value": "10nF"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.c9",
+      "definitionId": "builtin.ground.v1",
+      "position": {
+        "x": 496,
+        "y": 256
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "GND3",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.c10",
+      "definitionId": "builtin.resistor.v1",
+      "position": {
+        "x": 64,
+        "y": 400
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "R3",
+      "properties": {
+        "value": "100k"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.c11",
+      "definitionId": "builtin.resistor.v1",
+      "position": {
+        "x": 64,
+        "y": 544
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "R4",
+      "properties": {
+        "value": "10k"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.c12",
+      "definitionId": "builtin.power.v1",
+      "position": {
+        "x": 64,
+        "y": 320
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "PWR1",
+      "properties": {
+        "value": "12V"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.c13",
+      "definitionId": "builtin.ground.v1",
+      "position": {
+        "x": 64,
+        "y": 656
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "GND4",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.c14",
+      "definitionId": "builtin.analog-1.v1",
+      "position": {
+        "x": 224,
+        "y": 480
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U3",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.c15",
+      "definitionId": "builtin.power.v1",
+      "position": {
+        "x": 224,
+        "y": 560
+      },
+      "rotation": 180,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "PWR2",
+      "properties": {
+        "value": "-12V"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.c16",
+      "definitionId": "builtin.resistor.v1",
+      "position": {
+        "x": 448,
+        "y": 480
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "RB",
+      "properties": {
+        "value": "10k"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.c17",
+      "definitionId": "builtin.npn.v1",
+      "position": {
+        "x": 608,
+        "y": 480
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "Q1",
+      "properties": {
+        "value": "100"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.c18",
+      "definitionId": "builtin.ground.v1",
+      "position": {
+        "x": 640,
+        "y": 592
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "GND5",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.c19",
+      "definitionId": "builtin.diode-2.v1",
+      "position": {
+        "x": 640,
+        "y": 368
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "LED1",
+      "properties": {
+        "value": "Red"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.c20",
+      "definitionId": "builtin.resistor.v1",
+      "position": {
+        "x": 640,
+        "y": 256
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "RL",
+      "properties": {
+        "value": "1k"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.c21",
+      "definitionId": "builtin.power.v1",
+      "position": {
+        "x": 640,
+        "y": 176
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "PWR3",
+      "properties": {
+        "value": "12V"
+      },
+      "locked": false
+    }
+  ],
+  "nodes": [
+    {
+      "id": "showcase.mobile-electrical.n1",
+      "position": {
+        "x": 128,
+        "y": 48
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.mobile-electrical.n2",
+      "position": {
+        "x": 320,
+        "y": 64
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.mobile-electrical.n3",
+      "position": {
+        "x": 496,
+        "y": 64
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.mobile-electrical.n4",
+      "position": {
+        "x": 64,
+        "y": 464
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.mobile-electrical.n5",
+      "position": {
+        "x": 320,
+        "y": 480
+      },
+      "explicit": false
+    }
+  ],
+  "wires": [
+    {
+      "id": "showcase.mobile-electrical.w1",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c1",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c2",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.w2",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c1",
+        "pinId": "1"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c3",
+        "pinId": "-positive"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.w3",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-electrical.n1"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c3",
+        "pinId": "-"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.w4",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-electrical.n1"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c4",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.w5",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c4",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c5",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.w6",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-electrical.n1"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c6",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 128,
+            "y": -48,
+            "id": "showcase.mobile-electrical.bend1",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.w7",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c6",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-electrical.n2"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 320,
+            "y": -48,
+            "id": "showcase.mobile-electrical.bend2",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.w8",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c3",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-electrical.n2"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.w9",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-electrical.n2"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c7",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.w10",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c7",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-electrical.n3"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.w11",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-electrical.n3"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c8",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.w12",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c8",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c9",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.w13",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c12",
+        "pinId": "1"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c10",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.w14",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c10",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-electrical.n4"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.w15",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-electrical.n4"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c11",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.w16",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c11",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c13",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.w17",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-electrical.n4"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c14",
+        "pinId": "-"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.w18",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c15",
+        "pinId": "1"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c14",
+        "pinId": "V-"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.w19",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c14",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-electrical.n5"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.w20",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-electrical.n5"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c16",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.w21",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c16",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c17",
+        "pinId": "B"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.w22",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c17",
+        "pinId": "E"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c18",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.w23",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c19",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c17",
+        "pinId": "C"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.w24",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c20",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c19",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.mobile-electrical.w25",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c21",
+        "pinId": "1"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c20",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    }
+  ],
+  "annotations": [
+    {
+      "id": "showcase.mobile-electrical.a1",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": -144
+      },
+      "text": "Sensor chain",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 24
+    },
+    {
+      "id": "showcase.mobile-electrical.a2",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": -112
+      },
+      "text": "Gain ×11 / RC low-pass / comparator / LED driver",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 12
+    },
+    {
+      "id": "showcase.mobile-electrical.a3",
+      "kind": "label",
+      "position": {
+        "x": 16,
+        "y": 64
+      },
+      "text": "VIN",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c1",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-electrical.a4",
+      "kind": "label",
+      "position": {
+        "x": 240,
+        "y": 16
+      },
+      "text": "+12V",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c3",
+        "pinId": "V-positive"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-electrical.a5",
+      "kind": "label",
+      "position": {
+        "x": 240,
+        "y": 120
+      },
+      "text": "-12V",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c3",
+        "pinId": "V-"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-electrical.a6",
+      "kind": "label",
+      "position": {
+        "x": 328,
+        "y": 56
+      },
+      "text": "AMP",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-electrical.n2"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-electrical.a7",
+      "kind": "label",
+      "position": {
+        "x": 504,
+        "y": 56
+      },
+      "text": "FILT",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-electrical.n3"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-electrical.a8",
+      "kind": "label",
+      "position": {
+        "x": 80,
+        "y": 288
+      },
+      "text": "+12V",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c12",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-electrical.a9",
+      "kind": "label",
+      "position": {
+        "x": 16,
+        "y": 456
+      },
+      "text": "REF",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-electrical.n4"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-electrical.a10",
+      "kind": "label",
+      "position": {
+        "x": 136,
+        "y": 512
+      },
+      "text": "FILT",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c14",
+        "pinId": "-positive"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-electrical.a11",
+      "kind": "label",
+      "position": {
+        "x": 240,
+        "y": 432
+      },
+      "text": "+12V",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c14",
+        "pinId": "V-positive"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-electrical.a12",
+      "kind": "label",
+      "position": {
+        "x": 240,
+        "y": 528
+      },
+      "text": "-12V",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c15",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-electrical.a13",
+      "kind": "label",
+      "position": {
+        "x": 328,
+        "y": 472
+      },
+      "text": "CMP",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.mobile-electrical.n5"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.mobile-electrical.a14",
+      "kind": "label",
+      "position": {
+        "x": 656,
+        "y": 144
+      },
+      "text": "+12V",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.mobile-electrical.c21",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    }
+  ],
+  "groups": [],
+  "definitions": [
+    {
+      "id": "builtin.ac-voltage.v1",
+      "version": 1,
+      "name": "AC voltage source",
+      "category": "Sources",
+      "aliases": [
+        "ac"
+      ],
+      "prefix": "V",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24 M 24 0 H 48"
+        },
+        {
+          "kind": "circle",
+          "x": 0,
+          "y": 0,
+          "radius": 24
+        },
+        {
+          "kind": "path",
+          "d": "M -16 0 C -16 -20 0 -20 0 0 C 0 20 16 20 16 0"
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {
+        "value": "230V"
+      }
+    },
+    {
+      "id": "builtin.ground.v1",
+      "version": 1,
+      "name": "Ground",
+      "category": "Connectivity",
+      "aliases": [
+        "gnd",
+        "reference"
+      ],
+      "prefix": "GND",
+      "pins": [
+        {
+          "id": "1",
+          "name": "Reference",
+          "x": 0,
+          "y": -32,
+          "side": "top",
+          "role": "power",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M 0 -32 V 0 M -24 0 H 24 M -16 8 H 16 M -8 16 H 8"
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.analog-0.v1",
+      "version": 1,
+      "name": "Op-amp",
+      "category": "Analog",
+      "aliases": [
+        "op-amp"
+      ],
+      "prefix": "U",
+      "pins": [
+        {
+          "id": "-positive",
+          "name": "+",
+          "x": -48,
+          "y": 16,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "-",
+          "name": "-",
+          "x": -48,
+          "y": -16,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "out",
+          "name": "out",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        },
+        {
+          "id": "V-positive",
+          "name": "V+",
+          "x": 0,
+          "y": -48,
+          "side": "top",
+          "role": "power",
+          "width": 1
+        },
+        {
+          "id": "V-",
+          "name": "V-",
+          "x": 0,
+          "y": 48,
+          "side": "bottom",
+          "role": "power",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -24 -32 L 32 0 L -24 32 Z M -48 -16 H -24 M -48 16 H -24 M 32 0 H 48 M 0 -48 V -18 M 0 48 V 18"
+        },
+        {
+          "kind": "text",
+          "x": -15,
+          "y": -12,
+          "text": "−",
+          "size": 12
+        },
+        {
+          "kind": "text",
+          "x": -15,
+          "y": 20,
+          "text": "+",
+          "size": 12
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.resistor.v1",
+      "version": 1,
+      "name": "Resistor",
+      "category": "Passive",
+      "aliases": [
+        "resistance",
+        "ohm"
+      ],
+      "prefix": "R",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 -10 H 24 V 10 H -24 Z"
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {
+        "value": "10k"
+      }
+    },
+    {
+      "id": "builtin.capacitor.v1",
+      "version": 1,
+      "name": "Capacitor",
+      "category": "Passive",
+      "aliases": [],
+      "prefix": "C",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 0 H -6 M -6 -20 V 20 M 6 -20 V 20 M 6 0 H 24"
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {
+        "value": "100nF"
+      }
+    },
+    {
+      "id": "builtin.power.v1",
+      "version": 1,
+      "name": "Power rail",
+      "category": "Connectivity",
+      "aliases": [
+        "vcc",
+        "vdd"
+      ],
+      "prefix": "PWR",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "x": 0,
+          "y": 32,
+          "side": "bottom",
+          "role": "power",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M 0 32 V -8 M -16 -8 H 16 M 0 -8 L -8 4 M 0 -8 L 8 4"
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {
+        "value": "VCC"
+      }
+    },
+    {
+      "id": "builtin.analog-1.v1",
+      "version": 1,
+      "name": "Comparator",
+      "category": "Analog",
+      "aliases": [
+        "comparator"
+      ],
+      "prefix": "U",
+      "pins": [
+        {
+          "id": "-positive",
+          "name": "+",
+          "x": -48,
+          "y": 16,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "-",
+          "name": "-",
+          "x": -48,
+          "y": -16,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "out",
+          "name": "out",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        },
+        {
+          "id": "V-positive",
+          "name": "V+",
+          "x": 0,
+          "y": -48,
+          "side": "top",
+          "role": "power",
+          "width": 1
+        },
+        {
+          "id": "V-",
+          "name": "V-",
+          "x": 0,
+          "y": 48,
+          "side": "bottom",
+          "role": "power",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -24 -32 L 32 0 L -24 32 Z M -48 -16 H -24 M -48 16 H -24 M 32 0 H 48 M 0 -48 V -18 M 0 48 V 18"
+        },
+        {
+          "kind": "text",
+          "x": -15,
+          "y": -12,
+          "text": "−",
+          "size": 12
+        },
+        {
+          "kind": "text",
+          "x": -15,
+          "y": 20,
+          "text": "+",
+          "size": 12
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.npn.v1",
+      "version": 1,
+      "name": "NPN",
+      "category": "Semiconductors",
+      "aliases": [
+        "npn",
+        "bjt"
+      ],
+      "prefix": "Q",
+      "pins": [
+        {
+          "id": "B",
+          "name": "B",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "C",
+          "name": "C",
+          "x": 32,
+          "y": -48,
+          "side": "top",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "E",
+          "name": "E",
+          "x": 32,
+          "y": 48,
+          "side": "bottom",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -12 M -12 -24 V 24 M -12 -12 L 32 -32 V -48 M -12 12 L 32 32 V 48"
+        },
+        {
+          "kind": "path",
+          "d": "M 12 29 L 27 29 L 20 17"
+        }
+      ],
+      "bounds": {
+        "x": -48,
+        "y": -48,
+        "width": 96,
+        "height": 96
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.diode-2.v1",
+      "version": 1,
+      "name": "LED",
+      "category": "Semiconductors",
+      "aliases": [
+        "light emitting diode"
+      ],
+      "prefix": "D",
+      "pins": [
+        {
+          "id": "1",
+          "name": "Anode",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "2",
+          "name": "Cathode",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 0 H -14 M -14 -18 L 14 0 L -14 18 Z M 14 -18 V 18 M 14 0 H 24"
+        },
+        {
+          "kind": "path",
+          "d": "M 8 -28 L 24 -44 M 16 -44 H 24 V -36 M -4 -32 L 12 -48 M 4 -48 H 12 V -40"
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -48,
+        "width": 64,
+        "height": 80
+      },
+      "defaults": {
+        "value": ""
+      }
+    }
+  ],
+  "metadata": {
+    "purpose": "Editable showcase drawing; verified with the built-in simulator. Not an electrically qualified design.",
+    "layout": "Portrait"
+  }
+}

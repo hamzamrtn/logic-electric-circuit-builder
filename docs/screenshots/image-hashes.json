@@ -1,74 +1,74 @@
 [
   {
-    "file": "note-logic-light.png",
-    "width": 2640,
-    "height": 2640,
-    "sha256": "ec721b1bc38d8115c6a9de621c61c48c2c1ff90a2fd2ecf66447cfb38e10b3b2"
+    "file": "desktop-1-note.png",
+    "width": 3200,
+    "height": 2000,
+    "sha256": "6dc7cc09f590db681fb4c9ffd3d26661f05e930d33bb02dce730ec25228ac629"
+  },
+  {
+    "file": "desktop-2-logic-build.png",
+    "width": 3200,
+    "height": 2000,
+    "sha256": "a34a72b2fe7c09210ae203cb63aac0342f534d31e55007178fefa1b03038972f"
+  },
+  {
+    "file": "desktop-3-logic-simulation.png",
+    "width": 3200,
+    "height": 2000,
+    "sha256": "13e39fb4da46fa064069d1d05937854768ac110e36abbec35b6326e3260817f7"
+  },
+  {
+    "file": "desktop-4-electrical-build.png",
+    "width": 3200,
+    "height": 2000,
+    "sha256": "31864b9036040c34fc2cda8693809efcc28b8ecda44c3cb4f2cd67824822273b"
+  },
+  {
+    "file": "desktop-5-electrical-simulation.png",
+    "width": 3200,
+    "height": 2000,
+    "sha256": "201c2bcdbbe36d0176461de05a8cc98d2903a014b3f4f280709c3f25c990ac08"
   },
   {
     "file": "note-electrical-dark.png",
     "width": 2640,
     "height": 2640,
-    "sha256": "265de51c4f2e1e0557b520fc98446d189d76d6abe5e3c1f2d8e9f0e5517cafd5"
+    "sha256": "6f6d18c24bc3e01250ac10e9ffbae388d6fe6801d529f1d7f7d37457243e463f"
   },
   {
-    "file": "desktop-power.png",
-    "width": 3200,
-    "height": 2100,
-    "sha256": "f4a00189f648fd4245e7f956b49c4044fea0f218b5a4b1763aa6ee425a8f4762"
+    "file": "note-logic-light.png",
+    "width": 2640,
+    "height": 2640,
+    "sha256": "2e15a1bdd03ea5d8e226c47756af3281dba3fa50b02befe4e958f90dcdd6fcfb"
   },
   {
-    "file": "desktop-analog.png",
-    "width": 3200,
-    "height": 2100,
-    "sha256": "52892bb6e1eb8ac4eb42341028b560dc1c058273fbf9832ba9edb410639d947d"
+    "file": "phone-1-note.png",
+    "width": 1080,
+    "height": 2340,
+    "sha256": "e95fa69588d62442b30ce059fdec7ec98b9e0c8e2f2fd82f63f2c17ed6eecc46"
   },
   {
-    "file": "desktop-logic.png",
-    "width": 3200,
-    "height": 2100,
-    "sha256": "3af0e4665a00c91699ee99e6d84e7e00b5b152e38a20d6e40e1899c6a44c4552"
+    "file": "phone-2-logic-build.png",
+    "width": 1080,
+    "height": 2340,
+    "sha256": "0da9a3cd656fde9bb7b2fa17717fc22c8df3e70f93ca359eac0e5c533a3cfbee"
   },
   {
-    "file": "desktop-bus.png",
-    "width": 3200,
-    "height": 2100,
-    "sha256": "3d83ab2b8d70b73e438dadfcb13e7208e1f08353ea73ccee3e0527c6e2207c59"
+    "file": "phone-3-logic-simulation.png",
+    "width": 1080,
+    "height": 2340,
+    "sha256": "4afe315b11633a31c3babc89a66edac553908cdc8bbb2b771602eeb1453db557"
   },
   {
-    "file": "desktop-timer.png",
-    "width": 3200,
-    "height": 2100,
-    "sha256": "6aa8537c942f8d541a1c127e6cd07104157ae93506558eb1eb672298462e0329"
+    "file": "phone-4-electrical-build.png",
+    "width": 1080,
+    "height": 2340,
+    "sha256": "d554791def1d5e3b160fc5c54caf8e054e3b60cf898aa245732c310f1cf573dd"
   },
   {
-    "file": "mobile-power.png",
-    "width": 1290,
-    "height": 2796,
-    "sha256": "385805e0a7ec8941ed68bbc0551fb42a0a77bb1bac2d17744bc001f5e1a48fd8"
-  },
-  {
-    "file": "mobile-analog.png",
-    "width": 1290,
-    "height": 2796,
-    "sha256": "9b766e2ae30ebdc28b5d326d1cb3b1a22bf1305cb456e3035c0df59b9072ba71"
-  },
-  {
-    "file": "mobile-logic.png",
-    "width": 1290,
-    "height": 2796,
-    "sha256": "d58f092f80e8b815d4a8af1cac00c76c015f188e72196d5e08625bce16bb43ea"
-  },
-  {
-    "file": "mobile-bus.png",
-    "width": 1290,
-    "height": 2796,
-    "sha256": "4a5afb3919260e0e3a3f964c68487888a532530bd34f1aee22920fc5fa0fb446"
-  },
-  {
-    "file": "mobile-timer.png",
-    "width": 1290,
-    "height": 2796,
-    "sha256": "98c22578cd4fbcd2ea08bf14e70f77ecdf98071a570fe1ae8bcc74b34dcb995c"
+    "file": "phone-5-electrical-simulation.png",
+    "width": 1080,
+    "height": 2340,
+    "sha256": "bbc462a01dd5f10998bb2fb7075b676877cd028c999c93edfad84569a1d48627"
   }
 ]

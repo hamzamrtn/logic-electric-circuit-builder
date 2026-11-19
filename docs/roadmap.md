@@ -2,7 +2,7 @@
 
 **Logic-Electric Circuit Builder** · Planning baseline: 2026-11-11
 
-**Status:** proposed future capabilities, not an implementation-completion record or authorization to publish. The owner requested this roadmap. Implementing a milestone remains a separate scoped task. [Product goals](product-goals.md) and the [UI contract](ui-contract.md) remain the standing product requirements.
+**Status:** roadmap plus the simulation studio prepared as 1.0.0 (D1 combinational logic, A1 operating point and a power-on transient). [Current evidence](evidence/simulation-live-ui/validation.md) records the supported models, UI, desktop and physical Android results and remaining gaps; it has not been published. This document is not an implementation-completion record or authorization to publish. The owner requested this roadmap. Implementing a milestone remains a separate scoped task. [Product goals](product-goals.md) and the [UI contract](ui-contract.md) remain the standing product requirements.
 
 ## 1. Capability and product outcome
 
@@ -13,9 +13,9 @@ Power and approachability must advance together. Each milestone must deliver a c
 ### Current baseline
 
 - The editor already supports explicit connections, stable pins, named nets and buses, connected transformations, history, custom drawing blocks, reusable snippets, note previews and SVG/PNG export.
-- Simulation is **not implemented**. [SimulationAdapter](../src/core/topology/simulation.ts) is an initial asynchronous analysis boundary, not an engine. Its scalar measurements and single analysis call are insufficient for a complete timed, vector-valued simulation API.
+- The local unreleased editor has [initial digital simulation](simulation.md), backed by the bounded [digital evaluator](../src/core/topology/digital.ts), [runtime](../src/core/session/DigitalRuntime.ts) and [shared ownership pool](../src/core/session/DigitalSessions.ts). The [architecture decision](adr/002-digital-feasibility.md) and [dated evidence](evidence/digital-simulation/validation.md) define the implemented boundary. [SimulationAdapter](../src/core/topology/simulation.ts) remains an unused historical placeholder.
 - Current custom blocks describe symbols and ports; they are not automatically executable subcircuits or behavioral models.
-- The worktree currently contains local 0.1.11 feedback/release-review work. Its implementation and qualification status belong in [the dated validation record](evidence/feedback-scorecard/validation.md), not in this roadmap. Do not discard or implicitly publish it while starting future work.
+- The current manifest is 0.1.11. Release verification/publication is recorded in [the release evidence](evidence/release-0.1.11.md); preserve existing release-document work while developing simulation. This roadmap does not authorize another publication.
 - Current production packaging has one browser-safe bundle, three install assets and no workers, native helpers or runtime asset downloads. Background execution or a WebAssembly engine would require an explicit architecture and packaging decision.
 
 ## 2. Constraints and invariants
@@ -46,7 +46,7 @@ These are milestone boundaries, not calendar estimates. Close one capability's a
 | D2 — sequential logic and timing | Use clocks and stateful components with pause, step and timing traces. | D1. Define initialization, event order, delays and clock semantics before adding devices. |
 | H1 — hierarchical subcircuits | Turn working circuits into reusable blocks and inspect their internals. | Stable ports and model contracts. Build before promising simulation of user-created composite blocks. |
 | L1 — personal circuit library | Find and reuse saved parts, configured devices and circuit sections. | Can follow the existing snippet foundation independently; behavioral entries depend on H1/model versioning. |
-| A0/A1 — analog feasibility and DC | Solve a documented supported electrical subset and inspect voltages/currents. | Engine, model, licensing, numeric and mobile feasibility gates; separate from digital completion. |
+| A0/A1 — analog feasibility and DC | Solve a documented supported electrical subset and inspect voltages/currents. Implemented locally on 2026-11-19 (operating point plus a power-on transient scope; [ADR 003](adr/003-electrical-analysis.md)); release qualification open. | Engine, model, licensing, numeric and mobile feasibility gates; separate from digital completion. |
 | A2 — transient and AC analysis | Inspect time-domain waveforms and frequency response. | Validated A1 engine/model integration and bounded measurement infrastructure. |
 | E1 — experiments and documentation | Repeat an analysis and attach understandable results to notes. | Build digital truth tables/traces after D1/D2; add analog plots/sweeps only after their analyses are qualified. |
 
@@ -108,7 +108,7 @@ Define per-bit `0`, `1`, `X` (unknown) and `Z` (high impedance) values. Specify 
 
 The first release supports the advertised combinational subset. Combinational feedback that fails the chosen stable-evaluation policy is reported, not allowed to spin indefinitely. Deliberately modeled stateful devices arrive in D2.
 
-Provide Run, Stop and Reset, runtime input controls and a readable probe/output surface. Distinguish stopped, stale, unsupported and valid results using labels as well as restrained color. Keep source edits separate from temporary input toggles. Entering simulation must preserve the current drawing, selection and recoverable unfinished editing state; define how that state resumes or is explicitly canceled before implementation.
+Provide Run/Pause and Reset, runtime input controls and a readable probe/output surface (implemented locally as a live panel with canvas signal colours, switches and an exhaustive truth table; see [simulation.md](simulation.md)). Distinguish stopped, stale, unsupported and valid results using labels as well as restrained color. Keep source edits separate from temporary input toggles. Entering simulation must preserve the current drawing, selection and recoverable unfinished editing state; define how that state resumes or is explicitly canceled before implementation.
 
 **Acceptance:** exhaustively verify the supported gates' truth tables and unknown-state rules; run independent half-adder and gate-built multiplexer fixtures; exercise driver conflicts, unjoined crossings, bus-width rejection, unsupported devices, feedback limits, stop/restart, cancellation and late results. Repeat a complete build → run → toggle → inspect → edit → rerun workflow in wide and compact layouts. Opening, running and stopping must leave the serialized drawing unchanged.
 
@@ -187,9 +187,9 @@ Use [ADRs](adr/001-foundation.md) to record architecture decisions once evidence
 
 ## 8. Handoff
 
-**Ready for direct scoped work:** M0 evidence/automation inventory and a bounded D0 feasibility task. Produce the benchmark/qualification baseline, compare execution approaches, prove one gate circuit and record the architecture recommendation.
+**Current handoff:** the Build | Simulate studio (combinational logic and electrical analysis) is implemented and qualified on desktop and physical Android tablet/phone, and prepared for release as 1.0.0. See [current evidence](evidence/simulation-live-ui/validation.md); iOS remains unverified. The earlier [digital](evidence/digital-simulation/validation.md) and [D0](evidence/digital-d0/validation.md) records are dated baselines. Next candidates are D2 (sequential logic), A2 (AC/frequency analysis) and mixed-signal, each a separate scoped task.
 
-**Needs architecture review before broad implementation:** the runtime API, model/persistence schema and any worker/WebAssembly/package changes. Then deliver D1 as one complete supported workflow. No further clarification of the owner's intuitive/powerful/clean-interface goals is needed.
+**Further architecture work:** persisted behavioral configuration, hierarchy, sequential timing and any worker/WebAssembly/package changes remain separate decisions. The current digital update keeps schema 1 and uses ephemeral settings with an explicit code allowlist. Do not expand those models while the remaining target qualification/release gates are being closed.
 
 Do not start every workstream at once, promise dates without measured scope or turn unresolved engine choices into a large speculative implementation. Finish each verified milestone, record actual status and stop before unrelated expansion.
 

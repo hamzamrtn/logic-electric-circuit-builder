@@ -1,0 +1,15 @@
+import { spawnSync } from 'node:child_process';
+import { createRequire } from 'node:module';
+import { mkdtemp, stat, writeFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+const index = process.argv.indexOf('--native-css'), css = process.argv[index + 1];
+if (index < 0 || !css) throw new Error('Usage: node scripts/check-simulation-browser.mjs --native-css /path/from/host-probe/native-host.css');
+await stat(css);
+const project = resolve(dirname(fileURLToPath(import.meta.url)), '..'), folder = await mkdtemp(`${tmpdir()}/lec-simulation-browser-`);
+const config = `${folder}/playwright.config.mjs`;
+await writeFile(config, `import base from ${JSON.stringify(pathToFileURL(`${project}/playwright.config.ts`).href)};\nexport default { ...base, testDir: ${JSON.stringify(`${project}/tests/e2e`)}, metadata: { nativeCssUrl: ${JSON.stringify(pathToFileURL(resolve(css)).href)} }, reporter: [['list']] };\n`);
+const require = createRequire(import.meta.url), cli = resolve(dirname(require.resolve('@playwright/test/package.json')), 'cli.js');
+const result = spawnSync(process.execPath, [cli, 'test', 'tests/e2e/simulation.spec.ts', '--config', config, '--project=chromium', '--project=android-tablet', '--project=android-phone', '--workers=3'], { cwd: project, stdio: 'inherit' });
+if (result.error) throw result.error; process.exitCode = result.status ?? 1;

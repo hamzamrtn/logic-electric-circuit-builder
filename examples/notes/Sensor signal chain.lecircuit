@@ -1,0 +1,2529 @@
+{
+  "format": "logic-electric-circuit",
+  "schemaVersion": 1,
+  "id": "showcase.listing-electrical.doc1",
+  "title": "Sensor signal chain",
+  "components": [
+    {
+      "id": "showcase.listing-electrical.c1",
+      "definitionId": "builtin.power.v1",
+      "position": {
+        "x": 1840,
+        "y": -96
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "PWR1",
+      "properties": {
+        "value": "12V"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.c2",
+      "definitionId": "builtin.power.v1",
+      "position": {
+        "x": 1840,
+        "y": 32
+      },
+      "rotation": 180,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "PWR2",
+      "properties": {
+        "value": "-12V"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.c3",
+      "definitionId": "builtin.ground.v1",
+      "position": {
+        "x": 1936,
+        "y": 32
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "GND1",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.c4",
+      "definitionId": "builtin.ac-voltage.v1",
+      "position": {
+        "x": 0,
+        "y": 176
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "V1",
+      "properties": {
+        "value": "200mV 1kHz"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.c5",
+      "definitionId": "builtin.ground.v1",
+      "position": {
+        "x": 0,
+        "y": 288
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "GND2",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.c6",
+      "definitionId": "builtin.analog-0.v1",
+      "position": {
+        "x": 288,
+        "y": 80
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U1",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.c7",
+      "definitionId": "builtin.resistor.v1",
+      "position": {
+        "x": 176,
+        "y": 176
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "RG",
+      "properties": {
+        "value": "10k"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.c8",
+      "definitionId": "builtin.ground.v1",
+      "position": {
+        "x": 176,
+        "y": 288
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "GND3",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.c9",
+      "definitionId": "builtin.resistor.v1",
+      "position": {
+        "x": 288,
+        "y": -80
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "RF",
+      "properties": {
+        "value": "100k"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.c10",
+      "definitionId": "builtin.resistor.v1",
+      "position": {
+        "x": 560,
+        "y": 80
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "RIN",
+      "properties": {
+        "value": "10k"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.c11",
+      "definitionId": "builtin.analog-0.v1",
+      "position": {
+        "x": 736,
+        "y": 96
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U2",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.c12",
+      "definitionId": "builtin.resistor.v1",
+      "position": {
+        "x": 736,
+        "y": -48
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "RF2",
+      "properties": {
+        "value": "10k"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.c13",
+      "definitionId": "builtin.capacitor.v1",
+      "position": {
+        "x": 736,
+        "y": -176
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "CF",
+      "properties": {
+        "value": "4.7nF"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.c14",
+      "definitionId": "builtin.ground.v1",
+      "position": {
+        "x": 672,
+        "y": 192
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "GND4",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.c15",
+      "definitionId": "builtin.resistor.v1",
+      "position": {
+        "x": 1088,
+        "y": 0
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "R1",
+      "properties": {
+        "value": "100k"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.c16",
+      "definitionId": "builtin.resistor.v1",
+      "position": {
+        "x": 1088,
+        "y": 192
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "R2",
+      "properties": {
+        "value": "10k"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.c17",
+      "definitionId": "builtin.ground.v1",
+      "position": {
+        "x": 1088,
+        "y": 304
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "GND5",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.c18",
+      "definitionId": "builtin.power.v1",
+      "position": {
+        "x": 1088,
+        "y": -80
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "PWR3",
+      "properties": {
+        "value": "12V"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.c19",
+      "definitionId": "builtin.analog-1.v1",
+      "position": {
+        "x": 1248,
+        "y": 112
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U3",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.c20",
+      "definitionId": "builtin.resistor.v1",
+      "position": {
+        "x": 1424,
+        "y": 112
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "RB",
+      "properties": {
+        "value": "10k"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.c21",
+      "definitionId": "builtin.npn.v1",
+      "position": {
+        "x": 1616,
+        "y": 112
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "Q1",
+      "properties": {
+        "value": "100"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.c22",
+      "definitionId": "builtin.diode-0.v1",
+      "position": {
+        "x": 1504,
+        "y": 192
+      },
+      "rotation": 270,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "D1",
+      "properties": {
+        "value": "1N4148"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.c23",
+      "definitionId": "builtin.ground.v1",
+      "position": {
+        "x": 1504,
+        "y": 304
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "GND6",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.c24",
+      "definitionId": "builtin.ground.v1",
+      "position": {
+        "x": 1648,
+        "y": 288
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "GND7",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.c25",
+      "definitionId": "builtin.diode-2.v1",
+      "position": {
+        "x": 1648,
+        "y": -16
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "LED1",
+      "properties": {
+        "value": "Red"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.c26",
+      "definitionId": "builtin.load-3.v1",
+      "position": {
+        "x": 1648,
+        "y": -144
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "AM1",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.c27",
+      "definitionId": "builtin.resistor.v1",
+      "position": {
+        "x": 1648,
+        "y": -272
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "RL",
+      "properties": {
+        "value": "1k"
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.c28",
+      "definitionId": "builtin.power.v1",
+      "position": {
+        "x": 1648,
+        "y": -352
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "PWR4",
+      "properties": {
+        "value": "12V"
+      },
+      "locked": false
+    }
+  ],
+  "nodes": [
+    {
+      "id": "showcase.listing-electrical.n1",
+      "position": {
+        "x": 176,
+        "y": 64
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.listing-electrical.n2",
+      "position": {
+        "x": 400,
+        "y": 80
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.listing-electrical.n3",
+      "position": {
+        "x": 640,
+        "y": 80
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.listing-electrical.n4",
+      "position": {
+        "x": 640,
+        "y": -48
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.listing-electrical.n5",
+      "position": {
+        "x": 832,
+        "y": -48
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.listing-electrical.n6",
+      "position": {
+        "x": 832,
+        "y": 96
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.listing-electrical.n7",
+      "position": {
+        "x": 1088,
+        "y": 96
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.listing-electrical.n8",
+      "position": {
+        "x": 1344,
+        "y": 112
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.listing-electrical.n9",
+      "position": {
+        "x": 1504,
+        "y": 112
+      },
+      "explicit": false
+    }
+  ],
+  "wires": [
+    {
+      "id": "showcase.listing-electrical.w1",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c4",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c5",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w2",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c4",
+        "pinId": "1"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c6",
+        "pinId": "-positive"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 0,
+            "y": 96,
+            "id": "showcase.listing-electrical.bend1",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w3",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-electrical.n1"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c6",
+        "pinId": "-"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w4",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-electrical.n1"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c7",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w5",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c7",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c8",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w6",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-electrical.n1"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c9",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 176,
+            "y": -80,
+            "id": "showcase.listing-electrical.bend2",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w7",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c9",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-electrical.n2"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 400,
+            "y": -80,
+            "id": "showcase.listing-electrical.bend3",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w8",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c6",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-electrical.n2"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w9",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-electrical.n2"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c10",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w10",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c10",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-electrical.n3"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w11",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-electrical.n3"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c11",
+        "pinId": "-"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w12",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-electrical.n3"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-electrical.n4"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w13",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-electrical.n4"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c12",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w14",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-electrical.n4"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c13",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 640,
+            "y": -176,
+            "id": "showcase.listing-electrical.bend4",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w15",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c12",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-electrical.n5"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w16",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c13",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-electrical.n5"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 832,
+            "y": -176,
+            "id": "showcase.listing-electrical.bend5",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w17",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-electrical.n5"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-electrical.n6"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w18",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c11",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-electrical.n6"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w19",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c11",
+        "pinId": "-positive"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c14",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 672,
+            "y": 112,
+            "id": "showcase.listing-electrical.bend6",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w20",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c18",
+        "pinId": "1"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c15",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w21",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c15",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-electrical.n7"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w22",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-electrical.n7"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c16",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w23",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c16",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c17",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w24",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-electrical.n7"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c19",
+        "pinId": "-"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w25",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-electrical.n6"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c19",
+        "pinId": "-positive"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 960,
+            "y": 96,
+            "id": "showcase.listing-electrical.bend7",
+            "locked": true
+          },
+          {
+            "x": 960,
+            "y": 128,
+            "id": "showcase.listing-electrical.bend8",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w26",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c19",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-electrical.n8"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w27",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-electrical.n8"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c20",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w28",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c20",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-electrical.n9"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w29",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-electrical.n9"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c21",
+        "pinId": "B"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w30",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-electrical.n9"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c22",
+        "pinId": "2"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w31",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c22",
+        "pinId": "1"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c23",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w32",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c21",
+        "pinId": "E"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c24",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w33",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c25",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c21",
+        "pinId": "C"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w34",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c26",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c25",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w35",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c27",
+        "pinId": "2"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c26",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-electrical.w36",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c28",
+        "pinId": "1"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c27",
+        "pinId": "1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    }
+  ],
+  "annotations": [
+    {
+      "id": "showcase.listing-electrical.a1",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": -480
+      },
+      "text": "Sensor signal chain",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 30
+    },
+    {
+      "id": "showcase.listing-electrical.a2",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": -448
+      },
+      "text": "AC sensor / non-inverting gain / active low-pass / comparator / transistor LED driver",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 13
+    },
+    {
+      "id": "showcase.listing-electrical.a3",
+      "kind": "text",
+      "position": {
+        "x": 1808,
+        "y": -208
+      },
+      "text": "Supplies",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 19
+    },
+    {
+      "id": "showcase.listing-electrical.a4",
+      "kind": "text",
+      "position": {
+        "x": 1808,
+        "y": -184
+      },
+      "text": "Split ±12 V rails",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 12
+    },
+    {
+      "id": "showcase.listing-electrical.a5",
+      "kind": "label",
+      "position": {
+        "x": 1856,
+        "y": -128
+      },
+      "text": "+12V",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c1",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-electrical.a6",
+      "kind": "label",
+      "position": {
+        "x": 1856,
+        "y": 0
+      },
+      "text": "-12V",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c2",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-electrical.a7",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": -208
+      },
+      "text": "01  Sensor & gain",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 19
+    },
+    {
+      "id": "showcase.listing-electrical.a8",
+      "kind": "text",
+      "position": {
+        "x": 0,
+        "y": -184
+      },
+      "text": "G = 1 + Rf / Rg = 11",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 12
+    },
+    {
+      "id": "showcase.listing-electrical.a9",
+      "kind": "label",
+      "position": {
+        "x": 16,
+        "y": 112
+      },
+      "text": "VIN",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c4",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-electrical.a10",
+      "kind": "label",
+      "position": {
+        "x": 304,
+        "y": 32
+      },
+      "text": "+12V",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c6",
+        "pinId": "V-positive"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-electrical.a11",
+      "kind": "label",
+      "position": {
+        "x": 304,
+        "y": 136
+      },
+      "text": "-12V",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c6",
+        "pinId": "V-"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-electrical.a12",
+      "kind": "label",
+      "position": {
+        "x": 408,
+        "y": 72
+      },
+      "text": "AMP",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.listing-electrical.n2"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-electrical.a13",
+      "kind": "text",
+      "position": {
+        "x": 480,
+        "y": -208
+      },
+      "text": "02  Active low-pass",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 19
+    },
+    {
+      "id": "showcase.listing-electrical.a14",
+      "kind": "text",
+      "position": {
+        "x": 480,
+        "y": -184
+      },
+      "text": "fc = 1 / (2π Rf Cf) ≈ 3.4 kHz",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 12
+    },
+    {
+      "id": "showcase.listing-electrical.a15",
+      "kind": "label",
+      "position": {
+        "x": 752,
+        "y": 48
+      },
+      "text": "+12V",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c11",
+        "pinId": "V-positive"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-electrical.a16",
+      "kind": "label",
+      "position": {
+        "x": 752,
+        "y": 152
+      },
+      "text": "-12V",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c11",
+        "pinId": "V-"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-electrical.a17",
+      "kind": "label",
+      "position": {
+        "x": 840,
+        "y": 88
+      },
+      "text": "FILT",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.listing-electrical.n6"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-electrical.a18",
+      "kind": "text",
+      "position": {
+        "x": 960,
+        "y": -208
+      },
+      "text": "03  Threshold",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 19
+    },
+    {
+      "id": "showcase.listing-electrical.a19",
+      "kind": "text",
+      "position": {
+        "x": 960,
+        "y": -184
+      },
+      "text": "Vref = 12 V · 10k / 110k ≈ 1.09 V",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 12
+    },
+    {
+      "id": "showcase.listing-electrical.a20",
+      "kind": "label",
+      "position": {
+        "x": 1104,
+        "y": -112
+      },
+      "text": "+12V",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c18",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-electrical.a21",
+      "kind": "label",
+      "position": {
+        "x": 1264,
+        "y": 64
+      },
+      "text": "+12V",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c19",
+        "pinId": "V-positive"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-electrical.a22",
+      "kind": "label",
+      "position": {
+        "x": 1264,
+        "y": 168
+      },
+      "text": "-12V",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c19",
+        "pinId": "V-"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-electrical.a23",
+      "kind": "label",
+      "position": {
+        "x": 1040,
+        "y": 88
+      },
+      "text": "REF",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.listing-electrical.n7"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-electrical.a24",
+      "kind": "label",
+      "position": {
+        "x": 1352,
+        "y": 104
+      },
+      "text": "CMP",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.listing-electrical.n8"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-electrical.a25",
+      "kind": "text",
+      "position": {
+        "x": 1376,
+        "y": -208
+      },
+      "text": "04  LED driver",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 19
+    },
+    {
+      "id": "showcase.listing-electrical.a26",
+      "kind": "text",
+      "position": {
+        "x": 1376,
+        "y": -184
+      },
+      "text": "Saturated NPN switch, ≈ 10 mA",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 12
+    },
+    {
+      "id": "showcase.listing-electrical.a27",
+      "kind": "label",
+      "position": {
+        "x": 1664,
+        "y": -384
+      },
+      "text": "+12V",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-electrical.c28",
+        "pinId": "1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    }
+  ],
+  "groups": [],
+  "definitions": [
+    {
+      "id": "builtin.power.v1",
+      "version": 1,
+      "name": "Power rail",
+      "category": "Connectivity",
+      "aliases": [
+        "vcc",
+        "vdd"
+      ],
+      "prefix": "PWR",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "x": 0,
+          "y": 32,
+          "side": "bottom",
+          "role": "power",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M 0 32 V -8 M -16 -8 H 16 M 0 -8 L -8 4 M 0 -8 L 8 4"
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {
+        "value": "VCC"
+      }
+    },
+    {
+      "id": "builtin.ground.v1",
+      "version": 1,
+      "name": "Ground",
+      "category": "Connectivity",
+      "aliases": [
+        "gnd",
+        "reference"
+      ],
+      "prefix": "GND",
+      "pins": [
+        {
+          "id": "1",
+          "name": "Reference",
+          "x": 0,
+          "y": -32,
+          "side": "top",
+          "role": "power",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M 0 -32 V 0 M -24 0 H 24 M -16 8 H 16 M -8 16 H 8"
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.ac-voltage.v1",
+      "version": 1,
+      "name": "AC voltage source",
+      "category": "Sources",
+      "aliases": [
+        "ac"
+      ],
+      "prefix": "V",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24 M 24 0 H 48"
+        },
+        {
+          "kind": "circle",
+          "x": 0,
+          "y": 0,
+          "radius": 24
+        },
+        {
+          "kind": "path",
+          "d": "M -16 0 C -16 -20 0 -20 0 0 C 0 20 16 20 16 0"
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {
+        "value": "230V"
+      }
+    },
+    {
+      "id": "builtin.analog-0.v1",
+      "version": 1,
+      "name": "Op-amp",
+      "category": "Analog",
+      "aliases": [
+        "op-amp"
+      ],
+      "prefix": "U",
+      "pins": [
+        {
+          "id": "-positive",
+          "name": "+",
+          "x": -48,
+          "y": 16,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "-",
+          "name": "-",
+          "x": -48,
+          "y": -16,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "out",
+          "name": "out",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        },
+        {
+          "id": "V-positive",
+          "name": "V+",
+          "x": 0,
+          "y": -48,
+          "side": "top",
+          "role": "power",
+          "width": 1
+        },
+        {
+          "id": "V-",
+          "name": "V-",
+          "x": 0,
+          "y": 48,
+          "side": "bottom",
+          "role": "power",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -24 -32 L 32 0 L -24 32 Z M -48 -16 H -24 M -48 16 H -24 M 32 0 H 48 M 0 -48 V -18 M 0 48 V 18"
+        },
+        {
+          "kind": "text",
+          "x": -15,
+          "y": -12,
+          "text": "−",
+          "size": 12
+        },
+        {
+          "kind": "text",
+          "x": -15,
+          "y": 20,
+          "text": "+",
+          "size": 12
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.resistor.v1",
+      "version": 1,
+      "name": "Resistor",
+      "category": "Passive",
+      "aliases": [
+        "resistance",
+        "ohm"
+      ],
+      "prefix": "R",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 -10 H 24 V 10 H -24 Z"
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {
+        "value": "10k"
+      }
+    },
+    {
+      "id": "builtin.capacitor.v1",
+      "version": 1,
+      "name": "Capacitor",
+      "category": "Passive",
+      "aliases": [],
+      "prefix": "C",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 0 H -6 M -6 -20 V 20 M 6 -20 V 20 M 6 0 H 24"
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {
+        "value": "100nF"
+      }
+    },
+    {
+      "id": "builtin.analog-1.v1",
+      "version": 1,
+      "name": "Comparator",
+      "category": "Analog",
+      "aliases": [
+        "comparator"
+      ],
+      "prefix": "U",
+      "pins": [
+        {
+          "id": "-positive",
+          "name": "+",
+          "x": -48,
+          "y": 16,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "-",
+          "name": "-",
+          "x": -48,
+          "y": -16,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "out",
+          "name": "out",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        },
+        {
+          "id": "V-positive",
+          "name": "V+",
+          "x": 0,
+          "y": -48,
+          "side": "top",
+          "role": "power",
+          "width": 1
+        },
+        {
+          "id": "V-",
+          "name": "V-",
+          "x": 0,
+          "y": 48,
+          "side": "bottom",
+          "role": "power",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -24 -32 L 32 0 L -24 32 Z M -48 -16 H -24 M -48 16 H -24 M 32 0 H 48 M 0 -48 V -18 M 0 48 V 18"
+        },
+        {
+          "kind": "text",
+          "x": -15,
+          "y": -12,
+          "text": "−",
+          "size": 12
+        },
+        {
+          "kind": "text",
+          "x": -15,
+          "y": 20,
+          "text": "+",
+          "size": 12
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.npn.v1",
+      "version": 1,
+      "name": "NPN",
+      "category": "Semiconductors",
+      "aliases": [
+        "npn",
+        "bjt"
+      ],
+      "prefix": "Q",
+      "pins": [
+        {
+          "id": "B",
+          "name": "B",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "C",
+          "name": "C",
+          "x": 32,
+          "y": -48,
+          "side": "top",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "E",
+          "name": "E",
+          "x": 32,
+          "y": 48,
+          "side": "bottom",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -12 M -12 -24 V 24 M -12 -12 L 32 -32 V -48 M -12 12 L 32 32 V 48"
+        },
+        {
+          "kind": "path",
+          "d": "M 12 29 L 27 29 L 20 17"
+        }
+      ],
+      "bounds": {
+        "x": -48,
+        "y": -48,
+        "width": 96,
+        "height": 96
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.diode-0.v1",
+      "version": 1,
+      "name": "Diode",
+      "category": "Semiconductors",
+      "aliases": [
+        "diode"
+      ],
+      "prefix": "D",
+      "pins": [
+        {
+          "id": "1",
+          "name": "Anode",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "2",
+          "name": "Cathode",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 0 H -14 M -14 -18 L 14 0 L -14 18 Z M 14 -18 V 18 M 14 0 H 24"
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {
+        "value": ""
+      }
+    },
+    {
+      "id": "builtin.diode-2.v1",
+      "version": 1,
+      "name": "LED",
+      "category": "Semiconductors",
+      "aliases": [
+        "light emitting diode"
+      ],
+      "prefix": "D",
+      "pins": [
+        {
+          "id": "1",
+          "name": "Anode",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "2",
+          "name": "Cathode",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24 M 24 0 H 48 M -24 0 H -14 M -14 -18 L 14 0 L -14 18 Z M 14 -18 V 18 M 14 0 H 24"
+        },
+        {
+          "kind": "path",
+          "d": "M 8 -28 L 24 -44 M 16 -44 H 24 V -36 M -4 -32 L 12 -48 M 4 -48 H 12 V -40"
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -48,
+        "width": 64,
+        "height": 80
+      },
+      "defaults": {
+        "value": ""
+      }
+    },
+    {
+      "id": "builtin.load-3.v1",
+      "version": 1,
+      "name": "Ammeter",
+      "category": "Loads & instruments",
+      "aliases": [
+        "instrument",
+        "ammeter"
+      ],
+      "prefix": "AM",
+      "pins": [
+        {
+          "id": "1",
+          "name": "1",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "passive",
+          "width": 1
+        },
+        {
+          "id": "2",
+          "name": "2",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "passive",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24 M 24 0 H 48"
+        },
+        {
+          "kind": "circle",
+          "x": 0,
+          "y": 0,
+          "radius": 24
+        },
+        {
+          "kind": "text",
+          "x": 0,
+          "y": 6,
+          "text": "A",
+          "size": 20
+        }
+      ],
+      "bounds": {
+        "x": -32,
+        "y": -32,
+        "width": 64,
+        "height": 64
+      },
+      "defaults": {}
+    }
+  ],
+  "metadata": {
+    "purpose": "Editable showcase drawing; verified with the built-in simulator. Not an electrically qualified design.",
+    "layout": "Desktop"
+  }
+}

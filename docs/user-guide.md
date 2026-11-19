@@ -14,6 +14,10 @@ Blank dragging pans; touch swipes also pan while placing parts or drawing wires,
 
 **Select all** and **Deselect all** are in **More**. Grid, snapping, checks and keyboard-shortcut settings are there too. **Inspect** opens properties only when requested; double-click or double-tap a part or wire to inspect it directly. Right-clicking blank canvas leaves the workspace unchanged. Position and pin controls are grouped under **Position & orientation** and **Pins & connections**; its **Objects** and **Nets** tabs provide list alternatives. Text/annotations show corner resize handles and a round rotation handle when selected. Drag the text/box to move it. Text keeps its proportions by default; hold Shift for free resizing. Numeric transform controls provide the same operations without dragging. Double-click text to edit it. **Connect named pins** connects without precise pointer placement. **Checks** highlights dangling ends, conflicting labels, bus widths, potential multiple drivers and drawing overlaps. Checks are structural rather than an electrical analysis.
 
+## Simulation
+
+Choose **Simulate** in the top bar (compact panes: the wave icon; very narrow panes: More → Simulate circuit). Logic circuits show live signals, input switches and a truth table; electrical circuits show voltages, hover readouts, a Scope with Probe and cursors, and an operating-point table. **Build** returns to editing. Simulation never changes the file. Supported parts, values and limits are in the [simulation guide](simulation.md).
+
 ## Notes, export and recovery
 
 From a Markdown note, run **Insert circuit preview**. It inserts a `lecircuit` block with an explicit vault-relative path and width. For example:

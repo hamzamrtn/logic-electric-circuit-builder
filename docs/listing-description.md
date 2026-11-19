@@ -1,11 +1,11 @@
 # Plugin listing copy
 
-Short description — 186 / 200 characters (including spaces and punctuation):
+Short description — 198 / 200 characters (including spaces and punctuation):
 
-Design electrical and logic circuits with 72 symbols, custom blocks and smart wire routing. Keep editable diagrams in your notes, or export SVG/PNG. Offline on desktop, tablet and phone.
+Design and simulate electrical and logic circuits with 72 symbols, smart wiring, a live scope and truth tables. Keep editable diagrams in your notes or export SVG/PNG. Offline on desktop and mobile.
 
-Long description — 944 / 1,000 characters (including spaces and punctuation):
+Long description — 860 / 1,000 characters (including spaces and punctuation):
 
-Turn circuit ideas into editable diagrams without leaving Obsidian. Build power supplies, analog front ends and digital logic with 72 searchable symbols, custom IC blocks and explicit bus splitters. Move, rotate and mirror connected parts while preserving their pin connections. Smart routing avoids component bodies; manual bends and junctions give you precise control. Use named nets, reusable snippets, box selection and structural checks to organize larger drawings. Embed live circuit previews in your notes, or export SVGs and PNGs for reports, lessons and sharing. Work offline on desktop, tablet and phone with touch panning, pinch zoom and a compact toolbar. Subtle feedback supports Reduce Motion, while undo/redo, autosave status and conflict recovery help you manage changes. Your files stay in your vault, with no account or cloud service required. Designed for schematic drawing and documentation; simulation is outside its scope.
+Turn circuit ideas into editable, simulated diagrams without leaving Obsidian. Build power supplies, op-amp stages, transistor drivers and gate-level logic with 72 searchable symbols, custom IC blocks and explicit bus splitters. Switch to Simulate for live analysis: an oscilloscope with probes, cursors and RMS/frequency measurements, DC operating-point tables, transistor readouts, four-state logic signals and exhaustive truth tables. Simulation never changes your file. Move, rotate and mirror connected parts while their pins stay connected. Smart routing avoids component bodies; manual bends, junctions and named nets keep larger drawings organized. Embed live circuit previews in notes, or export SVG and PNG. Works offline on desktop, tablet and phone with touch panning and pinch zoom. Your files stay in your vault, with no account or cloud service.
 
-Copy the paragraphs without their headings. The short description also appears in manifest.json. The screenshot gallery and editable source drawings are indexed in [screenshots/README.md](screenshots/README.md). Lead the listing images with the light logic and dark electrical note captures, followed by the editor gallery, to show live note embedding immediately.
+Copy the paragraphs without their headings. The short description also appears in manifest.json. Upload the ten listing screenshots in this order, alternating light and dark: `desktop-1-note` … `desktop-5-electrical-simulation`, then `phone-1-note` … `phone-5-electrical-simulation`. They are indexed with their editable circuits in [screenshots/README.md](screenshots/README.md).

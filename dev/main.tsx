@@ -1,3 +1,5 @@
+import { DigitalSessions } from '../src/core/session/DigitalSessions';
+import { digitalCapabilities } from '../src/components/definitions/digital';
 import { createRoot } from 'react-dom/client';
 import { Editor } from '../src/editor/ui/Editor';
 import { DocumentSession } from '../src/core/session/DocumentSession';
@@ -12,10 +14,11 @@ const applyTheme = () => setDevelopmentTheme(requestedTheme === 'dark' || reques
 applyTheme(); systemTheme.addEventListener('change', applyTheme);
 const selected = new URLSearchParams(location.search).get('example');
 const example = selected ? examples.find(e => e.name.toLowerCase().includes(selected.toLowerCase())) : undefined;
+const simulation = new DigitalSessions(digitalCapabilities());
 const session = new DocumentSession(example ? clone(example.document) : emptyDocument());
-Object.assign(window, { __lec: { session, examples, serializeDocument, exportSVG, exportPNG, setDevelopmentTheme } });
+Object.assign(window, { __lec: { session, simulation, examples, serializeDocument, exportSVG, exportPNG, setDevelopmentTheme } });
 const element = document.getElementById('root')!;
-createRoot(element).render(<Editor session={session} host={{ examples, export: async (kind, doc, owner, scale) => {
+createRoot(element).render(<Editor session={session} host={{ examples, simulation, export: async (kind, doc, owner, scale) => {
   const content = kind === 'svg' ? exportSVG(doc) : kind === 'png' ? await exportPNG(doc, owner, scale) : serializeDocument(doc);
   const blob = new Blob([content], { type: kind === 'svg' ? 'image/svg+xml' : kind === 'png' ? 'image/png' : 'application/json' });
   const win = owner.defaultView!;

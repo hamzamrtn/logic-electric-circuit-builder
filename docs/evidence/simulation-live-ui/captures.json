@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-19T13:15:21.421Z",
+  "reports": [
+    {
+      "device": "desktop",
+      "width": 1440,
+      "height": 900,
+      "theme": "light",
+      "nativeHostCss": true,
+      "hostNavigation": "none",
+      "touch": false,
+      "pageErrors": []
+    },
+    {
+      "device": "tablet",
+      "width": 1024,
+      "height": 768,
+      "theme": "dark",
+      "nativeHostCss": true,
+      "hostNavigation": "none",
+      "touch": true,
+      "pageErrors": []
+    },
+    {
+      "device": "phone",
+      "width": 390,
+      "height": 844,
+      "theme": "dark",
+      "nativeHostCss": true,
+      "hostNavigation": "simulated",
+      "touch": true,
+      "pageErrors": []
+    }
+  ],
+  "note": "Browser emulation with native Obsidian CSS; tablet/phone images are not actual mobile-host captures."
+}

@@ -8,7 +8,7 @@ Build a **comprehensive, very intuitive, organized and powerful circuit editor i
 
 Support meaningful electrical and digital logic schematics in the same coherent workspace. A user should be able to start easily, develop a substantial circuit, reorganize connected parts, document it in notes, and export a readable result. Capability and approachability must grow together.
 
-The current product is an offline schematic editor for drawing and documentation. Symbols and structural checks do not imply electrical simulation. On 2026-11-11 the owner explicitly authorized beginning the digital-simulation update after the pending release. Follow the roadmap’s bounded initial milestone; do not claim simulation is available before its implementation and qualification are complete.
+The published 0.1.11 release is an offline schematic editor for drawing and documentation. Version 1.0.0, prepared locally on 2026-11-19, adds the Build | Simulate studio with logic and electrical simulation, documented in [simulation.md](simulation.md). Do not describe simulation as available to users until 1.0.0 is published. Symbols and structural checks do not imply supported executable models; only the documented allowlists simulate.
 
 ## Intuitive and organized
 
@@ -40,9 +40,13 @@ Alignment aids should help users make deliberate choices. Avoid unexpected coord
 
 Offer **More → Send feedback** with a lightning icon, welcoming ideas, bug reports and detailed explanations. The dialog should communicate that the maintainer reviews feedback personally and useful, straightforward improvements can often reach an update within a day or two, while larger ideas take longer. Keep that an expectation rather than a guaranteed deadline. Provide separate idea and problem-report routes on GitHub; add email only when the owner supplies a public contact address.
 
+## Simulation is an engineering analysis tool
+
+On 2026-11-19 the owner asked for electrical (analog) simulation alongside digital, and set the bar: simulation should feel like **analysis tooling for engineering students and engineers while it runs**, not a toy. Favor precise readings in engineering notation with units, probes, operating-point tables, oscilloscope-style plots with cursors and measurements (min/max/average/RMS/peak-to-peak/frequency), and clear diagnostics. Keep schematic overlays compact and informative; avoid playful decoration (glowing toys, cartoon animation). Mixing logic and electrical parts in one simulated circuit reports a clear error until a mixed-signal engine exists. Simulation is an integrated workspace, not a hidden menu item: a Build | Simulate switch sits in the top bar, and Simulate replaces the drawing toolbar with simulation tools and a docked analysis area, in the spirit of SPICE/MATLAB/IDE studios while keeping the plugin's Obsidian-native, cozy, polished look and dense desktop layout.
+
 ## Touch and mobile are core workflows
 
-Desktop, tablet and phone should share essential editing capabilities, with layouts appropriate to each screen and practical touch targets. Do not depend on hover, a hardware keyboard, desktop APIs or precision mouse input for essential operations.
+Desktop, tablet and phone should share essential editing capabilities, with layouts appropriate to each screen and practical touch targets. The owner confirmed on 2026-11-19 that the product is **desktop- and tablet-first**: design, polish and evidence effort go to those layouts first. Phone must work well and stay fully usable, but it need not match their density or richness; when space forces a trade-off, keep phone controls reachable (for example through More) rather than compromising the desktop/tablet design. Do not depend on hover, a hardware keyboard, desktop APIs or precision mouse input for essential operations.
 
 The owner reported pinch problems on Android tablet and phone, and canvas swipes opening Obsidian side panels or pull-down actions. Preserve these fixes: navigation gestures belong to the canvas; pinch follows both fingers and their midpoint; lifting either finger continues a sensible pan; navigation must not accidentally place a part or commit a drag.
 
@@ -60,7 +64,7 @@ Recovery storage belongs in the plugin's Obsidian settings. Let users choose its
 
 Offer optional exclusion of recovery folders from everyday Search/Graph results, with accurate Quick Switcher wording (deprioritized, not fully hidden). Manage only an exclusion the plugin added itself, follow folder changes and preserve pre-existing user entries. Missing host integration must not compromise recovery. Keep the recovery README brief: “What this folder is — DO NOT REMOVE” comes first with a plain explanation, then “Change this folder's location only in plugin settings”. Do not expose internal markers in the note. Include a concrete recovery-folder example such as 99_Archive/CircuitBackup. Use the actual Community plugins → Logic-Electric Circuit Builder → ⋮ → Settings → Recovery folder path. Keep a real Apply button with the folder field in one row. Settings guidance should describe concrete steps, including opening a circuit's top-right three-dot menu for shortcuts; “How to sync” needs only the instruction to enable “Sync all other types” on each device.
 
-The owner asks for professional work without mistakes and wants no bugs slipping through. Treat that as a high quality bar: reproduce reported problems, inspect related failure modes, fix root causes and verify the relevant complete workflows. Passing tests alone is not proof of flawless behavior. Be candid about real qualification gaps; never promise a universal zero-bug guarantee.
+The owner asks for professional work without mistakes and wants no bugs slipping through. Treat that as a high quality bar: reproduce reported problems, inspect related failure modes, fix root causes and verify the relevant complete workflows. Passing tests alone is not proof of flawless behavior. For the initial digital-simulation hardening goal, the owner explicitly accepted on 2026-11-13 the completion criterion “no known reproducible defects after the documented desktop and real-Android checks, with iOS explicitly unverified”. Later simulation milestones and release work remain separate tasks. Be candid about real qualification gaps; never promise a universal zero-bug guarantee.
 
 ## Proactive improvement
 

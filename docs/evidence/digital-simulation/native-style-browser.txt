@@ -1,0 +1,26 @@
+
+Running 15 tests using 3 workers
+
+(node:34819) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:34818) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:34821) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [android-tablet] › tests/e2e/simulation.spec.ts:35:1 › run, live toggles, stop, reset, edits and reopen preserve circuit content/history (1.2s)
+  ✓   3 [chromium] › tests/e2e/simulation.spec.ts:35:1 › run, live toggles, stop, reset, edits and reopen preserve circuit content/history (1.2s)
+  ✓   2 [android-phone] › tests/e2e/simulation.spec.ts:35:1 › run, live toggles, stop, reset, edits and reopen preserve circuit content/history (1.2s)
+  ✓   4 [android-tablet] › tests/e2e/simulation.spec.ts:53:1 › unsupported devices and feedback fail clearly and recover after correction (723ms)
+  ✓   5 [chromium] › tests/e2e/simulation.spec.ts:53:1 › unsupported devices and feedback fail clearly and recover after correction (693ms)
+  ✓   6 [android-phone] › tests/e2e/simulation.spec.ts:53:1 › unsupported devices and feedback fail clearly and recover after correction (711ms)
+  ✓   7 [android-tablet] › tests/e2e/simulation.spec.ts:62:1 › opening, keyboard navigation and closing preserve an unfinished wire draft (486ms)
+  ✓   8 [chromium] › tests/e2e/simulation.spec.ts:62:1 › opening, keyboard navigation and closing preserve an unfinished wire draft (502ms)
+  ✓   9 [android-phone] › tests/e2e/simulation.spec.ts:62:1 › opening, keyboard navigation and closing preserve an unfinished wire draft (501ms)
+  ✓  10 [android-tablet] › tests/e2e/simulation.spec.ts:71:1 › build a supported circuit through the picker and named-pin dialog, then simulate it (1.4s)
+  ✓  11 [chromium] › tests/e2e/simulation.spec.ts:71:1 › build a supported circuit through the picker and named-pin dialog, then simulate it (1.4s)
+  ✓  12 [android-phone] › tests/e2e/simulation.spec.ts:71:1 › build a supported circuit through the picker and named-pin dialog, then simulate it (1.6s)
+  ✓  13 [android-tablet] › tests/e2e/simulation.spec.ts:87:1 › simulation controls clear every dock and remain usable through narrow/short and desktop transitions (2.9s)
+  ✓  14 [chromium] › tests/e2e/simulation.spec.ts:87:1 › simulation controls clear every dock and remain usable through narrow/short and desktop transitions (3.0s)
+  ✓  15 [android-phone] › tests/e2e/simulation.spec.ts:87:1 › simulation controls clear every dock and remain usable through narrow/short and desktop transitions (3.0s)
+
+  15 passed (7.5s)

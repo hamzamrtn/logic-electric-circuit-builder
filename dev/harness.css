@@ -26,3 +26,5 @@ html.lec-development-dark {
   --interactive-accent: #a5a5a5;
   --text-on-accent: #171717;
 }
+html.lec-development { --color-red: #e93147; --color-orange: #ec7500; --color-green: #08b94e; --color-blue: #086ddd; --color-purple: #7852ee; }
+html.lec-development-dark { --color-red: #fb464c; --color-orange: #e9973f; --color-green: #44cf6e; --color-blue: #027aff; --color-purple: #a882ff; }

@@ -1,0 +1,60 @@
+{
+  "output": "/tmp/lec-android-simulation-Czvg11/results.json",
+  "sourceBase": "35c781fdf96a8ac4c6a239e5ab83b1f698aefc90",
+  "sourceHashes": {
+    "src/core/topology/digital.ts": "f54e3007b2f0e84ee5f2f82ebd87adbfd74907fb5aeb84296e5a925d23db6d54",
+    "src/core/session/DigitalRuntime.ts": "3ae4ddf2a003ba0a55feb359e889cd61f08eeb9e92c2c342bf40cfa5ac506d89",
+    "src/core/session/DigitalSessions.ts": "65c8a58f8dbe8f9353679dd8d6a6bac8d79e70769b99b182b3a79d57c59bcdea",
+    "src/core/session/SaveCoordinator.ts": "83f68658127ecdbf55c47376a592bc632beaf6e068a1a33027948573e42452f5",
+    "src/components/definitions/digital.ts": "ef504fa89e78e213d39d3c7890a2b03019bb557326301b26328989bc26ab2089",
+    "src/editor/simulation/schedule.ts": "f3df65b31af9fc8d4319e6250ec9f556b48ed398c8e7a3a843035206193f1ebb",
+    "src/editor/ui/SimulationPanel.tsx": "6d0abdb7a5eae823c6c85541cd33bf007c210ba7ea1eb7f0d64b257158e51cec",
+    "src/editor/ui/Editor.tsx": "33894e36f78450b4e0063ceca656113ba7bb577314e0f2956dda44644a1942fe",
+    "src/obsidian/CircuitFileView.tsx": "aa92b39df03df02dda3b936d7156376316acdca95e7067f4ec9de5eca46f8003",
+    "src/main.ts": "2227570408b66aa91eed9fd020d686ff00085c429990806a762d7ac9ee7a8d14",
+    "dev/main.tsx": "3c976c41df09f342860472710dd37e49dee51b76d73654b7671d6ab25cdc6d16",
+    "dev/digital-memory.ts": "ffd5cb346b3aabf21618608c4544e1764587fbcada0cf2b7f9d24634d821a8ce",
+    "tests/fixtures/digital.ts": "ac1273aa8ecf8b5ee1dd33fe4ca6ab7cada026af71bb295b2f4069735243b489",
+    "tests/unit/digital.test.ts": "af709024b29ff485acdd6b73dfe8be0209a7479f54802e21198f89905055d177",
+    "tests/unit/digital-sessions.test.ts": "01fca8c5fdf6ca40dd1fe679535b7c31b922e76f3f230f07b3ced2afe150e045",
+    "tests/unit/simulation-schedule.test.ts": "c5b5a2ef2792424695d8ab33e5c545fc9dd6ad1e1cc73217a5e63894ebda7c7d",
+    "tests/unit/simulation-audit.test.ts": "15911b4f8594675aa5274f2fd360b5cf88231d39b84923fbb290fa97df2f6f9c",
+    "tests/unit/simulation-save-races.test.ts": "7f2a3d7b617cb736bddc59b55f08335c24342d8ba70e04cd35a5fb146810c751",
+    "tests/property/digital.test.ts": "a0b5fe7f3f2190d2fa6b450d2a26d0df99c8c00a6023123b61ab21d00cc76eeb",
+    "tests/e2e/simulation.spec.ts": "d19a8ffb513cc50b36efd2ff38539f8449a4fda73010d0e61a79eb91ca1e3f41",
+    "scripts/check-simulation-host.mjs": "57ccef314b88c08ca29a9df53fbf5bc22dc86b20443f3fb6237cd252b37e0ff7",
+    "scripts/check-simulation-failures.mjs": "e5b61cde7e413670cf2fa45e3ad311d42b78ddd03a4917e330e90d5a38921fc2",
+    "scripts/check-simulation-android.mjs": "6b08f5424450be984545648bdda16f1d83ee50136b48443b89ebc62cacc4ba05",
+    "scripts/check-simulation-memory.mjs": "df6aeab090d3a09c5544f53a3d2d3b7f445fae221081024b374b8fda2fe6d75c",
+    "scripts/lib/obsidian-test.mjs": "3ea8a7fc7b1240d9daf4bb2d41b11e8b2614250629b7a5a0a4e50d335de8f784",
+    "scripts/lib/simulation-source.mjs": "8ccdc91afa7272f17fbacc49ed69087dcc5b706efd663c877cea0f21f27135fb"
+  },
+  "assetHashes": {
+    "main.js": "3bc23ccfab1c988cdf57edc9208292fd7828c72c74a7ec8c0bf4096b5d852a38",
+    "manifest.json": "7c83fcf86124c10aaf158b724f53a75ecab91bb67c25396ea6c7564d1d63f7ab",
+    "styles.css": "27248a350700c02939793489d9eecde32e6f60cd9e76aa99441f91cc6e4525cc"
+  },
+  "date": "2026-11-13T15:55:01.103Z",
+  "model": "Pixel 7 Pro",
+  "androidVersion": "17",
+  "userAgent": "Mozilla/5.0 (Linux; Android 10; K; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/157.0.0.0 Mobile Safari/537.36 obsidian/1.15.1",
+  "viewport": {
+    "width": 485,
+    "height": 1051,
+    "dpr": 2.2250001430511475
+  },
+  "actualObsidianAndroid": true,
+  "vault": "LEC Simulation Test",
+  "checks": [
+    "exhaustive-half-adder",
+    "live-input-update",
+    "stop-reset-unknown",
+    "unchanged-file",
+    "android-home-pause-resume",
+    "last-consumer-release",
+    "reopen-fresh-inputs"
+  ],
+  "pageErrors": [],
+  "inputMethod": "WebView CDP controls; native Android Home/activity resume",
+  "note": "No Playwright helper APK installed; only this test vault was modified. Physical-finger and iOS qualification are separate."
+}

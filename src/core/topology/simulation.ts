@@ -1,6 +1,6 @@
 import type { CircuitDocument } from '../model/document';
 import type { Net } from './nets';
-/** Optional future engine boundary. The editor does not implement simulation. */
+/** Historical placeholder. The experimental D0 contract is in digital.ts; production simulation is not available. */
 export interface SimulationAdapter {
   analyze(input: { revision: number; document: CircuitDocument; nets: Net[] }, signal: { readonly aborted: boolean }): Promise<{
     revision: number;

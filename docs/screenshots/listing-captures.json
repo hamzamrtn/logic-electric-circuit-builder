@@ -1,0 +1,102 @@
+[
+  {
+    "file": "desktop-1-note.png",
+    "theme": "light",
+    "scene": "note",
+    "source": "examples/notes/Digital design - BCD decoder.md",
+    "viewport": "1600 × 1000",
+    "pixels": "3200 × 2000",
+    "host": "Obsidian 1.14.4 desktop (headless Electron, isolated vault)"
+  },
+  {
+    "file": "desktop-2-logic-build.png",
+    "theme": "dark",
+    "scene": "logicBuild",
+    "viewport": "1600 × 1000",
+    "pixels": "3200 × 2000",
+    "host": "Obsidian 1.14.4 desktop (headless Electron, isolated vault)"
+  },
+  {
+    "file": "desktop-3-logic-simulation.png",
+    "theme": "light",
+    "scene": "logicSim",
+    "viewport": "1600 × 1000",
+    "pixels": "3200 × 2000",
+    "host": "Obsidian 1.14.4 desktop (headless Electron, isolated vault)"
+  },
+  {
+    "file": "desktop-4-electrical-build.png",
+    "theme": "dark",
+    "scene": "electricalBuild",
+    "viewport": "1600 × 1000",
+    "pixels": "3200 × 2000",
+    "host": "Obsidian 1.14.4 desktop (headless Electron, isolated vault)"
+  },
+  {
+    "file": "desktop-5-electrical-simulation.png",
+    "theme": "light",
+    "scene": "electricalSim",
+    "viewport": "1600 × 1000",
+    "pixels": "3200 × 2000",
+    "host": "Obsidian 1.14.4 desktop (headless Electron, isolated vault)"
+  },
+  {
+    "file": "note-electrical-dark.png",
+    "theme": "dark",
+    "scene": "note",
+    "source": "examples/notes/Analog electronics - Sensor signal chain.md",
+    "viewport": "1320 × 1320",
+    "pixels": "2640 × 2640",
+    "host": "Obsidian 1.14.4 desktop (headless Electron, isolated vault)"
+  },
+  {
+    "file": "note-logic-light.png",
+    "theme": "light",
+    "scene": "note",
+    "source": "examples/notes/Digital design - BCD decoder.md",
+    "viewport": "1320 × 1320",
+    "pixels": "2640 × 2640",
+    "host": "Obsidian 1.14.4 desktop (headless Electron, isolated vault)"
+  },
+  {
+    "file": "phone-1-note.png",
+    "theme": "dark",
+    "scene": "note",
+    "source": "examples/notes/Analog electronics - Sensor signal chain.md",
+    "pixels": "1080 × 2340",
+    "host": "Obsidian 1.15.1 on a physical Pixel 7 Pro",
+    "statusBar": "Android System UI demo mode"
+  },
+  {
+    "file": "phone-2-logic-build.png",
+    "theme": "light",
+    "scene": "phoneLogicBuild",
+    "pixels": "1080 × 2340",
+    "host": "Obsidian 1.15.1 on a physical Pixel 7 Pro",
+    "statusBar": "Android System UI demo mode"
+  },
+  {
+    "file": "phone-3-logic-simulation.png",
+    "theme": "dark",
+    "scene": "phoneLogicSim",
+    "pixels": "1080 × 2340",
+    "host": "Obsidian 1.15.1 on a physical Pixel 7 Pro",
+    "statusBar": "Android System UI demo mode"
+  },
+  {
+    "file": "phone-4-electrical-build.png",
+    "theme": "light",
+    "scene": "phoneElectricalBuild",
+    "pixels": "1080 × 2340",
+    "host": "Obsidian 1.15.1 on a physical Pixel 7 Pro",
+    "statusBar": "Android System UI demo mode"
+  },
+  {
+    "file": "phone-5-electrical-simulation.png",
+    "theme": "dark",
+    "scene": "phoneElectricalSim",
+    "pixels": "1080 × 2340",
+    "host": "Obsidian 1.15.1 on a physical Pixel 7 Pro",
+    "statusBar": "Android System UI demo mode"
+  }
+]

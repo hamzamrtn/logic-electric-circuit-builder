@@ -1,0 +1,62 @@
+{
+  "sourceBase": "35c781fdf96a8ac4c6a239e5ab83b1f698aefc90",
+  "sourceHashes": {
+    "src/core/topology/digital.ts": "5076d5c8f26e9094bce6cfc670eff98a193f0ebd09f4f1841e4b1ca025941b8c",
+    "src/core/session/DigitalRuntime.ts": "23fe7371010105356f410277635d69d43428995485dd68a6b3c111e37da091a9",
+    "src/core/session/DigitalSessions.ts": "644005e1a8fa6471071e7b2f39109d93996eb5aaf8ea5f546fdb44619a21e464",
+    "src/core/session/SaveCoordinator.ts": "83f68658127ecdbf55c47376a592bc632beaf6e068a1a33027948573e42452f5",
+    "src/components/definitions/digital.ts": "cd988033dcc3f2c5396a4bdb3aa720cba46f5fe00dbb4a122ffffe1dea03401e",
+    "src/editor/simulation/schedule.ts": "f3df65b31af9fc8d4319e6250ec9f556b48ed398c8e7a3a843035206193f1ebb",
+    "src/editor/ui/SimulationPanel.tsx": "a79268025f130ca3a4aea2fb27e82d96c3968f578805411e512fa6a71792ce85",
+    "src/editor/ui/Editor.tsx": "5c32588dd0366b1b3799a4fb6a973915cb0b39e50270014684f10787358fa81a",
+    "src/obsidian/CircuitFileView.tsx": "cc79613f218bba835b6050ecc7b873037d83e59b46a43bedaa26674c29b50e55",
+    "src/main.ts": "2227570408b66aa91eed9fd020d686ff00085c429990806a762d7ac9ee7a8d14",
+    "dev/main.tsx": "3c976c41df09f342860472710dd37e49dee51b76d73654b7671d6ab25cdc6d16",
+    "dev/digital-memory.ts": "ffd5cb346b3aabf21618608c4544e1764587fbcada0cf2b7f9d24634d821a8ce",
+    "tests/fixtures/digital.ts": "ac1273aa8ecf8b5ee1dd33fe4ca6ab7cada026af71bb295b2f4069735243b489",
+    "tests/unit/digital.test.ts": "aae7c1cd37716dacd883a4e86b36491432c3d0fec133fc058d2b350ccdacfb00",
+    "tests/unit/digital-sessions.test.ts": "bb14cc816fa3a96d2bbb4605e7bbd2253b5d606fb336beb7f90a7ebc8005ab5d",
+    "tests/unit/simulation-schedule.test.ts": "c5b5a2ef2792424695d8ab33e5c545fc9dd6ad1e1cc73217a5e63894ebda7c7d",
+    "tests/unit/simulation-audit.test.ts": "a06afc1c91c7f26e4f77dabb07529774633a3db7888ac6a0705671fe6cc98f4f",
+    "tests/unit/simulation-save-races.test.ts": "d610476cde5f84825d86aaff492b76339fea20b2cf9393dd61c47fe6ff7f7a9d",
+    "tests/property/digital.test.ts": "7584f3b897b4a78be75312ec0fcb442f9f1c338fa380677c4b9dda884b43b30d",
+    "tests/e2e/simulation.spec.ts": "63b283ee18a685edf3e155bc26bb43a285a08e5554b9c9eb890276281f4c9507",
+    "scripts/check-simulation-host.mjs": "531405a625c2a5927b9cfc4fbff31e9c9f095b6d661dce2ef70f9fe9f13527db",
+    "scripts/check-simulation-failures.mjs": "bca4611910fec914984c4504c8506907188fe41ee837c83c48b1eab5f5e3a381",
+    "scripts/check-simulation-android.mjs": "777600fd70751c4a721bb73630f8720a689f8601f1a6ed49f5d11e7bbe9288d2",
+    "scripts/check-simulation-memory.mjs": "df6aeab090d3a09c5544f53a3d2d3b7f445fae221081024b374b8fda2fe6d75c",
+    "scripts/lib/obsidian-test.mjs": "3ea8a7fc7b1240d9daf4bb2d41b11e8b2614250629b7a5a0a4e50d335de8f784",
+    "scripts/lib/simulation-source.mjs": "8ccdc91afa7272f17fbacc49ed69087dcc5b706efd663c877cea0f21f27135fb"
+  },
+  "assetHashes": {
+    "main.js": "b866be845da97209eacee40618e7f8eb8db629afe5b9ba69cbdfdfd9121c32ba",
+    "manifest.json": "7c83fcf86124c10aaf158b724f53a75ecab91bb67c25396ea6c7564d1d63f7ab",
+    "styles.css": "b331ff4bbc318c37d6d0f748d13b53f36f795bfd46261f0337f9bb518a96e3eb"
+  },
+  "date": "2026-11-19T16:16:37.815Z",
+  "model": "Pixel 7 Pro",
+  "androidVersion": "17",
+  "userAgent": "Mozilla/5.0 (Linux; Android 10; K; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/157.0.0.0 Mobile Safari/537.36 obsidian/1.15.1",
+  "viewport": {
+    "width": 485,
+    "height": 1051,
+    "dpr": 2.2250001430511475
+  },
+  "actualObsidianAndroid": true,
+  "vault": "LEC Simulation Test",
+  "checks": [
+    "exhaustive-half-adder",
+    "live-input-update",
+    "pause-reset-unknown",
+    "unchanged-file",
+    "android-home-pause-resume",
+    "last-consumer-release",
+    "reopen-fresh-inputs",
+    "electrical-switch-scope",
+    "electrical-operating-point",
+    "electrical-unchanged-file"
+  ],
+  "pageErrors": [],
+  "inputMethod": "WebView CDP controls; native Android Home/activity resume",
+  "note": "No Playwright helper APK installed; only this test vault was modified. Physical-finger and iOS qualification are separate."
+}

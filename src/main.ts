@@ -1,3 +1,5 @@
+import { DigitalSessions } from './core/session/DigitalSessions';
+import { digitalCapabilities } from './components/definitions/digital';
 import { FuzzySuggestModal, MarkdownView, Notice, Plugin, TFile, TFolder, normalizePath, type App } from 'obsidian';
 import { CircuitFileView, VIEW_TYPE } from './obsidian/CircuitFileView';
 import { VaultSessions, createCircuit, createUnique } from './obsidian/VaultPersistence';
@@ -20,6 +22,7 @@ class CircuitPicker extends FuzzySuggestModal<TFile> {
 }
 export default class CircuitPlugin extends Plugin {
   sessions!: VaultSessions;
+  readonly simulation = new DigitalSessions(digitalCapabilities());
   recovery!: RecoveryStore;
   private recoveryExclusions!: RecoveryExclusions;
   private exclusionWarning = false;
@@ -69,7 +72,7 @@ export default class CircuitPlugin extends Plugin {
     this.registerEvent(this.app.workspace.on('quit', tasks => { tasks.addPromise(this.sessions.flush()); }));
     this.addSettingTab(new CircuitSettingsTab(this.app, this));
   }
-  onunload() { void this.sessions.dispose(); }
+  onunload() { this.simulation.dispose(); void this.sessions.dispose(); }
   async saveSettings(updates: Partial<Pick<CircuitSettings, 'shortcuts' | 'recoveryFolder' | 'excludeRecovery' | 'managedRecoveryExclusion' | 'dismissedRecoveryExclusion' | 'toolbarDock'>> = {}) {
     const write = this.settingsWrites.catch(() => {}).then(async () => {
       await this.saveData({ ...this.settings, ...updates, shortcuts: { ...(updates.shortcuts ?? this.settings.shortcuts) } });
@@ -96,7 +99,7 @@ export default class CircuitPlugin extends Plugin {
   async saveRawCopy(_file: TFile | null, raw: string) { const name = `${uid('recovery')}-0.json`; await this.recovery.write(name, raw); new Notice(`Recovery copy saved in ${this.settings.recoveryFolder}`); }
   editorHost(file: TFile): EditorHost {
     return {
-      defaultGrid: this.settings.grid, defaultSnap: this.settings.snap, shortcuts: this.shortcutPreferences, docking: this.dockingPreferences, examples,
+      defaultGrid: this.settings.grid, defaultSnap: this.settings.snap, shortcuts: this.shortcutPreferences, docking: this.dockingPreferences, simulation: this.simulation, examples,
       newDocument: () => this.newCircuit(file.parent?.path ?? ''), openDocument: () => this.openCircuitPicker(),
       duplicate: async document => { const copy = { ...document, title: `${document.title} copy` }; const next = await createCircuit(this.app, copy, file.parent?.path ?? ''); await this.app.workspace.getLeaf('tab').openFile(next); },
       export: async (kind, document, owner, scale = 2) => {

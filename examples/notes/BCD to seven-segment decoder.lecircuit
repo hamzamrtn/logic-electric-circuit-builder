@@ -1,0 +1,5061 @@
+{
+  "format": "logic-electric-circuit",
+  "schemaVersion": 1,
+  "id": "showcase.listing-logic.doc1",
+  "title": "BCD to seven-segment decoder",
+  "components": [
+    {
+      "id": "showcase.listing-logic.c1",
+      "definitionId": "builtin.block-logic-input.v1",
+      "position": {
+        "x": -256,
+        "y": -432
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "A",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.c2",
+      "definitionId": "builtin.block-logic-input.v1",
+      "position": {
+        "x": -256,
+        "y": -320
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "B",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.c3",
+      "definitionId": "builtin.block-logic-input.v1",
+      "position": {
+        "x": -256,
+        "y": -208
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "C",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.c4",
+      "definitionId": "builtin.block-logic-input.v1",
+      "position": {
+        "x": -256,
+        "y": -96
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "D",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.c5",
+      "definitionId": "builtin.gate-not-1.v1",
+      "position": {
+        "x": 64,
+        "y": 16
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U1",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.c6",
+      "definitionId": "builtin.gate-not-1.v1",
+      "position": {
+        "x": 192,
+        "y": 16
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U2",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.c7",
+      "definitionId": "builtin.gate-not-1.v1",
+      "position": {
+        "x": 320,
+        "y": 16
+      },
+      "rotation": 90,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U3",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.c8",
+      "definitionId": "builtin.gate-or-4.v1",
+      "position": {
+        "x": 1120,
+        "y": 160
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U4",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.c9",
+      "definitionId": "builtin.gate-or-3.v1",
+      "position": {
+        "x": 1120,
+        "y": 272
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U5",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.c10",
+      "definitionId": "builtin.gate-or-3.v1",
+      "position": {
+        "x": 1120,
+        "y": 368
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U6",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.c11",
+      "definitionId": "builtin.gate-or-5.v1",
+      "position": {
+        "x": 1120,
+        "y": 480
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U7",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.c12",
+      "definitionId": "builtin.gate-or-2.v1",
+      "position": {
+        "x": 1120,
+        "y": 592
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U8",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.c13",
+      "definitionId": "builtin.gate-or-4.v1",
+      "position": {
+        "x": 1120,
+        "y": 688
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U9",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.c14",
+      "definitionId": "builtin.gate-or-4.v1",
+      "position": {
+        "x": 1120,
+        "y": 800
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U10",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.c15",
+      "definitionId": "builtin.gate-and-2.v1",
+      "position": {
+        "x": 544,
+        "y": 176
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U11",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.c16",
+      "definitionId": "builtin.gate-and-2.v1",
+      "position": {
+        "x": 544,
+        "y": 264
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U12",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.c17",
+      "definitionId": "builtin.gate-and-2.v1",
+      "position": {
+        "x": 544,
+        "y": 344
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U13",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.c18",
+      "definitionId": "builtin.gate-and-2.v1",
+      "position": {
+        "x": 544,
+        "y": 424
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U14",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.c19",
+      "definitionId": "builtin.gate-and-2.v1",
+      "position": {
+        "x": 544,
+        "y": 504
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U15",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.c20",
+      "definitionId": "builtin.gate-and-2.v1",
+      "position": {
+        "x": 544,
+        "y": 592
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U16",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.c21",
+      "definitionId": "builtin.gate-and-3.v1",
+      "position": {
+        "x": 544,
+        "y": 672
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U17",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.c22",
+      "definitionId": "builtin.gate-and-2.v1",
+      "position": {
+        "x": 544,
+        "y": 752
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U18",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.c23",
+      "definitionId": "builtin.gate-and-2.v1",
+      "position": {
+        "x": 544,
+        "y": 832
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "U19",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.c24",
+      "definitionId": "builtin.block-seven-segment-display.v1",
+      "position": {
+        "x": 1408,
+        "y": 488
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "HEX",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.c25",
+      "definitionId": "builtin.block-output-probe.v1",
+      "position": {
+        "x": 1744,
+        "y": 160
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "a",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.c26",
+      "definitionId": "builtin.block-output-probe.v1",
+      "position": {
+        "x": 1744,
+        "y": 256
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "b",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.c27",
+      "definitionId": "builtin.block-output-probe.v1",
+      "position": {
+        "x": 1744,
+        "y": 352
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "c",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.c28",
+      "definitionId": "builtin.block-output-probe.v1",
+      "position": {
+        "x": 1744,
+        "y": 448
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "d",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.c29",
+      "definitionId": "builtin.block-output-probe.v1",
+      "position": {
+        "x": 1744,
+        "y": 544
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "e",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.c30",
+      "definitionId": "builtin.block-output-probe.v1",
+      "position": {
+        "x": 1744,
+        "y": 640
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "f",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.c31",
+      "definitionId": "builtin.block-output-probe.v1",
+      "position": {
+        "x": 1744,
+        "y": 736
+      },
+      "rotation": 0,
+      "mirrorX": false,
+      "mirrorY": false,
+      "reference": "g",
+      "properties": {
+        "value": ""
+      },
+      "locked": false
+    }
+  ],
+  "nodes": [
+    {
+      "id": "showcase.listing-logic.n1",
+      "position": {
+        "x": 256,
+        "y": 824
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.listing-logic.n2",
+      "position": {
+        "x": 128,
+        "y": 584
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.listing-logic.n3",
+      "position": {
+        "x": 0,
+        "y": 688
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.listing-logic.n4",
+      "position": {
+        "x": 0,
+        "y": -32
+      },
+      "explicit": true
+    },
+    {
+      "id": "showcase.listing-logic.n5",
+      "position": {
+        "x": 64,
+        "y": 840
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.listing-logic.n6",
+      "position": {
+        "x": 128,
+        "y": -32
+      },
+      "explicit": true
+    },
+    {
+      "id": "showcase.listing-logic.n7",
+      "position": {
+        "x": 192,
+        "y": 760
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.listing-logic.n8",
+      "position": {
+        "x": 256,
+        "y": -32
+      },
+      "explicit": true
+    },
+    {
+      "id": "showcase.listing-logic.n9",
+      "position": {
+        "x": 320,
+        "y": 496
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.listing-logic.n10",
+      "position": {
+        "x": 256,
+        "y": 168
+      },
+      "explicit": true
+    },
+    {
+      "id": "showcase.listing-logic.n11",
+      "position": {
+        "x": 0,
+        "y": 184
+      },
+      "explicit": true
+    },
+    {
+      "id": "showcase.listing-logic.n12",
+      "position": {
+        "x": 672,
+        "y": 168
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.listing-logic.n13",
+      "position": {
+        "x": 672,
+        "y": 176
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.listing-logic.n14",
+      "position": {
+        "x": 320,
+        "y": 256
+      },
+      "explicit": true
+    },
+    {
+      "id": "showcase.listing-logic.n15",
+      "position": {
+        "x": 64,
+        "y": 272
+      },
+      "explicit": true
+    },
+    {
+      "id": "showcase.listing-logic.n16",
+      "position": {
+        "x": 704,
+        "y": 184
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.listing-logic.n17",
+      "position": {
+        "x": 704,
+        "y": 584
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.listing-logic.n18",
+      "position": {
+        "x": 704,
+        "y": 264
+      },
+      "explicit": true
+    },
+    {
+      "id": "showcase.listing-logic.n19",
+      "position": {
+        "x": 192,
+        "y": 336
+      },
+      "explicit": true
+    },
+    {
+      "id": "showcase.listing-logic.n20",
+      "position": {
+        "x": 64,
+        "y": 352
+      },
+      "explicit": true
+    },
+    {
+      "id": "showcase.listing-logic.n21",
+      "position": {
+        "x": 736,
+        "y": 272
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.listing-logic.n22",
+      "position": {
+        "x": 736,
+        "y": 680
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.listing-logic.n23",
+      "position": {
+        "x": 736,
+        "y": 344
+      },
+      "explicit": true
+    },
+    {
+      "id": "showcase.listing-logic.n24",
+      "position": {
+        "x": 128,
+        "y": 416
+      },
+      "explicit": true
+    },
+    {
+      "id": "showcase.listing-logic.n25",
+      "position": {
+        "x": 0,
+        "y": 432
+      },
+      "explicit": true
+    },
+    {
+      "id": "showcase.listing-logic.n26",
+      "position": {
+        "x": 768,
+        "y": 288
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.listing-logic.n27",
+      "position": {
+        "x": 768,
+        "y": 424
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.listing-logic.n28",
+      "position": {
+        "x": 128,
+        "y": 512
+      },
+      "explicit": true
+    },
+    {
+      "id": "showcase.listing-logic.n29",
+      "position": {
+        "x": 800,
+        "y": 480
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.listing-logic.n30",
+      "position": {
+        "x": 800,
+        "y": 808
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.listing-logic.n31",
+      "position": {
+        "x": 800,
+        "y": 504
+      },
+      "explicit": true
+    },
+    {
+      "id": "showcase.listing-logic.n32",
+      "position": {
+        "x": 64,
+        "y": 600
+      },
+      "explicit": true
+    },
+    {
+      "id": "showcase.listing-logic.n33",
+      "position": {
+        "x": 832,
+        "y": 496
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.listing-logic.n34",
+      "position": {
+        "x": 832,
+        "y": 824
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.listing-logic.n35",
+      "position": {
+        "x": 832,
+        "y": 592
+      },
+      "explicit": true
+    },
+    {
+      "id": "showcase.listing-logic.n36",
+      "position": {
+        "x": 256,
+        "y": 656
+      },
+      "explicit": true
+    },
+    {
+      "id": "showcase.listing-logic.n37",
+      "position": {
+        "x": 192,
+        "y": 672
+      },
+      "explicit": true
+    },
+    {
+      "id": "showcase.listing-logic.n38",
+      "position": {
+        "x": 864,
+        "y": 512
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.listing-logic.n39",
+      "position": {
+        "x": 864,
+        "y": 672
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.listing-logic.n40",
+      "position": {
+        "x": 256,
+        "y": 744
+      },
+      "explicit": true
+    },
+    {
+      "id": "showcase.listing-logic.n41",
+      "position": {
+        "x": 896,
+        "y": 696
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.listing-logic.n42",
+      "position": {
+        "x": 896,
+        "y": 792
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.listing-logic.n43",
+      "position": {
+        "x": 896,
+        "y": 752
+      },
+      "explicit": true
+    },
+    {
+      "id": "showcase.listing-logic.n44",
+      "position": {
+        "x": 928,
+        "y": 712
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.listing-logic.n45",
+      "position": {
+        "x": 928,
+        "y": 832
+      },
+      "explicit": false
+    },
+    {
+      "id": "showcase.listing-logic.n46",
+      "position": {
+        "x": 704,
+        "y": 464
+      },
+      "explicit": true
+    },
+    {
+      "id": "showcase.listing-logic.n47",
+      "position": {
+        "x": 832,
+        "y": 600
+      },
+      "explicit": true
+    },
+    {
+      "id": "showcase.listing-logic.n48",
+      "position": {
+        "x": 256,
+        "y": -320
+      },
+      "explicit": true
+    },
+    {
+      "id": "showcase.listing-logic.n49",
+      "position": {
+        "x": 128,
+        "y": -208
+      },
+      "explicit": true
+    },
+    {
+      "id": "showcase.listing-logic.n50",
+      "position": {
+        "x": 0,
+        "y": -96
+      },
+      "explicit": true
+    },
+    {
+      "id": "showcase.listing-logic.n51",
+      "position": {
+        "x": 320,
+        "y": 96
+      },
+      "explicit": true
+    },
+    {
+      "id": "showcase.listing-logic.n52",
+      "position": {
+        "x": 192,
+        "y": 96
+      },
+      "explicit": true
+    },
+    {
+      "id": "showcase.listing-logic.n53",
+      "position": {
+        "x": 64,
+        "y": 96
+      },
+      "explicit": true
+    }
+  ],
+  "wires": [
+    {
+      "id": "showcase.listing-logic.w1",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c2",
+        "pinId": "out-0"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n48"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w2",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c3",
+        "pinId": "out-0"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n49"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w3",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c4",
+        "pinId": "out-0"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n50"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w4",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n4"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n11"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w5",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n4"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c5",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w6",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c5",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n53"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w7",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n6"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n24"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w8",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n6"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c6",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w9",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c6",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n52"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w10",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n8"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n10"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w11",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n8"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c7",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w12",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c7",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n51"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w13",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n10"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n36"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w14",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n10"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c15",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w15",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n11"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n25"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w16",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n11"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c15",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w17",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n12"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n13"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w18",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c15",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n13"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w19",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n14"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n9"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w20",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n14"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c16",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w21",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n15"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n20"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w22",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n15"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c16",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w23",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n16"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n18"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w24",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n18"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n46"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w25",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c16",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n18"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w26",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n19"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n37"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w27",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n19"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c17",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w28",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n20"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n32"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w29",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n20"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c17",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w30",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n21"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n23"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w31",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n23"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n22"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w32",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c17",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n23"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w33",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n24"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n28"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w34",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n24"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c18",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w35",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n25"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n3"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w36",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n25"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c18",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w37",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n26"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n27"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w38",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c18",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n27"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w39",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n9"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c19",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w40",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n28"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n2"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w41",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n28"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c19",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w42",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n29"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n31"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w43",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n31"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n30"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w44",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c19",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n31"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w45",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n2"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c20",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w46",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n32"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n5"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w47",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n32"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c20",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w48",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n33"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n35"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w49",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n35"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n47"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w50",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c20",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n35"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w51",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n36"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n40"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w52",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n36"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c21",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w53",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n37"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n7"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w54",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n37"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c21",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w55",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n3"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c21",
+        "pinId": "in-2"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w56",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n38"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n39"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w57",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c21",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n39"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w58",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n40"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w59",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n40"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c22",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w60",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n7"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c22",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w61",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n41"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n43"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w62",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n43"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n42"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w63",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c22",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n43"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w64",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n1"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c23",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w65",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n5"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c23",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w66",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n44"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n45"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w67",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c23",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n45"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w68",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n12"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c8",
+        "pinId": "in-2"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w69",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n16"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c8",
+        "pinId": "in-3"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w70",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n21"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c9",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w71",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n26"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c9",
+        "pinId": "in-2"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w72",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n46"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n17"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w73",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n46"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c11",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w74",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n29"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c11",
+        "pinId": "in-2"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w75",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n33"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c11",
+        "pinId": "in-3"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w76",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n38"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c11",
+        "pinId": "in-4"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w77",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n17"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c12",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w78",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n47"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n34"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w79",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n47"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c12",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w80",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n22"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c13",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w81",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n41"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c13",
+        "pinId": "in-2"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w82",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n44"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c13",
+        "pinId": "in-3"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w83",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n42"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c14",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w84",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n30"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c14",
+        "pinId": "in-2"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w85",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n34"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c14",
+        "pinId": "in-3"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w86",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n48"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n8"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 256,
+            "y": -320,
+            "id": "showcase.listing-logic.bend1",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w87",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n49"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n6"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 128,
+            "y": -208,
+            "id": "showcase.listing-logic.bend2",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w88",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n50"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n4"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 0,
+            "y": -96,
+            "id": "showcase.listing-logic.bend3",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w89",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n51"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n14"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w90",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n52"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n19"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w91",
+      "a": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n53"
+      },
+      "b": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n15"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w92",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c8",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c24",
+        "pinId": "in-0"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 1280,
+            "y": 160,
+            "id": "showcase.listing-logic.bend4",
+            "locked": true
+          },
+          {
+            "x": 1280,
+            "y": 432,
+            "id": "showcase.listing-logic.bend5",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w93",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c9",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c24",
+        "pinId": "in-1"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 1264,
+            "y": 272,
+            "id": "showcase.listing-logic.bend6",
+            "locked": true
+          },
+          {
+            "x": 1264,
+            "y": 448,
+            "id": "showcase.listing-logic.bend7",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w94",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c10",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c24",
+        "pinId": "in-2"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 1248,
+            "y": 368,
+            "id": "showcase.listing-logic.bend8",
+            "locked": true
+          },
+          {
+            "x": 1248,
+            "y": 464,
+            "id": "showcase.listing-logic.bend9",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w95",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c11",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c24",
+        "pinId": "in-3"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": []
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w96",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c12",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c24",
+        "pinId": "in-4"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 1248,
+            "y": 592,
+            "id": "showcase.listing-logic.bend10",
+            "locked": true
+          },
+          {
+            "x": 1248,
+            "y": 496,
+            "id": "showcase.listing-logic.bend11",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w97",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c13",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c24",
+        "pinId": "in-5"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 1264,
+            "y": 688,
+            "id": "showcase.listing-logic.bend12",
+            "locked": true
+          },
+          {
+            "x": 1264,
+            "y": 512,
+            "id": "showcase.listing-logic.bend13",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    },
+    {
+      "id": "showcase.listing-logic.w98",
+      "a": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c14",
+        "pinId": "out"
+      },
+      "b": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c24",
+        "pinId": "in-6"
+      },
+      "width": 1,
+      "route": {
+        "mode": "manual",
+        "geometry": "orthogonal",
+        "horizontalFirst": true,
+        "vertices": [
+          {
+            "x": 1280,
+            "y": 800,
+            "id": "showcase.listing-logic.bend14",
+            "locked": true
+          },
+          {
+            "x": 1280,
+            "y": 528,
+            "id": "showcase.listing-logic.bend15",
+            "locked": true
+          }
+        ]
+      },
+      "locked": false
+    }
+  ],
+  "annotations": [
+    {
+      "id": "showcase.listing-logic.a1",
+      "kind": "text",
+      "position": {
+        "x": -320,
+        "y": -608
+      },
+      "text": "BCD to seven-segment decoder",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 30
+    },
+    {
+      "id": "showcase.listing-logic.a2",
+      "kind": "text",
+      "position": {
+        "x": -320,
+        "y": -576
+      },
+      "text": "Gate-level PLA: 4 inputs / 3 inverters / 9 product terms / 7 segment sums",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 13
+    },
+    {
+      "id": "showcase.listing-logic.a3",
+      "kind": "text",
+      "position": {
+        "x": -320,
+        "y": -528
+      },
+      "text": "BCD input (A = MSB)",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 15
+    },
+    {
+      "id": "showcase.listing-logic.a4",
+      "kind": "label",
+      "position": {
+        "x": -184,
+        "y": -440
+      },
+      "text": "A",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c1",
+        "pinId": "out-0"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-logic.a5",
+      "kind": "text",
+      "position": {
+        "x": 448,
+        "y": 72
+      },
+      "text": "AND plane",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 15
+    },
+    {
+      "id": "showcase.listing-logic.a6",
+      "kind": "text",
+      "position": {
+        "x": 448,
+        "y": 96
+      },
+      "text": "9 product terms",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 12
+    },
+    {
+      "id": "showcase.listing-logic.a7",
+      "kind": "text",
+      "position": {
+        "x": 600,
+        "y": 168
+      },
+      "text": "BD",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 11
+    },
+    {
+      "id": "showcase.listing-logic.a8",
+      "kind": "text",
+      "position": {
+        "x": 600,
+        "y": 256
+      },
+      "text": "B'D'",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 11
+    },
+    {
+      "id": "showcase.listing-logic.a9",
+      "kind": "text",
+      "position": {
+        "x": 600,
+        "y": 336
+      },
+      "text": "C'D'",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 11
+    },
+    {
+      "id": "showcase.listing-logic.a10",
+      "kind": "text",
+      "position": {
+        "x": 600,
+        "y": 416
+      },
+      "text": "CD",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 11
+    },
+    {
+      "id": "showcase.listing-logic.a11",
+      "kind": "text",
+      "position": {
+        "x": 600,
+        "y": 496
+      },
+      "text": "B'C",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 11
+    },
+    {
+      "id": "showcase.listing-logic.a12",
+      "kind": "text",
+      "position": {
+        "x": 600,
+        "y": 584
+      },
+      "text": "CD'",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 11
+    },
+    {
+      "id": "showcase.listing-logic.a13",
+      "kind": "text",
+      "position": {
+        "x": 600,
+        "y": 664
+      },
+      "text": "BC'D",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 11
+    },
+    {
+      "id": "showcase.listing-logic.a14",
+      "kind": "text",
+      "position": {
+        "x": 600,
+        "y": 744
+      },
+      "text": "BC'",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 11
+    },
+    {
+      "id": "showcase.listing-logic.a15",
+      "kind": "text",
+      "position": {
+        "x": 600,
+        "y": 824
+      },
+      "text": "BD'",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 11
+    },
+    {
+      "id": "showcase.listing-logic.a16",
+      "kind": "text",
+      "position": {
+        "x": 1040,
+        "y": 48
+      },
+      "text": "OR plane",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 15
+    },
+    {
+      "id": "showcase.listing-logic.a17",
+      "kind": "text",
+      "position": {
+        "x": 1040,
+        "y": 72
+      },
+      "text": "one sum per segment",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 12
+    },
+    {
+      "id": "showcase.listing-logic.a18",
+      "kind": "label",
+      "position": {
+        "x": 1048,
+        "y": 136
+      },
+      "text": "A",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c8",
+        "pinId": "in-0"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-logic.a19",
+      "kind": "label",
+      "position": {
+        "x": 1048,
+        "y": 152
+      },
+      "text": "C",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c8",
+        "pinId": "in-1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-logic.a20",
+      "kind": "label",
+      "position": {
+        "x": 1048,
+        "y": 256
+      },
+      "text": "B'",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c9",
+        "pinId": "in-0"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-logic.a21",
+      "kind": "label",
+      "position": {
+        "x": 1048,
+        "y": 352
+      },
+      "text": "B",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c10",
+        "pinId": "in-0"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-logic.a22",
+      "kind": "label",
+      "position": {
+        "x": 1048,
+        "y": 368
+      },
+      "text": "C'",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c10",
+        "pinId": "in-1"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-logic.a23",
+      "kind": "label",
+      "position": {
+        "x": 1048,
+        "y": 384
+      },
+      "text": "D",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c10",
+        "pinId": "in-2"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-logic.a24",
+      "kind": "label",
+      "position": {
+        "x": 1048,
+        "y": 448
+      },
+      "text": "A",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c11",
+        "pinId": "in-0"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-logic.a25",
+      "kind": "label",
+      "position": {
+        "x": 1048,
+        "y": 664
+      },
+      "text": "A",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c13",
+        "pinId": "in-0"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-logic.a26",
+      "kind": "label",
+      "position": {
+        "x": 1048,
+        "y": 776
+      },
+      "text": "A",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c14",
+        "pinId": "in-0"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-logic.a27",
+      "kind": "label",
+      "position": {
+        "x": 264,
+        "y": -328
+      },
+      "text": "B",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n48"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-logic.a28",
+      "kind": "label",
+      "position": {
+        "x": 136,
+        "y": -216
+      },
+      "text": "C",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n49"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-logic.a29",
+      "kind": "label",
+      "position": {
+        "x": 8,
+        "y": -104
+      },
+      "text": "D",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n50"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-logic.a30",
+      "kind": "label",
+      "position": {
+        "x": 328,
+        "y": 96
+      },
+      "text": "B'",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n51"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-logic.a31",
+      "kind": "label",
+      "position": {
+        "x": 200,
+        "y": 96
+      },
+      "text": "C'",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n52"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-logic.a32",
+      "kind": "label",
+      "position": {
+        "x": 72,
+        "y": 96
+      },
+      "text": "D'",
+      "anchor": {
+        "kind": "node",
+        "nodeId": "showcase.listing-logic.n53"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-logic.a33",
+      "kind": "label",
+      "position": {
+        "x": 1176,
+        "y": 152
+      },
+      "text": "a",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c8",
+        "pinId": "out"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-logic.a34",
+      "kind": "label",
+      "position": {
+        "x": 1176,
+        "y": 264
+      },
+      "text": "b",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c9",
+        "pinId": "out"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-logic.a35",
+      "kind": "label",
+      "position": {
+        "x": 1176,
+        "y": 360
+      },
+      "text": "c",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c10",
+        "pinId": "out"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-logic.a36",
+      "kind": "label",
+      "position": {
+        "x": 1176,
+        "y": 472
+      },
+      "text": "d",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c11",
+        "pinId": "out"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-logic.a37",
+      "kind": "label",
+      "position": {
+        "x": 1176,
+        "y": 584
+      },
+      "text": "e",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c12",
+        "pinId": "out"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-logic.a38",
+      "kind": "label",
+      "position": {
+        "x": 1176,
+        "y": 680
+      },
+      "text": "f",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c13",
+        "pinId": "out"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-logic.a39",
+      "kind": "label",
+      "position": {
+        "x": 1176,
+        "y": 792
+      },
+      "text": "g",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c14",
+        "pinId": "out"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-logic.a40",
+      "kind": "text",
+      "position": {
+        "x": 1680,
+        "y": 72
+      },
+      "text": "Segment probes",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 15
+    },
+    {
+      "id": "showcase.listing-logic.a41",
+      "kind": "label",
+      "position": {
+        "x": 1656,
+        "y": 152
+      },
+      "text": "a",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c25",
+        "pinId": "in-0"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-logic.a42",
+      "kind": "label",
+      "position": {
+        "x": 1656,
+        "y": 248
+      },
+      "text": "b",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c26",
+        "pinId": "in-0"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-logic.a43",
+      "kind": "label",
+      "position": {
+        "x": 1656,
+        "y": 344
+      },
+      "text": "c",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c27",
+        "pinId": "in-0"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-logic.a44",
+      "kind": "label",
+      "position": {
+        "x": 1656,
+        "y": 440
+      },
+      "text": "d",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c28",
+        "pinId": "in-0"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-logic.a45",
+      "kind": "label",
+      "position": {
+        "x": 1656,
+        "y": 536
+      },
+      "text": "e",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c29",
+        "pinId": "in-0"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-logic.a46",
+      "kind": "label",
+      "position": {
+        "x": 1656,
+        "y": 632
+      },
+      "text": "f",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c30",
+        "pinId": "in-0"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-logic.a47",
+      "kind": "label",
+      "position": {
+        "x": 1656,
+        "y": 728
+      },
+      "text": "g",
+      "anchor": {
+        "kind": "pin",
+        "componentId": "showcase.listing-logic.c31",
+        "pinId": "in-0"
+      },
+      "global": true,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 14
+    },
+    {
+      "id": "showcase.listing-logic.a48",
+      "kind": "text",
+      "position": {
+        "x": 1328,
+        "y": 616
+      },
+      "text": "Minimized segment equations",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 15
+    },
+    {
+      "id": "showcase.listing-logic.a49",
+      "kind": "text",
+      "position": {
+        "x": 1328,
+        "y": 648
+      },
+      "text": "a = A + C + BD + B′D′",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 13
+    },
+    {
+      "id": "showcase.listing-logic.a50",
+      "kind": "text",
+      "position": {
+        "x": 1328,
+        "y": 672
+      },
+      "text": "b = B′ + C′D′ + CD",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 13
+    },
+    {
+      "id": "showcase.listing-logic.a51",
+      "kind": "text",
+      "position": {
+        "x": 1328,
+        "y": 696
+      },
+      "text": "c = B + C′ + D",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 13
+    },
+    {
+      "id": "showcase.listing-logic.a52",
+      "kind": "text",
+      "position": {
+        "x": 1328,
+        "y": 720
+      },
+      "text": "d = A + B′D′ + B′C + CD′ + BC′D",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 13
+    },
+    {
+      "id": "showcase.listing-logic.a53",
+      "kind": "text",
+      "position": {
+        "x": 1328,
+        "y": 744
+      },
+      "text": "e = B′D′ + CD′",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 13
+    },
+    {
+      "id": "showcase.listing-logic.a54",
+      "kind": "text",
+      "position": {
+        "x": 1328,
+        "y": 768
+      },
+      "text": "f = A + C′D′ + BC′ + BD′",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 13
+    },
+    {
+      "id": "showcase.listing-logic.a55",
+      "kind": "text",
+      "position": {
+        "x": 1328,
+        "y": 792
+      },
+      "text": "g = A + BC′ + B′C + CD′",
+      "global": false,
+      "size": {
+        "x": 160,
+        "y": 96
+      },
+      "locked": false,
+      "zIndex": 0,
+      "rotation": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "fontSize": 13
+    }
+  ],
+  "groups": [],
+  "definitions": [
+    {
+      "id": "builtin.block-logic-input.v1",
+      "version": 1,
+      "name": "Logic input",
+      "category": "Logic I/O",
+      "aliases": [],
+      "prefix": "IN",
+      "pins": [
+        {
+          "id": "out-0",
+          "name": "OUT",
+          "x": 64,
+          "y": 0,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "rect",
+          "x": -48,
+          "y": -56,
+          "width": 96,
+          "height": 88
+        },
+        {
+          "kind": "text",
+          "x": 0,
+          "y": -40,
+          "text": "Logic input",
+          "size": 11
+        },
+        {
+          "kind": "path",
+          "d": "M 64 0 H 48"
+        },
+        {
+          "kind": "text",
+          "x": 28,
+          "y": 4,
+          "text": "OUT",
+          "size": 9
+        }
+      ],
+      "bounds": {
+        "x": -64,
+        "y": -56,
+        "width": 128,
+        "height": 88
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.gate-not-1.v1",
+      "version": 1,
+      "name": "NOT",
+      "category": "Logic gates",
+      "aliases": [
+        "not",
+        "gate"
+      ],
+      "prefix": "U",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "out",
+          "name": "Y",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -24 -24 L 24 0 L -24 24 Z"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M 36 0 H 48"
+        },
+        {
+          "kind": "circle",
+          "x": 32,
+          "y": 0,
+          "radius": 4
+        }
+      ],
+      "bounds": {
+        "x": -48,
+        "y": -32,
+        "width": 96,
+        "height": 64
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.gate-or-4.v1",
+      "version": 1,
+      "name": "OR",
+      "category": "Logic gates",
+      "aliases": [
+        "or",
+        "gate"
+      ],
+      "prefix": "U",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "x": -48,
+          "y": -24,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-1",
+          "name": "B",
+          "x": -48,
+          "y": -8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-2",
+          "name": "C",
+          "x": -48,
+          "y": 8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-3",
+          "name": "D",
+          "x": -48,
+          "y": 24,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "out",
+          "name": "Y",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -28 -48 Q 4 0 -28 48 Q 12 48 28 0 Q 12 -48 -28 -48 Z"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 -24 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 -8 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 8 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 24 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M 28 0 H 48"
+        }
+      ],
+      "bounds": {
+        "x": -48,
+        "y": -48,
+        "width": 96,
+        "height": 96
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.gate-or-3.v1",
+      "version": 1,
+      "name": "OR",
+      "category": "Logic gates",
+      "aliases": [
+        "or",
+        "gate"
+      ],
+      "prefix": "U",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "x": -48,
+          "y": -16,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-1",
+          "name": "B",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-2",
+          "name": "C",
+          "x": -48,
+          "y": 16,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "out",
+          "name": "Y",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -28 -36 Q 4 0 -28 36 Q 12 36 28 0 Q 12 -36 -28 -36 Z"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 -16 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 16 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M 28 0 H 48"
+        }
+      ],
+      "bounds": {
+        "x": -48,
+        "y": -36,
+        "width": 96,
+        "height": 72
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.gate-or-5.v1",
+      "version": 1,
+      "name": "OR",
+      "category": "Logic gates",
+      "aliases": [
+        "or",
+        "gate"
+      ],
+      "prefix": "U",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "x": -48,
+          "y": -32,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-1",
+          "name": "B",
+          "x": -48,
+          "y": -16,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-2",
+          "name": "C",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-3",
+          "name": "D",
+          "x": -48,
+          "y": 16,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-4",
+          "name": "E",
+          "x": -48,
+          "y": 32,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "out",
+          "name": "Y",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -28 -60 Q 4 0 -28 60 Q 12 60 28 0 Q 12 -60 -28 -60 Z"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 -32 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 -16 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 16 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 32 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M 28 0 H 48"
+        }
+      ],
+      "bounds": {
+        "x": -48,
+        "y": -60,
+        "width": 96,
+        "height": 120
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.gate-or-2.v1",
+      "version": 1,
+      "name": "OR",
+      "category": "Logic gates",
+      "aliases": [
+        "or",
+        "gate"
+      ],
+      "prefix": "U",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "x": -48,
+          "y": -8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-1",
+          "name": "B",
+          "x": -48,
+          "y": 8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "out",
+          "name": "Y",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -28 -32 Q 4 0 -28 32 Q 12 32 28 0 Q 12 -32 -28 -32 Z"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 -8 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 8 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M 28 0 H 48"
+        }
+      ],
+      "bounds": {
+        "x": -48,
+        "y": -32,
+        "width": 96,
+        "height": 64
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.gate-and-2.v1",
+      "version": 1,
+      "name": "AND",
+      "category": "Logic gates",
+      "aliases": [
+        "and",
+        "gate"
+      ],
+      "prefix": "U",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "x": -48,
+          "y": -8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-1",
+          "name": "B",
+          "x": -48,
+          "y": 8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "out",
+          "name": "Y",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -24 -32 H 0 C 38 -32 38 32 0 32 H -24 Z"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 -8 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 8 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M 28 0 H 48"
+        }
+      ],
+      "bounds": {
+        "x": -48,
+        "y": -32,
+        "width": 96,
+        "height": 64
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.gate-and-3.v1",
+      "version": 1,
+      "name": "AND",
+      "category": "Logic gates",
+      "aliases": [
+        "and",
+        "gate"
+      ],
+      "prefix": "U",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "A",
+          "x": -48,
+          "y": -16,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-1",
+          "name": "B",
+          "x": -48,
+          "y": 0,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-2",
+          "name": "C",
+          "x": -48,
+          "y": 16,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "out",
+          "name": "Y",
+          "x": 48,
+          "y": 0,
+          "side": "right",
+          "role": "output",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "path",
+          "d": "M -24 -36 H 0 C 38 -36 38 36 0 36 H -24 Z"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 -16 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 0 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M -48 16 H -24"
+        },
+        {
+          "kind": "path",
+          "d": "M 28 0 H 48"
+        }
+      ],
+      "bounds": {
+        "x": -48,
+        "y": -36,
+        "width": 96,
+        "height": 72
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.block-seven-segment-display.v1",
+      "version": 1,
+      "name": "Seven-segment display",
+      "category": "Logic I/O",
+      "aliases": [],
+      "prefix": "DS",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "a",
+          "x": -64,
+          "y": -56,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-1",
+          "name": "b",
+          "x": -64,
+          "y": -40,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-2",
+          "name": "c",
+          "x": -64,
+          "y": -24,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-3",
+          "name": "d",
+          "x": -64,
+          "y": -8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-4",
+          "name": "e",
+          "x": -64,
+          "y": 8,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-5",
+          "name": "f",
+          "x": -64,
+          "y": 24,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-6",
+          "name": "g",
+          "x": -64,
+          "y": 40,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        },
+        {
+          "id": "in-7",
+          "name": "dp",
+          "x": -64,
+          "y": 56,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "rect",
+          "x": -48,
+          "y": -96,
+          "width": 96,
+          "height": 168
+        },
+        {
+          "kind": "text",
+          "x": 0,
+          "y": -80,
+          "text": "Seven-segment display",
+          "size": 8
+        },
+        {
+          "kind": "path",
+          "d": "M -64 -56 H -48"
+        },
+        {
+          "kind": "text",
+          "x": -28,
+          "y": -52,
+          "text": "a",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M -64 -40 H -48"
+        },
+        {
+          "kind": "text",
+          "x": -28,
+          "y": -36,
+          "text": "b",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M -64 -24 H -48"
+        },
+        {
+          "kind": "text",
+          "x": -28,
+          "y": -20,
+          "text": "c",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M -64 -8 H -48"
+        },
+        {
+          "kind": "text",
+          "x": -28,
+          "y": -4,
+          "text": "d",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M -64 8 H -48"
+        },
+        {
+          "kind": "text",
+          "x": -28,
+          "y": 12,
+          "text": "e",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M -64 24 H -48"
+        },
+        {
+          "kind": "text",
+          "x": -28,
+          "y": 28,
+          "text": "f",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M -64 40 H -48"
+        },
+        {
+          "kind": "text",
+          "x": -28,
+          "y": 44,
+          "text": "g",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M -64 56 H -48"
+        },
+        {
+          "kind": "text",
+          "x": -28,
+          "y": 60,
+          "text": "dp",
+          "size": 9
+        },
+        {
+          "kind": "path",
+          "d": "M 4 -38 H 28 M 30 -34 V -10 M 30 -2 V 22 M 4 26 H 28 M 0 -2 V 22 M 0 -34 V -10 M 4 -6 H 28"
+        },
+        {
+          "kind": "circle",
+          "x": 38,
+          "y": 28,
+          "radius": 2
+        }
+      ],
+      "bounds": {
+        "x": -64,
+        "y": -96,
+        "width": 128,
+        "height": 168
+      },
+      "defaults": {}
+    },
+    {
+      "id": "builtin.block-output-probe.v1",
+      "version": 1,
+      "name": "Output probe",
+      "category": "Logic I/O",
+      "aliases": [],
+      "prefix": "DS",
+      "pins": [
+        {
+          "id": "in-0",
+          "name": "IN",
+          "x": -64,
+          "y": 0,
+          "side": "left",
+          "role": "input",
+          "width": 1
+        }
+      ],
+      "primitives": [
+        {
+          "kind": "rect",
+          "x": -48,
+          "y": -56,
+          "width": 96,
+          "height": 88
+        },
+        {
+          "kind": "text",
+          "x": 0,
+          "y": -40,
+          "text": "Output probe",
+          "size": 11
+        },
+        {
+          "kind": "path",
+          "d": "M -64 0 H -48"
+        },
+        {
+          "kind": "text",
+          "x": -28,
+          "y": 4,
+          "text": "IN",
+          "size": 9
+        }
+      ],
+      "bounds": {
+        "x": -64,
+        "y": -56,
+        "width": 128,
+        "height": 88
+      },
+      "defaults": {}
+    }
+  ],
+  "metadata": {
+    "purpose": "Editable showcase drawing; verified with the built-in simulator. Not an electrically qualified design.",
+    "layout": "Desktop"
+  }
+}

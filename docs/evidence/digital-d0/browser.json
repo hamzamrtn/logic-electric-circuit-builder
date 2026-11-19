@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-13T09:52:06.543Z",
+  "cpu": "AMD Ryzen AI 7 350 w/ Radeon 860M",
+  "logicalCpus": 16,
+  "memoryGiB": 30.133155822753906,
+  "sourceBase": "35c781fdf96a8ac4c6a239e5ab83b1f698aefc90",
+  "sourceHashes": {
+    "src/core/topology/digital.ts": "c067267be73d48441d1e7fd253e0215e8cfca13bae1c1adc6a3111bf69c117ea",
+    "src/core/session/DigitalRuntime.ts": "752d30fd2af24832ad9c51609b14ed3015694495ba2bb0f290cc0ed86408dd37",
+    "src/components/definitions/digital.ts": "ef504fa89e78e213d39d3c7890a2b03019bb557326301b26328989bc26ab2089",
+    "tests/fixtures/digital.ts": "c4baea403760da9abac4dbca6bcf79779b09bca42d3beec3ef73d3fb6a53f0a5",
+    "tests/unit/digital.test.ts": "af709024b29ff485acdd6b73dfe8be0209a7479f54802e21198f89905055d177",
+    "dev/digital-probe.ts": "4955425218497ab97c1c1b5a2ed2a0a4a88413256c59a6b294fc1018bcf44583",
+    "scripts/check-digital-d0.mjs": "3772ad1f576d1599827c944b03341fc3f3e5bd71045ebf31d0f82e2f665939ac"
+  },
+  "pageErrors": [],
+  "productionManifest": {
+    "id": "logic-electric-circuit-builder",
+    "name": "Logic-Electric Circuit Builder",
+    "version": "0.1.11",
+    "minAppVersion": "1.14.0",
+    "description": "Design electrical and logic circuits with 72 symbols, custom blocks and smart wire routing. Keep editable diagrams in your notes, or export SVG/PNG. Offline on desktop, tablet and phone.",
+    "author": "Hamza",
+    "isDesktopOnly": false
+  },
+  "reports": [
+    {
+      "environment": "desktop browser",
+      "browserVersion": "153.0.8010.12",
+      "truthTableRuns": 20,
+      "halfAdderP95Ms": 4.300000000046566,
+      "chainGates": 128,
+      "chainRuns": 10,
+      "chainP95Ms": 31,
+      "maxHeartbeatGapMs": 4.5,
+      "cancellationMs": 1.3000000000465661,
+      "unchangedRunHistory": true,
+      "editInvalidation": true,
+      "retry": true
+    },
+    {
+      "environment": "phone browser emulation",
+      "browserVersion": "153.0.8010.12",
+      "truthTableRuns": 20,
+      "halfAdderP95Ms": 4.400000000023283,
+      "chainGates": 128,
+      "chainRuns": 10,
+      "chainP95Ms": 31.699999999953434,
+      "maxHeartbeatGapMs": 5.099999999976717,
+      "cancellationMs": 1.6999999999534339,
+      "unchangedRunHistory": true,
+      "editInvalidation": true,
+      "retry": true
+    }
+  ],
+  "note": "Desktop hardware only. Browser phone emulation is not actual Android/iOS qualification. Probe injected through DevTools; no production simulation UI."
+}

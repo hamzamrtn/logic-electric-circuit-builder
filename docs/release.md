@@ -1,6 +1,8 @@
 # Release preparation
 
-The prepared release is **0.1.11**. The owner authorized publication on 2026-11-11. `npm run package` generates `dist/logic-electric-circuit-builder-0.1.11.zip` and the three individual install assets under `dist/logic-electric-circuit-builder/`. Release notes are in [releases/0.1.11.md](releases/0.1.11.md); local verification is recorded in [feedback and scorecard review](evidence/feedback-scorecard/validation.md). Publish only after the source commit passes GitHub verification.
+Release **1.0.0** (simulation studio) is prepared locally as of 2026-11-19 and **not yet authorized for publication**. Manifest, package, lockfile and versions.json are aligned at 1.0.0; release notes are in [releases/1.0.0.md](releases/1.0.0.md), listing copy in [listing-description.md](listing-description.md) and verification in [the simulation studio record](evidence/simulation-live-ui/validation.md). Follow the numbered steps below with tag `1.0.0` once the owner authorizes publication, and upload the ten listing screenshots indexed in [screenshots/README.md](screenshots/README.md).
+
+Release **0.1.11** was [published on 2026-11-12](https://github.com/hamzamrtn/logic-electric-circuit-builder/releases/tag/0.1.11) from commit `8e7afa183724be5d8417361d1293bfb116c6d746`, after its full manual GitHub verification passed. Publication was authorized again that day. `npm run package` generates `dist/logic-electric-circuit-builder-0.1.11.zip` and the three individual install assets under `dist/logic-electric-circuit-builder/`. Release notes are in [releases/0.1.11.md](releases/0.1.11.md); local verification is recorded in [feedback and scorecard review](evidence/feedback-scorecard/validation.md), and remote verification/publication in [release evidence](evidence/release-0.1.11.md). For future releases, publish only after the source commit passes GitHub verification.
 
 Review the remaining real-host/device qualification in [validation.md](validation.md), fix failures and keep evidence current. The product name, identity and MIT license are already established. Historical research and initial registry checks do not replace current test results or directory review.
 
@@ -30,3 +32,11 @@ Recheck the primary instructions immediately before submission:
 - [Mobile development](https://docs.obsidian.md/Plugins/Getting%20started/Mobile%20development)
 
 No telemetry, self-updater, backend or runtime network dependency is included. Feedback links open GitHub only on user activation; submitting there requires a GitHub account. Distribute the license/third-party notices with source; runtime license texts are included inside main.js. Document format changes separately from plugin rollback instructions.
+
+## Recovering a queued run with no jobs
+
+Check the run, its jobs, repository Actions settings and GitHub Status before changing workflow code. A run stuck at `jobs: []` with contradictory HTTP 409/500 cancellation errors can reflect an out-of-sync GitHub run/check suite; these symptoms do not establish a repository defect. Check concurrency groups separately. See [GitHub's troubleshooting guidance](https://docs.github.com/en/actions/how-tos/troubleshoot-workflows#canceling-workflows).
+
+Try one normal cancellation and, if necessary, one force cancellation. If the record remains stuck, use the existing manual release-workflow dispatch early to create a fresh build of the intended commit. Confirm its exact SHA and wait for all checks and attestation; manual dispatch does not publish a release. Repeated cancellation or rerun requests against the stale record are not a substitute for a fresh dispatch. Do not change runner labels, broaden permissions, bypass checks or create empty commits without evidence they address the cause.
+
+Save the stuck run/jobs JSON, UTC timestamps and GitHub request IDs for Support. HTTP 403 on deletion alone does not prove corruption: [GitHub allows deletion of completed runs or runs older than two weeks](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/delete-a-workflow-run). A successful fresh run demonstrates whether the old record actually blocks execution. Preserve successful verification records and published tag identities.

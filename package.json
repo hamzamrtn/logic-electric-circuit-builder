@@ -1,8 +1,8 @@
 {
   "name": "logic-electric-circuit-builder",
-  "version": "0.1.11",
+  "version": "1.0.0",
   "private": true,
-  "description": "Offline electrical and logic schematics for Obsidian.",
+  "description": "Offline electrical and logic schematics and simulation for Obsidian.",
   "author": "Hamza",
   "license": "MIT",
   "type": "module",

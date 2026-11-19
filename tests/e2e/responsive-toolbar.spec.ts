@@ -62,6 +62,10 @@ test('compact controls fit without horizontal scrolling and retain practical tou
       expect(box.x).toBeGreaterThanOrEqual(0); expect(box.x + box.width).toBeLessThanOrEqual(width + 1);
       expect(box.width).toBeGreaterThanOrEqual(44); expect(box.height).toBeGreaterThanOrEqual(44);
     }
+    // Simulate joins the top bar where it fits; the smallest phones reach it through More.
+    const simulate = page.getByRole('button', { name: 'Simulate', exact: true });
+    if (width >= 352) { const box = (await simulate.boundingBox())!; expect(box.x + box.width).toBeLessThanOrEqual(width + 1); expect(box.width).toBeGreaterThanOrEqual(44); expect(box.height).toBeGreaterThanOrEqual(44); }
+    else await expect(simulate).toBeHidden();
     for (const selector of ['.lec-topbar', '.lec-drawing-toolbar']) expect(await page.locator(selector).evaluate(el => el.scrollWidth <= el.clientWidth + 1)).toBe(true);
   }
 });

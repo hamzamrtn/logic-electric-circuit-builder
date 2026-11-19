@@ -1,3 +1,5 @@
+import type { DigitalConsumer } from '../core/session/DigitalSessions';
+import { simulationTurn } from '../editor/simulation/schedule';
 import { Notice, TextFileView, type TFile, type WorkspaceLeaf } from 'obsidian';
 import { createRoot, type Root } from 'react-dom/client';
 import { Editor } from '../editor/ui/Editor';
@@ -11,15 +13,26 @@ export class CircuitFileView extends TextFileView {
   private raw = '';
   private unsubscribe?: () => void;
   private owner?: Document;
+  private simulationTransfer?: DigitalConsumer;
+  private reopenSimulation = false;
   constructor(leaf: WorkspaceLeaf, private plugin: CircuitPlugin) {
     super(leaf); this.contentEl.addClass('lec-host-view');
     this.registerEvent(plugin.app.workspace.on('layout-change', () => {
-      if (this.entry && this.root && this.contentEl.ownerDocument !== this.owner) { this.root.unmount(); this.mount(this.entry); }
+      if (this.entry && this.root && this.contentEl.ownerDocument !== this.owner) {
+        this.reopenSimulation = !!this.contentEl.querySelector('.lec-sim-strip') || !!this.simulationTransfer;
+        const win = this.contentEl.ownerDocument.defaultView;
+        if (this.reopenSimulation && win) {
+          const previous = this.simulationTransfer;
+          this.simulationTransfer = plugin.simulation.acquire(this.entry.session, signal => simulationTurn(win, signal), false);
+          previous?.release();
+        }
+        this.root.unmount(); this.mount(this.entry);
+      }
     }));
   }
   private mount(entry: Entry) {
     this.owner = this.contentEl.ownerDocument; this.root = createRoot(this.contentEl);
-    this.root.render(<Editor key={entry.file.path} session={entry.session} save={entry.save} host={this.plugin.editorHost(entry.file)} />);
+    this.root.render(<Editor key={entry.file.path} session={entry.session} save={entry.save} host={{ ...this.plugin.editorHost(entry.file), simulationInitiallyOpen: this.reopenSimulation, onSimulationReady: () => { this.simulationTransfer?.release(); this.simulationTransfer = undefined; } }} />);
   }
   getViewType() { return VIEW_TYPE; }
   getDisplayText() { return this.file?.basename ?? this.plugin.manifest.name; }
@@ -50,6 +63,7 @@ export class CircuitFileView extends TextFileView {
   clear() {
     this.unsubscribe?.(); this.unsubscribe = undefined; this.root?.unmount(); this.root = undefined;
     const entry = this.entry; this.entry = undefined; if (entry) void this.plugin.sessions.release(entry);
+    this.simulationTransfer?.release(); this.simulationTransfer = undefined; this.reopenSimulation = false;
     this.contentEl.empty(); this.raw = '';
   }
   async onClose() { await this.save(); this.clear(); }

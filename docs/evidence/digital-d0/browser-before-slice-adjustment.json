@@ -1,0 +1,47 @@
+{
+  "date": "2026-11-13T09:45:47.254Z",
+  "cpu": "AMD Ryzen AI 7 350 w/ Radeon 860M",
+  "logicalCpus": 16,
+  "memoryGiB": 30.133155822753906,
+  "source": "working tree; see validation record",
+  "productionManifest": {
+    "id": "logic-electric-circuit-builder",
+    "name": "Logic-Electric Circuit Builder",
+    "version": "0.1.11",
+    "minAppVersion": "1.14.0",
+    "description": "Design electrical and logic circuits with 72 symbols, custom blocks and smart wire routing. Keep editable diagrams in your notes, or export SVG/PNG. Offline on desktop, tablet and phone.",
+    "author": "Hamza",
+    "isDesktopOnly": false
+  },
+  "reports": [
+    {
+      "environment": "desktop browser",
+      "browserVersion": "153.0.8010.12",
+      "truthTableRuns": 20,
+      "halfAdderP95Ms": 4.599999999976717,
+      "chainGates": 128,
+      "chainRuns": 10,
+      "chainP95Ms": 104.70000000006985,
+      "maxHeartbeatGapMs": 4.300000000046566,
+      "cancellationMs": 1.1000000000931323,
+      "unchangedRunHistory": true,
+      "editInvalidation": true,
+      "retry": true
+    },
+    {
+      "environment": "phone browser emulation",
+      "browserVersion": "153.0.8010.12",
+      "truthTableRuns": 20,
+      "halfAdderP95Ms": 4.700000000069849,
+      "chainGates": 128,
+      "chainRuns": 10,
+      "chainP95Ms": 104.69999999995343,
+      "maxHeartbeatGapMs": 4.299999999930151,
+      "cancellationMs": 1.7000000000698492,
+      "unchangedRunHistory": true,
+      "editInvalidation": true,
+      "retry": true
+    }
+  ],
+  "note": "Desktop hardware only. Browser phone emulation is not actual Android/iOS qualification. Probe injected through DevTools; no production simulation UI."
+}

@@ -32,6 +32,30 @@ function logic() {
   addWire(d, pin(a.id, 'out-0'), pin(gate.id, 'in-0'), [{ x: -96, y: -80 }]); addWire(d, pin(b.id, 'out-0'), pin(gate.id, 'in-1'), [{ x: -80, y: 80 }]); addWire(d, pin(gate.id, 'out'), pin(probe.id, 'in-0'));
   annotate(d, 'text', 'A · B → Y', { x: -80, y: -144 }); return stable(d, 'logic');
 }
+/** A circuit made for simulation: flip A, B and CIN and watch SUM and COUT. */
+function fullAdder() {
+  const d = emptyDocument('Full adder');
+  const named = (part: string, x: number, y: number, reference?: string) => { const c = place(d, findPart(part), { x, y }); if (reference) c.reference = reference; return c; };
+  const a = named('Logic input', -448, -96, 'A'), b = named('Logic input', -448, 32, 'B'), cin = named('Logic input', -448, 192, 'CIN');
+  const xor1 = named('XOR', -160, -88), and1 = named('AND', -160, 112), xor2 = named('XOR', 96, -80), and2 = named('AND', 96, 64), or = named('OR', 288, 96);
+  const sum = named('Output probe', 448, -80, 'SUM'), cout = named('Output probe', 448, 96, 'COUT');
+  type End = Parameters<typeof addWire>[1];
+  const wire = (from: End, to: End, bends: { x: number; y: number }[] = []) => addWire(d, from, to, bends);
+  const aLine = wire(pin(a.id, 'out-0'), pin(xor1.id, 'in-0'));
+  wire({ kind: 'wire', wireId: aLine, point: { x: -304, y: -96 } }, pin(and1.id, 'in-0'), [{ x: -304, y: 104 }]);
+  const bLine = wire(pin(b.id, 'out-0'), pin(xor1.id, 'in-1'), [{ x: -256, y: 32 }, { x: -256, y: -80 }]);
+  wire({ kind: 'wire', wireId: bLine, point: { x: -256, y: 32 } }, pin(and1.id, 'in-1'), [{ x: -256, y: 120 }]);
+  const half = wire(pin(xor1.id, 'out'), pin(xor2.id, 'in-0'));
+  wire({ kind: 'wire', wireId: half, point: { x: -32, y: -88 } }, pin(and2.id, 'in-0'), [{ x: -32, y: 56 }]);
+  const carry = wire(pin(cin.id, 'out-0'), pin(and2.id, 'in-1'), [{ x: 16, y: 192 }, { x: 16, y: 72 }]);
+  wire({ kind: 'wire', wireId: carry, point: { x: 16, y: 72 } }, pin(xor2.id, 'in-1'), [{ x: 16, y: -72 }]);
+  wire(pin(xor2.id, 'out'), pin(sum.id, 'in-0'));
+  wire(pin(and1.id, 'out'), pin(or.id, 'in-1'), [{ x: 192, y: 112 }, { x: 192, y: 104 }]);
+  wire(pin(and2.id, 'out'), pin(or.id, 'in-0'), [{ x: 192, y: 64 }, { x: 192, y: 88 }]);
+  wire(pin(or.id, 'out'), pin(cout.id, 'in-0'));
+  annotate(d, 'text', 'SUM = A ⊕ B ⊕ CIN; COUT = A·B + CIN·(A ⊕ B)', { x: -448, y: -208 });
+  return stable(d, 'full-adder');
+}
 function pair(title: string, first: string, second: string) {
   const d = emptyDocument(title), a = place(d, findPart(first), { x: -112, y: 0 }), b = place(d, findPart(second), { x: 144, y: 0 });
   addWire(d, pin(a.id, findPart(first).pins.at(-1)!.id), pin(b.id, findPart(second).pins[0].id)); return stable(d, title.toLowerCase().replace(/[^a-z0-9]+/g, '-'));
@@ -51,6 +75,7 @@ function custom() { const d = emptyDocument('Custom IC'); const def = makeCustom
 function catalogue() { const d = emptyDocument('Symbol catalogue'); library.forEach((p, i) => place(d, p, { x: (i % 8) * 240, y: Math.floor(i / 8) * 256 })); return stable(d, 'catalogue'); }
 export const examples = [
   { name: 'Voltage divider', document: divider() }, { name: 'Two-input logic', document: logic() },
+  { name: 'Full adder (simulation)', document: fullAdder() },
   { name: 'RC schematic', document: pair('RC schematic', 'Resistor', 'Capacitor') },
   { name: 'Transistor and LED', document: pair('Transistor and LED', 'NPN', 'LED') },
   { name: 'Op-amp schematic', document: pair('Op-amp schematic', 'DC voltage source', 'Op-amp') },
