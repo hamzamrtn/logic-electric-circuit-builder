@@ -2,7 +2,7 @@
 
 **Logic-Electric Circuit Builder** · Planning baseline: 2026-11-11
 
-**Status:** roadmap plus the simulation studio prepared as 1.0.0 (D1 combinational logic, A1 operating point and a power-on transient). [Current evidence](evidence/simulation-live-ui/validation.md) records the supported models, UI, desktop and physical Android results and remaining gaps; it has not been published. This document is not an implementation-completion record or authorization to publish. The owner requested this roadmap. Implementing a milestone remains a separate scoped task. [Product goals](product-goals.md) and the [UI contract](ui-contract.md) remain the standing product requirements.
+**Status:** roadmap plus the simulation studio published in 1.0.0 (D1 combinational logic, A1 operating point and a power-on transient). [Current evidence](evidence/simulation-live-ui/validation.md) records the supported models, UI, desktop and physical Android results and remaining gaps. This document is not an implementation-completion record or authorization to publish. The owner requested this roadmap. Implementing a milestone remains a separate scoped task. [Product goals](product-goals.md) and the [UI contract](ui-contract.md) remain the standing product requirements.
 
 ## 1. Capability and product outcome
 
@@ -187,7 +187,7 @@ Use [ADRs](adr/001-foundation.md) to record architecture decisions once evidence
 
 ## 8. Handoff
 
-**Current handoff:** the Build | Simulate studio (combinational logic and electrical analysis) is implemented and qualified on desktop and physical Android tablet/phone, and prepared for release as 1.0.0. See [current evidence](evidence/simulation-live-ui/validation.md); iOS remains unverified. The earlier [digital](evidence/digital-simulation/validation.md) and [D0](evidence/digital-d0/validation.md) records are dated baselines. Next candidates are D2 (sequential logic), A2 (AC/frequency analysis) and mixed-signal, each a separate scoped task.
+**Current handoff:** the Build | Simulate studio (combinational logic and electrical analysis) is implemented and qualified on desktop and physical Android tablet/phone, and published in 1.0.0 on 2026-11-19. See [current evidence](evidence/simulation-live-ui/validation.md); iOS remains unverified. The earlier [digital](evidence/digital-simulation/validation.md) and [D0](evidence/digital-d0/validation.md) records are dated baselines. Next candidates are D2 (sequential logic), A2 (AC/frequency analysis) and mixed-signal, each a separate scoped task.
 
 **Further architecture work:** persisted behavioral configuration, hierarchy, sequential timing and any worker/WebAssembly/package changes remain separate decisions. The current digital update keeps schema 1 and uses ephemeral settings with an explicit code allowlist. Do not expand those models while the remaining target qualification/release gates are being closed.
 

@@ -8,7 +8,7 @@ Build a **comprehensive, very intuitive, organized and powerful circuit editor i
 
 Support meaningful electrical and digital logic schematics in the same coherent workspace. A user should be able to start easily, develop a substantial circuit, reorganize connected parts, document it in notes, and export a readable result. Capability and approachability must grow together.
 
-The published 0.1.11 release is an offline schematic editor for drawing and documentation. Version 1.0.0, prepared locally on 2026-11-19, adds the Build | Simulate studio with logic and electrical simulation, documented in [simulation.md](simulation.md). Do not describe simulation as available to users until 1.0.0 is published. Symbols and structural checks do not imply supported executable models; only the documented allowlists simulate.
+Version 1.0.0, published on 2026-11-19, adds the Build | Simulate studio with logic and electrical simulation to the offline schematic editor, documented in [simulation.md](simulation.md). Symbols and structural checks do not imply supported executable models; only the documented allowlists simulate.
 
 ## Intuitive and organized
 

@@ -1,6 +1,6 @@
 # Simulation studio: validation record
 
-Date: 2026-11-19. Scope: the Build | Simulate studio described in [simulation.md](../../simulation.md): the run strip and analysis dock; logic simulation with canvas switches, lamps, the expanded gate set and truth tables; and electrical analysis with the operating point, power-on transient scope, probes, cursors, measurements, hover readouts, switches and schematic voltage tags ([ADR 003](../../adr/003-electrical-analysis.md)). Prepared as 1.0.0; unpublished.
+Date: 2026-11-19. Scope: the Build | Simulate studio described in [simulation.md](../../simulation.md): the run strip and analysis dock; logic simulation with canvas switches, lamps, the expanded gate set and truth tables; and electrical analysis with the operating point, power-on transient scope, probes, cursors, measurements, hover readouts, switches and schematic voltage tags ([ADR 003](../../adr/003-electrical-analysis.md)). Published in 1.0.0 on 2026-11-19.
 
 ## Local checks
 

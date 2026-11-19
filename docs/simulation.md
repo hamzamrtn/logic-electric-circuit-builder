@@ -1,6 +1,6 @@
 # Simulation studio
 
-Version 1.0.0 (prepared, not yet published) turns the editor into a two-mode studio: **Build** for drawing and **Simulate** for analysis. The published 0.1.11 release predates this workflow. Simulate analyzes logic circuits with a four-state digital engine and electrical circuits with a SPICE-style analog engine. Evidence and qualification limits: [live UI record](evidence/simulation-live-ui/validation.md).
+Version 1.0.0 (published 2026-11-19) turns the editor into a two-mode studio: **Build** for drawing and **Simulate** for analysis. Simulate analyzes logic circuits with a four-state digital engine and electrical circuits with a SPICE-style analog engine. Evidence and qualification limits: [live UI record](evidence/simulation-live-ui/validation.md).
 
 ## Workspace
 

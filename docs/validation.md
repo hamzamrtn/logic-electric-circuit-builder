@@ -1,6 +1,6 @@
 # Validation and remaining qualification
 
-The **2026-11-19 simulation studio (1.0.0 candidate)** is recorded in [simulation-live-ui/validation.md](evidence/simulation-live-ui/validation.md): 253 unit/property tests, the full four-project browser matrix, actual Obsidian 1.14.4 desktop workflows and failure checks, and physical Android checks on a Samsung SM-T733 tablet and a Pixel 7 Pro phone (Android 17, Obsidian 1.15.1). README and listing screenshots were captured in actual Obsidian on desktop and on the Pixel. iOS remains unverified.
+The **2026-11-19 simulation studio (published as 1.0.0)** is recorded in [simulation-live-ui/validation.md](evidence/simulation-live-ui/validation.md): 253 unit/property tests, the full four-project browser matrix, actual Obsidian 1.14.4 desktop workflows and failure checks, and physical Android checks on a Samsung SM-T733 tablet and a Pixel 7 Pro phone (Android 17, Obsidian 1.15.1). README and listing screenshots were captured in actual Obsidian on desktop and on the Pixel. iOS remains unverified.
 
 The **2026-11-13 simulation hardening** is recorded in [simulation-hardening/validation.md](evidence/simulation-hardening/validation.md): 237 tests, a 310-pass browser matrix with 17 intentional skips, isolated desktop failure/lifecycle checks, and native Android phone/tablet execution. Runtime publication, late save/deletion completions, Android backgrounding and immediate panel startup have regression coverage. No universal zero-bug or untested-platform guarantee is claimed.
 
