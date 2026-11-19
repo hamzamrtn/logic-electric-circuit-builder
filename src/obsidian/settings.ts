@@ -4,8 +4,8 @@ import { DEFAULT_SHORTCUTS, type ToolShortcuts } from '../editor/input/shortcuts
 import { DEFAULT_RECOVERY_FOLDER, recoveryFolder } from './RecoveryStore';
 import { uid } from '../core/model/document';
 import type { DockPosition } from '../editor/input/docking';
-export interface CircuitSettings { grid: boolean; snap: boolean; exportFolder: string; recoveryFolder: string; excludeRecovery: boolean; managedRecoveryExclusion: string | null; dismissedRecoveryExclusion: string | null; shortcuts: ToolShortcuts; toolbarDock: DockPosition; }
-export const DEFAULT_SETTINGS: CircuitSettings = { grid: true, snap: true, exportFolder: '', recoveryFolder: DEFAULT_RECOVERY_FOLDER, excludeRecovery: true, managedRecoveryExclusion: null, dismissedRecoveryExclusion: null, shortcuts: DEFAULT_SHORTCUTS, toolbarDock: 'auto' };
+export interface CircuitSettings { grid: boolean; snap: boolean; exportFolder: string; recoveryFolder: string; excludeRecovery: boolean; managedRecoveryExclusion: string | null; dismissedRecoveryExclusion: string | null; shortcuts: ToolShortcuts; toolbarDock: DockPosition; showUpdateNotes: boolean; lastVersion: string | null; }
+export const DEFAULT_SETTINGS: CircuitSettings = { grid: true, snap: true, exportFolder: '', recoveryFolder: DEFAULT_RECOVERY_FOLDER, excludeRecovery: true, managedRecoveryExclusion: null, dismissedRecoveryExclusion: null, shortcuts: DEFAULT_SHORTCUTS, toolbarDock: 'auto', showUpdateNotes: true, lastVersion: null };
 class RecoveryFolderSuggest extends AbstractInputSuggest<string> {
   constructor(app: App, input: HTMLInputElement, private folders: () => string[], private choose: (path: string) => void) { super(app, input); }
   protected getSuggestions(query: string) { const needle = query.trim().toLowerCase(); return this.folders().filter(path => path.toLowerCase().includes(needle)).sort((a, b) => a.localeCompare(b)); }
@@ -24,6 +24,7 @@ export class CircuitSettingsTab extends PluginSettingTab {
       { name: 'Export folder', desc: 'Vault-relative folder for SVG, PNG and JSON exports. Empty uses the circuit’s folder. The folder must already exist.', control: { type: 'text', key: 'exportFolder', placeholder: 'Same folder as circuit', defaultValue: '' } },
       { name: 'Recovery folder', desc: 'Apply a vault folder to move existing backups and save new ones there. For example: 99_Archive/CircuitBackup. Leave empty for Circuit recovery.', aliases: ['Move backups'], render: setting => this.renderRecoveryFolder(setting) },
       { name: 'Exclude recovery backups', desc: 'Exclude the recovery folder from Search and Graph; deprioritize it in Quick Switcher. Applies to everything in that folder. Existing exclusions are preserved. Requires host support; hidden folders need no entry.', control: { type: 'toggle', key: 'excludeRecovery', defaultValue: true } },
+      { name: 'Show what’s new after updates', desc: 'Open a short summary once after an update that adds major features. Reopen it anytime with the command “What’s new”.', control: { type: 'toggle', key: 'showUpdateNotes', defaultValue: true } },
       { name: 'Keyboard shortcuts', desc: 'Open a circuit, tap or click the three dots at the top right of its toolbar, then choose Keyboard shortcuts. Tool keys work only while the drawing has focus.' },
       { name: 'How to sync', desc: 'In Obsidian Sync settings, enable “Sync all other types” on each device to sync circuit files.' },
     ];
@@ -69,7 +70,7 @@ export class CircuitSettingsTab extends PluginSettingTab {
   async setControlValue(key: string, value: unknown): Promise<void> {
     if (key === 'excludeRecovery' && typeof value === 'boolean') { await this.plugin.setRecoveryExcluded(value); return; }
     if (key === 'recoveryFolder' && typeof value === 'string') { this.recoveryDraft = value; this.recoveryRefresh?.(); return; }
-    if ((key === 'grid' || key === 'snap') && typeof value === 'boolean') this.plugin.settings[key] = value;
+    if ((key === 'grid' || key === 'snap' || key === 'showUpdateNotes') && typeof value === 'boolean') this.plugin.settings[key] = value;
     else if (key === 'exportFolder' && typeof value === 'string') this.plugin.settings.exportFolder = value.trim();
     else return;
     await this.plugin.saveSettings();

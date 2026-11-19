@@ -14,6 +14,7 @@ import { loadShortcuts, validateShortcuts, type ShortcutPreferences } from './ed
 import { DEFAULT_RECOVERY_FOLDER, RecoveryStore, recoveryFolder } from './obsidian/RecoveryStore';
 import { RecoveryExclusions } from './obsidian/RecoveryExclusions';
 import { loadDockPosition, type DockPreferences } from './editor/input/docking';
+import { WhatsNewModal, shouldShowWhatsNew } from './obsidian/WhatsNew';
 class CircuitPicker extends FuzzySuggestModal<TFile> {
   constructor(app: App, private choose: (file: TFile) => void) { super(app); this.setPlaceholder('Open a circuit…'); }
   getItems() { return this.app.vault.getFiles().filter(f => f.extension === 'lecircuit'); }
@@ -50,6 +51,8 @@ export default class CircuitPlugin extends Plugin {
     this.settings.excludeRecovery = typeof data?.excludeRecovery === 'boolean' ? data.excludeRecovery : true;
     this.settings.managedRecoveryExclusion = typeof data?.managedRecoveryExclusion === 'string' && data.managedRecoveryExclusion.length > 1 && data.managedRecoveryExclusion.endsWith('/') ? data.managedRecoveryExclusion : null;
     this.settings.dismissedRecoveryExclusion = typeof data?.dismissedRecoveryExclusion === 'string' ? data.dismissedRecoveryExclusion : null;
+    this.settings.showUpdateNotes = typeof data?.showUpdateNotes === 'boolean' ? data.showUpdateNotes : true;
+    this.settings.lastVersion = typeof data?.lastVersion === 'string' ? data.lastVersion : null;
     this.recoveryExclusions = new RecoveryExclusions(this.app.vault, () => ({ folder: this.settings.recoveryFolder, enabled: this.settings.excludeRecovery, exists: !!this.app.vault.getFolderByPath(this.settings.recoveryFolder), managed: this.settings.managedRecoveryExclusion, dismissed: this.settings.dismissedRecoveryExclusion }), state => this.saveSettings({ managedRecoveryExclusion: state.managed, dismissedRecoveryExclusion: state.dismissed }));
     this.recovery = new RecoveryStore(this.app, this.settings.recoveryFolder, async folder => { await this.saveSettings({ recoveryFolder: folder }); await this.syncRecoveryExclusions(true); }, message => { new Notice(message); }, () => this.syncRecoveryExclusions());
     this.sessions = new VaultSessions(this.app, this.recovery);
@@ -70,10 +73,17 @@ export default class CircuitPlugin extends Plugin {
     this.registerEvent(this.app.vault.on('delete', file => { if (file instanceof TFile) this.sessions.deleted(file); }));
     this.registerEvent(this.app.workspace.on('file-menu', (menu, file) => { menu.addItem(item => item.setTitle('New circuit here').setIcon('circuit-board').onClick(() => { const folder = file instanceof TFile ? file.parent?.path ?? '' : file.path; void this.newCircuit(folder); })); }));
     this.registerEvent(this.app.workspace.on('quit', tasks => { tasks.addPromise(this.sessions.flush()); }));
+    this.addCommand({ id: 'whats-new', name: 'What’s new', callback: () => new WhatsNewModal(this.app).open() });
     this.addSettingTab(new CircuitSettingsTab(this.app, this));
+    // Update notes: shown once after the workspace is ready, only to people updating from an earlier release.
+    const show = shouldShowWhatsNew({ hadSavedData: !!data && typeof data === 'object', lastVersion: this.settings.lastVersion, current: this.manifest.version, enabled: this.settings.showUpdateNotes });
+    this.app.workspace.onLayoutReady(() => {
+      if (this.settings.lastVersion !== this.manifest.version) void this.saveSettings({ lastVersion: this.manifest.version }).catch(() => {});
+      if (show) new WhatsNewModal(this.app).open();
+    });
   }
   onunload() { this.simulation.dispose(); void this.sessions.dispose(); }
-  async saveSettings(updates: Partial<Pick<CircuitSettings, 'shortcuts' | 'recoveryFolder' | 'excludeRecovery' | 'managedRecoveryExclusion' | 'dismissedRecoveryExclusion' | 'toolbarDock'>> = {}) {
+  async saveSettings(updates: Partial<Pick<CircuitSettings, 'shortcuts' | 'recoveryFolder' | 'excludeRecovery' | 'managedRecoveryExclusion' | 'dismissedRecoveryExclusion' | 'toolbarDock' | 'lastVersion'>> = {}) {
     const write = this.settingsWrites.catch(() => {}).then(async () => {
       await this.saveData({ ...this.settings, ...updates, shortcuts: { ...(updates.shortcuts ?? this.settings.shortcuts) } });
       Object.assign(this.settings, updates);

@@ -8,6 +8,7 @@
 - Add four-state (0/1/X/Z) logic simulation for Logic inputs, Output probes, seven-segment displays, Buffer, NOT and 2–8-input AND/NAND/OR/NOR/XOR/XNOR: tappable canvas switches, lit probes and segments, Signals and an exhaustive truth table for up to 6 inputs with click-to-apply rows.
 - Report unsupported parts, mixed logic/electrical circuits, feedback loops, driver conflicts and invalid values with clear diagnostics. Simulation never changes the circuit file, save state or undo history; reading previews never start an engine.
 - Share logic runs between views of one file, pause hidden views (including native Android backgrounding) and release runtimes on close. Harden save, conflict and deletion handling against late or reentrant completions.
+- Show a one-time **What’s new** window to people updating from an earlier release (not on fresh installs), reopenable with the “What’s new” command and switchable off in settings.
 - Add a Full adder (simulation) example, two new lab notes with simulated circuits, and refreshed README and listing screenshots captured in actual Obsidian on desktop and a physical Android phone.
 
 ## 0.1.11 — feedback and release review cleanup

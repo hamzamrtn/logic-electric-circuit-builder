@@ -746,3 +746,45 @@ body.is-phone:is(.is-floating-nav, .auto-full-screen):not(.is-hidden-nav) .lec-e
 @media (prefers-reduced-motion: reduce) {
   .lec-editor .lec-sim-knob, .lec-editor .lec-sim-switch-knob, .lec-editor .lec-sim-toggle, .lec-editor .lec-sim-led { transition-duration: 0ms; }
 }
+
+/* What's new modal: a crisp scope miniature, one headline, three tiles. */
+.modal.lec-whats-new { width: min(600px, calc(100vw - 32px)); padding: 20px 20px 18px; }
+.lec-whats-new .modal-content { margin: 0; }
+.lec-whats-new .modal-header { display: none; }
+.modal.lec-whats-new > .modal-close-button, .modal.lec-whats-new > .modal-header-button { top: 28px; right: 28px; z-index: 1; }
+.lec-whats-new .lec-wn-hero { position: relative; margin-top: 0; aspect-ratio: 560 / 196; border: 1px solid var(--background-modifier-border); border-radius: 14px; overflow: hidden; background: linear-gradient(180deg, color-mix(in srgb, var(--interactive-accent) 9%, var(--background-secondary)), var(--background-secondary)); }
+.lec-whats-new .lec-wn-hero svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.lec-whats-new .lec-wn-grid { stroke: var(--background-modifier-border); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.lec-whats-new .lec-wn-axis { stroke: var(--text-faint); stroke-width: 1; opacity: .45; vector-effect: non-scaling-stroke; }
+.lec-whats-new .lec-wn-fill-top { stop-color: var(--color-cyan); stop-opacity: .2; }
+.lec-whats-new .lec-wn-fill-bottom { stop-color: var(--color-cyan); stop-opacity: 0; }
+.lec-whats-new .lec-wn-area { fill: url(#lec-wn-fill); }
+.lec-whats-new .lec-wn-sine { fill: none; stroke: var(--color-cyan); stroke-width: 2; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.lec-whats-new .lec-wn-square { fill: none; stroke: var(--color-orange); stroke-width: 1.5; stroke-linejoin: round; opacity: .9; vector-effect: non-scaling-stroke; }
+.lec-whats-new .lec-wn-cursor { stroke: var(--text-muted); stroke-width: 1; stroke-dasharray: 3 4; opacity: .55; vector-effect: non-scaling-stroke; }
+.lec-whats-new .lec-wn-cursor-label { fill: var(--text-muted); font-family: var(--font-monospace); font-size: 11px; }
+.lec-whats-new .lec-wn-hero-top { position: absolute; inset: 12px; display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; pointer-events: none; }
+.lec-whats-new .lec-wn-live, .lec-whats-new .lec-wn-readout { border: 1px solid var(--background-modifier-border); background: color-mix(in srgb, var(--background-primary) 82%, transparent); backdrop-filter: blur(6px); }
+.lec-whats-new .lec-wn-live { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px 3px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--text-normal); }
+.lec-whats-new .lec-wn-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--color-green); box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-green) 22%, transparent); }
+.lec-whats-new .lec-wn-readouts { align-self: flex-end; display: flex; gap: 6px; }
+.lec-whats-new .lec-wn-readout { padding: 3px 8px; border-radius: 6px; font-family: var(--font-monospace); font-size: 11px; }
+.lec-whats-new .lec-wn-readout.is-sine { color: var(--color-cyan); }
+.lec-whats-new .lec-wn-readout.is-square { color: var(--color-orange); }
+.lec-whats-new .lec-wn-body { margin-top: 20px; }
+.lec-whats-new .lec-wn-eyebrow { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--text-accent); background: color-mix(in srgb, var(--interactive-accent) 14%, transparent); }
+.lec-whats-new .lec-wn-title { margin: 10px 0 6px; font-size: 1.55em; font-weight: 700; line-height: 1.2; letter-spacing: -.01em; text-wrap: balance; }
+.lec-whats-new .lec-wn-subtitle { margin: 0; color: var(--text-muted); }
+.lec-whats-new .lec-wn-features { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 18px; }
+.lec-whats-new .lec-wn-feature { display: flex; flex-direction: column; gap: 10px; padding: 12px; border: 1px solid var(--background-modifier-border); border-radius: 10px; background: var(--background-secondary); font-size: var(--font-ui-small); font-weight: 500; line-height: 1.3; }
+.lec-whats-new .lec-wn-icon { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; color: var(--text-accent); background: color-mix(in srgb, var(--interactive-accent) 14%, transparent); }
+.lec-whats-new .lec-wn-icon svg { width: 16px; height: 16px; }
+.lec-whats-new .lec-wn-footer { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; margin-top: 22px; }
+.lec-whats-new .lec-wn-optout { color: var(--text-faint); font-size: var(--font-ui-smaller); }
+.lec-whats-new .lec-wn-actions { display: flex; align-items: center; gap: 16px; }
+.lec-whats-new .lec-wn-link { color: var(--text-muted); font-size: var(--font-ui-small); text-decoration: none; }
+.lec-whats-new .lec-wn-link:hover { color: var(--text-normal); }
+.is-phone .lec-whats-new .lec-wn-footer { flex-direction: column-reverse; align-items: stretch; }
+.is-phone .lec-whats-new .lec-wn-actions { justify-content: space-between; }
+.is-phone .lec-whats-new .lec-wn-actions .mod-cta { flex: 1; max-width: 60%; }
+.is-phone .lec-whats-new .lec-wn-feature { padding: 10px; }

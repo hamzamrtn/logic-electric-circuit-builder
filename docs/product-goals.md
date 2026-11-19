@@ -36,6 +36,10 @@ The owner approved subtle, brief placement and wire feedback, pin-target confirm
 
 Alignment aids should help users make deliberate choices. Avoid unexpected coordinate nudges. Warnings should be useful and quiet, with a clear recovery path rather than persistent visual noise.
 
+## Update announcements
+
+On 2026-11-19 the owner asked for a one-time window after major updates, starting with “Powerful, live simulations are finally here” for 1.0. Show it to updating users only, keep it brief and polished, say in a small corner note that it can be disabled in the plugin's settings, and provide that setting. Reserve it for releases with genuinely new capabilities.
+
 ## Personal feedback
 
 Offer **More → Send feedback** with a lightning icon, welcoming ideas, bug reports and detailed explanations. The dialog should communicate that the maintainer reviews feedback personally and useful, straightforward improvements can often reach an update within a day or two, while larger ideas take longer. Keep that an expectation rather than a guaranteed deadline. Provide separate idea and problem-report routes on GitHub; add email only when the owner supplies a public contact address.

@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-19T17:25:09.006Z",
+  "host": "actual Obsidian desktop (isolated profile)",
+  "results": [
+    {
+      "name": "update from 0.1.x shows the notes once and records 1.0.0",
+      "pass": true
+    },
+    {
+      "name": "next launch after recording 1.0.0 stays quiet",
+      "pass": true
+    },
+    {
+      "name": "fresh install stays quiet and records the version",
+      "pass": true
+    },
+    {
+      "name": "turned off in settings stays quiet; the command stays registered",
+      "pass": true
+    },
+    {
+      "name": "settings toggle is defined and persists",
+      "pass": true
+    }
+  ]
+}

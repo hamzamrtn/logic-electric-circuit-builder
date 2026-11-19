@@ -8,7 +8,7 @@ const registrations = { commands: [], extensions: [], views: [], fences: [] };
 let settingsTab, savedSettings;
 const recoveryFolders = new Set(); let excludedFilters = ['Templates/'];
 class Plugin {
-  app = { vault: { on: () => ({}), getFileByPath: () => null, getFolderByPath: path => recoveryFolders.has(path) ? { path } : null, getAbstractFileByPath: path => recoveryFolders.has(path) ? { path } : null, getFiles: () => [], createFolder: async path => { recoveryFolders.add(path); }, create: async () => ({}), getConfig: key => { assert.equal(key, 'userIgnoreFilters'); return excludedFilters; }, setConfig: (key, value) => { assert.equal(key, 'userIgnoreFilters'); excludedFilters = Array.from(value ?? []); } }, workspace: { on: () => ({}) } };
+  app = { vault: { on: () => ({}), getFileByPath: () => null, getFolderByPath: path => recoveryFolders.has(path) ? { path } : null, getAbstractFileByPath: path => recoveryFolders.has(path) ? { path } : null, getFiles: () => [], createFolder: async path => { recoveryFolders.add(path); }, create: async () => ({}), getConfig: key => { assert.equal(key, 'userIgnoreFilters'); return excludedFilters; }, setConfig: (key, value) => { assert.equal(key, 'userIgnoreFilters'); excludedFilters = Array.from(value ?? []); } }, workspace: { on: () => ({}), onLayoutReady: callback => callback() } };
   manifest = JSON.parse('' + '{}');
   async loadData() { return null; }
   async saveData(value) { savedSettings = structuredClone(value); }
@@ -21,13 +21,13 @@ class Plugin {
   addSettingTab(tab) { settingsTab = tab; }
 }
 class HostClass { refreshDomState() {} }
-const host = { Plugin, FuzzySuggestModal: HostClass, MarkdownView: HostClass, Notice: HostClass, TFile: HostClass, TFolder: HostClass, TextFileView: HostClass, MarkdownRenderChild: HostClass, PluginSettingTab: HostClass, AbstractInputSuggest: HostClass, Setting: HostClass, normalizePath: value => value };
+const host = { Plugin, FuzzySuggestModal: HostClass, Modal: HostClass, MarkdownView: HostClass, Notice: HostClass, TFile: HostClass, TFolder: HostClass, TextFileView: HostClass, MarkdownRenderChild: HostClass, PluginSettingTab: HostClass, AbstractInputSuggest: HostClass, Setting: HostClass, normalizePath: value => value };
 const module = { exports: {} };
 runInNewContext(await readFile(`${folder}/main.js`, 'utf8'), { module, exports: module.exports, require: name => { assert.equal(name, 'obsidian'); return host; }, console, setTimeout, clearTimeout, TextEncoder, TextDecoder, URL, Blob, performance }, { filename: 'main.js', timeout: 10000 });
 const instance = new module.exports.default(); instance.manifest = JSON.parse(await readFile(`${folder}/manifest.json`, 'utf8')); await instance.onload();
 assert(registrations.extensions.includes('lecircuit')); assert(registrations.fences.includes('lecircuit')); assert(registrations.commands.includes('new-circuit')); assert(registrations.commands.includes('export-png'));
 const definitions = settingsTab.getSettingDefinitions();
-assert.deepEqual(Array.from(definitions.filter(d => d.control).map(d => d.control.key)), ['grid', 'snap', 'exportFolder', 'excludeRecovery']);
+assert.deepEqual(Array.from(definitions.filter(d => d.control).map(d => d.control.key)), ['grid', 'snap', 'exportFolder', 'excludeRecovery', 'showUpdateNotes']);
 assert.equal(typeof definitions.find(d => d.name === 'Recovery folder').render, 'function');
 assert(!definitions.some(d => d.name === 'Move backups'));
 assert(definitions.find(d => d.name === 'Keyboard shortcuts').desc.includes('three dots'));
